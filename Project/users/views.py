@@ -24,26 +24,26 @@ def index(request):
 
 # Log in
 
-def login(request):
+# def login(request):
 
-    if request.method == "POST":
-        login_form = Register(request.POST)
+#     if request.method == "POST":
+#         login_form = Register(request.POST)
 
-        if login_form.is_valid():
+#         if login_form.is_valid():
 
-            username = login_form.cleaned_data['username']
-            password = login_form.cleaned_data['password']
+#             username = login_form.cleaned_data['username']
+#             password = login_form.cleaned_data['password']
 
-            if Register.objects.filter(username=username, password=password) != NULL:
+#             if Register.objects.filter(username=username, password=password) != NULL:
 
-                messages.success(request, f'successful login for {username}!')
+#                 messages.success(request, f'successful login for {username}!')
 
-                return redirect('Main')
+#                 return redirect('Main')
 
-            else:
+#             else:
 
-    else:
-        login_form = Register
+#     else:
+#         login_form = Register
 
 
 
