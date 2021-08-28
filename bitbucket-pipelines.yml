@@ -7,18 +7,13 @@ image: python:3.8
 
 pipelines:
   default:
-    - parallel:
-      - step:
-          name: Test
-          caches:
-            - pip
-          script:
-            - if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-            - pip install django
-            - python manage.py test
-      - step:
-          name: Lint code
-          script:
-            # Enforce style consistency across Python projects https://flake8.pycqa.org/en/latest/manpage.html
-            - pip install flake8
-            - flake8 . --extend-exclude=dist,build --show-source --statistics
+    - step:
+        name: Test
+        caches:
+          - pip
+        script:
+          - if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          - pip install django
+          - cd Project
+          - python manage.py test
+  
