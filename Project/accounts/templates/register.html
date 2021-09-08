@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+
+<body>
+    <h1>Register Page</h1>
+    <form method="POST" actions="">
+        {% csrf_token %}
+        {{form.first_name.label}}
+        {{form.first_name}}
+        <p></p>
+        {{form.last_name.label}}
+        {{form.last_name}}
+        <p></p>
+        {{form.username.label}}
+        {{form.username}}
+        <p>150 characters or fewer. Letters, digits and @/./+/-/_ only.</p>
+        {{form.email.label}}
+        {{form.email}}
+        <p></p>
+        {{form.password1.label}}
+        {{form.password1}}
+        <ul>
+            <li>Your password can’t be too similar to your other personal information.</li>
+            <li>Your password must contain at least 8 characters.</li>
+            <li>Your password can’t be a commonly used password.</li>
+            <li>Your password can’t be entirely numeric.</li>
+        </ul>
+        {{form.password2.label}}
+        {{form.password2}}
+        <p></p>
+        <input type="submit" name="Register">
+    </form>
+</body>
+
+</html>
