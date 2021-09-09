@@ -12,17 +12,20 @@
 
 <body>
 
-    <div class="flex-container">
+    <div class="grid-container">
         <h1 id="signin">Sign In</h1>
-        <form method="POST" class="form" actions="">
+        <form method="POST" actions="">
             {% csrf_token %}
-            <label for="username" class="formlabel">Username</label>
+            <label for="uname" class="formlabel">Username</label>
             <br>
             <input type="text" id="uname" class="formbox" name="username">
             <br>
-            <label for="password" class="formlabel">Password</label>
+            <label for="pass" class="formlabel">Password</label>
             <br>
             <input type="text" id="pass" class="formbox" name="password">
+            <br><br>
+            <input type="checkbox" id="checkbox" name="remember_me">
+            <label for="remember_me" id="checklabel">Remember me</label>
             <br>
             <input type="submit" value="Log in" id="login" name="Login">
         </form>
