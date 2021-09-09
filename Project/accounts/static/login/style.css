@@ -1,0 +1,44 @@
+body {
+    background:#424242;
+    color:#ffffff;
+    font-family: sans-serif;
+}
+
+.flex-container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#signin {
+    font-size: 18px;
+    margin: 20px 0px 25px 0px;
+}
+
+.formlabel {
+    font-size: 14px;
+    height: 35px;
+    width: 300px;
+}
+
+.formbox {
+    height: 35px;
+    width: 300px; 
+    margin: 5px 0px 10px 0px;
+    border: 0px;
+    border-radius: 2px;
+    box-sizing: border-box;
+    padding: 6px 8px 6px 8px;
+}
+
+#login {
+    height: 35px;
+    width: 300px;
+    border: 0px;
+    border-radius: 2px;
+    color:#ffffff;
+    background:#e64626;
+}
