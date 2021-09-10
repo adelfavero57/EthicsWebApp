@@ -3,7 +3,8 @@ from . import views
 
 # URLconf
 urlpatterns = [
-    path('login/', views.loginPage),
-    path('register/', views.registerPage),
-    path('home/', views.homePage),
+    path('', views.redirect_view),
+    path('login/', views.loginPage, name='login'),
+    path('register/', views.registerPage, name='register'),
+    path('home/', views.homePage, name='home'),
 ]

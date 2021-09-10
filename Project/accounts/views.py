@@ -50,6 +50,10 @@ def loginPage(request):
     return render(request, 'login.html', context)
 
 
+def redirect_view(request):
+    return redirect(loginPage)
+
+
 @login_required(login_url=loginPage)
 def homePage(request):
     return render(request, 'home.html')
