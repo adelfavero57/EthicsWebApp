@@ -46,10 +46,12 @@ def loginPage(request):
         form.custom_error = True
     else:
         form = LoginForm()
-    context = {'form': form}
+        context = {'form': form}
     return render(request, 'login.html', context)
 
 
 @login_required(login_url=loginPage)
 def homePage(request):
     return render(request, 'home.html')
+
+
