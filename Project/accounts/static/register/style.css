@@ -41,3 +41,11 @@ body {
     background:#e64626;
     margin-top: 15px;
 }
+
+.invalids {
+    color: red;
+    font-size: 10px;
+    width: 300px;
+}
+
+

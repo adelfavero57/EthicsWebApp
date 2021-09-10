@@ -27,7 +27,9 @@
             <br>
             <input type="text" id="username" class="formbox" name="username">
             <br>
-            <!-- <p>150 characters or fewer. Letters, digits and @/./+/-/_ only.</p> -->
+            {% if form.errors %}
+            <p class="invalids"> username must be 150 characters or fewer, must contain letters, digits and @/./+/-/_ only</p>
+            {% endif %}
             <label for="email" class="formlabel">Email address</label>
             <br>
             <input type="text" id="email" class="formbox" name="email">
@@ -36,12 +38,14 @@
             <br>
             <input type="text" id="password1" class="formbox" name="password1">
             <br>
-            <!-- <ul>
-                <li>Your password can’t be too similar to your other personal information.</li>
-                <li>Your password must contain at least 8 characters.</li>
-                <li>Your password can’t be a commonly used password.</li>
-                <li>Your password can’t be entirely numeric.</li>
-            </ul> -->
+            {% if form.errors %}
+            <ul class="invalids">
+                <li>Your password can’t be too similar to your other personal information</li>
+                <li>Your password must contain at least 8 characters</li>
+                <li>Your password can’t be a commonly used password</li>
+                <li>Your password can’t be entirely numeric</li>
+            </ul>
+            {% endif %}
             <label for="password2" class="formlabel">Password confirmation</label>
             <br>
             <input type="text" id="password2" class="formbox" name="password2">
