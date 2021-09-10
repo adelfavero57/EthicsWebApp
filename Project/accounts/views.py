@@ -1,9 +1,11 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 # Create your views here.
 from .forms import CreateUserForm, LoginForm
+from django.contrib.auth.decorators import login_required
 
 
 def registerPage(request):
@@ -24,8 +26,6 @@ def registerPage(request):
 
 
 def loginPage(request):
-    # Custom form model imported from forms.py
-    form = LoginForm()
     # If user has submitted something
     if request.method == "POST":
         form = LoginForm(request.POST)
@@ -42,10 +42,14 @@ def loginPage(request):
                     # will close session after browser is closed
                     request.session.set_expiry(0)
                 return redirect(homePage)
-
+        # if user is invalid
+        form.custom_error = True
+    else:
+        form = LoginForm()
     context = {'form': form}
     return render(request, 'login.html', context)
 
 
+@login_required(login_url=loginPage)
 def homePage(request):
     return render(request, 'home.html')
