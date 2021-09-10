@@ -13,9 +13,9 @@
 <body>
     <div class="grid-container">
         <h1 id="signin">Sign In</h1>
-        {% if form.custom_error %}
-        <p id="invalid">invalid username/password</p>
-        {% endif %}
+        <!-- {% if form.custom_error %}
+        <p id="invaliddata">invalid username/password</p>
+        {% endif %} -->
         <form method="POST" actions="">
             {% csrf_token %}
             <label for="uname" class="formlabel">Username</label>
@@ -25,7 +25,11 @@
             <label for="pass" class="formlabel">Password</label>
             <br>
             <input type="password" id="pass" class="formbox" name="password">
-            <br><br>
+            <br>
+            {% if form.custom_error %}
+            <p class="invalids">invalid username/password</p>
+            {% endif %}
+            <br>
             <input type="checkbox" id="checkbox" name="remember_me">
             <label for="remember_me" id="checklabel">Remember me</label>
             <br>

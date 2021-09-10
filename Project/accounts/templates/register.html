@@ -39,12 +39,12 @@
             <input type="password" id="password1" class="formbox" name="password1">
             <br>
             {% if form.errors %}
-            <ul class="invalids">
-                <li>Your password can’t be too similar to your other personal information</li>
-                <li>Your password must contain at least 8 characters</li>
-                <li>Your password can’t be a commonly used password</li>
-                <li>Your password can’t be entirely numeric</li>
-            </ul>
+            <div class="invalids">
+                <p>- Your password can’t be too similar to your other personal information</p>
+                <p>- Your password must contain at least 8 characters</p>
+                <p>- Your password can’t be a commonly used password</p>
+                <p>- Your password can’t be entirely numeric</p>
+            </div>
             {% endif %}
             <label for="password2" class="formlabel">Password confirmation</label>
             <br>

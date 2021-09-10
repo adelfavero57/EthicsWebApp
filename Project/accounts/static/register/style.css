@@ -45,13 +45,13 @@ body {
 .invalids {
     color: red;
     font-size: 10px;
-    width: 300px;
+    max-width: 300px;
 }
 
 a {
     font-size: 12px;
     color:#ffffff;
-    text-align: center;
+    justify-self: center;
     margin: 20px 0px 0px 0px;
 }
 
