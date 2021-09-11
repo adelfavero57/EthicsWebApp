@@ -21,9 +21,9 @@ class CreateUserForm(forms.UserCreationForm):
 
         class Meta:
 
-        model = User
+            model = User
 
-        fields = ['first_name', 'last_name', 'username',
+            fields = ['first_name', 'last_name', 'username',
 
                   'email', 'password1', 'password2']
 
