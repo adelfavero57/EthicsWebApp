@@ -21,13 +21,17 @@ def registerPage(request):
             form.save()
             return redirect(loginPage)
 
+
+    
     context = {'form': form}
+
     return render(request, 'register.html', context)
 
 
 def loginPage(request):
     # If user has submitted something
     if request.method == "POST":
+        
         form = LoginForm(request.POST)
 
         # check if all fields are satisfied
@@ -46,6 +50,7 @@ def loginPage(request):
         form.custom_error = True
     else:
         form = LoginForm()
+        
         context = {'form': form}
     return render(request, 'login.html', context)
 
