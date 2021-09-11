@@ -1,3 +1,5 @@
+from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 # Create your views here.
 
@@ -8,7 +10,6 @@ class Application:
         self.name = name
         self.process = process
         self.status = status
-    
 
 
 test1 = Application("form1", "20%", "IN PROCESS")
@@ -19,12 +20,14 @@ test5 = Application("form5", "20%", "IN PROCESS")
 
 Applications = [test1, test2]
 
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
+
+
+@login_required(login_url='login')
 def managelistPage(request):
 
-
     context = {'applications': Applications}
-
-    
     return render(request, 'managelist.html', context)
-
-
