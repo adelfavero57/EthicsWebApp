@@ -22,3 +22,8 @@ class LoginForm(forms2.Form):
     password = forms2.CharField(widget=forms2.PasswordInput)
     remember_me = forms2.BooleanField(required=False)
     custom_error = False
+
+class UpdateUserForm(forms.UserChangeForm):
+    class Meta:
+        model = User
+        fields = ['username', 'email']

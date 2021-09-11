@@ -1,12 +1,24 @@
+from django.http import request
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 # Create your views here.
-from .forms import CreateUserForm, LoginForm
+from .forms import CreateUserForm, LoginForm, UpdateUserForm
 from django.contrib.auth.decorators import login_required
 
+def editUserPage(request):
+    form = UpdateUserForm(instance=request.user)
+
+    if request.method == "POST":
+        form = UpdateUserForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect(homePage)
+
+    context = {'form': form}
+    return render(request, 'edit_profile.html', context)
 
 def registerPage(request):
     # Custom form model imported from forms.py
