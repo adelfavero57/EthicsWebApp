@@ -11,6 +11,8 @@ class NormalUser(models.Model):
     password2 = models.CharField(max_length=100)
 
 
+
+
     # write some methods that retrive data from database / get data from database
 
     

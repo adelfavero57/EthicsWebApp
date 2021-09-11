@@ -1,7 +1,8 @@
-from django import forms
 from django.forms import ModelForm
 from .models import NormalUser
 from django import forms as forms2
+from django.contrib.auth import forms
+from django.contrib.auth.models import User
 
 
 class UpdateUserForm(forms.UserChangeForm):
