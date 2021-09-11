@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 # Create your views here.
 
+from .models import Application
+
 
 class Application:
     def __init__(self, name, process, status):
@@ -17,14 +19,27 @@ test3 = Application("form3", "20%", "IN PROCESS")
 test4 = Application("form4", "20%", "IN PROCESS")
 test5 = Application("form5", "20%", "IN PROCESS")
 
-Applications = [test1, test2]
+
 
 def managelistPage(request):
 
+    
+    
+    username = request.user.name
+    
+    applications = Applications.objects.filter(username=username)
+
+    #get data
 
     context = {'applications': Applications}
 
-    
     return render(request, 'managelist.html', context)
 
+
+
+
+
+    
+
+    
 
