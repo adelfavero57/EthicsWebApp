@@ -64,8 +64,9 @@ def loginPage(request):
     else:
         form = LoginForm()
         
-        context = {'form': form}
-        
+    
+    context = {'form': form}
+
     return render(request, 'login.html', context)
 
 
