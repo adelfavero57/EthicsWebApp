@@ -1,19 +1,16 @@
 from django.http import request
 from django.shortcuts import redirect, render
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
+from django.contrib.auth import authenticate, login
 
 from .forms import CreateUserForm, LoginForm, UpdateUserForm
 from django.contrib.auth.decorators import login_required
-import managelist.views
 
 # Create your views here.
 
 
 def registerPage(request):
     if request.user.is_authenticated:
-        return redirect(managelist.views.managelistPage)
+        return redirect('managelist')
 
     # Custom form model imported from forms.py
     form = CreateUserForm()
