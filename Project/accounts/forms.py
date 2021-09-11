@@ -17,30 +17,13 @@ class CreateUserForm(forms.UserCreationForm):
                   'email', 'password1', 'password2']
 
 
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-class UpdateUserForm(forms.UserChangeForm):
-    class Meta:
-        model = User
-        fields = ['username', 'email']
-=======
 class LoginForm(forms2.Form):
     username = forms2.CharField()
     password = forms2.CharField(widget=forms2.PasswordInput)
     remember_me = forms2.BooleanField(required=False)
     custom_error = False
->>>>>>> master
+
+class UpdateUserForm(forms.UserChangeForm):
+    class Meta:
+        model = User
+        fields = ['username', 'email']
