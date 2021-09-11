@@ -1,3 +1,4 @@
+from django.contrib.auth import logout
 import accounts.views as accounts
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
@@ -19,6 +20,11 @@ test4 = Application("form4", "20%", "IN PROCESS")
 test5 = Application("form5", "20%", "IN PROCESS")
 
 Applications = [test1, test2]
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
 
 
 @login_required(login_url='login')
