@@ -6,9 +6,17 @@ from django import forms as forms2
 
 
 class UpdateUserForm(forms.UserChangeForm):
+    # class Meta:
+    #     model = User
+    #     fields = ['username', 'email']
+
     class Meta:
+
         model = User
-        fields = ['username', 'email']
+
+        fields = ['first_name', 'last_name', 'username',
+
+                  'email', 'password1', 'password2']
 
 class CreateUserForm(forms.UserCreationForm):
     def __init__(self, *args, **kwargs):
