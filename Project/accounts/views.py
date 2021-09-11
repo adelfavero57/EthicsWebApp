@@ -16,7 +16,7 @@ def registerPage(request):
     if request.method == "POST":
         form = CreateUserForm(request.POST)
 
-        # check if all fields are satisfied
+        # Check if all fields are satisfied
         if form.is_valid():
             form.save()
             return redirect(loginPage)
