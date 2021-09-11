@@ -4,9 +4,14 @@ from django.contrib.auth import views as auth_views
 
 # URLconf
 urlpatterns = [
-    path('login/', views.loginPage),
-    path('register/', views.registerPage),
-    path('home/', views.homePage),
+
+
+
+
+
+
+
+    
     path('edit_profile/', views.editUserPage),
     
     ##Password reset##
