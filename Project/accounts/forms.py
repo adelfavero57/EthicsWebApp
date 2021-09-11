@@ -1,5 +1,4 @@
 from django.forms import ModelForm
-from .models import NormalUser
 from django import forms as forms2
 from django.contrib.auth import forms
 from django.contrib.auth.models import User
@@ -17,10 +16,7 @@ class CreateUserForm(forms.UserCreationForm):
         self.fields['last_name'].required = True
         self.fields['email'].required = True
 
-    class Meta:
-        model = NormalUser
-        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
-
+    
 
 class LoginForm(forms2.Form):
     username = forms2.CharField()
