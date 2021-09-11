@@ -1,7 +1,8 @@
-from django.forms import ModelForm
-from django import forms as forms2
-from django.contrib.auth import forms
+from django import forms
 from django.contrib.auth.models import User
+from django.contrib.auth import forms
+from django import forms as forms2
+
 
 
 class UpdateUserForm(forms.UserChangeForm):
@@ -23,3 +24,5 @@ class LoginForm(forms2.Form):
     password = forms2.CharField(widget=forms2.PasswordInput)
     remember_me = forms2.BooleanField(required=False)
     custom_error = False
+
+
