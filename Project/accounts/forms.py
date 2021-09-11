@@ -1,8 +1,7 @@
-from django import forms
 from django.forms import ModelForm
 from .models import NormalUser
 from django import forms as forms2
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import forms
 
 
 class CreateUserForm(forms.UserCreationForm):

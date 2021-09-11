@@ -5,3 +5,6 @@ from django.db import models
 class Application(models.Model):
 
     project_name = models.CharField(max_length=200)
+
+
+    
