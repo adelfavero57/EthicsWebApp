@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,27 +39,19 @@
         <h1> Application </h1>
 
 
-        {% for item in applications %}
+        <a herf=#> &lt; &lt; Back </a>
 
-        <div class="itembox">
+        <div class = >
 
-        
-                <ul class = "item">
-                    <li>{{item.project_title}}</li>
-                    <li>{{item.progress}}</li>
-                    <li>{{item.status}}</li>
-                </ul>
-           
-
-
-            <ul class="modify">
-                <li>Edit</li>
-                <li>Delete</li>
-            </ul>
 
         </div>
-        {% endfor %}
 
+        <form>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname">
+          </form>
     </div>
 
 </body>
