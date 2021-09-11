@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
@@ -33,13 +34,17 @@ def registerPage(request):
             form.save()
             return redirect(loginPage)
 
+
+    
     context = {'form': form}
+
     return render(request, 'register.html', context)
 
 
 def loginPage(request):
     # If user has submitted something
     if request.method == "POST":
+        
         form = LoginForm(request.POST)
 
         # check if all fields are satisfied
@@ -58,7 +63,10 @@ def loginPage(request):
         form.custom_error = True
     else:
         form = LoginForm()
+        
+    
     context = {'form': form}
+
     return render(request, 'login.html', context)
 
 
@@ -69,3 +77,5 @@ def redirect_view(request):
 @login_required(login_url=loginPage)
 def homePage(request):
     return render(request, 'home.html')
+
+
