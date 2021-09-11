@@ -4,24 +4,17 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
-
-# Create your views here.
 from .forms import CreateUserForm, LoginForm, UpdateUserForm
 from django.contrib.auth.decorators import login_required
+import managelist.views
 
-def editUserPage(request):
-    form = UpdateUserForm(instance=request.user)
+# Create your views here.
 
-    if request.method == "POST":
-        form = UpdateUserForm(request.POST, instance=request.user)
-        if form.is_valid():
-            form.save()
-            return redirect(homePage)
-
-    context = {'form': form}
-    return render(request, 'edit_profile.html', context)
 
 def registerPage(request):
+    if request.user.is_authenticated:
+        return redirect(managelist.views.managelistPage)
+
     # Custom form model imported from forms.py
     form = CreateUserForm()
 
@@ -34,17 +27,16 @@ def registerPage(request):
             form.save()
             return redirect(loginPage)
 
-
-    
     context = {'form': form}
-
     return render(request, 'register.html', context)
 
 
 def loginPage(request):
+    if request.user.is_authenticated:
+        return redirect('managelist')
+
     # If user has submitted something
     if request.method == "POST":
-        
         form = LoginForm(request.POST)
 
         # check if all fields are satisfied
@@ -56,17 +48,17 @@ def loginPage(request):
             if user:
                 login(request, user)
                 if not remember_me:
+
                     # will close session after browser is closed
                     request.session.set_expiry(0)
-                return redirect(homePage)
+                return redirect('managelist')
+
         # if user is invalid
         form.custom_error = True
     else:
         form = LoginForm()
-        
-    
-    context = {'form': form}
 
+    context = {'form': form}
     return render(request, 'login.html', context)
 
 
@@ -75,7 +67,14 @@ def redirect_view(request):
 
 
 @login_required(login_url=loginPage)
-def homePage(request):
-    return render(request, 'home.html')
+def editUserPage(request):
+    form = UpdateUserForm(instance=request.user)
 
+    if request.method == "POST":
+        form = UpdateUserForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('managelist')
 
+    context = {'form': form}
+    return render(request, 'edit_profile.html', context)
