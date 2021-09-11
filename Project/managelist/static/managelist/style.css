@@ -65,6 +65,16 @@
     padding: 0;
 }
 
+.main_part h1 {
+
+    width: 100%;
+}
+
+.main_part h3 {
+    width: 50%;
+    border-style: dashed;
+}
+
 .itembox {
     display: flex;
     border-style: solid;
