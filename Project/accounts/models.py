@@ -12,7 +12,7 @@ class NormalUser(models.Model):
 
 
     # write some methods that retrive data from database / get data from database
-    
+
     
 
 
