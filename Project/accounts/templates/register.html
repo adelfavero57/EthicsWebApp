@@ -11,67 +11,49 @@
 </head>
 
 <body>
-    <h1>Register Page</h1>
-    <form method="POST" actions="">
-
-        
-        {% csrf_token %}
-
-       
-
-        <div class="grid-container">
-            <h1>Sign Up</h1>
-            <p>Please fill in this form to create an account.</p>
-            <hr>
-        
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
-        
-            <label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password" required>
-        
-            <label for="password-again"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="password-again" required>
-        
-            <label>
-              <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-            </label>
-
-            <label for="uname" class="formlabel">Username</label>
+    <div class="grid-container">
+        <h1 id="signup">Sign Up</h1>
+        <form method="POST" actions="">
+            {% csrf_token %}
+            <label for="first_name" class="formlabel">First name</label>
             <br>
-            <input type="text" id="uname" class="formbox" name="username">
+            <input type="text" id="first_name" class="formbox" name="first_name">
+            <br>
+            <label for="last_name" class="formlabel">Last name</label>
+            <br>
+            <input type="text" id="last_name" class="formbox" name="last_name">
+            <br>
+            <label for="username" class="formlabel">Username</label>
+            <br>
+            <input type="text" id="username" class="formbox" name="username">
             <br>
             {% if form.errors %}
             <p class="invalids"> username must be 150 characters or fewer, must contain letters, digits and @/./+/-/_ only</p>
             {% endif %}
             <label for="email" class="formlabel">Email address</label>
             <br>
-            <input type="text" id="lname" class="formbox" name="firstname">
+            <input type="text" id="email" class="formbox" name="email">
             <br>
-
-            <label for="lname" class="formlabel">Username</label>
+            <label for="password1" class="formlabel">Password</label>
             <br>
-            <input type="text" id="lname" class="formbox" name="lastname">
+            <input type="password" id="password1" class="formbox" name="password1">
             <br>
-
-            <label for="pass" class="formlabel">Password</label>
-            <br>
-            <input type="text" id="pass" class="formbox" name="password">
-            <br><br>
-            <input type="checkbox" id="checkbox" name="remember_me">
-            <label for="remember_me" id="checklabel">Remember me</label>
-            <br>
-            <input type="submit" value="Log in" id="login" name="Login">
-    
-        
-            <div class="clearfix">
-              <button type="button" class="cancelbtn">Cancel</button>
-              <button type="submit" class="signupbtn">Sign Up</button>
+            {% if form.errors %}
+            <div class="invalids">
+                <p>- Your password can’t be too similar to your other personal information</p>
+                <p>- Your password must contain at least 8 characters</p>
+                <p>- Your password can’t be a commonly used password</p>
+                <p>- Your password can’t be entirely numeric</p>
             </div>
-          </div>
-       
-    </form>
-
+            {% endif %}
+            <label for="password2" class="formlabel">Password confirmation</label>
+            <br>
+            <input type="password" id="password2" class="formbox" name="password2">
+            <br>
+            <input type="submit" value="Register" id="register" name="Register">
+        </form>
+        <a href="{% url 'login' %}">Go back</a>
+    </div>
 </body>
 
 </html>
