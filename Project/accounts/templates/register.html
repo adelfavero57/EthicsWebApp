@@ -41,8 +41,10 @@
             <br>
             <input type="text" id="uname" class="formbox" name="username">
             <br>
-
-            <label for="fname" class="formlabel">Username</label>
+            {% if form.errors %}
+            <p class="invalids"> username must be 150 characters or fewer, must contain letters, digits and @/./+/-/_ only</p>
+            {% endif %}
+            <label for="email" class="formlabel">Email address</label>
             <br>
             <input type="text" id="lname" class="formbox" name="firstname">
             <br>
@@ -69,6 +71,7 @@
           </div>
        
     </form>
+
 </body>
 
 </html>

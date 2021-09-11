@@ -4,7 +4,13 @@ from .models import NormalUser
 from django import forms as forms2
 
 
-class CreateUserForm(ModelForm):
+class CreateUserForm(forms.UserCreationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['first_name'].required = True
+        self.fields['last_name'].required = True
+        self.fields['email'].required = True
+
     class Meta:
         model = NormalUser
         fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
