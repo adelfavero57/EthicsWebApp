@@ -33,15 +33,42 @@
     </nav>
 
 
+
     <div class="main_part">
 
         <h1> Application </h1>
 
 
-
+        <input type="text" placeholder="Search..">
+        
 
 
         {% for item in applications %}
+
+
+        <table class = "applicationlist">
+            <tr>
+              <th>Project Title</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Edit</th>
+              <th>Delete</th>
+
+            </tr>
+            {% for item in applications %}
+            <tr>
+                {{item.project_title}}
+                {{item.progress}}
+                {{item.status}}
+            </tr>
+
+          </table>
+          {% endfor %}
+        <div class= "labelbox">
+            
+            
+
+        </div>
 
         <div class="itembox">
 

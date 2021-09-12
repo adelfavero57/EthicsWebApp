@@ -1,8 +1,18 @@
+
+
+.title {
+
+    width: 100%;
+    border-style: dashed;
+    
+}
+
 body {
     background:#424242;
     color:#ffffff;
     font-family: sans-serif;
-}
+} 
+
 
 .grid-container {
     display: grid;
@@ -42,17 +52,9 @@ body {
     background:#e64626;
 }
 
-#checklabel {
-    font-size: 12px;  
-    position: relative;
-    top: -3px;
-}
 
-#checkbox {
-    height: 16px;
-    width: 16px;
-    margin: 5px 0px 20px 0px;
-}
+
+
 
 /* #invalid { 
     display: grid;
@@ -68,16 +70,16 @@ body {
     background-color: red;
 } */
 
-.invalids {
-    color: red;
-    font-size: 10px;
-    max-width: 300px;
-    margin: 0;
+
+#button {
+
+    height: 50px;
+    width: 300px;
+    border: 0px;
+    border-radius: 2px;
+    color:#ffffff;
+    background:#e64626;
+
 }
 
-a {
-    font-size: 12px;
-    color:#ffffff;
-    text-align: center;
-    margin: 20px 0px 0px 0px;
-}
+
