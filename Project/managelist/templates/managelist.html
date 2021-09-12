@@ -1,6 +1,5 @@
-{% extends 'base.html' %}
-
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -11,26 +10,72 @@
     <title>ManageList</title>
 </head>
 
-
 <body>
+    <nav class="navigation">
+        <div class="menu1">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Download</a></li>
+            </ul>
+
+        </div>
+
+        <div class="menu2">
+
+            <ul>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li><a href=" #">Profile</a></li>
+            </ul>
+
+        </div>
+
+
+    </nav>
+
+
 
     <div class="main_part">
 
         <h1> Application </h1>
 
 
+        <input type="text" placeholder="Search..">
+        
+
+
         {% for item in applications %}
+
+
+        <table class = "applicationlist">
+            <tr>
+              <th>Project Title</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Edit</th>
+              <th>Delete</th>
+
+            </tr>
+            {% for item in applications %}
+            <tr>
+                <td>{{item.project_title}}</td>
+                <td>{{item.date}}</td>
+                <td></td>{{item.status}}
+                <a href="#">Edit</a>
+            </tr>
+
+          </table>
+          {% endfor %}
+        <div class= "labelbox">
+            
+            
+
+        </div>
 
         <div class="itembox">
 
-        
-                <ul class = "item">
-                    <li>{{item.project_title}}</li>
-                    <li>{{item.progress}}</li>
-                    <li>{{item.status}}</li>
-                </ul>
-           
-
+            <ul class="item">
+                
+            </ul>
 
             <ul class="modify">
                 <li>Edit</li>
@@ -38,10 +83,10 @@
             </ul>
 
         </div>
-        {% endfor %}
+
 
     </div>
 
 </body>
 
-{% endblock %}
+</html>
