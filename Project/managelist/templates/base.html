@@ -5,17 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     {% load static %}
+    {% block cssstyle %}
     <link rel="stylesheet" type="text/css" href="{% static 'managelist/navstyle.css' %}">
+    {% endblock %}
 </head>
+
+
 <body>
-    <nav class="navigation">
+    {% block sidebar %}
+    <nav id="navigation">
         <!-- image set up -->
         <div class = "logo">
             <img src="{% static 'managelist/logo.png' %}" alt="Logo">
         </div>
         
-
         <div class="menu">
             <ul>
                 <li><a href="{% url 'managelist' %}">Home</a></li>
@@ -25,7 +30,16 @@
             </ul>
         </div>
     </nav>
-</body>
-{% block content %}
+    {% endblock %}
 
-{% endblock %}
+    <div id = "content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div id = "footer">
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+
+</html>
