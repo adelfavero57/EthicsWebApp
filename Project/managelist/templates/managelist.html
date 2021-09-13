@@ -12,11 +12,7 @@
 
 
     <input type="text" placeholder="Search..">
-        
-
-
-    {% for item in applications %}
-
+    
 
         <table class = "applicationlist">
             <tr>
@@ -25,49 +21,17 @@
               <th>Status</th>
               <th>Edit</th>
               <th>Delete</th>
-
             </tr>
             {% for item in applications %}
             <tr>
-<<<<<<< HEAD
-                {{item.project_title}}
-                {{item.progress}}
-                {{item.status}}
-=======
                 <td>{{item.project_title}}</td>
                 <td>{{item.date}}</td>
-                <td></td>{{item.status}}
+                <td>{{item.status}}</td>
                 <a href="#">Edit</a>
->>>>>>> master
+                <a href="#">Delete</a>
             </tr>
-
+            {% endfor %}
           </table>
-          {% endfor %}
-        <div class= "labelbox">
-            
-            
-
-        </div>
-
-        <div class="itembox">
-
-            <ul class="item">
-<<<<<<< HEAD
-                <li>{{item.project_title}}</li>
-                <li>{{item.progress}}</li>
-                <li>{{item.status}}</li>
-
-=======
-                
->>>>>>> master
-            </ul>
-
-            <ul class="modify">
-                <li>Edit</li>
-                <li>Delete</li>
-            </ul>
-
-        </div>
-
+        
 
 {% endblock %}
