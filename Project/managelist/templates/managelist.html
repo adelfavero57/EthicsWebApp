@@ -57,9 +57,16 @@
             </tr>
             {% for item in applications %}
             <tr>
+<<<<<<< HEAD
                 {{item.project_title}}
                 {{item.progress}}
                 {{item.status}}
+=======
+                <td>{{item.project_title}}</td>
+                <td>{{item.date}}</td>
+                <td></td>{{item.status}}
+                <a href="#">Edit</a>
+>>>>>>> master
             </tr>
 
           </table>
@@ -73,10 +80,14 @@
         <div class="itembox">
 
             <ul class="item">
+<<<<<<< HEAD
                 <li>{{item.project_title}}</li>
                 <li>{{item.progress}}</li>
                 <li>{{item.status}}</li>
 
+=======
+                
+>>>>>>> master
             </ul>
 
             <ul class="modify">
@@ -85,7 +96,7 @@
             </ul>
 
         </div>
-        {% endfor %}
+
 
     </div>
 
