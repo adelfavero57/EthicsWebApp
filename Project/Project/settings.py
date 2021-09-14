@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     # Added
     'accounts.apps.AccountsConfig',
     'managelist.apps.ManagelistConfig',
-    'adminlist.apps.AdminlistConfig'
+    'approvelist.apps.ApprovelistConfig'
 ]
 
 MIDDLEWARE = [
