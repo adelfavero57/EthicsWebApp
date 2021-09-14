@@ -2,9 +2,10 @@
 {% extends "base.html" %}
 
 
-{% block cssstyle %}
+<!-- {% block cssstyle %}
+{% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'managelist/style.css' %}">
- {% endblock %}
+ {% endblock %} -->
 
 {% block content %}
 
@@ -31,6 +32,7 @@
                 <a href="#">Delete</a>
             </tr>
             {% endfor %}
+            
           </table>
         
 
