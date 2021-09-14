@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include('accounts.urls')),
     path('managelist/', include('managelist.urls')),
     path('approvelist/', include('approvelist.urls')),
+    path('coversheet/', include('coversheet.urls'))
 ]
