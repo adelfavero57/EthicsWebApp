@@ -28,7 +28,7 @@ def logout_view(request):
 
 
 @login_required(login_url='login')
-def adminlistPage(request):
+def approvelistPage(request):
 
     context = {'applications': Applications}
-    return render(request, 'adminlist.html', context)
+    return render(request, 'approvelist.html', context)
