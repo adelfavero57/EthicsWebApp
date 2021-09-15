@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
-from .decorators import unauthenticated_user
+from .decorators import allowed_users, unauthenticated_user
 from .forms import CreateUserForm, LoginForm, UpdateUserForm
 
 # Create your views here.
@@ -67,6 +67,7 @@ def redirect_view(request):
 
 
 @login_required(login_url=loginPage)
+@allowed_users(allowed_roles=['student'])
 def editUserPage(request):
     form = UpdateUserForm(instance=request.user)
 
