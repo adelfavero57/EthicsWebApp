@@ -1,3 +1,4 @@
+from accounts.models import Student
 from django.http import request
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
@@ -21,11 +22,16 @@ def registerPage(request):
 
         # Check if all fields are satisfied
         if form.is_valid():
-            user = form.save()
+            user_object = form.save()
 
             # Assign student group to all new users
             group = Group.objects.get(name='student')
-            user.groups.add(group)
+            user_object.groups.add(group)
+
+            # Add student object to database
+            student = Student(
+                uname=user_object.get_username(), user=user_object)
+            student.save()
             return redirect(loginPage)
 
     context = {'form': form}
