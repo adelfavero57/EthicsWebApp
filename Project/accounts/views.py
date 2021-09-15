@@ -1,16 +1,16 @@
 from django.http import request
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
-
-from .forms import CreateUserForm, LoginForm, UpdateUserForm
+from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
+from .decorators import unauthenticated_user
+from .forms import CreateUserForm, LoginForm, UpdateUserForm
 
 # Create your views here.
 
 
+@unauthenticated_user
 def registerPage(request):
-    if request.user.is_authenticated:
-        return redirect('managelist')
 
     # Custom form model imported from forms.py
     form = CreateUserForm()
@@ -21,16 +21,19 @@ def registerPage(request):
 
         # Check if all fields are satisfied
         if form.is_valid():
-            form.save()
+            user = form.save()
+
+            # Assign student group to all new users
+            group = Group.objects.get(name='student')
+            user.groups.add(group)
             return redirect(loginPage)
 
     context = {'form': form}
     return render(request, 'register.html', context)
 
 
+@unauthenticated_user
 def loginPage(request):
-    if request.user.is_authenticated:
-        return redirect('managelist')
 
     # If user has submitted something
     if request.method == "POST":
