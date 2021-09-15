@@ -3,8 +3,6 @@ from django.test import TestCase
 
 class MyTests(TestCase):
     
-    def setUp(self):
-        User
     def test1(self):
         # Some test using self.foo
         response = self.client.post('login/', {'username': 'cpen2847', 'password': 'POL123@4'})
