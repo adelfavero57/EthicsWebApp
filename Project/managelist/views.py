@@ -17,3 +17,13 @@ def managelistPage(request):
     context = {'applications': applications}
     return render(request, 'managelist.html', context)
 
+
+# @login_required(login_url='login')
+
+# def createPage(request):
+
+#     if request.method == "POST":
+
+
+
+

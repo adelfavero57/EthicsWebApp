@@ -11,8 +11,12 @@
 
     <h1> Application </h1>
 
-
-    <input type="text" placeholder="Search..">
+    <div class = "searchbar">
+        
+        <input type="text" placeholder="Search..">
+        <button type="submit">Search</button>
+    </div>
+    
     
 
         <table class = "applicationlist">
@@ -34,6 +38,11 @@
             {% endfor %}
             
           </table>
+
+
+          <form method="post" action="{% url 'Start' %}">
+                <button type='submit'>Start</button>
+            </form>
         
 
 {% endblock %}
