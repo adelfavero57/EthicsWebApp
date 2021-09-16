@@ -9,4 +9,7 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['admin'])
 def adminPage(request):
-    return render(request, 'adminpage.html')
+
+    user = request.user
+    context = {'user': user}
+    return render(request, 'adminpage.html', context)
