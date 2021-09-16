@@ -28,7 +28,7 @@ def logout_view(request):
 
 
 @login_required(login_url='login')
-# @allowed_users(allowed_roles=[])
+@allowed_users(allowed_roles=['student'])
 def managelistPage(request):
 
     context = {'applications': Applications}
