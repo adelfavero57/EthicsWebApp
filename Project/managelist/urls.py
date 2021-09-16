@@ -6,5 +6,4 @@ urlpatterns = [
     path('', views.managelistPage, name='managelist'),
     path('logout/', views.logout_view, name='logout'),
     path('edit_profile/', editUserPage, name='editprofile')
-    #path('start/', startPage, name='start')
 ]
