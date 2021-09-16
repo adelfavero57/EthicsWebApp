@@ -57,7 +57,13 @@ def loginPage(request):
 
                     # will close session after browser is closed
                     request.session.set_expiry(0)
+
+            # check what group user is
+            group = user.groups.all()[0].name
+            if group == 'student':
                 return redirect('managelist')
+            elif group == 'admin':
+                return redirect('adminpage')
 
         # if user is invalid
         form.custom_error = True
