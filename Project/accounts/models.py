@@ -5,7 +5,6 @@ from django.db.models.fields import UUIDField
 import uuid
 # Create your models here.
 
-
 class Student(models.Model):
     uname = models.CharField(max_length=150, unique=True,
                              primary_key=True, editable=False, null=False)
