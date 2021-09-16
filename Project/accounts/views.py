@@ -1,16 +1,17 @@
+from accounts.models import Student
 from django.http import request
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
-
-from .forms import CreateUserForm, LoginForm, UpdateUserForm
+from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
+from .decorators import allowed_users, unauthenticated_user
+from .forms import CreateUserForm, LoginForm, UpdateUserForm
 
 # Create your views here.
 
 
+@unauthenticated_user
 def registerPage(request):
-    if request.user.is_authenticated:
-        return redirect('managelist')
 
     # Custom form model imported from forms.py
     form = CreateUserForm()
@@ -21,16 +22,24 @@ def registerPage(request):
 
         # Check if all fields are satisfied
         if form.is_valid():
-            form.save()
+            user_object = form.save()
+
+            # Assign student group to all new users
+            group = Group.objects.get(name='student')
+            user_object.groups.add(group)
+
+            # Add student object to database
+            student = Student(
+                uname=user_object.get_username(), user=user_object)
+            student.save()
             return redirect(loginPage)
 
     context = {'form': form}
     return render(request, 'register.html', context)
 
 
+@unauthenticated_user
 def loginPage(request):
-    if request.user.is_authenticated:
-        return redirect('managelist')
 
     # If user has submitted something
     if request.method == "POST":
@@ -64,6 +73,7 @@ def redirect_view(request):
 
 
 @login_required(login_url=loginPage)
+@allowed_users(allowed_roles=['student'])
 def editUserPage(request):
     form = UpdateUserForm(instance=request.user)
 
