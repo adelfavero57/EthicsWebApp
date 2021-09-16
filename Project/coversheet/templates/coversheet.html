@@ -1,19 +1,161 @@
 <html>
+    
     <h1>Application Form Cover Sheet </h1>
+    <style>
+        .button {
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+        }
+        .button1 {background-color: #e64626;}
+        
+        </style>
         <body>
             <form action="/coversheet.html">
                 <fieldset>
                     <legend> <strong>Application Form </strong></legend>
-                    <h3> Complete the details on this tab,
+                    <h3> Complete the details on this tab, the questions on the questionnaire tab and upload study documents (e.g. Participant information statements, 
+                        consent forms, questionnaires and interview questions) in the document tab. Once complete press the submit button.
                     </h3>
-
-
+                    <h4>PLEASE NOTE THAT STUDENTS CANNOT BE THE CHIEF INVESTIGATOR.
+                    </h4>
+                    <h4>PLEASE DO NOT ADD THE CHIEF INVESTIGATION TO THE INTERNAL INVESTIGATOR LIST.
+                    </h4>
                 </fieldset>
+                <br>
+                <fieldset>
+                    <legend><strong> Summary</strong></legend>
+                    <form action="/coversheet.html">
+                        <label for="summary">Provide a lay summary of the project (100 words):</label>
+                        <br>
+                        <textarea id="summary" name="summary" rows="8" cols="150"></textarea>
+                        <br>
+                    </form>
+                </fieldset>
+
+                <fieldset>
+                    <legend><strong> Protocol Title </strong></legend>
+                    <form ation="/coversheet.html">
+                        <label for="prptocol">Protocol Title:</label>
+                        <br>
+                        <textarea id="protocol" name="protocol" rows="2" cols="150"></textarea>
+                    </form>
+                </fieldset>
+                <br>
+                <fieldset>
+                    <legend><strong> Chief Investigator Details </strong></legend>
+                    <form ation="/coversheet.html">
+                        <label for="investigatorname"> First Named Chief Investigator Name: </label>
+                        <br>
+                        <textarea id="investigatorname" name="investigatorname" rows="1" cols="50"></textarea>
+                        <br>
+                        <label for="investigatorid"> First Named Chief Investigator ID: </label>
+                        <br>
+                        <textarea id="investigatorid" name="investigatorid" rows="1" cols="50"></textarea>
+                        <br>
+                        <label for="center"> School/ Center: </label>
+                        <br>
+                        <textarea id="center" name="center" rows="1" cols="50"></textarea>
+                        <br>
+                        <label for="role"> Role: </label>
+                        <br>
+                        <select id="role" name="role">
+                            <option value="chiefinvestigator" selected> Chief Investigator</option>
+                            <option value="others"> Others </option>
+                        </select>
+                    </form>
+                </fieldset>
+                <br>
+                <fieldset>
+                    <legend><strong> Internal Investigators </strong></legend>
+                    <form action="/coversheet.html">
+                        <label for="otherinternalinvestigators">Other Internal Investigators Involved: </label>
+                        <select id ="otherinternalinvestigators" name = "otherinternalinvestigators">
+                            <option value="Yes"> Yes </option>
+                            <option value="No" selected> No </option>
+                        </select>
+                        <br>
+                        <label for="internalinvestigatorsnumber"> Number of Internal Investigators (including Chief Investigator): </label>
+                        <input type="number" id="internalinvestigatorsnumber" name="internalinvestigatorsnumber" min="0" max="100" value= "0" ><br>
+                    </form>
+                </fieldset>
+                <br>
+                <fieldset>
+                    <legend><strong> External Investigators </strong></legend>
+                    <form action="/coversheet.html">
+                        <label for="otherexternalinvestigators">Other External Investigators Involved: </label>
+                        <select id ="otherexternalinvestigators" name = "otherexternalinvestigators">
+                            <option value="Yes"> Yes </option>
+                            <option value="No" selected> No </option>
+                        </select>
+                        <br>
+                        <label for="externalinvestigatorsnumber"> Number of External Investigators: </label>
+                        <input type="number" id="externalinvestigatorsnumber" name="externalinvestigatorsnumber" min="0" max="100" value= "0" ><br>
+                    </form>
+                </fieldset>
+                <fieldset>
+                    <legend><strong> External Ethics Approval </strong></legend>
+                    <form action="/coversheet.html">
+                        <label for="responsible"> Responsible: </label>
+                        <br>
+                        <textarea id="responsible" name="responsible" rows="1" cols="150"></textarea>
+                        <br>
+                        <label for="currentstate"> Current State: </label>
+                        <br>
+                        <textarea id="currentstate" name="currentstate" rows="1" cols="150"></textarea>
+                        <br>
+                        <label for="HRECname"> HREC name: </label>
+                        <br>
+                        <textarea id="HRECname" name="HRECname" rows="1" cols="150"></textarea>
+                        <br>
+                        <label for="action"> Action: </label>
+                        <br>
+                        <textarea id="action" name="action" rows="3" cols="150"></textarea>
+                        <br>
+                    </form>
+                </fieldset>
+                <br>
+                <fieldset>
+                    <legend><strong>Contracts and Grants </strong></legend>
+                    <form action="/coversheet.html">
+                        <label for="title"> Title: </label>
+                        <br>
+                        <textarea id="title" name ="title" rows="1" cols="150"></textarea>
+                        <br>
+                        <label for="contractaction"> Action: </label>
+                        <br>
+                        <textarea id="contractaction" name="contractaction" rows="3" cols="150"></textarea>
+                    </form>
+                </fieldset>
+                <br>
+                <fieldset>
+                    <legend><strong>Other Relevant Details</strong></legend>
+                    <form action="coversheet.html">
+                        <label for="otherrelevantdetails"> Please provide any other relevant details: </label>
+                        <br>
+                        <textarea id="otherrelevantdetails" name ="otherrelevantdetails" rows="8" cols="150"></textarea>
+                    </form>
+                </fieldset>
+                <h2><strong>Please navigate to Questionnaire tab</strong></h2>
+                <h3><strong>You have now completed the main details part of the form. Please complete questions
+                    in the questionnaire tab and upload documents for review in the documents tab before submitting the form.
+                </strong></h3>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <button type="button" class="button button1" onclick="alert('Jump to the questionnaire page!')">Next</button>  
+                
+ 
             </form>
 
-
-
-
-        </body>>
+        </body>
 
 </html>
