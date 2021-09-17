@@ -1,7 +1,7 @@
 from accounts.models import Student
 from django.http import request
 from django.shortcuts import redirect, render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 from .decorators import allowed_users, unauthenticated_user
@@ -58,12 +58,13 @@ def loginPage(request):
                     # will close session after browser is closed
                     request.session.set_expiry(0)
 
-            # check what group user is
-            group = user.groups.all()[0].name
-            if group == 'student':
-                return redirect('managelist')
-            elif group == 'admin':
-                return redirect('adminpage')
+                if request.user.groups.filter(name='student').exists():
+                    return redirect('managelist')
+                elif request.user.groups.filter(name='admin').exists():
+                    return redirect('adminpage')
+                else:
+                    logout(request, user)
+                    redirect('login')
 
         # if user is invalid
         form.custom_error = True
@@ -82,12 +83,12 @@ def redirect_view(request):
 @allowed_users(allowed_roles=['student'])
 def editUserPage(request):
     form = UpdateUserForm(instance=request.user)
-
+    user = request.user
     if request.method == "POST":
         form = UpdateUserForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            return redirect('editprofile')
 
-    context = {'form': form}
+    context = {'form': form, 'user': user}
     return render(request, 'edit_profile.html', context)
