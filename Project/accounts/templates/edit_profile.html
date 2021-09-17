@@ -23,9 +23,11 @@
                 <label for="email" class="grid-item grid-item7">Email:</label>
                 <input type="text" id="email" value={{ user.email }} class="grid-item grid-item8" name="email">
             </div>
+            <div class="links"><a href="{% url 'reset_password' %}">Change password</a></div>
             <div class="button">
                 <input type="submit" class="grid-item9" value="Save" id="save" name="save">
             </div>
+
     </div>
     </form>
 
