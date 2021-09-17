@@ -1,5 +1,6 @@
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from accounts.decorators import allowed_users
 from django.shortcuts import render, redirect
 # Create your views here.
 
@@ -27,6 +28,7 @@ def logout_view(request):
 
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['student'])
 def managelistPage(request):
 
     context = {'applications': Applications}
