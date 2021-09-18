@@ -7,16 +7,10 @@ def unauthenticated_user(view_func):
         # if user is authenticated redirect to managelist page otherwise do nothing
         if request.user.is_authenticated:
 
-            group = None
-
-            # if user has a group, get the name
-            if request.user.groups.exists():
-                group = request.user.groups.all()[0].name
-
             # check what group user is
-            if group == 'student':
+            if request.user.groups.filter(name='researcher').exists():
                 return redirect('managelist')
-            elif group == 'admin':
+            elif request.user.groups.filter(name='admin').exists():
                 return redirect('adminpage')
 
         else:
