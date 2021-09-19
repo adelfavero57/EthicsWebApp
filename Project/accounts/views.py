@@ -1,4 +1,4 @@
-from accounts.models import Student
+
 from django.http import request
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
