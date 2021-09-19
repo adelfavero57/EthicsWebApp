@@ -1,4 +1,3 @@
-
 from django.http import request
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
@@ -25,13 +24,9 @@ def registerPage(request):
             user_object = form.save()
 
             # Assign student group to all new users
-            group = Group.objects.get(name='student')
+            group = Group.objects.get(name='researcher')
             user_object.groups.add(group)
 
-            # Add student object to database
-            student = Student(
-                uname=user_object.get_username(), user=user_object)
-            student.save()
             return redirect(loginPage)
 
     context = {'form': form}
@@ -58,7 +53,7 @@ def loginPage(request):
                     # will close session after browser is closed
                     request.session.set_expiry(0)
 
-                if request.user.groups.filter(name='student').exists():
+                if request.user.groups.filter(name='researcher').exists():
                     return redirect('managelist')
                 elif request.user.groups.filter(name='admin').exists():
                     return redirect('adminpage')
@@ -80,7 +75,7 @@ def redirect_view(request):
 
 
 @login_required(login_url=loginPage)
-@allowed_users(allowed_roles=['student'])
+@allowed_users(allowed_roles=['researcher'])
 def editUserPage(request):
     form = UpdateUserForm(instance=request.user)
     user = request.user
