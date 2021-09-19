@@ -22,3 +22,5 @@ def logout_view(request):
 def coversheetPage(request):
 
     return render(request, 'coversheet.html')
+
+
