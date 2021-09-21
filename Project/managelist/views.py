@@ -17,15 +17,25 @@ def logout_view(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['researcher'])
 def managelistPage(request):
+    applications = []
 
     if request.method == "POST":
 
-        search_item = request.POST["search_item"]
+        search_text = request.POST["search_text"]
 
-        applications = Application.objects.filter(user=request.user, title=search_item)
+        if search_text is not None:
 
+            print(search_text)
 
-    applications = Application.objects.filter(user=request.user)
+            applications = Application.objects.filter(user=request.user, title=search_text)
+        
+        else:
+
+            applications = Application.objects.filter(user=request.user)
+    
+    else:
+
+        applications = Application.objects.filter(user=request.user)
     
     
     context = {'applications': applications}
@@ -38,7 +48,7 @@ def managelistPage(request):
 
 def deleteRow(request, item_id):
 
-    item = Application.objects.get(pk=item_id)
+    item = Application.objects.get(id=item_id)
 
     item.delete()
 

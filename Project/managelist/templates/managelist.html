@@ -8,29 +8,50 @@
 
 
  {% block js %}
-<script type="text/javascript">
-  function searchFunc() {
-  // Declare variables
+<script>
 
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("search");
-  filter = input.value.toUpperCase();
-  table = document.getElementById('applicationlist')
-  applications = '{{application}}'
+  $('document').ready(function(){
 
-  console.log(applications)
-  // Loop through all table rows, and hide those who don't match the search query
-//   for (i = 0; i < table.rows.length; i++) {
+    $('#search').keyup(function(e){
+      
+      let csrftoken = '{{ csrf_token }}'
+       
+       $.ajax({
+         type : 'POST',
+         headers:{'X-CSRFToken':csrftoken},
+         url: "{% url 'managelist' %}",
+         data: {
+             'search_text': $('#search').val()
+  
+         }
+       });
+     });
+  });
+
+  
+
+//   function searchFunc() {
+//   // Declare variables
+
+//   var input, filter, table, tr, td, i, txtValue;
+//   input = document.getElementById("search");
+//   filter = input.value.toUpperCase();
+//   table = document.getElementById('applicationlist')
+//   applications = '{{application}}'
+
+//   console.log(applications)
+//   // Loop through all table rows, and hide those who don't match the search query
+// //   for (i = 0; i < table.rows.length; i++) {
     
-//     txtValue = applications.objects.all().project_name;
-//     if (txtValue.toUpperCase().indexOf(filter) > -1) {
-//         tr[i].style.display = "";
-//       } else {
-//         tr[i].style.display = "none";·
-//       }
-//     i = i + 1;
-//   }
- }
+// //     txtValue = applications.objects.all().project_name;
+// //     if (txtValue.toUpperCase().indexOf(filter) > -1) {
+// //         tr[i].style.display = "";
+// //       } else {
+// //         tr[i].style.display = "none";·
+// //       }
+// //     i = i + 1;
+// //   }
+//  }
 </script>
  {% endblock %}
 
@@ -40,9 +61,8 @@
 
     <h1> Application </h1>
 
-    
-     
-      <input type="text" id = "search" onclick = "searchFunc()"
+      
+      <input type="text" id = "search" 
       name = "search_item" placeholder="Search..">
       
     
