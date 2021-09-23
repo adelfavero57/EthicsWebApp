@@ -6,4 +6,5 @@ from django.shortcuts import render, redirect
 
 
 def welcome(request):
+    # Will have to add login required and researcher role later
     return render(request, 'welcome.html')

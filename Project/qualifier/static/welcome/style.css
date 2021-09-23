@@ -10,7 +10,6 @@
     display: grid;
     height: 80vh;
     width: 60vw;
-    /* justify-content: center; */
     align-self: center;
     border: 10px solid #424242;
     box-sizing: border-box;
