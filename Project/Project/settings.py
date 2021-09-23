@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'managelist.apps.ManagelistConfig',
     'approvelist.apps.ApprovelistConfig',
-    'adminpage.apps.AdminpageConfig'
+    'adminpage.apps.AdminpageConfig',
+    'qualifier.apps.QualifierConfig'
 ]
 
 MIDDLEWARE = [
