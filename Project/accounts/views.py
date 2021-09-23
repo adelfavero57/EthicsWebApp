@@ -58,7 +58,7 @@ def loginPage(request):
                 elif request.user.groups.filter(name='admin').exists():
                     return redirect('adminpage')
                 else:
-                    logout(request, user)
+                    logout(user)
                     redirect('login')
 
         # if user is invalid
