@@ -22,6 +22,10 @@
 }
 
 .grid-item6 {
+    justify-self: center;
+}
+
+.grid-item7 {
     color:#ffffff;
     background:#e64626;
     border: 0em;
