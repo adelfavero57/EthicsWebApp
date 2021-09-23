@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('adminpage.urls')),
     path('managelist/', include('managelist.urls')),
     path('approvelist/', include('approvelist.urls')),
+    path('qualifier/', include('qualifier.urls')),
 ]
