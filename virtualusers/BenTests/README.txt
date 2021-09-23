@@ -6,4 +6,4 @@
 
 Note: This chrome driver is for version 94 and for mac only.
 If you are on linux, windows etc. go here: https://chromedriver.storage.googleapis.com/index.html?path=94.0.4606.41/
-and replace the chromedriver. 
+and replace the chromedriver. Also change python path in settings.json to wherever you store python3.
