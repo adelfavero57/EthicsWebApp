@@ -22,11 +22,11 @@
     float: right;
 }
 
-.start{
-    position: relative;
+.start_quiz{
+    float: right;
 }
 
-.start button{
+.start_quiz button{
 
     left: 50%;
 }

@@ -8,29 +8,19 @@
 
 
  {% block js %}
-<script type="text/javascript">
-  function searchFunc() {
-  // Declare variables
+<script>
 
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("search");
-  filter = input.value.toUpperCase();
-  table = document.getElementById('applicationlist')
-  applications = '{{application}}'
+  $('document').ready(function(){
 
-  console.log(applications)
-  // Loop through all table rows, and hide those who don't match the search query
-//   for (i = 0; i < table.rows.length; i++) {
-    
-//     txtValue = applications.objects.all().project_name;
-//     if (txtValue.toUpperCase().indexOf(filter) > -1) {
-//         tr[i].style.display = "";
-//       } else {
-//         tr[i].style.display = "none";·
-//       }
-//     i = i + 1;
-//   }
- }
+    $('#search').keyup(function(e){
+      let value = $(this).val().toLowerCase();
+
+      $(".tbody").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+      
+     });
+  });
 </script>
  {% endblock %}
 
@@ -38,43 +28,60 @@
 
 {% block content %}
 
-    <h1> Application </h1>
+    <h1> Manage Applications </h1>
 
-    
-     
-      <input type="text" id = "search" onclick = "searchFunc()"
-      name = "search_item" placeholder="Search..">
+      <div class = "search_application">
+        <input type="text" id = "search" 
+        name = "search_item" placeholder="Search..">
+      </div>
       
-    
+      <div class = "start_quiz">
+
+        <a href="#"><button type="button" class="btn btn-info">Start new application</button></a>
+
+      </div>
   
 
         <table class = "applicationlist">
             <tr class = "thead">
               <th>Id</th>
               <th>Project Title</th>
-              <th>Edit</th>
-              <th>Delete</th>
+              <th>date_created</th>
+              <th>last_modified</th>
+              <th>Supervisor</th>
+              <th colspan="2">Operation</th>
             </tr>
             {% for item in applications %}
+
+            {% if item.is_complete %}
             <tr class = "tbody">
                 <td>{{item.id}}</td>
                 <td>{{item.title}}</td>
-                
-                <td><a href="#">Edit</a></td>
-                <td>
-                  <a href = "{% url 'delete' item.id %}">Delete</a>
-                </td>
+                <td>{{item.date_created}}</td>
+                <td>{{item.last_modified}}</td>
+                <td>{{item.supervisor}}</td>
+                <td><a href="#">Download</a></td>
             </tr>
+
+            {% else %}
+            <tr class = "tbody">
+              <td>{{item.id}}</td>
+              <td>{{item.title}}</td>
+              <td>{{item.date_created}}</td>
+              <td>{{item.last_modified}}</td>
+              <td>{{item.supervisor}}</td>
+              <td><a href="#">Edit</a></td>
+              <td><a href = "{% url 'delete' item.id %}">Withdraw</a></td>
+      
+            </tr>
+
+            {% endif %}
             {% endfor %}
 
 
           </table>
     
 
-        <div class = "start">
-
-          <a href="#"><button>Start the quiz</button></a>
-
-        </div>
+        
 
 {% endblock %}
