@@ -1,0 +1,317 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Questionnaire</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <div class="sidenav"> 
+            <a href="#SectionA">SectionA Distinguish users</a>
+            <a href="#SectionB">SectionB Risk Evaluation</a>
+            <a href="#">SectionC Conflicts of interest</a>
+            <a href="#">SectionD Consent process</a>
+            <a href="#">SectionE Privary issue</a>
+            <a href="#">SectionF Concern risks</a>
+            <a href="#">SectionG Concern research study</a>
+        </div>
+        <div class="questions">
+            <a name = "SectionA"></a>
+            <h1>SECTION A</h1>
+            <h2>SECTION A is designed to distinguish between staff and student projects. In addition, this Section also seeks to identify projects that have been approved by other ethics committees.</h2>
+            <font>2. Is this project a University of Sydney student project ONLY (i.e. ethics application restricted to the activities of the student research project)?</font>
+            <div class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+                <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+              <input type="radio" id="button1" name="2" value="Yes">
+              <label for="Yes">Yes</label><br>
+              <input type="radio" id="button2" name="2" value="No">
+              <label for="No">No</label><br>
+            </form>
+            <div id="div1" style="display :none ;">
+                <font style="font-size:16px;margin-left:0px;">4.Select appropriate student classification:</font>
+                <div class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+                    <span class="tooltiptext">Tips and guidances</span>
+                </div>
+                <ul>
+                    <select style="font-size:16px;margin-left:0px;">
+                        <option>Bachelor</option>
+                        <option>Master</option>
+                        <option>Phd</option>
+                    </select>
+                </ul>
+            </div>
+            <script type="text/javascript">
+            $("#button1").click(function(){
+              $("#div1").show();
+            });
+            $("#button2").click(function(){
+              $("#div1").hide();
+            });
+            </script> 
+            <font>3.Indicate whether this project has been or will be submitted to any other ethics committees</font>
+            <div class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+            <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                <input type="radio" id="3" name="3" value="Yes">
+                <label for="Yes">Yes</label><br>
+                <input type="radio" id="3" name="3" value="No">
+                <label for="No">No</label><br>
+            </form>
+            <a name = "SectionB"></a>
+            <h1>Section B</h1>
+            <h2>Section B is designed to determine whether your study falls within the National Statements definition of low or negligible risk. Throughout this section, you may be asked specific additional questions where you indicate that your study involves particular participant and/ or project types. Please note that the option Possible Recruitment with reference to specific participant populations indicates that these people MAY be recruited into your study, but are not the specific population of interest. If this population is the focus of your study, you should select Yes.
+                Please answer the following questions</h2>
+            
+            <font>5.Does your research involve women who are pregnant and the human foetus?</font>
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                  <input type="radio" id="5" name="5" value="Yes">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="5" name="5" value="No">
+                  <label for="No">No</label><br>
+                  <input type="radio" id="5" name="5" value="Possible recruitment">
+                  <label for="Possible recruitment">Possible recruitment</label><br>  
+            </form> 
+            <font> 13. Does your study involve children and/or young people (i.e. younger than 18 years)?</font>
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                  <input type="radio" id="13" name="13" value="Yes">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="13" name="13" value="No">
+                  <label for="No">No</label><br>
+                  <input type="radio" id="13" name="13" value="Possible recruitment">
+                  <label for="Possible recruitment">Possible recruitment</label><br>  
+            </form> 
+            <font>15. Does your study involve people in existing dependent or unequal relationships with the researcher(s)?</font>
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                  <input type="radio" id="15_yes" name="15" value="Yes">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="15_no" name="15" value="No">
+                  <label for="No">No</label><br>
+                  <input type="radio" id="15" name="15" value="Possible recruitment">
+                  <label for="Possible recruitment">Possible recruitment</label><br>  
+            </form>
+            <div id="div2" style="display :none ;">
+              <font style="font-size:22px;margin-left:10px;">30. Existing dependent or unequal relationship 
+                  You have indicated that an
+                  Existing dependent or unequal relationship
+                  would be included in your study. Please
+                  answer the following additional questions
+                  Describe the existing dependent or unequal relationship</font>
+              <ul>
+                <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+                  <span class="tooltiptext">Tips and guidances</span>
+                </div>
+                  <form>
+                      <label for="fname"></label><br>
+                      <input type="text" id="30" name="30"><br>
+                  </form>
+              </ul>
+              <font style="font-size:22px;margin-left:10px;">
+                31 - How will the process of obtaining consent avoid perceived/actual coercion and enable persons in dependent relationships to give voluntary consent?</font>
+              <ul>
+                <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+                  <span class="tooltiptext">Tips and guidances</span>
+                </div>
+                <form>
+                    <label for="fname"></label><br>
+                    <input type="text" id="31" name="31"><br>
+                </form>
+              </ul>
+            </div>
+            <script type="text/javascript">
+              $("#15_yes").click(function(){
+                $("#div2").show();
+              });
+              $("#15_no").click(function(){
+                $("#div2").hide();
+              });
+            </script> 
+            <font>29.Does your research involve people with a cognitive impairment, an intellectual disability or a mental illness?</font>
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                  <input type="radio" id="29" name="29" value="Yes">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="29" name="29" value="No">
+                  <label for="No">No</label><br>
+                  <input type="radio" id="29" name="29" value="Possible recruitment">
+                  <label for="Possible recruitment">Possible recruitment</label><br>  
+            </form> 
+            <font>33. Does your research involve people highly dependent on medical care who may be unable to give consent?</font>
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                  <input type="radio" id="33" name="33" value="Yes">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="33" name="33" value="No">
+                  <label for="No">No</label><br>
+                  <input type="radio" id="33" name="33" value="Possible recruitment">
+                  <label for="Possible recruitment">Possible recruitment</label><br>  
+            </form> 
+            <font>38 - Does your study have the potential to discover illegal activity by participants or others? This includes
+                research intending to expose illegal activity, as well as research not specifically designed to, but likely to
+                discover, illegal activity.</font>
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                  <input type="radio" id="38" name="38" value="Yes">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="38" name="38" value="No">
+                  <label for="No">No</label><br>
+                  <input type="radio" id="38" name="38" value="Possible recruitment">
+                  <label for="Possible recruitment">Possible recruitment</label><br>  
+            </form> 
+            <font>41 - Does your research involve Aboriginal and/or Torres Strait Islander peoples?</font>
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                  <input type="radio" id="41" name="41" value="Yes">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="41" name="41" value="No">
+                  <label for="No">No</label><br>
+                  <input type="radio" id="41" name="41" value="Possible recruitment">
+                  <label for="Possible recruitment">Possible recruitment</label><br>  
+            </form> 
+            <font>47 - Does your research involve CALD (Culturally and Linguistically Diverse) people?</font>
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                  <input type="radio" id="47" name="47" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="47" name="47" value="No">
+                  <label for="No">No</label><br>
+                  <input type="radio" id="47" name="47" value="Possible recruitment">
+                  <label for="Possible recruitment">Possible recruitment</label><br>  
+            </form> 
+            <font>63 - Does your research involve travel overseas?</font>
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                  <input type="radio" id="63" name="63" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="63" name="63" value="No">
+                  <label for="No">No</label><br>
+                  <input type="radio" id="63" name="63" value="Possible recruitment">
+                  <label for="Possible recruitment">Possible recruitment</label><br>  
+            </form> 
+            <font>64 - Is your study likely to cause or elicit distress in participants due to its subject matter, the procedures involved, information that might be revealed about the participant or related persons, or in some other way?</font>
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                  <input type="radio" id="64" name="64" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="64" name="64" value="No">
+                  <label for="No">No</label><br>
+                  <input type="radio" id="64" name="64" value="Possible recruitment">
+                  <label for="Possible recruitment">Possible recruitment</label><br>  
+            </form> 
+            <font>78 - Does your study involve research that could jeopardise a participant's employment?</font>
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                  <input type="radio" id="78" name="78" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="78" name="78" value="No">
+                  <label for="No">No</label><br>
+                <input type="radio" id="5" name="78" value="Possible recruitment">
+                  <label for="Possible recruitment">Possible recruitment</label><br>  
+            </form> 
+            <font>138 - Does your study involve human genetics or human stem cells?</font>
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                  <input type="radio" id="138" name="138" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="138" name="138" value="No">
+                  <label for="No">No</label><br>
+                  <input type="radio" id="138" name="138" value="Possible recruitment">
+                  <label for="Possible recruitment">Possible recruitment</label><br>  
+            </form> 
+            <font>185 - Does your study involve limited disclosure involving active concealment and/or planned deception?</font>
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                  <input type="radio" id="185" name="185" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="185" name="185" value="No">
+                  <label for="No">No</label><br>
+                  <input type="radio" id="185" name="185" value="Possible recruitment">
+                  <label for="Possible recruitment">Possible recruitment</label><br>  
+            </form> 
+            <font>186 - Does your study involve research that poses a risk to the physical or emotional safety or welfare of aUniversity of Sydney student researcher (e.g. honours student or postgraduate student)? If you are a student and your research takes place off-campus a completion of a safety protocol may be necessary.</font>
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                  <input type="radio" id="186" name="186" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="186" name="186" value="No">
+                  <label for="No">No</label><br>
+                  <input type="radio" id="186" name="186" value="Possible recruitment">
+                  <label for="Possible recruitment">Possible recruitment</label><br>  
+            </form> 
+            <font>192 - Does your research involve any of the following: Collection of biological samples (e.g. blood, saliva, bodily fluids). Physical screening (e.g. blood pressure, cholesterol, physical fitness, MRI scans). Physical exertion? (i.e. physical activity, exercise).</font>
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                  <input type="radio" id="192" name="192" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="192" name="192" value="No">
+                  <label for="No">No</label><br>
+                  <input type="radio" id="192" name="192" value="Possible recruitment">
+                  <label for="Possible recruitment">Possible recruitment</label><br>  
+            </form> 
+            <font>200 - Does the research ONLY involve existing collections of data or records about human beings (collected with appropriate ethical approval)?</font>
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                  <input type="radio" id="200" name="200" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="200" name="200" value="No">
+                  <label for="No">No</label><br>
+                  <input type="radio" id="200" name="200" value="Possible recruitment">
+                  <label for="Possible recruitment">Possible recruitment</label><br>  
+            </form> 
+            <font>201 - Is there a foreseeable risk of more than 'discomfort'? For a useful description of the differences between harm, discomfort and inconvenience please refer to the National Statement on Ethical Conduct in HumanResearch, Chapter 2.1</font>
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                  <input type="radio" id="201" name="201" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="201" name="201" value="No">
+                  <label for="No">No</label><br>
+                  <input type="radio" id="201" name="201" value="Possible recruitment">
+                  <label for="Possible recruitment">Possible recruitment</label><br>  
+            </form> 
+        </div>
+    </body>
+</html>
+{% endblock %}
