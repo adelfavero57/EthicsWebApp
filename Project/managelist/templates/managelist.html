@@ -8,11 +8,14 @@
 
 
  {% block js %}
+  <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+  <script src="https://code.jquery.com/jquery-migrate-3.3.2.js"></script>
 <script>
 
   $('document').ready(function(){
 
     $('#search').keyup(function(e){
+      
       let value = $(this).val().toLowerCase();
 
       $(".tbody").filter(function() {
@@ -21,6 +24,7 @@
       
      });
   });
+
 </script>
  {% endblock %}
 
@@ -53,18 +57,17 @@
             </tr>
             {% for item in applications %}
 
-            {% if item.is_complete %}
             <tr class = "tbody">
+            {% if item.is_complete %}
+            
                 <td>{{item.id}}</td>
                 <td>{{item.title}}</td>
                 <td>{{item.date_created}}</td>
                 <td>{{item.last_modified}}</td>
                 <td>{{item.supervisor}}</td>
                 <td><a href="#">Download</a></td>
-            </tr>
 
             {% else %}
-            <tr class = "tbody">
               <td>{{item.id}}</td>
               <td>{{item.title}}</td>
               <td>{{item.date_created}}</td>
