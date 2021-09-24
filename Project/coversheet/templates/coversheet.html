@@ -18,6 +18,7 @@
         </style>
         <body>
             <form action="/coversheet.html">
+                {{ dat }}
                 <fieldset>
                     <legend> <strong>Application Form </strong></legend>
                     <h3> Complete the details on this tab, the questions on the questionnaire tab and upload study documents (e.g. Participant information statements, 
@@ -31,7 +32,7 @@
                 <br>
                 <fieldset>
                     <legend><strong> Summary</strong></legend>
-                    <form action="/coversheet.html">
+                    <form action="/coversheet.html" >
                         <label for="summary">Provide a lay summary of the project (100 words):</label>
                         <br>
                         <textarea id="summary" name="summary" rows="8" cols="150"></textarea>

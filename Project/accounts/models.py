@@ -1,34 +1,35 @@
+from typing import cast
 from django.contrib.auth.models import User
 from django.db import models
-from django.db.models.deletion import CASCADE
+from django.db.models.deletion import CASCADE, SET_NULL
 from django.db.models.fields import UUIDField
 import uuid
+
+from django.db.models.fields.related import ForeignKey
 # Create your models here.
 
+class Application(models.Model):
+    id = models.IntegerField(primary_key=True, unique=True, editable=False, null=False)
+    date_created = models.DateField(auto_now_add=True)
+    last_modified = models.DateField(auto_now=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.TextField(max_length=200, null=False)
+    supervisor = models.TextField(max_length=150, null=False)
+    is_complete = models.BinaryField(null=False)
+    is_approved = models.BinaryField(null=False)
 
-class Student(models.Model):
-    uname = models.CharField(max_length=150, unique=True,
-                             primary_key=True, editable=False, null=False)
-    user = models.OneToOneField(User, null=False, on_delete=models.CASCADE)
+class Question(models.Model):
+    question_num = models.IntegerField(primary_key=True, unique=True, null=False)
+    text = models.TextField(null=False)
+    is_short_answer = models.BinaryField(null=False)
+    section_name = models.CharField(max_length=1, null=False)
 
-    def __str__(self):
-        return self.uname
-    # You will have to find a way to store a list of applications
-
-
-class Member(models.Model):
-    uname = models.CharField(max_length=150, unique=True,
-                             primary_key=True, editable=False, null=False)
-    user = models.OneToOneField(User, null=False, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.uname
-
-
-class Admin(models.Model):
-    uname = models.CharField(max_length=150, unique=True,
-                             primary_key=True, editable=False, null=False)
-    user = models.OneToOneField(User, null=False, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.uname
+class Answers(models.Model):
+    id = models.IntegerField(primary_key=True)
+    text = models.TextField()
+    question_id = models.ForeignKey(Question, on_delete=models.CASCADE)
+    application_id = models.ForeignKey(Application, on_delete=models.SET_NULL, null=True)
+    is_short_answer = models.BinaryField(null=False)
+    section_name = models.CharField(max_length=1, null=False)
+    is_referenced = models.BinaryField(null=False)
+    is_exemplar = models.BinaryField(null=False)

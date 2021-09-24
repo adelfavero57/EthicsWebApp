@@ -22,5 +22,9 @@ urlpatterns = [
     path('', include('adminpage.urls')),
     path('managelist/', include('managelist.urls')),
     path('approvelist/', include('approvelist.urls')),
+<<<<<<< HEAD
     path('coversheet/', include('coversheet.urls'))
+=======
+    path('qualifier/', include('qualifier.urls')),
+>>>>>>> master
 ]

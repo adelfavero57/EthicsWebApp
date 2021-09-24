@@ -1,7 +1,6 @@
-from accounts.models import Student
 from django.http import request
 from django.shortcuts import redirect, render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 from .decorators import allowed_users, unauthenticated_user
@@ -25,13 +24,9 @@ def registerPage(request):
             user_object = form.save()
 
             # Assign student group to all new users
-            group = Group.objects.get(name='student')
+            group = Group.objects.get(name='researcher')
             user_object.groups.add(group)
 
-            # Add student object to database
-            student = Student(
-                uname=user_object.get_username(), user=user_object)
-            student.save()
             return redirect(loginPage)
 
     context = {'form': form}
@@ -58,12 +53,13 @@ def loginPage(request):
                     # will close session after browser is closed
                     request.session.set_expiry(0)
 
-            # check what group user is
-            group = user.groups.all()[0].name
-            if group == 'student':
-                return redirect('managelist')
-            elif group == 'admin':
-                return redirect('adminpage')
+                if request.user.groups.filter(name='researcher').exists():
+                    return redirect('managelist')
+                elif request.user.groups.filter(name='admin').exists():
+                    return redirect('adminpage')
+                else:
+                    logout(request)
+                    redirect('login')
 
         # if user is invalid
         form.custom_error = True
@@ -79,15 +75,15 @@ def redirect_view(request):
 
 
 @login_required(login_url=loginPage)
-@allowed_users(allowed_roles=['student'])
+@allowed_users(allowed_roles=['researcher'])
 def editUserPage(request):
     form = UpdateUserForm(instance=request.user)
-
+    user = request.user
     if request.method == "POST":
         form = UpdateUserForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            return redirect('editprofile')
 
-    context = {'form': form}
+    context = {'form': form, 'user': user}
     return render(request, 'edit_profile.html', context)
