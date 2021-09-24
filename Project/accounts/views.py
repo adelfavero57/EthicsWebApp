@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .decorators import allowed_users, unauthenticated_user
 from .forms import CreateUserForm, LoginForm, UpdateUserForm
 
+
 # Create your views here.
 
 
@@ -87,3 +88,10 @@ def editUserPage(request):
 
     context = {'form': form, 'user': user}
     return render(request, 'edit_profile.html', context)
+
+
+
+
+
+    
+
