@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
         {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'questionnaire/style.css' %}">
     </head>
     <body>
         <div class="sidenav"> 
@@ -22,6 +22,7 @@
         <div class="questions">
             <a name = "SectionA"></a>
             <h1>SECTION A</h1>
+            {{que}}
             <h2>SECTION A is designed to distinguish between staff and student projects. In addition, this Section also seeks to identify projects that have been approved by other ethics committees.</h2>
             <font>2. Is this project a University of Sydney student project ONLY (i.e. ethics application restricted to the activities of the student research project)?</font>
             <div class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
@@ -79,7 +80,8 @@
                   <input type="radio" id="5" name="5" value="No">
                   <label for="No">No</label><br>
                   <input type="radio" id="5" name="5" value="Possible recruitment">
-                  <label for="Possible recruitment">Possible recruitment</label><br>  
+                  <label for="Possible recruitment">Possible recruitment</label><br>
+                    <br>  
             </form> 
             <font> 13. Does your study involve children and/or young people (i.e. younger than 18 years)?</font>
             <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
@@ -196,7 +198,7 @@
               <span class="tooltiptext">Tips and guidances</span>
             </div>
             <form>
-                  <input type="radio" id="47" name="47" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <input type="radio" id="47" name="47" value="Yes">
                   <label for="Yes">Yes</label><br>
                   <input type="radio" id="47" name="47" value="No">
                   <label for="No">No</label><br>
@@ -208,7 +210,7 @@
               <span class="tooltiptext">Tips and guidances</span>
             </div>
             <form>
-                  <input type="radio" id="63" name="63" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <input type="radio" id="63" name="63" value="Yes">
                   <label for="Yes">Yes</label><br>
                   <input type="radio" id="63" name="63" value="No">
                   <label for="No">No</label><br>
@@ -220,7 +222,7 @@
               <span class="tooltiptext">Tips and guidances</span>
             </div>
             <form>
-                  <input type="radio" id="64" name="64" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <input type="radio" id="64" name="64" value="Yes">
                   <label for="Yes">Yes</label><br>
                   <input type="radio" id="64" name="64" value="No">
                   <label for="No">No</label><br>
@@ -232,7 +234,7 @@
               <span class="tooltiptext">Tips and guidances</span>
             </div>
             <form>
-                  <input type="radio" id="78" name="78" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <input type="radio" id="78" name="78" value="Yes">
                   <label for="Yes">Yes</label><br>
                   <input type="radio" id="78" name="78" value="No">
                   <label for="No">No</label><br>
@@ -244,7 +246,7 @@
               <span class="tooltiptext">Tips and guidances</span>
             </div>
             <form>
-                  <input type="radio" id="138" name="138" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <input type="radio" id="138" name="138" value="Yes">
                   <label for="Yes">Yes</label><br>
                   <input type="radio" id="138" name="138" value="No">
                   <label for="No">No</label><br>
@@ -256,7 +258,7 @@
               <span class="tooltiptext">Tips and guidances</span>
             </div>
             <form>
-                  <input type="radio" id="185" name="185" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <input type="radio" id="185" name="185" value="Yes">
                   <label for="Yes">Yes</label><br>
                   <input type="radio" id="185" name="185" value="No">
                   <label for="No">No</label><br>
@@ -268,7 +270,7 @@
               <span class="tooltiptext">Tips and guidances</span>
             </div>
             <form>
-                  <input type="radio" id="186" name="186" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <input type="radio" id="186" name="186" value="Yes">
                   <label for="Yes">Yes</label><br>
                   <input type="radio" id="186" name="186" value="No">
                   <label for="No">No</label><br>
@@ -280,7 +282,7 @@
               <span class="tooltiptext">Tips and guidances</span>
             </div>
             <form>
-                  <input type="radio" id="192" name="192" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <input type="radio" id="192" name="192" value="Yes">
                   <label for="Yes">Yes</label><br>
                   <input type="radio" id="192" name="192" value="No">
                   <label for="No">No</label><br>
@@ -292,7 +294,7 @@
               <span class="tooltiptext">Tips and guidances</span>
             </div>
             <form>
-                  <input type="radio" id="200" name="200" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <input type="radio" id="200" name="200" value="Yes">
                   <label for="Yes">Yes</label><br>
                   <input type="radio" id="200" name="200" value="No">
                   <label for="No">No</label><br>
@@ -304,13 +306,15 @@
               <span class="tooltiptext">Tips and guidances</span>
             </div>
             <form>
-                  <input type="radio" id="201" name="201" value="Yes" onClick="window.location.href='high_risk.html';">
+                  <input type="radio" id="201" name="201" value="Yes">
                   <label for="Yes">Yes</label><br>
                   <input type="radio" id="201" name="201" value="No">
                   <label for="No">No</label><br>
                   <input type="radio" id="201" name="201" value="Possible recruitment">
                   <label for="Possible recruitment">Possible recruitment</label><br>  
             </form> 
+            <input type="button" class="previous" value="Previous" id="previous" name="previous">
+            <input type="button" class="next" value="Next" id="next" name="next">
         </div>
     </body>
 </html>
