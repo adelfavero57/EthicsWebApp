@@ -1,10 +1,10 @@
 from django.test import TestCase
-from .models import Application
-from django.contrib.auth.models import User
-from django.contrib.auth.models import Group
-from django.test import LiveServerTestCase
-from selenium.webdriver.chrome.webdriver import WebDriver
-import time
+# from .models import Application
+# from django.contrib.auth.models import User
+# from django.contrib.auth.models import Group
+# from django.test import LiveServerTestCase
+# from selenium.webdriver.chrome.webdriver import WebDriver
+# import time
 
 # Create your tests here.
 
@@ -34,12 +34,12 @@ import time
 #         pass
 
 
-class SimpleTest(TestCase):
+# class SimpleTest(TestCase):
     
     
-    def test_register(self):
-        response = self.client.get('/register/')
-        self.assertEqual(response.status_code, 200)
+#     def test_register(self):
+#         response = self.client.get('/register/')
+#         self.assertEqual(response.status_code, 200)
 
 
 
