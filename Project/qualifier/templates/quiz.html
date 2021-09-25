@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'adminbase.html' %}
 
 {% block content %}
 <!DOCTYPE html>
@@ -17,7 +17,33 @@
 </head>
 
 <body>
-    <h1>Qualifier Questionaire</h1>
+    <div class="grid-container">
+        <div class="grid-container2">
+            <div class="grid-header">
+                <h1>Qualifier Questionnaire</h1>
+            </div>
+
+            <p> maybe a question</p>
+            <p> maybe a question</p>
+            <p> maybe a question</p>
+            <p> maybe a question</p>
+            <p> maybe a question</p>
+            <p> maybe a question</p>
+            <p> maybe a question</p>
+            <p> maybe a question</p>
+            <p> maybe a question</p>
+
+
+            <div class=grid-form>
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="submit" class="grid-item2" value="Submit" id="submit" name="submit">
+                </form>
+            </div>
+
+        </div>
+    </div>
+
 </body>
 
 </html>

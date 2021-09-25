@@ -1,0 +1,39 @@
+ * {
+     font-family: sans-serif;
+ }
+
+ .grid-container {
+     display: grid;
+     justify-content: center;
+     height: 100vh;
+     width: 100vw;
+     align-content: center;
+     background-color: #FFFFFF;
+ }
+
+ .grid-container2 {
+    display: grid;
+    height: 90vh;
+    width: 80vw;
+    border: 5px solid #424242;
+    background-color: #F4F4F4;
+    padding: 3% 5% 3% 5%;
+
+    box-sizing: border-box;
+ }
+
+ .grid-header {
+     justify-self: center;
+ }
+
+ .grid-form {
+     justify-self: center;
+ }
+
+ .grid-item2 {
+    color:#ffffff;
+    background:#e64626;
+    border: 0em;
+    height: 2.5em;
+    width: 6em;
+ }
