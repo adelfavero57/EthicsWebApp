@@ -43,12 +43,11 @@ INSTALLED_APPS = [
     'managelist.apps.ManagelistConfig',
     'approvelist.apps.ApprovelistConfig',
     'adminpage.apps.AdminpageConfig',
-<<<<<<< HEAD
+
+    'qualifier.apps.QualifierConfig',
     'coversheet.apps.CoversheetConfig'
 
-=======
-    'qualifier.apps.QualifierConfig'
->>>>>>> master
+
 ]
 
 MIDDLEWARE = [
