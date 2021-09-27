@@ -23,22 +23,24 @@
                 <h1>Qualifier Questionnaire</h1>
             </div>
 
-            <p> maybe a question</p>
-            <p> maybe a question</p>
-            <p> maybe a question</p>
-            <p> maybe a question</p>
-            <p> maybe a question</p>
-            <p> maybe a question</p>
-            <p> maybe a question</p>
-            <p> maybe a question</p>
 
+            <form method="POST">
+                {% csrf_token %}
+                <div class="questions">
+                    {% for i in questions %}
 
-            <div class=grid-form>
-                <form method="POST">
-                    {% csrf_token %}
-                    <input type="submit" class="grid-item2" value="Submit" id="submit" name="submit">
-                </form>
-            </div>
+                    <br>
+                    <div>{{i.text}}</div>
+                    <p>
+                        <input type="radio" name="selection{{i.question_num}}" value="Yes">Yes</input>
+                        <input type="radio" name="selection{{i.question_num}}" value="No">No</input>
+                    </p>
+
+                    {% endfor %}
+                </div>
+                <div class="grid-item1"><input type="submit" class="grid-item-button" value="Submit" id="submit" name="submit"></div>
+            </form>
+
 
         </div>
     </div>

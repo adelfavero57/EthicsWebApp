@@ -5,7 +5,7 @@
  .grid-container {
      display: grid;
      justify-content: center;
-     height: 100vh;
+     height: auto;
      width: 100vw;
      align-content: center;
      background-color: #FFFFFF;
@@ -13,24 +13,24 @@
 
  .grid-container2 {
     display: grid;
-    height: 90vh;
+    height: auto;
     width: 80vw;
-    border: 5px solid #424242;
+    border: 2.5px solid #424242;
     background-color: #F4F4F4;
-    padding: 3% 5% 3% 5%;
-
+    padding: 2% 5% 2% 5%;
     box-sizing: border-box;
+    margin-top: 3%;
  }
 
  .grid-header {
      justify-self: center;
  }
 
- .grid-form {
-     justify-self: center;
+ .grid-item1 {
+     text-align: center;
  }
 
- .grid-item2 {
+ .grid-item-button {
     color:#ffffff;
     background:#e64626;
     border: 0em;
