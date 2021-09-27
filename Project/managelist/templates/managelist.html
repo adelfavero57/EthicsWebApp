@@ -10,22 +10,7 @@
  {% block js %}
   <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
   <script src="https://code.jquery.com/jquery-migrate-3.3.2.js"></script>
-<script>
-
-  $('document').ready(function(){
-
-    $('#search').keyup(function(e){
-      
-      let value = $(this).val().toLowerCase();
-
-      $(".tbody").filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-      
-     });
-  });
-
-</script>
+  <script src="{% static 'managelist/manage.js' %}"></script>
  {% endblock %}
 
 
@@ -46,10 +31,10 @@
       </div>
   
 
-        <table class = "applicationlist">
+        <table class = "applicationlist" id = "sort_application">
             <tr class = "thead">
               <th>Id</th>
-              <th>Project Title</th>
+              <th onclick = "sortTitle()">Project Title</th>
               <th>date_created</th>
               <th>last_modified</th>
               <th>Supervisor</th>
