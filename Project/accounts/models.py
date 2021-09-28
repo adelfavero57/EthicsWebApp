@@ -43,8 +43,6 @@ class CoverSheetAnswers(models.Model):
     id = models.IntegerField(primary_key=True)
     text = models.TextField()
     
-
-
 class CoverSheetQuestion(models.Model):
     question_num = models.IntegerField(primary_key=True, unique=True, null=False)
     text = models.TextField(null=False)

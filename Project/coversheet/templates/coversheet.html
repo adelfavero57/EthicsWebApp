@@ -18,6 +18,7 @@
         </style>
         <body>
             <form action="/coversheet.html">
+                
                 <fieldset>
                     <legend> <strong>Application Form </strong></legend>
                     <h3> Complete the details on this tab, the questions on the questionnaire tab and upload study documents (e.g. Participant information statements, 
@@ -31,8 +32,14 @@
                 <br>
                 <fieldset>
                     <legend><strong> Summary</strong></legend>
-                    <form action="/coversheet.html" >
-                        <label for="summary">Provide a lay summary of the project (100 words):</label>
+                    <form method = 'POST' action="/coversheet.html" >
+                        <label for="summary">
+                            {% for question in cover %}
+                                {% if question.question_num == 1001%}
+                                    <font>{{ question.text }}</font>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
                         <br>
                         <textarea id="summary" name="summary" rows="8" cols="150"></textarea>
                         <br>
@@ -42,7 +49,13 @@
                 <fieldset>
                     <legend><strong> Protocol Title </strong></legend>
                     <form ation="/coversheet.html">
-                        <label for="prptocol">Protocol Title:</label>
+                        <label for="prptocol">
+                            {% for question in cover %}
+                                {% if question.question_num == 1002%}
+                                    <font>{{ question.text }}</font>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
                         <br>
                         <textarea id="protocol" name="protocol" rows="2" cols="150"></textarea>
                     </form>
@@ -51,19 +64,43 @@
                 <fieldset>
                     <legend><strong> Chief Investigator Details </strong></legend>
                     <form ation="/coversheet.html">
-                        <label for="investigatorname"> First Named Chief Investigator Name: </label>
+                        <label for="investigatorname"> 
+                            {% for question in cover %}
+                                {% if question.question_num == 1003%}
+                                    <font>{{ question.text }}</font>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
                         <br>
                         <textarea id="investigatorname" name="investigatorname" rows="1" cols="50"></textarea>
                         <br>
-                        <label for="investigatorid"> First Named Chief Investigator ID: </label>
+                        <label for="investigatorid"> 
+                            {% for question in cover %}
+                                {% if question.question_num == 1004%}
+                                    <font>{{ question.text }}</font>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
                         <br>
                         <textarea id="investigatorid" name="investigatorid" rows="1" cols="50"></textarea>
                         <br>
-                        <label for="center"> School/ Center: </label>
+                        <label for="center"> 
+                            {% for question in cover %}
+                                {% if question.question_num == 1005%}
+                                    <font>{{ question.text }}</font>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
                         <br>
                         <textarea id="center" name="center" rows="1" cols="50"></textarea>
                         <br>
-                        <label for="role"> Role: </label>
+                        <label for="role"> 
+                            {% for question in cover %}
+                                {% if question.question_num == 1006%}
+                                    <font>{{ question.text }}</font>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
                         <br>
                         <select id="role" name="role">
                             <option value="chiefinvestigator" selected> Chief Investigator</option>
@@ -75,13 +112,25 @@
                 <fieldset>
                     <legend><strong> Internal Investigators </strong></legend>
                     <form action="/coversheet.html">
-                        <label for="otherinternalinvestigators">Other Internal Investigators Involved: </label>
+                        <label for="otherinternalinvestigators">
+                            {% for question in cover %}
+                                {% if question.question_num == 1007%}
+                                    <font>{{ question.text }}</font>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
                         <select id ="otherinternalinvestigators" name = "otherinternalinvestigators">
                             <option value="Yes"> Yes </option>
                             <option value="No" selected> No </option>
                         </select>
                         <br>
-                        <label for="internalinvestigatorsnumber"> Number of Internal Investigators (including Chief Investigator): </label>
+                        <label for="internalinvestigatorsnumber"> 
+                            {% for question in cover %}
+                                {% if question.question_num == 1008%}
+                                    <font>{{ question.text }}</font>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
                         <input type="number" id="internalinvestigatorsnumber" name="internalinvestigatorsnumber" min="0" max="100" value= "0" ><br>
                     </form>
                 </fieldset>
@@ -89,32 +138,68 @@
                 <fieldset>
                     <legend><strong> External Investigators </strong></legend>
                     <form action="/coversheet.html">
-                        <label for="otherexternalinvestigators">Other External Investigators Involved: </label>
+                        <label for="otherexternalinvestigators">
+                            {% for question in cover %}
+                                {% if question.question_num == 1009%}
+                                    <font>{{ question.text }}</font>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
                         <select id ="otherexternalinvestigators" name = "otherexternalinvestigators">
                             <option value="Yes"> Yes </option>
                             <option value="No" selected> No </option>
                         </select>
                         <br>
-                        <label for="externalinvestigatorsnumber"> Number of External Investigators: </label>
+                        <label for="externalinvestigatorsnumber"> 
+                            {% for question in cover %}
+                                {% if question.question_num == 1010%}
+                                    <font>{{ question.text }}</font>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
                         <input type="number" id="externalinvestigatorsnumber" name="externalinvestigatorsnumber" min="0" max="100" value= "0" ><br>
                     </form>
                 </fieldset>
                 <fieldset>
                     <legend><strong> External Ethics Approval </strong></legend>
                     <form action="/coversheet.html">
-                        <label for="responsible"> Responsible: </label>
+                        <label for="responsible"> 
+                            {% for question in cover %}
+                                {% if question.question_num == 1011%}
+                                    <font>{{ question.text }}</font>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
                         <br>
                         <textarea id="responsible" name="responsible" rows="1" cols="150"></textarea>
                         <br>
-                        <label for="currentstate"> Current State: </label>
+                        <label for="currentstate"> 
+                            {% for question in cover %}
+                                {% if question.question_num == 1012%}
+                                    <font>{{ question.text }}</font>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
                         <br>
                         <textarea id="currentstate" name="currentstate" rows="1" cols="150"></textarea>
                         <br>
-                        <label for="HRECname"> HREC name: </label>
+                        <label for="HRECname"> 
+                            {% for question in cover %}
+                                {% if question.question_num == 1013%}
+                                    <font>{{ question.text }}</font>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
                         <br>
                         <textarea id="HRECname" name="HRECname" rows="1" cols="150"></textarea>
                         <br>
-                        <label for="action"> Action: </label>
+                        <label for="action"> 
+                            {% for question in cover %}
+                                {% if question.question_num == 1014%}
+                                    <font>{{ question.text }}</font>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
                         <br>
                         <textarea id="action" name="action" rows="3" cols="150"></textarea>
                         <br>
@@ -124,11 +209,23 @@
                 <fieldset>
                     <legend><strong>Contracts and Grants </strong></legend>
                     <form action="/coversheet.html">
-                        <label for="title"> Title: </label>
+                        <label for="title"> 
+                            {% for question in cover %}
+                                {% if question.question_num == 1015%}
+                                    <font>{{ question.text }}</font>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
                         <br>
                         <textarea id="title" name ="title" rows="1" cols="150"></textarea>
                         <br>
-                        <label for="contractaction"> Action: </label>
+                        <label for="contractaction"> 
+                            {% for question in cover %}
+                                {% if question.question_num == 1016%}
+                                    <font>{{ question.text }}</font>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
                         <br>
                         <textarea id="contractaction" name="contractaction" rows="3" cols="150"></textarea>
                     </form>
@@ -137,7 +234,13 @@
                 <fieldset>
                     <legend><strong>Other Relevant Details</strong></legend>
                     <form action="coversheet.html">
-                        <label for="otherrelevantdetails"> Please provide any other relevant details: </label>
+                        <label for="otherrelevantdetails"> 
+                            {% for question in cover %}
+                                {% if question.question_num == 1017%}
+                                    <font>{{ question.text }}</font>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
                         <br>
                         <textarea id="otherrelevantdetails" name ="otherrelevantdetails" rows="8" cols="150"></textarea>
                     </form>

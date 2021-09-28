@@ -24,5 +24,5 @@ urlpatterns = [
     path('approvelist/', include('approvelist.urls')),
 
     path('qualifier/', include('qualifier.urls')),
-    path('coversheet/', include('coversheet.urls'))
+    path('coversheet/', include('coversheet.urls')),
 ]
