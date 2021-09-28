@@ -5,34 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'managelist/navstyle.css' %}">
+    
+    {%block others %}{% endblock %}
+
+    {%block js %}{% endblock %}
 </head>
 
+
 <body>
-    <nav class="navigation">
-        <div class="menu1">
+    <nav id="navigation">
+        <!-- image set up -->
+        <div class = "logo">
+            <img src="{% static 'managelist/logo.png' %}" alt="Logo" width="200" height="80" style="background-color: #cd4c27;">
+        </div>
+        
+        <div class="menu">
             <ul>
-                <li><a href="{% url 'managelist' %}">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#">Download</a></li>
-            </ul>
-
-        </div>
-
-        <div class="menu2">
-
-            <ul>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
                 <li><a href="{% url 'editprofile' %}">Profile</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
             </ul>
-
         </div>
-
-
     </nav>
+
+    <div id = "contents">
+        {% block content %}{%  endblock  %}
+    </div>
 </body>
 
 </html>
-{% block content %}
-
-{% endblock %}

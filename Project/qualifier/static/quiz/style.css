@@ -1,0 +1,39 @@
+ * {
+     font-family: sans-serif;
+ }
+
+ .grid-container {
+     display: grid;
+     justify-content: center;
+     height: auto;
+     width: 100vw;
+     align-content: center;
+     background-color: #FFFFFF;
+ }
+
+ .grid-container2 {
+    display: grid;
+    height: auto;
+    width: 80vw;
+    border: 2.5px solid #424242;
+    background-color: #F4F4F4;
+    padding: 2% 5% 2% 5%;
+    box-sizing: border-box;
+    margin-top: 3%;
+ }
+
+ .grid-header {
+     justify-self: center;
+ }
+
+ .grid-item1 {
+     text-align: center;
+ }
+
+ .grid-item-button {
+    color:#ffffff;
+    background:#e64626;
+    border: 0em;
+    height: 2.5em;
+    width: 6em;
+ }

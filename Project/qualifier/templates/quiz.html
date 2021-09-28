@@ -1,0 +1,51 @@
+{% extends 'adminbase.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- add stylesheet -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'quiz/style.css' %}">
+
+    <title>Quiz</title>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-container2">
+            <div class="grid-header">
+                <h1>Qualifier Questionnaire</h1>
+            </div>
+
+
+            <form method="POST">
+                {% csrf_token %}
+                <div class="questions">
+                    {% for i in questions %}
+
+                    <br>
+                    <div>{{i.text}}</div>
+                    <p>
+                        <input type="radio" name="selection{{i.question_num}}" value="Yes" required>Yes</input>
+                        <input type="radio" name="selection{{i.question_num}}" value="No">No</input>
+                    </p>
+
+                    {% endfor %}
+                </div>
+                <div class="grid-item1"><input type="submit" class="grid-item-button" value="Submit" id="submit" name="submit"></div>
+            </form>
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+{% endblock %}

@@ -4,7 +4,6 @@ from django.db import models
 from django.db.models.deletion import CASCADE, SET_NULL
 from django.db.models.fields import UUIDField
 import uuid
-
 from django.db.models.fields.related import ForeignKey
 # Create your models here.
 
