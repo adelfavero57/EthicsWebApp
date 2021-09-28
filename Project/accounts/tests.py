@@ -6,8 +6,6 @@ from django.test import LiveServerTestCase
 from selenium.webdriver.chrome.webdriver import WebDriver
 import time
 
-Create your tests here.
-
 # class RegisterTest(TestCase):
 
 #     @classmethod
