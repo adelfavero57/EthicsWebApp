@@ -1,12 +1,10 @@
-from django.test import TestCase
-from .models import Application
-from django.contrib.auth.models import User
-from django.contrib.auth.models import Group
-from django.test import LiveServerTestCase
-from selenium.webdriver.chrome.webdriver import WebDriver
-import time
-
-Create your tests here.
+# from django.test import TestCase
+# from .models import Application
+# from django.contrib.auth.models import User
+# from django.contrib.auth.models import Group
+# from django.test import LiveServerTestCase
+# from selenium.webdriver.chrome.webdriver import WebDriver
+# import time
 
 # class RegisterTest(TestCase):
 
