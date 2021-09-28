@@ -20,10 +20,10 @@ def logout_view(request):
     return redirect('login')
 
 
+
+
 @login_required(login_url='login')
-def coversheetPage(request):
-    cover = CoverSheetQuestion.objects.all()
-    context = {'cover': cover}
-    return render(request, 'coversheet.html', context)
+def PISform(request):
+    return render(request, 'PISform.html')
 
 

@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     'adminpage.apps.AdminpageConfig',
 
     'qualifier.apps.QualifierConfig',
-    'coversheet.apps.CoversheetConfig'
+    'coversheet.apps.CoversheetConfig',
+    'PISform.apps.PisformConfig'
+
 
 
 ]
