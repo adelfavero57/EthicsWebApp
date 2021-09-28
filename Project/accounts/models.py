@@ -23,6 +23,7 @@ class Question(models.Model):
     text = models.TextField(null=False)
     is_short_answer = models.BinaryField(null=False)
     section_name = models.CharField(max_length=1, null=False)
+    tips = models.TextField(max_length=150, null=True, default='')
 
 class Answers(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -33,3 +34,18 @@ class Answers(models.Model):
     section_name = models.CharField(max_length=1, null=False)
     is_referenced = models.BinaryField(null=False)
     is_exemplar = models.BinaryField(null=False)
+
+
+
+class CoverSheetQuestion(models.Model):
+    question_num = models.IntegerField(primary_key=True, unique=True, null=False)
+    text = models.TextField(null=False)
+    is_short_answer = models.BinaryField(null=False)
+
+
+class CoverSheetAnswers(models.Model):
+    id = models.IntegerField(primary_key=True)
+    text = models.TextField()
+    question_id = models.ForeignKey(CoverSheetQuestion, on_delete=models.CASCADE)
+    application_id = models.ForeignKey(Application, on_delete=models.CASCADE, null=True)
+    is_short_answer = models.BinaryField(null=False)
