@@ -34,14 +34,6 @@ class Answers(models.Model):
     is_referenced = models.BinaryField(null=False)
     is_exemplar = models.BinaryField(null=False)
 
-class CoverSheetQuestion(models.Model):
-    coversheetquestion_num = models.IntegerField(primary_key=True)
-    text = models.TextField(null=False)
-    is_short_answer = models.BinaryField(null=False)
-
-class CoverSheetAnswers(models.Model):
-    id = models.IntegerField(primary_key=True)
-    text = models.TextField()
     
 class CoverSheetQuestion(models.Model):
     question_num = models.IntegerField(primary_key=True, unique=True, null=False)
