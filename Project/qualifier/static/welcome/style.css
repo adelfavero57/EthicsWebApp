@@ -11,7 +11,8 @@
     height: 80vh;
     width: 60vw;
     align-self: center;
-    border: 10px solid #424242;
+    border: 2.5px solid #424242;
+    background-color: #F4F4F4;
     box-sizing: border-box;
     padding: 5% 5% 5% 5%;
 }
@@ -22,6 +23,10 @@
 }
 
 .grid-item6 {
+    justify-self: center;
+}
+
+.grid-item7 {
     color:#ffffff;
     background:#e64626;
     border: 0em;
