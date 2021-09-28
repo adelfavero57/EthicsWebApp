@@ -1,47 +1,32 @@
-.main_part {
+.applicationlist{
 
-    height: 100%; 
-    margin: 0;
-    padding: 0;
+    border-collapse: collapse;
+    font-size: 20px;
+    min-width: 100%;
+    overflow: hidden;
 }
 
-.main_part h1 {
+.thead{
 
-    width: 100%;
+    background-color: #3e3d3e;
+    color: #ffffff;
+    text-align: left;
 }
 
-.main_part h3 {
-    width: 50%;
-    border-style: dashed;
+.tbody{
+
+    border-bottom: 1px solid #dddddd;
+}
+.searchbar{
+
+    float: right;
 }
 
-.itembox {
-    display: flex;
-    border-style: solid;
-
-    border-left: none;
-    border-right: none;
-
-    margin-top: 3%;
-    
+.start_quiz{
+    float: right;
 }
 
-.item {
-    display: flex;
-    width: 80%;
-    list-style-type: none;
-    
-}
+.start_quiz button{
 
-.item li{
-
-    
-    padding: .5em;
-    width: 30%;
-    font-size:larger;
-}
-
-.modify {
-
-    list-style-type: none;
+    left: 50%;
 }

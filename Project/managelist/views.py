@@ -2,6 +2,8 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from accounts.decorators import allowed_users
 from django.shortcuts import render, redirect
+from accounts.models import Application
+from django.http import JsonResponse
 
 # PDF generation imports
 from django.http import FileResponse
@@ -10,15 +12,6 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
 # Create your views here.
-
-
-class Application:
-    def __init__(self, name, process, status):
-
-        self.name = name
-        self.process = process
-        self.status = status
-
 
 test1 = Application("form1", "20%", "IN PROCESS")
 test2 = Application("form2", "20%", "IN PROCESS")
@@ -64,5 +57,48 @@ def logout_view(request):
 @allowed_users(allowed_roles=['researcher'])
 def managelistPage(request):
 
-    context = {'applications': Applications}
+    applications = Application.objects.filter(user=request.user)
+    
+    context = {'applications': applications}
+
     return render(request, 'managelist.html', context)
+
+# @login_required(login_url='login')
+# @allowed_users(allowed_roles=['student'])
+# def search(request):
+    
+#     data = dict()
+
+#     if request.method == "POST":
+
+#         search_text = request.POST["search_text"]
+
+#         if search_text is not None:
+
+#             applications = Application.objects.filter(user=request.user, title=search_text)         
+
+#             data['result'] = applications
+
+            
+#     print(data)
+
+#     return JsonResponse(data)
+    
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['student'])
+
+def deleteRow(request, item_id):
+
+    item = Application.objects.get(pk=item_id)
+
+    item.delete()
+
+    return redirect('managelist')
+
+
+
+
+
+
+
