@@ -38,8 +38,12 @@
                     </ul>
                 </span>
             </p>
-
-            <input type="submit" class="grid-item6" value="Next" id="next" name="next">
+            <div class="grid-item grid-item6">
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="submit" class="grid-item grid-item7" value="Next" id="next" name="next">
+                </form>
+            </div>
         </div>
     </div>
 </body>
