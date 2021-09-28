@@ -1,30 +1,28 @@
-from accounts.models import Question
-
+from accounts.models import Question, CoverSheetQuestion
 
 Question.objects.bulk_create([
-    Question(question_num=2, text = 'Is this project a University of Sydney student project ONLY (i.e. ethics application restricted to the activities of the student research project)?', is_short_answer=bytes([0]), section_name='A'),
-    Question(question_num=4, text = 'Select appropriate student classification:', is_short_answer=bytes([1]), section_name='A'),
-    Question(question_num=3, text = 'Indicate whether this project has been or will be submitted to any other ethics committees', is_short_answer=bytes([0]), section_name='A'),
-    Question(question_num=5, text = 'Does your research involve women who are pregnant and the human foetus?', is_short_answer=bytes([0]), section_name='B'),
-    Question(question_num=13, text = 'Does your study involve children and/or young people (i.e. younger than 18 years)?', is_short_answer=bytes([0]), section_name='B'),
-    Question(question_num=15, text = 'Does your study involve people in existing dependent or unequal relationships with the researcher(s)?', is_short_answer=bytes([0]), section_name='B'),
-    Question(question_num=29, text = 'Does your research involve people with a cognitive impairment, an intellectual disability or a mental illness?', is_short_answer=bytes([0]), section_name='B'),
-    Question(question_num=33, text = 'Does your research involve people highly dependent on medical care who may be unable to give consent?', is_short_answer=bytes([0]), section_name='B'),
-    Question(question_num=38, text = 'Does your study have the potential to discover illegal activity by participants or others? This includes research intending to expose illegal activity, as well as research not specifically designed to, but likely to discover, illegal activity.', is_short_answer=bytes([0]), section_name='B'),
-    Question(question_num=41, text = 'Does your research involve Aboriginal and/or Torres Strait Islander peoples?', is_short_answer=bytes([0]), section_name='B'),
-    Question(question_num=47, text = 'Does your research involve CALD (Culturally and Linguistically Diverse) people?', is_short_answer=bytes([0]), section_name='B'),
-    Question(question_num=63, text = 'Does your research involve travel overseas?', is_short_answer=bytes([0]), section_name='B'),
-    Question(question_num=64, text = 'Is your study likely to cause or elicit distress in participants due to its subject matter, the procedures involved, information that might be revealed about the participant or related persons, or in some other way?', is_short_answer=bytes([0]), section_name='B'),
-    Question(question_num=78, text = 'Does your study involve research that could jeopardise a participant\'s employment?', is_short_answer=bytes([0]), section_name='B'),
-    Question(question_num=79, text = 'Is your proposed research a clinical trial? A clinical trial is a form of research designed to find out the effects of an intervention, including a treatment or diagnostic procedure. A clinical trial can involve testing a drug, a surgical procedure, other therapeutic procedures and devices, a preventive procedure, or a diagnostic device or procedure.', is_short_answer=bytes([0]), section_name='B'),
-    Question(question_num=84, text = 'Does your study involve the use of human tissue?', is_short_answer=bytes([0]), section_name='B'),
-    Question(question_num=138, text = 'Does your study involve human genetics or human stem cells?', is_short_answer=bytes([0]), section_name='B'),
-    Question(question_num=186, text = 'Does your study involve research that poses a risk to the physical or emotional safety or welfare of a University of Sydney student researcher (e.g. honours student or postgraduate student)? If you are a student and your research takes place off-campus a completion of a safety protocol may be necessary.', is_short_answer=bytes([0]), section_name='B'),
-    Question(question_num=192, text = 'Does your research involve any of the following: Collection of biological samples (e.g. blood, saliva, bodily fluids). Physical screening (e.g. blood pressure, cholesterol, physical fitness, MRI scans). Physical exertion? (i.e. physical activity, exercise).', is_short_answer=bytes([0]), section_name='B'),
-    Question(question_num=200, text = 'Does the research ONLY involve existing collections of data or records about human beings (collected with appropriate ethical approval)?', is_short_answer=bytes([0]), section_name='B'),
-    Question(question_num=201, text = 'Is there a foreseeable risk of more than \'discomfort\'? For a useful description of the differences betweenharm, discomfort and inconvenience please refer to the National Statement on Ethical Conduct in Human Research, Chapter 2.1', is_short_answer=bytes([0]), section_name='B'),
-    Question(question_num=30, text = 'Describe the existing dependent or unequal relationship', is_short_answer=bytes([1]), section_name='B'),
-    Question(question_num=31, text = 'How will the process of obtaining consent avoid perceived/actual coercion and enable persons in dependent relationships to give voluntary consent?', is_short_answer=bytes([1]), section_name='B'),
+    Question(question_num=101, text = 'Is this project a University of Sydney student project ONLY (i.e. ethics application restricted to the activities of the student research project)?', is_short_answer=bytes([0]), section_name='A'),
+    Question(question_num=102, text = 'Select appropriate student classification:', is_short_answer=bytes([1]), section_name='A'),
+    Question(question_num=103, text = 'Indicate whether this project has been or will be submitted to any other ethics committees', is_short_answer=bytes([0]), section_name='A'),
+    Question(question_num=201, text = 'Does your research involve women who are pregnant and the human foetus?', is_short_answer=bytes([0]), section_name='B'),
+    Question(question_num=202, text = 'Does your study involve children and/or young people (i.e. younger than 18 years)?', is_short_answer=bytes([0]), section_name='B'),
+    Question(question_num=203, text = 'Does your study involve people in existing dependent or unequal relationships with the researcher(s)?', is_short_answer=bytes([0]), section_name='B'),
+    Question(question_num=204, text = 'Does your research involve people with a cognitive impairment, an intellectual disability or a mental illness?', is_short_answer=bytes([0]), section_name='B'),
+    Question(question_num=205, text = 'Does your research involve people highly dependent on medical care who may be unable to give consent?', is_short_answer=bytes([0]), section_name='B'),
+    Question(question_num=206, text = 'Does your study have the potential to discover illegal activity by participants or others? This includes research intending to expose illegal activity, as well as research not specifically designed to, but likely to discover, illegal activity.', is_short_answer=bytes([0]), section_name='B'),
+    Question(question_num=207, text = 'Does your research involve Aboriginal and/or Torres Strait Islander peoples?', is_short_answer=bytes([0]), section_name='B'),
+    Question(question_num=208, text = 'Does your research involve CALD (Culturally and Linguistically Diverse) people?', is_short_answer=bytes([0]), section_name='B'),
+    Question(question_num=209, text = 'Does your research involve travel overseas?', is_short_answer=bytes([0]), section_name='B'),
+    Question(question_num=210, text = 'Is your study likely to cause or elicit distress in participants due to its subject matter, the procedures involved, information that might be revealed about the participant or related persons, or in some other way?', is_short_answer=bytes([0]), section_name='B'),
+    Question(question_num=211, text = 'Does your study involve research that could jeopardise a participant\'s employment?', is_short_answer=bytes([0]), section_name='B'),
+    Question(question_num=212, text = 'Is your proposed research a clinical trial? A clinical trial is a form of research designed to find out the effects of an intervention, including a treatment or diagnostic procedure. A clinical trial can involve testing a drug, a surgical procedure, other therapeutic procedures and devices, a preventive procedure, or a diagnostic device or procedure.', is_short_answer=bytes([0]), section_name='B'),
+    Question(question_num=213, text = 'Does your study involve the use of human tissue?', is_short_answer=bytes([0]), section_name='B'),
+    Question(question_num=214, text = 'Does your study involve human genetics or human stem cells?', is_short_answer=bytes([0]), section_name='B'),
+    Question(question_num=215, text = 'Does your study involve research that poses a risk to the physical or emotional safety or welfare of a University of Sydney student researcher (e.g. honours student or postgraduate student)? If you are a student and your research takes place off-campus a completion of a safety protocol may be necessary.', is_short_answer=bytes([0]), section_name='B'),
+    Question(question_num=216, text = 'Does your research involve any of the following: Collection of biological samples (e.g. blood, saliva, bodily fluids). Physical screening (e.g. blood pressure, cholesterol, physical fitness, MRI scans). Physical exertion? (i.e. physical activity, exercise).', is_short_answer=bytes([0]), section_name='B'),
+    Question(question_num=217, text = 'Does the research ONLY involve existing collections of data or records about human beings (collected with appropriate ethical approval)?', is_short_answer=bytes([0]), section_name='B'),
+    Question(question_num=218, text = 'Is there a foreseeable risk of more than \'discomfort\'? For a useful description of the differences betweenharm, discomfort and inconvenience please refer to the National Statement on Ethical Conduct in Human Research, Chapter 2.1', is_short_answer=bytes([0]), section_name='B'),
+    Question(question_num=219, text = 'How will the process of obtaining consent avoid perceived/actual coercion and enable persons in dependent relationships to give voluntary consent?', is_short_answer=bytes([1]), section_name='B'),
     
     Question(question_num=501, text = 'Are any "conflict of interest" issues likely to arise in relation to this research?', is_short_answer=bytes([0]), section_name='C'),
     Question(question_num=502, text = 'Do the researchers have any affiliation with, or financial involvement in, any organisation or entity with direct or indirect interests in the subject matter or materials of this research? (Note that such benefits must be declared in the Participant Information Statement)', is_short_answer=bytes([0]), section_name='C'),
@@ -76,4 +74,25 @@ Question.objects.bulk_create([
     Question(question_num=903, text = 'Outline in lay language the theoretical, empirical and/or conceptual basis, background evidence for the research proposal with reference to the relevant literature (include at least four research citations). Note, that your study should be "based on a thorough study of the current literature, as well as previous studies" (NS 1.1 c).', is_short_answer=bytes([1]), section_name='G'),
     Question(question_num=904, text = 'Outline in lay language the methodology for the research proposal. Note, that you study should be "designed or developed using methods appropriate for achieving the aims of the proposal" (NS 1.1 b). Your response should include: Aims and hypotheses/research questions Research plan including duration of the study and/or timeline Participant characteristics including sex, age range and inclusion/exclusion criteria (if relevant) The intended sample size with a justification, and/or the particiant sampling/selection strategy (as relevant to your study) Details of where the study will be undertaken (location/site/URL) Details of how data will be collected and analysed Potential significance of the study', is_short_answer=bytes([1]), section_name='G'),
     Question(question_num=905, text = 'Thank you for completing the University of Sydney\'s Human Ethics Application Questionnaire. After selecting \'Completed\' below, please remember to attach any documents relevant to your application in the next tab. After completing your application, return to the \'Coversheet\' tab and press the \'Submit\' button. You will receive an email shortly after confirming your submission. Once again, if your require further information on the application procedure, please consult our website or email the Human Ethics team at ro.humanethics@sydney.edu.au If you experience any technical difficulties, please do not hesitate to contact Research Support using the details below: T +61 2 8627 8183 E research.support@sydney.edu.au', is_short_answer=bytes([0]), section_name='G'),
+])
+
+
+
+CoverSheetQuestion.objects.bulk_create([
+
+    CoverSheetQuestion(question_num=1001, text = 'Provide a lay summary of the project (100 words):', is_short_answer=bytes([1])),
+    CoverSheetQuestion(question_num=1002, text = 'Protocol Title:', is_short_answer=bytes([1])),
+    CoverSheetQuestion(question_num=1003, text = 'First Named Chief Investigator Name:', is_short_answer=bytes([1])),
+    CoverSheetQuestion(question_num=1004, text = 'First Named Chief Investigator ID:', is_short_answer=bytes([1])),
+    CoverSheetQuestion(question_num=1005, text = 'Other Internal Investigators Involved:', is_short_answer=bytes([0])),
+    CoverSheetQuestion(question_num=1006, text = 'Number of Internal Investigators (including Chief Investigator):', is_short_answer=bytes([1])),
+    CoverSheetQuestion(question_num=1007, text = 'Other External Investigators Involved:', is_short_answer=bytes([0])),
+    CoverSheetQuestion(question_num=1008, text = 'Responsible:', is_short_answer=bytes([1])),
+    CoverSheetQuestion(question_num=1009, text = 'Current State:', is_short_answer=bytes([1])),
+    CoverSheetQuestion(question_num=1010, text = 'HREC name:', is_short_answer=bytes([1])),
+    CoverSheetQuestion(question_num=1012, text = 'Action:', is_short_answer=bytes([1])),
+    CoverSheetQuestion(question_num=1013, text = 'Title:', is_short_answer=bytes([1])),
+    CoverSheetQuestion(question_num=1014, text = 'Action:', is_short_answer=bytes([1])),
+    CoverSheetQuestion(question_num=1015, text = 'Please provide any other relevant details:', is_short_answer=bytes([1])),
+
 ])
