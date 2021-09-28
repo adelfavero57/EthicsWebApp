@@ -55,6 +55,8 @@ def managelistPage(request):
 
     return render(request, 'managelist.html', context)
 
+
+
     
 
 @login_required(login_url='login')
