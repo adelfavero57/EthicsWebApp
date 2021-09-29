@@ -43,8 +43,8 @@ body {
 }
 
 .invalids {
-    color: red;
-    font-size: 10px;
+    color: orange;
+    font-size: 14px;
     max-width: 300px;
 }
 
