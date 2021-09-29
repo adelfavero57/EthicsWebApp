@@ -22,6 +22,7 @@ def quiz(request):
             selection = request.POST.get('selection{}'.format(i))
             if selection == 'Yes':
                 return HttpResponse('Failure')
+        
         return HttpResponse('Success')
 
     context = {'questions': questions}
