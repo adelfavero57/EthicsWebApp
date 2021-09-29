@@ -54,7 +54,7 @@ body {
     margin: 5px 0px 20px 0px;
 }
 
-/* #invalid { 
+/* #invaliddata { 
     display: grid;
     height: 35px;
     width: 300px; 
@@ -69,8 +69,8 @@ body {
 } */
 
 .invalids {
-    color: red;
-    font-size: 10px;
+    color: orange;
+    font-size: 14px;
     max-width: 300px;
     margin: 0;
 }
