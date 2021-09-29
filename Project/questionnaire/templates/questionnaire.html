@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Questionnaire</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'questionnaire/style.css' %}">
+    </head>
+    <body>
+        <div class="sidenav"> 
+            <a href="#SectionA">SectionA Distinguish users</a>
+            <a href="#SectionB">SectionB Risk Evaluation</a>
+            <a href="#SectionC">SectionC Conflicts of interest</a>
+            <a href="#SectionD">SectionD Consent process</a>
+            <a href="#SectionE">SectionE Privary issue</a>
+            <a href="#SectionF">SectionF Concern risks</a>
+            <a href="#SectionG">SectionG Concern research study</a>
+        </div>
+        <div class="questions">
+            <a name = "SectionA"></a>
+            <h1>SECTION A</h1>
+            <h4>SECTION A is designed to distinguish between staff and student projects. In addition, this Section also seeks to identify projects that have been approved by other ethics committees.</h4>
+            {% for question in que %}
+              {% if question.question_num == 101%}
+                <font>{{ question.text }}</font>
+                <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+                  <span class="tooltiptext">{{question.tips}}</span>
+                </div>
+                <form>
+                  <input type="radio" id="button1" name="{{question.question_num}}" value="Yes">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="button2" name="{{question.question_num}}" value="No">
+                  <label for="No">No</label><br>
+                </form>
+              {% endif %}
+            {% endfor %}
+            <div id="div1" style="display :none ;">
+              {% for question in que %}
+                {% if question.question_num == 102%}
+                <font>{{ question.text }}</font>
+                <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+                    <span class="tooltiptext">{{question.tips}}</span>
+                </div>
+                <ul>
+                    <select>
+                        <option>Bachelor</option>
+                        <option>Master</option>
+                        <option>Phd</option>
+                    </select>
+                </ul>
+                </div>
+                <script type="text/javascript">
+                $("#button1").click(function(){
+                    $("#div1").show();
+                });
+                $("#button2").click(function(){
+                    $("#div1").hide();
+                });
+                </script> 
+                {% endif %}
+              {% endfor %}
+                
+            {% for question in que %}
+              {% if question.section_name == "A" and question.question_num > 102%}
+                <font>{{ question.text }}</font>
+                <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+                    <span class="tooltiptext">Tips and guidances</span>
+                    </div>
+                    <form>
+                        <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                        <label for="Yes">Yes</label><br>
+                        <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                        <label for="No">No</label><br>
+                    </form>
+              {% endif %}
+            {% endfor %}
+            <a name = "SectionB"></a>
+            <h1>Section B</h1>
+            <h4>Section B is designed to determine whether your study falls within the National Statements definition of low or negligible risk. Throughout this section, you may be asked specific additional questions where you indicate that your study involves particular participant and/ or project types. Please note that the option Possible Recruitment with reference to specific participant populations indicates that these people MAY be recruited into your study, but are not the specific population of interest. If this population is the focus of your study, you should select Yes.
+                Please answer the following questions</h4>
+            
+              {% for question in que %}
+                {% if question.section_name == "B"%}
+                  <font>{{ question.text }}</font>
+                  <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+                    <span class="tooltiptext">{{question.tips}}</span>
+                  </div>
+                  <form>
+                        <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                        <label for="Yes">Yes</label><br>
+                        <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
+                        <label for="No">No</label><br>
+                  </form>
+                  <p></p> 
+                {% endif %}
+              {% endfor %}
+            
+
+            <a name = "SectionC"></a>
+            <h1>Section C</h1>
+            <h4>The questions in Section C are designed to determine whether there are any conflicts of interests which may
+              compromise the research process.</h4>
+            
+              {% for question in que %}
+              {% if question.section_name == "C"%}
+                <font>{{ question.text }}</font>
+                <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+                  <span class="tooltiptext">{{question.tips}}</span>
+                </div>
+                <form>
+                      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                      <label for="Yes">Yes</label><br>
+                      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                      <label for="No">No</label><br>
+                </form>
+                <p></p> 
+              {% endif %}
+            {% endfor %}
+
+            <a name = "SectionD"></a>
+            <h1>Section D</h1>
+            <h4>The questions in Section D are specifically directed at the consent process.</h4>
+            
+            {% for question in que %}
+              {% if question.section_name == "D"%}
+                <font>{{question.text }}</font>
+                <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+                  <span class="tooltiptext">{{question.tips}}</span>
+                </div>
+                {% if question.is_short_answer %}
+                    <form>
+                      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
+                    </form> 
+                {% else %}
+                    <form>
+                      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                      <label for="Yes">Yes</label><br>
+                      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                      <label for="No">No</label><br>
+                    </form>
+                {% endif %}
+                <p></p>
+              {% endif %}
+            {% endfor %}
+
+
+            <a name = "SectionE"></a>
+            <h1>Section E</h1>
+            <h4>The questions in Section E relate to how you will protect participants privacy and the confidentiality of their
+              information in your research project.</h4>
+            
+              {% for question in que %}
+                {% if question.question_num == 701%}
+                  <font>{{ question.text }}</font>
+                {% endif %}
+              {% endfor %}
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+                <input type="radio" id="701" name="701" value="Yes">
+                  <label for="Yes">Yes</label><br>
+                  <input type="radio" id="701" name="701" value="No">
+                  <label for="No">No</label><br>
+            </form>
+
+            {% for question in que %}
+                {% if question.question_num == 702%}
+                  <font>{{ question.text }}</font>
+                {% endif %}
+            {% endfor %}
+            <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:36px"></i>
+              <span class="tooltiptext">Tips and guidances</span>
+            </div>
+            <form>
+              <input type="checkbox" id="702" name="702" value="Film/Video recordings">
+              <label for="Film/Video recordings"> Film/Video recordings</label><br>
+              <input type="checkbox" id="702" name="702" value="Online survey">
+              <label for="Online survey"> Online survey</label><br>
+            </form>
+
+            <a name = "SectionF"></a>
+            <h1>Section F</h1>
+            <h4>The questions in Section F concern risks to both participants and others connected with the study.</h4>
+            {% for question in que %}
+              {% if question.section_name == "F"%}
+                <font>{{question.text }}</font>
+                <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+                  <span class="tooltiptext">{{question.tips}}</span>
+                </div>
+                {% if question.is_short_answer %}
+                    <form>
+                      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
+                    </form> 
+                {% endif %}
+                    <p></p>
+              {% endif %}
+            {% endfor %}
+
+            <a name = "SectionG"></a>
+            <h1>Section G</h1>
+            <h4>The questions in Section G concern details of the research study. Please answer the following questions.</h4>
+            {% for question in que %}
+                {% if question.question_num == 905%}
+                    <font>{{question.text }}</font>
+                {% endif %}
+                <p></p>
+            {% endfor %}
+            <div style="text-align: center;"><input type="submit" value="Completed" id="Completed" name="Completed"></div>
+        </div>
+        
+    </body>
+</html>
+{% endblock %}
