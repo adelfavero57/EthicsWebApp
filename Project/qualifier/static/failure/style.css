@@ -1,0 +1,46 @@
+.grid-container {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+.grid-container2 {
+    display: grid;
+    height: auto;
+    width: 60vw;
+    align-self: start;
+    border: 2.5px solid #424242;
+    background-color: #F4F4F4;
+    box-sizing: border-box;
+    padding: 3% 5% 5% 5%;
+    margin-top: 3%;
+}
+
+.grid-item1{
+    justify-self: center;
+    text-align: center;
+}
+
+.grid-item6 {
+    justify-self: center;
+}
+
+.grid-item7 {
+    color:#ffffff;
+    background:#e64626;
+    border: 0em;
+    height: 2.5em;
+    width: 6em;
+    justify-self: center;
+    text-align: center;
+}
+
+p {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+}
