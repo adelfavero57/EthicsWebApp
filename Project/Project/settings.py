@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'adminpage.apps.AdminpageConfig',
 
     'qualifier.apps.QualifierConfig',
-    'coversheet.apps.CoversheetConfig'
+    'coversheet.apps.CoversheetConfig',
+    'questionnaire.apps.QuestionnaireConfig',
 
 
 ]
