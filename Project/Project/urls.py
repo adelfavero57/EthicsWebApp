@@ -25,4 +25,5 @@ urlpatterns = [
 
     path('qualifier/', include('qualifier.urls')),
     path('coversheet/', include('coversheet.urls')),
+    path('questionnaire/', include('questionnaire.urls')),
 ]
