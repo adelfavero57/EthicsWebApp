@@ -37,7 +37,6 @@
       background: #f4f4f4;
   }
   div{
-    text-align: center;
     margin-left:0px;
   }
   /* The sidebar menu */
@@ -92,16 +91,4 @@
  }
 h1{
   text-align: center;
-}
-
-.grid-item1 {
-  text-align: center;
-}
-
-.grid-item-button {
- color:#ffffff;
- background:#e64626;
- border: 0em;
- height: 2.5em;
- width: 6em;
 }
