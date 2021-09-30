@@ -14,6 +14,7 @@ class Application(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.TextField(max_length=200, null=False)
     supervisor = models.TextField(max_length=150, null=False)
+    status = models.TextField(max_length=10)
     is_complete = models.BinaryField(null=False)
     is_approved = models.BinaryField(null=False)
 
