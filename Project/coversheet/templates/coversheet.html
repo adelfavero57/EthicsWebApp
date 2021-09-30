@@ -17,8 +17,8 @@
         
         </style>
         <body>
-            <form action="/coversheet.html">
-                
+            <form method = "POST" action="/coversheet/">
+                {% csrf_token %} 
                 <fieldset>
                     <legend> <strong>Application Form </strong></legend>
                     <h3> Complete the details on this tab, the questions on the questionnaire tab and upload study documents (e.g. Participant information statements, 
@@ -32,7 +32,7 @@
                 <br>
                 <fieldset>
                     <legend><strong> Summary</strong></legend>
-                    <form method = 'POST' action="/coversheet.html" >
+                    <!--<form method = 'POST' action="/coversheet.html" >-->
                         <label for="summary">
                             {% for question in cover %}
                                 {% if question.question_num == 1001%}
@@ -43,12 +43,12 @@
                         <br>
                         <textarea id="summary" name="summary" rows="8" cols="150"></textarea>
                         <br>
-                    </form>
+                    <!--</form>-->
                 </fieldset>
-
+                <br>
                 <fieldset>
                     <legend><strong> Protocol Title </strong></legend>
-                    <form ation="/coversheet.html">
+                    <!--<form method = 'POST' action="/coversheet.html" >-->
                         <label for="prptocol">
                             {% for question in cover %}
                                 {% if question.question_num == 1002%}
@@ -58,12 +58,12 @@
                         </label>
                         <br>
                         <textarea id="protocol" name="protocol" rows="2" cols="150"></textarea>
-                    </form>
+                    <!--</form>-->
                 </fieldset>
                 <br>
                 <fieldset>
                     <legend><strong> Chief Investigator Details </strong></legend>
-                    <form ation="/coversheet.html">
+                    <!--<form method = 'POST' action="/coversheet.html" >-->
                         <label for="investigatorname"> 
                             {% for question in cover %}
                                 {% if question.question_num == 1003%}
@@ -106,12 +106,12 @@
                             <option value="chiefinvestigator" selected> Chief Investigator</option>
                             <option value="others"> Others </option>
                         </select>
-                    </form>
+                    <!--</form>-->
                 </fieldset>
                 <br>
                 <fieldset>
                     <legend><strong> Internal Investigators </strong></legend>
-                    <form action="/coversheet.html">
+                    <!--<form method = 'POST' action="/coversheet.html" >-->
                         <label for="otherinternalinvestigators">
                             {% for question in cover %}
                                 {% if question.question_num == 1007%}
@@ -132,12 +132,12 @@
                             {% endfor %}
                         </label>
                         <input type="number" id="internalinvestigatorsnumber" name="internalinvestigatorsnumber" min="0" max="100" value= "0" ><br>
-                    </form>
+                    <!--</form>-->
                 </fieldset>
                 <br>
                 <fieldset>
                     <legend><strong> External Investigators </strong></legend>
-                    <form action="/coversheet.html">
+                    <!--<form method = 'POST' action="/coversheet.html" >-->
                         <label for="otherexternalinvestigators">
                             {% for question in cover %}
                                 {% if question.question_num == 1009%}
@@ -158,11 +158,12 @@
                             {% endfor %}
                         </label>
                         <input type="number" id="externalinvestigatorsnumber" name="externalinvestigatorsnumber" min="0" max="100" value= "0" ><br>
-                    </form>
+                    <!--</form>-->
                 </fieldset>
+                <br>
                 <fieldset>
                     <legend><strong> External Ethics Approval </strong></legend>
-                    <form action="/coversheet.html">
+                    <!--<form method = 'POST' action="/coversheet.html" >-->
                         <label for="responsible"> 
                             {% for question in cover %}
                                 {% if question.question_num == 1011%}
@@ -203,12 +204,12 @@
                         <br>
                         <textarea id="action" name="action" rows="3" cols="150"></textarea>
                         <br>
-                    </form>
+                    <!--</form>-->
                 </fieldset>
                 <br>
                 <fieldset>
                     <legend><strong>Contracts and Grants </strong></legend>
-                    <form action="/coversheet.html">
+                    <!--<form method = 'POST' action="/coversheet.html" >-->
                         <label for="title"> 
                             {% for question in cover %}
                                 {% if question.question_num == 1015%}
@@ -228,12 +229,12 @@
                         </label>
                         <br>
                         <textarea id="contractaction" name="contractaction" rows="3" cols="150"></textarea>
-                    </form>
+                    <!--</form>-->
                 </fieldset>
                 <br>
                 <fieldset>
                     <legend><strong>Other Relevant Details</strong></legend>
-                    <form action="coversheet.html">
+                    <!--<form method = 'POST' action="/coversheet.html" >-->
                         <label for="otherrelevantdetails"> 
                             {% for question in cover %}
                                 {% if question.question_num == 1017%}
@@ -243,7 +244,7 @@
                         </label>
                         <br>
                         <textarea id="otherrelevantdetails" name ="otherrelevantdetails" rows="8" cols="150"></textarea>
-                    </form>
+                    <!--</form>-->
                 </fieldset>
                 <h2><strong>Please navigate to Questionnaire tab</strong></h2>
                 <h3><strong>You have now completed the main details part of the form. Please complete questions
@@ -254,7 +255,7 @@
                 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                <button type="button" class="button button1" onclick="alert('Jump to the questionnaire page!')">Next</button>  
+                <input type="submit"  value="Next" class="button button1" onclick="alert('Jump to the questionnaire page!')"></input>  
                 
  
             </form>
