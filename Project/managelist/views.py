@@ -53,6 +53,8 @@ def managelistPage(request):
     
     context = {'applications': applications}
 
+    
+
     return render(request, 'managelist.html', context)
 
 
@@ -60,9 +62,11 @@ def managelistPage(request):
     
 
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['student'])
+@allowed_users(allowed_roles=['researcher'])
 
 def deleteRow(request, item_id):
+
+    print(item_id)
 
     item = Application.objects.get(pk=item_id)
 
