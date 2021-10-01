@@ -13,7 +13,6 @@ from django.http import HttpResponse
 def questionnaire(request):
     # Will have to add login required and researcher role later
     #que = Question.objects.get(question_num=2)
-    
     que = Question.objects.all()
     context = {'que':que}
     return render(request, 'questionnaire.html', context)
