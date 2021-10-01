@@ -30,28 +30,22 @@
         <th>date_created</th>
         <th>last_modified</th>
         <th>Supervisor</th>
+        <th>Status</th>
         <th colspan="2">Operation</th>
     </tr>
     {% for item in applications %}
-
+    {% if item.status == 'pending' %}
     <tr class="tbody">
-        {% if item.is_complete %}
 
         <td>{{item.id}}</td>
         <td>{{item.title}}</td>
         <td>{{item.date_created}}</td>
         <td>{{item.last_modified}}</td>
         <td>{{item.supervisor}}</td>
-        <td><a href="#">Download</a></td>
-
-        {% else %}
-        <td>{{item.id}}</td>
-        <td>{{item.title}}</td>
-        <td>{{item.date_created}}</td>
-        <td>{{item.last_modified}}</td>
-        <td>{{item.supervisor}}</td>
-        <td><a href="#">Edit</a></td>
-        <td><a href="{% url 'delete' item.id %}">Withdraw</a></td>
+        <td>{{item.status}}</td>
+        <td><a href="#">View</a></td>
+        <td><a href="{% url 'approve' item_id=item.id %}">Approve</a></td>
+        <td><a href="{% url 'disapprove' item_id=item.id %}">Disapprove</a></td>
 
     </tr>
 

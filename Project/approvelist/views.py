@@ -13,6 +13,28 @@ def logout_view(request):
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['staff'])
+def approve(request, item_id):
+
+    item = Application.objects.get(pk=item_id)
+    item.status = 'approved'
+    item.save()
+
+    return redirect('approvelist')
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['staff'])
+def disapprove(request, item_id):
+
+    item = Application.objects.get(pk=item_id)
+    item.status = 'disapproved'
+    item.save()
+
+    return redirect('approvelist')
+
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['staff'])
 def approvelistPage(request):
 
     applications = Application.objects.all()
