@@ -22,7 +22,7 @@ def coversheetPage(request):
         # added by Zinc and Ben
         app = Application.objects.create(user = request.user, title = 'test', supervisor = 'zinc', status = 'in progress')
         latest = Application.objects.latest('id')
-        a_id = latest.pk
+        a_id = Application.objects.latest('id')
         #print(latest.pk)
 
         summary_text = request.POST['summary']
