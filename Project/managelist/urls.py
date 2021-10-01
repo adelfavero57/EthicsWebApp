@@ -6,7 +6,6 @@ urlpatterns = [
     path('', views.managelistPage, name='managelist'),
     path('logout/', views.logout_view, name='logout'),
     path('edit_profile/', editUserPage, name='editprofile'),
-    path('<item_id>/', views.deleteRow, name='delete'),
-    #path('search/', views.search, name='search')
+    path('<int:item_id>/', views.deleteRow, name='delete'),
     path('download_application', views.download_application, name='download_application'),
 ]
