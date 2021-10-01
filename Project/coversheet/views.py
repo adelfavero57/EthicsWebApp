@@ -30,9 +30,6 @@ def coversheetPage(request):
 
             new_application = new_application.save()
 
-
-            print(new_application)
-
             
 
             summary_text = coversheet_form.cleaned_data['summary']
