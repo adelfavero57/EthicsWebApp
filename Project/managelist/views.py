@@ -48,6 +48,10 @@ def logout_view(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['researcher'])
 def managelistPage(request):
+    #if request.method == "POST":
+        #Summary = Application.objects.create(user = request.user, title = 'test', supervisor = 'zinc', status = 'in progress')
+        #Summary.save()
+        #redirect('qualifierwelcome')
 
     applications = Application.objects.filter(user=request.user)
     

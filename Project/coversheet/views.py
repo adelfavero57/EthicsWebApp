@@ -19,6 +19,12 @@ def coversheetPage(request):
     if request.method == 'POST':
         a_id = Application.objects.get(pk=1)
 
+        # added by Zinc and Ben
+        app = Application.objects.create(user = request.user, title = 'test', supervisor = 'zinc', status = 'in progress')
+        latest = Application.objects.latest('id')
+        a_id = latest.pk
+        #print(latest.pk)
+
         summary_text = request.POST['summary']
         csq_id_1001 = CoverSheetQuestion.objects.get(pk=1001)
         Summary = CoverSheetAnswers.objects.create(text = summary_text, question_id = csq_id_1001, application_id = a_id, is_short_answer = True)
@@ -105,7 +111,7 @@ def coversheetPage(request):
         Otherrelevantdetails = CoverSheetAnswers.objects.create(text = otherrelevantdetails_text, question_id = csq_id_1017, application_id = a_id, is_short_answer = True)
         Otherrelevantdetails.save()
 
-        return redirect('questionnaire')
+        return redirect('questionnaire',application_id = latest.pk)
 
     cover = CoverSheetQuestion.objects.all()
     context = {'cover': cover}

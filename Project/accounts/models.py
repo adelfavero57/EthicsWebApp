@@ -15,8 +15,6 @@ class Application(models.Model):
     title = models.TextField(max_length=200, null=False)
     supervisor = models.TextField(max_length=150, null=False)
     status = models.TextField(max_length=10)
-    is_complete = models.BinaryField(null=False)
-    is_approved = models.BinaryField(null=False)
     
 
 class Question(models.Model):
@@ -27,7 +25,7 @@ class Question(models.Model):
     tips = models.TextField(max_length=150, null=True, default='')
 
 class Answers(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.IntegerField(primary_key=True, unique=True)
     text = models.TextField()
     question_id = models.ForeignKey(Question, on_delete=models.CASCADE)
     application_id = models.ForeignKey(Application, on_delete=models.SET_NULL, null=True)
@@ -35,7 +33,7 @@ class Answers(models.Model):
     section_name = models.CharField(max_length=1, null=False)
     is_referenced = models.BinaryField(null=False)
     is_exemplar = models.BinaryField(null=False)
-    answer_type = models.TextField(null = True)
+    #answer_type = models.TextField(null = True)
 
 class CoverSheetQuestion(models.Model):
     question_num = models.IntegerField(primary_key=True, unique=True, null=False)
