@@ -33,7 +33,7 @@ class Answers(models.Model):
     section_name = models.CharField(max_length=1, null=False)
     is_referenced = models.BinaryField(null=False)
     is_exemplar = models.BinaryField(null=False)
-    answer_type = models.TextField(null = True)
+    #answer_type = models.TextField(null = True)
 
 class CoverSheetQuestion(models.Model):
     question_num = models.IntegerField(primary_key=True, unique=True, null=False)
