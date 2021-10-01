@@ -17,8 +17,10 @@ def logout_view(request):
 @login_required(login_url='login')
 def coversheetPage(request):
     if request.method == 'POST':
-        a_id = Application.objects.get(pk=1)
 
+        Application.objects.create(user = request.user, title = 'fix the of twice application', supervisor = 'shuai', status = 'in progress')
+        a_id = Application.objects.latest('id')
+        
         summary_text = request.POST['summary']
         csq_id_1001 = CoverSheetQuestion.objects.get(pk=1001)
         Summary = CoverSheetAnswers.objects.create(text = summary_text, question_id = csq_id_1001, application_id = a_id, is_short_answer = True)
