@@ -111,3 +111,11 @@ def coversheetPage(request):
     context = {'cover': cover}
     return render(request, 'coversheet.html', context)
 
+
+
+
+    
+
+
+
+

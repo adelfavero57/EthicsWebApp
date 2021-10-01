@@ -17,6 +17,7 @@ class Application(models.Model):
     status = models.TextField(max_length=10)
     is_complete = models.BinaryField(null=False)
     is_approved = models.BinaryField(null=False)
+    
 
 class Question(models.Model):
     question_num = models.IntegerField(primary_key=True, unique=True, null=False)
