@@ -6,14 +6,8 @@
         <title>Questionnaire</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-        
-        
         {% load static %}
-        <script type="text/javascript" src="{% static 'questionnaire/test.js' %}"></script>
         <link rel="stylesheet" type="text/css" href="{% static 'questionnaire/style.css' %}">
-
-
-        
     </head>
     <body>
         <div class="sidenav"> 
@@ -25,11 +19,8 @@
             <a href="#SectionF">SectionF Concern risks</a>
             <a href="#SectionG">SectionG Concern research study</a>
         </div>
-        <form method = "POST", action="">
-          {% csrf_token %}
         <div class="questions">
             <a name = "SectionA"></a>
-
            <h1>SECTION A</h1>
             <h4>SECTION A is designed to distinguish between staff and student projects. In addition, this Section also seeks to identify projects that have been approved by other ethics committees.</h4>
             {% for question in que %}
@@ -38,12 +29,12 @@
                 <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
                   <span class="tooltiptext">{{question.tips}}</span>
                 </div>
-                
+                <form>
                   <input type="radio" id="button1" name="{{question.question_num}}" value="Yes">
                   <label for="Yes">Yes</label><br>
                   <input type="radio" id="button2" name="{{question.question_num}}" value="No">
                   <label for="No">No</label><br>
-                
+                </form>
               {% endif %}
             {% endfor %}
             <div id="div1" style="display :none ;">
@@ -97,12 +88,12 @@
                   <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
                     <span class="tooltiptext">{{question.tips}}</span>
                   </div>
-                  
+                  <form>
                         <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
                         <label for="Yes">Yes</label><br>
                         <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
                         <label for="No">No</label><br>
-                  
+                  </form>
                   <p></p> 
                 {% endif %}
               {% endfor %}
@@ -119,12 +110,12 @@
                 <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
                   <span class="tooltiptext">{{question.tips}}</span>
                 </div>
-                
+                <form>
                       <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
                       <label for="Yes">Yes</label><br>
                       <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
                       <label for="No">No</label><br>
-                
+                </form>
                 <p></p> 
               {% endif %}
            {% endfor %}
@@ -135,71 +126,14 @@
             
             {% for question in que %}
               {% if question.section_name == "D"%}
-
-          
-
                 <font>{{question.text }}</font>
-
                 <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
                   <span class="tooltiptext">{{question.tips}}</span>
                 </div>
                 {% if question.is_short_answer == 1 %}
-<<<<<<< HEAD
-                   
+                    <form>
                       <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
-                   
-=======
-
-                <!-- you can create a new array to store the question number , and use if statement  -->
-                {% if question.question_num == 601 %}
-
-
-
-                <div class = "inspect">
-
-                  <button class = "show_button"> Click me </button>
-
-
-                  <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
-                  <div class = "hidden_text" data-status = "hidden" style="display :none ;">
-
-                    <div class = "selection_box">
-                      
-                      <button class = "think_aloud"> Think aloud </button>
-
-                      <button class = "crowed_source"> Crowed Source </button>
-
-                      <button class = "lab_study"> Lab Study </button>
-
-                      <div class = "think_aloud_txt" data-status = "hidden" style="display :none ;">
-                      
-                        <p class = "think_aloud_p"> The answer of think_aloud </p>
-                       
-                      </div> 
-
-                      <div class = "source_txt" data-status = "hidden" style="display :none ;">
-
-                        <p class = "source_txt_p"> The answer crowed source </p>
-                      
-                      </div>
-
-                      <div class = "lab_study_txt" data-status = "hidden" style="display :none ;">
-
-                        <p class = "lab_study_p"> The answer lab study </p>
-                      
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-
-                {% endif %}
-
-
-                <form>
-                  <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
-                </form>
->>>>>>> master
+                    </form>
                 {% elif question.is_short_answer == 2 %}
                     <ul>
                         <select>
@@ -209,12 +143,12 @@
                         </select>
                     </ul>
                 {% else %}
-                   
+                    <form>
                       <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
                       <label for="Yes">Yes</label><br>
                       <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
                       <label for="No">No</label><br>
-                    
+                    </form>
                 {% endif %}
                 <p></p>
               {% endif %}
@@ -232,9 +166,9 @@
                         <span class="tooltiptext">{{question.tips}}</span>
                     </div>
                     {% if question.is_short_answer == 1 %}
-                       
+                        <form>
                             <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
-                       
+                        </form>
                     {% elif question.is_short_answer == 2 %}
                         <ul>
                             <select>
@@ -243,12 +177,12 @@
                             </select>
                         </ul>
                     {% else %}
-                      
+                        <form>
                             <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
                             <label for="Yes">Yes</label><br>
                             <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
                             <label for="No">No</label><br>
-                       
+                        </form>
                     {% endif %}
                     <p></p>
                 {% endif %}
@@ -266,16 +200,16 @@
                   <span class="tooltiptext">{{question.tips}}</span>
                 </div>
                 {% if question.is_short_answer == 1 %}
-                    
+                    <form>
                       <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
-                   
+                    </form> 
                 {% else %}
-                    
+                    <form>
                       <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
                       <label for="Yes">Yes</label><br>
                       <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
                       <label for="No">No</label><br>
-                   
+                    </form>
                 {% endif %}
                 <p></p>
               {% endif %}
@@ -291,25 +225,25 @@
                   <span class="tooltiptext">{{question.tips}}</span>
                 </div>
                 {% if question.is_short_answer == 1 %}
-                    
+                    <form>
                       <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
-                  
+                    </form> 
                 {% elif question.question_num == 905%}
                     <p></p>
                 {% else %}
-                 
+                    <form>
                       <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
                       <label for="Yes">Yes</label><br>
                       <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
                       <label for="No">No</label><br>
-               
+                    </form>
                 {% endif %}
                 <p></p>
               {% endif %}
             {% endfor %}
-        </form>
             <div style="text-align: center;"><input type="submit" value="Completed" id="Completed" name="Completed"></div>
         </div>
+        
     </body>
 </html>
 {% endblock %}
