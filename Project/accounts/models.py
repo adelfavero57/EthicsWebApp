@@ -15,8 +15,8 @@ class Application(models.Model):
     title = models.TextField(max_length=200, null=True)
     supervisor = models.TextField(max_length=150, null=True)
     status = models.TextField(max_length=10, null=True)
-    is_complete = models.BinaryField(null=False)
-    is_approved = models.BinaryField(null=False)
+    is_complete = models.BooleanField(null=False)
+    is_approved = models.BooleanField(null=False)
     
 
 class Question(models.Model):
@@ -35,7 +35,6 @@ class Answers(models.Model):
     section_name = models.CharField(max_length=1, null=False)
     is_referenced = models.BinaryField(null=False)
     is_exemplar = models.BinaryField(null=False)
-    answer_type = models.TextField(null = True)
 
 class CoverSheetQuestion(models.Model):
     question_num = models.IntegerField(primary_key=True, unique=True, null=False)

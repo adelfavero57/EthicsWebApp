@@ -41,7 +41,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="summary" name="summary" rows="8" cols="150"></textarea>
+                        {{ form.summary }}
                         <br>
                     <!--</form>-->
                 </fieldset>
@@ -49,7 +49,7 @@
                 <fieldset>
                     <legend><strong> Protocol Title </strong></legend>
                     <!--<form method = 'POST' action="/coversheet.html" >-->
-                        <label for="prptocol">
+                        <label for="protocol">
                             {% for question in cover %}
                                 {% if question.question_num == 1002%}
                                     <font>{{ question.text }}</font>
@@ -57,7 +57,8 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="protocol" name="protocol" rows="2" cols="150"></textarea>
+                        {{ form.protocol }}
+                        <br>
                     <!--</form>-->
                 </fieldset>
                 <br>
@@ -72,7 +73,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="investigatorname" name="investigatorname" rows="1" cols="50"></textarea>
+                        {{ form.investigatorname }}
                         <br>
                         <label for="investigatorid"> 
                             {% for question in cover %}
@@ -82,7 +83,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="investigatorid" name="investigatorid" rows="1" cols="50"></textarea>
+                        {{ form.investigatorid }}
                         <br>
                         <label for="center"> 
                             {% for question in cover %}
@@ -92,7 +93,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="center" name="center" rows="1" cols="50"></textarea>
+                        {{ form.center }}
                         <br>
                         <label for="role"> 
                             {% for question in cover %}
@@ -102,10 +103,8 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <select id="role" name="role">
-                            <option value="chiefinvestigator" selected> Chief Investigator</option>
-                            <option value="others"> Others </option>
-                        </select>
+                        {{ form.role }}
+                        <br>
                     <!--</form>-->
                 </fieldset>
                 <br>
@@ -119,10 +118,7 @@
                                 {% endif %}
                             {% endfor %}
                         </label>
-                        <select id ="otherinternalinvestigators" name = "otherinternalinvestigators">
-                            <option value="Yes"> Yes </option>
-                            <option value="No" selected> No </option>
-                        </select>
+                        {{ form.otherinternalinvestigators }}
                         <br>
                         <label for="internalinvestigatorsnumber"> 
                             {% for question in cover %}
@@ -131,7 +127,8 @@
                                 {% endif %}
                             {% endfor %}
                         </label>
-                        <input type="number" id="internalinvestigatorsnumber" name="internalinvestigatorsnumber" min="0" max="100" value= "0" ><br>
+                        {{ form.internalinvestigatorsnumber }}
+                        <br>
                     <!--</form>-->
                 </fieldset>
                 <br>
@@ -145,10 +142,9 @@
                                 {% endif %}
                             {% endfor %}
                         </label>
-                        <select id ="otherexternalinvestigators" name = "otherexternalinvestigators">
-                            <option value="Yes"> Yes </option>
-                            <option value="No" selected> No </option>
-                        </select>
+                        
+                        {{ form.otherexternalinvestigators }}
+                        
                         <br>
                         <label for="externalinvestigatorsnumber"> 
                             {% for question in cover %}
@@ -157,7 +153,8 @@
                                 {% endif %}
                             {% endfor %}
                         </label>
-                        <input type="number" id="externalinvestigatorsnumber" name="externalinvestigatorsnumber" min="0" max="100" value= "0" ><br>
+                        {{ form.externalinvestigatorsnumber }}
+                        <br>
                     <!--</form>-->
                 </fieldset>
                 <br>
@@ -172,7 +169,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="responsible" name="responsible" rows="1" cols="150"></textarea>
+                        {{ form.responsible }}
                         <br>
                         <label for="currentstate"> 
                             {% for question in cover %}
@@ -182,7 +179,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="currentstate" name="currentstate" rows="1" cols="150"></textarea>
+                        {{ form.currentstate }}
                         <br>
                         <label for="HRECname"> 
                             {% for question in cover %}
@@ -192,7 +189,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="HRECname" name="HRECname" rows="1" cols="150"></textarea>
+                        {{ form.HRECname }}
                         <br>
                         <label for="action"> 
                             {% for question in cover %}
@@ -202,7 +199,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="action" name="action" rows="3" cols="150"></textarea>
+                        {{ form.action }}
                         <br>
                     <!--</form>-->
                 </fieldset>
@@ -218,7 +215,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="title" name ="title" rows="1" cols="150"></textarea>
+                        {{ form.title }}
                         <br>
                         <label for="contractaction"> 
                             {% for question in cover %}
@@ -228,7 +225,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="contractaction" name="contractaction" rows="3" cols="150"></textarea>
+                        {{ form.contractaction }}
                     <!--</form>-->
                 </fieldset>
                 <br>
@@ -243,7 +240,8 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="otherrelevantdetails" name ="otherrelevantdetails" rows="8" cols="150"></textarea>
+                        {{ form.otherrelevantdetails }}
+                        <br>
                     <!--</form>-->
                 </fieldset>
                 <h2><strong>Please navigate to Questionnaire tab</strong></h2>
