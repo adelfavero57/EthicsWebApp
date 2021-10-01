@@ -27,6 +27,7 @@ def questionnaire(request, application_id):
             temp_obj = Question.objects.get(pk = i.question_num)
             new_answer_obj = Answers.objects.create(text = temp, question_id = i, 
             application_id = a_id, is_short_answer = 0, section_name = i.section_name)
+        
         return redirect('managelist')
             
     #que = Question.objects.get(question_num=2)

@@ -8,15 +8,15 @@ from django.db.models.fields.related import ForeignKey
 # Create your models here.
 
 class Application(models.Model):
-    id = models.IntegerField(primary_key=True, unique=True, editable=False, null=False)
+    #id = models.IntegerField(primary_key=True, unique=True, editable=False, null=False)
+
+    
     date_created = models.DateField(auto_now_add=True)
     last_modified = models.DateField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.TextField(max_length=200, null=True)
     supervisor = models.TextField(max_length=150, null=True)
     status = models.TextField(max_length=10, null=True)
-    is_complete = models.BooleanField(null=False)
-    is_approved = models.BooleanField(null=False)
     
 
 class Question(models.Model):

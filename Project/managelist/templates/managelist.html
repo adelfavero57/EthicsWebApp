@@ -61,7 +61,7 @@
               <td>{{ item.date_created|date:"d m Y" }}</td>
               <td>{{item.last_modified}}</td>
               <td>{{item.supervisor}}</td>
-              <td><a href="#">Edit</a></td>
+              <td><a href="{% url 'questionnaire' item.id %}">Edit</a></td>
               <td><a href = "{% url 'delete' item.id %}">Withdraw</a></td>
       
             </tr>

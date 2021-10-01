@@ -26,10 +26,12 @@ def coversheetPage(request):
 
         if coversheet_form.is_valid():
 
-            new_application = Application(user=request.user, is_complete=False, is_approved=False)
+            supervisor = coversheet_form.cleaned_data['investigatorname']
+            title = coversheet_form.cleaned_data['protocol']
 
-            new_application = new_application.save()
+            new_application = Application.objects.create(user=request.user, supervisor=supervisor, title=title)
 
+            
             
 
             summary_text = coversheet_form.cleaned_data['summary']
@@ -116,7 +118,7 @@ def coversheetPage(request):
             csq_id_1017 = CoverSheetQuestion.objects.get(pk=1017)
             Otherrelevantdetails = CoverSheetAnswers.objects.create(text = otherrelevantdetails_text, question_id = csq_id_1017, application_id = new_application, is_short_answer = True)
             
-            return redirect('questionnaire')
+            return redirect('questionnaire', new_application.pk)
 
     else:
 
