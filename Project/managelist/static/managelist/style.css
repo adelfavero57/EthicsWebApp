@@ -1,0 +1,32 @@
+.applicationlist{
+
+    border-collapse: collapse;
+    font-size: 20px;
+    min-width: 100%;
+    overflow: hidden;
+}
+
+thead{
+
+    background-color: #3e3d3e;
+    color: #ffffff;
+    text-align: left;
+}
+
+.tbody{
+
+    border-bottom: 1px solid #dddddd;
+}
+.searchbar{
+
+    float: right;
+}
+
+.start_quiz{
+    float: right;
+}
+
+.start_quiz button{
+
+    left: 50%;
+}
