@@ -12,9 +12,9 @@ class Application(models.Model):
     date_created = models.DateField(auto_now_add=True)
     last_modified = models.DateField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.TextField(max_length=200, null=False)
-    supervisor = models.TextField(max_length=150, null=False)
-    status = models.TextField(max_length=10)
+    title = models.TextField(max_length=200, null=True)
+    supervisor = models.TextField(max_length=150, null=True)
+    status = models.TextField(max_length=10, null=True)
     is_complete = models.BinaryField(null=False)
     is_approved = models.BinaryField(null=False)
     
