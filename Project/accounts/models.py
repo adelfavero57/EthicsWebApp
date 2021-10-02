@@ -10,13 +10,15 @@ from django.db.models.fields.related import ForeignKey
 
 class Application(models.Model):
     id = models.IntegerField(
-        primary_key=True, unique=True, editable=False, null=False)
+    primary_key=True, unique=True, editable=False, null=False)
     date_created = models.DateField(auto_now_add=True)
     last_modified = models.DateField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.TextField(max_length=200, null=True)
     supervisor = models.TextField(max_length=150, null=True)
     status = models.TextField(max_length=20, null=True)
+    
+
 
 class Question(models.Model):
     question_num = models.IntegerField(
@@ -29,10 +31,10 @@ class Question(models.Model):
 
 class Answers(models.Model):
     id = models.IntegerField(primary_key=True)
-    text = models.TextField()
+    short_answer_text = models.TextField(null=True)
+    multiple_choice_answer = models.BooleanField(null=True)
     question_id = models.ForeignKey(Question, on_delete=models.CASCADE)
-    application_id = models.ForeignKey(
-        Application, on_delete=models.SET_NULL, null=True)
+    application_id = models.ForeignKey(Application, on_delete=models.SET_NULL, null=True)
     is_short_answer = models.IntegerField(null=False)
     section_name = models.CharField(max_length=1, null=False)
     is_referenced = models.BinaryField(null=False)

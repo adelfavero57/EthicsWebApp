@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'PISform.apps.PisformConfig',
 
     'questionnaire.apps.QuestionnaireConfig',
+    'consentform.apps.ConsentformConfig',
 
 
 
