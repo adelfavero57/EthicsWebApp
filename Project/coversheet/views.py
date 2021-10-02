@@ -107,7 +107,7 @@ def coversheetPage(request):
         Otherrelevantdetails = CoverSheetAnswers.objects.create(text = otherrelevantdetails_text, question_id = csq_id_1017, application_id = a_id, is_short_answer = True)
         #Otherrelevantdetails.save()
 
-        return redirect('questionnaire', application_id = a_id)
+        return redirect('questionnaire', application_id = a_id.pk)
 
     cover = CoverSheetQuestion.objects.all()
     context = {'cover': cover}
