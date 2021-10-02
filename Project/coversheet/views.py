@@ -13,10 +13,13 @@ from django.http import HttpResponse
 # Create your views here.
 
 
+
 def logout_view(request):
     logout(request)
     return redirect('login')
 
+
+APPLICATION_INITIAL_ID = 100
 
 @login_required(login_url='login')
 def coversheetPage(request):
@@ -29,9 +32,9 @@ def coversheetPage(request):
             supervisor = coversheet_form.cleaned_data['investigatorname']
             title = coversheet_form.cleaned_data['protocol']
 
-            new_application = Application.objects.create(user=request.user, supervisor=supervisor, title=title)
+            new_application = Application.objects.create(id = APPLICATION_INITIAL_ID, user=request.user, supervisor=supervisor, title=title)
 
-            
+            APPLICATION_INITIAL_ID = APPLICATION_INITIAL_ID + 1;
             
 
             summary_text = coversheet_form.cleaned_data['summary']
