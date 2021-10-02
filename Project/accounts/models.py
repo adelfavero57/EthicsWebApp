@@ -18,7 +18,6 @@ class Application(models.Model):
     supervisor = models.TextField(max_length=150, null=True)
     status = models.TextField(max_length=20, null=True)
 
-
 class Question(models.Model):
     question_num = models.IntegerField(
         primary_key=True, unique=True, null=False)
