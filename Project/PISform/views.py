@@ -9,13 +9,6 @@ from accounts.models import Application
 # Create your views here.
 
 
-class Application:
-    def __init__(self, name, process, status):
-
-        self.name = name
-        self.process = process
-        self.status = status
-
 
 
 def logout_view(request):
