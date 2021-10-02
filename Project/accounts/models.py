@@ -31,8 +31,8 @@ class Question(models.Model):
 
 class Answers(models.Model):
     id = models.IntegerField(primary_key=True)
-    short_answer_text = models.TextField(Null=True)
-    multiple_choice_answer = models.BooleanField(Null=True)
+    short_answer_text = models.TextField(null=True)
+    multiple_choice_answer = models.BooleanField(null=True)
     question_id = models.ForeignKey(Question, on_delete=models.CASCADE)
     application_id = models.ForeignKey(Application, on_delete=models.SET_NULL, null=True)
     is_short_answer = models.IntegerField(null=False)
