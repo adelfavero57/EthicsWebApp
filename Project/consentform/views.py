@@ -7,9 +7,9 @@ from accounts.models import CoverSheetQuestion
 from accounts.models import Answers
 from accounts.models import Application
 # Create your views here.
-
-
 from .utils import render_to_pdf
+
+
 
 def logout_view(request):
     logout(request)
@@ -19,13 +19,12 @@ def logout_view(request):
 
 
 @login_required(login_url='login')
-def PISform(request):
-    pis1 = CoverSheetAnswers.objects.all()
-    pis2 = Answers.objects.all()
-    context = {'pis': pis1}
-    pdf = render_to_pdf('PISform.html', context)
-    #return render(request, 'PISform.html', context)
-    #return render(request, 'PISform.html')
+def Consentform(request):
+    consent = CoverSheetAnswers.objects.all()
+    context = {'consent': consent}
+    pdf = render_to_pdf('form.html', context)
     return pdf
+    #return render(request, 'form.html', context)
+
 
 
