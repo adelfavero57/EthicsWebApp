@@ -14,7 +14,8 @@ class Application(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.TextField(max_length=200, null=True)
     supervisor = models.TextField(max_length=150, null=True)
-    status = models.TextField(max_length=10, null=True)
+    status = models.TextField(max_length=20, null=True)
+    project_name= models.TextField(max_length=100, null=True)
     
 
 class Question(models.Model):
