@@ -21,23 +21,27 @@
         <br>
         <body>
             <h3><big>What is the study about?</big></h3>
-            <p1><big>Section E No.234 showing recording of audio, video, online surveys
-                Coversheet question Summary
+            <p1><big>Answers would be collected from Section E No.234 showing recording of audio, video, online surveys
+                {% for answer in pis %}
+                    {% if answer.question_num == 1001%}
+                        <font>{{ answer.text }}</font>
+                    {% endif %}
+                {% endfor %}
             </big></p1>
             <br>
             <br>
             <h3><big>The following are important for the validity of the study:</big></h3>
-            <p1><big>Section B No.13 You must be 18 years ir older to participate in this study.</big></p1>
+            <p1><big>Answers would be collected from Section B No.13 (You must be 18 years ir older to participate in this study.)</big></p1>
             <br>
-            <p1><big>Section D No.223 You must be fluent in English.</big></p1>
+            <p1><big>Answers would be collected from Section D No.223 (You must be fluent in English.)</big></p1>
             <br>
-            <p1><big>Section D No.230 </big></p1>
+            <p1><big>Answers would be collected Section D No.230 </big></p1>
             <br>
-            <p1><big>Section B No.29</big></p1>
+            <p1><big>Answers would be collected Section B No.29</big></p1>
             <br>
             <br>
             <h3><big>Who is carrying out the study?</big></h3>
-            <p1><big>Coversheet page Chief Investigator Details
+            <p1><big>Answers would be collected Coversheet page Chief Investigator Details
             </big></p1>
             <br>
             <br>
@@ -53,20 +57,21 @@
             <br>
             <br>
             <h3><big>Can I withdraw from the study?</big></h3>
-            <p1><big> Section D No.218 
+            <p1><big> Answers would be collected Section D No.218 
+                
             </big></p1>
             <br>
             <br>
             <h3><big>Will the study benefit me?</big></h3>
-            <p1><big>Section C No.209, No.211 Section D No.219 </big></p1>
+            <p1><big>Answers would be collected Section C No.209, No.211 Section D No.219 </big></p1>
             <br>
             <br>
             <h3><big>How my data will be stored and my privacy preserved?</big></h3>
             <p1><big>Section C No.213 
-                Section E No.234
-                Section E No.340
-                Section E No.353 !!!
-                Section E No.349 !!!
+                Answers would be collected Section E No.234
+                Answers would be collected Section E No.340
+                Answers would be collected Section E No.353 !!!
+                Answers would be collected Section E No.349 !!!
             </big></p1>
             <br>
             <br>

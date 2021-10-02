@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.shortcuts import redirect
 
 
@@ -12,6 +11,8 @@ def unauthenticated_user(view_func):
                 return redirect('managelist')
             elif request.user.groups.filter(name='admin').exists():
                 return redirect('adminpage')
+            elif request.user.groups.filter(name='staff').exists():
+                return redirect('approvelist')
 
         else:
             return view_func(request, *args, **kwargs)
