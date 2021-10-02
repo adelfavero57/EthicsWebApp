@@ -46,7 +46,10 @@ INSTALLED_APPS = [
 
     'qualifier.apps.QualifierConfig',
     'coversheet.apps.CoversheetConfig',
+    'PISform.apps.PisformConfig',
+
     'questionnaire.apps.QuestionnaireConfig',
+
 
 
 ]
