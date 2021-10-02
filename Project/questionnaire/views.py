@@ -17,8 +17,10 @@ def questionnaire(request, application_id):
     questions = Question.objects.all()
     #print(request.method)
     if request.method == 'POST':
+
+        print(request.POST['name'])
         for i in questions:
-            print(i.question_num)
+            print("the number is", i.question_num)
             if i.question_num == 905:
                 return redirect('managelist')
             temp2 = str(i.question_num)
@@ -29,6 +31,8 @@ def questionnaire(request, application_id):
             application_id = a_id, is_short_answer = 0, section_name = i.section_name)
         
         return redirect('managelist')
+
+    
             
     #que = Question.objects.get(question_num=2)
     que = Question.objects.all()

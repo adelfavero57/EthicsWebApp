@@ -18,9 +18,6 @@ def logout_view(request):
     logout(request)
     return redirect('login')
 
-
-APPLICATION_INITIAL_ID = 100
-
 @login_required(login_url='login')
 def coversheetPage(request):
     if request.method == 'POST':
@@ -32,9 +29,18 @@ def coversheetPage(request):
             supervisor = coversheet_form.cleaned_data['investigatorname']
             title = coversheet_form.cleaned_data['protocol']
 
-            new_application = Application.objects.create(id = APPLICATION_INITIAL_ID, user=request.user, supervisor=supervisor, title=title)
 
-            APPLICATION_INITIAL_ID = APPLICATION_INITIAL_ID + 1;
+            if len(Application.objects.all()) == 0:
+
+                new_id = 100
+            
+            else:
+
+                new_id = Application.objects.latest("id").id + 1
+
+            new_application = Application.objects.create(id = new_id, user=request.user, supervisor=supervisor, title=title)
+
+            
             
 
             summary_text = coversheet_form.cleaned_data['summary']
