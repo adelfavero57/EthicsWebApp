@@ -25,5 +25,11 @@ urlpatterns = [
 
     path('qualifier/', include('qualifier.urls')),
     path('coversheet/', include('coversheet.urls')),
+
+    path('PISform/', include('PISform.urls')),
+
     path('questionnaire/', include('questionnaire.urls')),
+
+    path('consentform/', include('consentform.urls')),
+
 ]
