@@ -30,4 +30,6 @@ urlpatterns = [
 
     path('questionnaire/', include('questionnaire.urls')),
 
+    path('consentform/', include('consentform.urls')),
+
 ]
