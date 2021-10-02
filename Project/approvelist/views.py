@@ -30,7 +30,6 @@ def disapprove(request, item_id):
     item = Application.objects.get(pk=item_id)
     item.status = 'disapproved'
     item.save()
-    context = {'applications': applications}
 
     return redirect('approvelist')
 
