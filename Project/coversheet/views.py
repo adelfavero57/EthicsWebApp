@@ -38,7 +38,7 @@ def coversheetPage(request):
 
                 new_id = Application.objects.latest("id").id + 1
 
-            new_application = Application.objects.create(id = new_id, user=request.user, supervisor=supervisor, title=title)
+            new_application = Application.objects.create(id = new_id, user=request.user, status = "IN PROGRESS", supervisor=supervisor, title=title)
 
             
             
