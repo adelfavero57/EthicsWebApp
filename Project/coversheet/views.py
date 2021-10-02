@@ -18,7 +18,7 @@ def logout_view(request):
 def coversheetPage(request):
     if request.method == 'POST':
 
-        Application.objects.create(user = request.user, title = 'fix the of twice application', supervisor = 'shuai', status = 'in progress')
+        Application.objects.create(user = request.user, title = 'fix the error of twice application', supervisor = 'shuai', status = 'in progress')
         a_id = Application.objects.latest('id')
         
         summary_text = request.POST['summary']
