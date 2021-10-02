@@ -135,7 +135,15 @@
               {% for question in que %}
                 {% if question.section_name == "D"%}
 
-            
+                  <div id="div1" style="display :none ;">
+                    <script type="text/javascript">
+                      $("#button1").click(function(){
+                          $("#div1").show();
+                      });
+                      $("#button2").click(function(){
+                          $("#div1").hide();
+                      });
+                    </script>
 
                   <font>{{question.text }}</font>
 

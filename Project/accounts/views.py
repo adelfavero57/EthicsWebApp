@@ -58,6 +58,8 @@ def loginPage(request):
                     return redirect('managelist')
                 elif request.user.groups.filter(name='admin').exists():
                     return redirect('adminpage')
+                elif request.user.groups.filter(name='staff').exists():
+                    return redirect('approvelist')
                 else:
                     logout(request)
                     redirect('login')
@@ -88,10 +90,3 @@ def editUserPage(request):
 
     context = {'form': form, 'user': user}
     return render(request, 'edit_profile.html', context)
-
-
-
-
-
-    
-
