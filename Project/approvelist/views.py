@@ -37,10 +37,10 @@ def disapprove(request, item_id):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['staff'])
 def viewPage(request, item_id):
-    ques = Question.objects.all()
+    que = Question.objects.all()
     ans = Answers.objects.all().filter(id=item_id)
 
-    context = {'ques': ques, 'ans': ans}
+    context = {'que': que, 'ans': ans}
     return render(request, 'view.html', context)
 
 
