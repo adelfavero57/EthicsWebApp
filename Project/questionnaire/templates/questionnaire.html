@@ -26,7 +26,7 @@
             <a href="#SectionG">SectionG Concern research study</a>
         </div>
         <div class="questions">
-          <form method = "POST" action="">
+          <form method = "POST" action="" name = "answer_question">
             {% csrf_token %} 
               <a name = "SectionA"></a>
             <h1>SECTION A</h1>
@@ -151,7 +151,7 @@
 
                   <div class = "inspect">
 
-                    <button class = "show_button"> Click me </button>
+                    <button type = "button" class = "show_button"> Click me </button>
 
 
                     <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
@@ -159,11 +159,11 @@
 
                       <div class = "selection_box">
                         
-                        <button class = "think_aloud"> Think aloud </button>
+                        <button type = "button" class = "think_aloud"> Think aloud </button>
 
-                        <button class = "crowed_source"> Crowed Source </button>
+                        <button type = "button" class = "crowed_source"> Crowed Source </button>
 
-                        <button class = "lab_study"> Lab Study </button>
+                        <button type = "button"  class = "lab_study"> Lab Study </button>
 
                         <div class = "think_aloud_txt" data-status = "hidden" style="display :none ;">
                         
@@ -185,13 +185,14 @@
 
                       </div>
                     </div>
+                    <br>
+                  <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
+                  
                   </div>
 
                   {% endif %}
 
 
-                  <br>
-                  <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
                   
                   {% elif question.is_short_answer == 2 %}
                     <br>
