@@ -95,7 +95,7 @@ $(".think_aloud_p").on('click', function(){
 
     //parents() : find its ancesstors  children: find its children
 
-    let text_area = $(this).parents(".inspect").next("form").children("textarea");
+    let text_area = $(this).parents(".inspect").children("textarea");
 
 
     //text() get html text of that DOM object
@@ -109,7 +109,9 @@ $(".think_aloud_p").on('click', function(){
 
 $(".source_txt_p").on('click', function(){
 
-    let text_area = $(this).parents(".inspect").next("form").children("textarea");
+    console.log("hello");
+
+    let text_area = $(this).parents(".inspect").children("textarea");
 
     let text = $(this).text();
 
@@ -119,7 +121,7 @@ $(".source_txt_p").on('click', function(){
 
 $(".lab_study_p").on('click', function(){
 
-    let text_area = $(this).parents(".inspect").next("form").children("textarea");
+    let text_area = $(this).parents(".inspect").children("textarea");
 
     let text = $(this).text();
 
