@@ -148,44 +148,46 @@
                       <br>
 
 
-                    <div class = "inspect">
+                      <div class = "inspect">
 
-                      <button class = "show_button"> Click me </button>
-
-
-                      <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
-                      <div class = "hidden_text" data-status = "hidden" style="display :none ;">
-
-                        <div class = "selection_box">
-                          
-                          <button class = "think_aloud"> Think aloud </button>
-
-                          <button class = "crowed_source"> Crowed Source </button>
-
-                          <button class = "lab_study"> Lab Study </button>
-
-                          <div class = "think_aloud_txt" data-status = "hidden" style="display :none ;">
-                          
-                            <p class = "think_aloud_p"> The answer of think_aloud </p>
-                          
-                          </div> 
-
-                          <div class = "source_txt" data-status = "hidden" style="display :none ;">
-
-                            <p class = "source_txt_p"> The answer crowed source </p>
-                          
+                        <button type = "button" class = "show_button"> Click me </button>
+    
+    
+                        <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
+                        <div class = "hidden_text" data-status = "hidden" style="display :none ;">
+    
+                          <div class = "selection_box">
+                            
+                            <button type = "button" class = "think_aloud"> Think aloud </button>
+    
+                            <button type = "button" class = "crowed_source"> Crowed Source </button>
+    
+                            <button type = "button"  class = "lab_study"> Lab Study </button>
+    
+                            <div class = "think_aloud_txt" data-status = "hidden" style="display :none ;">
+                            
+                              <p class = "think_aloud_p"> The answer of think_aloud </p>
+                            
+                            </div> 
+    
+                            <div class = "source_txt" data-status = "hidden" style="display :none ;">
+    
+                              <p class = "source_txt_p"> The answer crowed source </p>
+                            
+                            </div>
+    
+                            <div class = "lab_study_txt" data-status = "hidden" style="display :none ;">
+    
+                              <p class = "lab_study_p"> The answer lab study </p>
+                            
+                            </div>
+    
                           </div>
-
-                          <div class = "lab_study_txt" data-status = "hidden" style="display :none ;">
-
-                            <p class = "lab_study_p"> The answer lab study </p>
-                          
-                          </div>
-
                         </div>
+                        <br>
+                      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
+                      
                       </div>
-                    </div>
-                    <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
 
                   
                     {% elif question.question_num == 605%}
