@@ -47,7 +47,7 @@
             {% for item in applications %}
             
             <tr class = "row">
-            {% if item.is_complete %}
+            {% if item.status != "IN PROGRESS" %}
             
                 <td>{{item.id}}</td>
                 <td>{{item.title}}</td>
@@ -55,6 +55,8 @@
                 <td>{{item.last_modified}}</td>
                 <td>{{item.status}}</td>
                 <td>{{item.supervisor}}</td>
+
+                <!-- Change the download link here -->
                 <td><a href="#">Download</a></td>
 
             {% else %}
