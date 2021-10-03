@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from accounts.decorators import allowed_users
 from django.shortcuts import render, redirect
 from accounts.models import Question
+from accounts.models import Application
+from django.http import HttpResponse
 # Create your views here.
 
 
@@ -19,6 +21,7 @@ def welcome(request):
 @allowed_users(allowed_roles=['researcher'])
 def failure(request):
     if request.method == 'POST':
+        
         return redirect('managelist')
     return render(request, 'failure.html')
 
@@ -27,6 +30,8 @@ def failure(request):
 @allowed_users(allowed_roles=['researcher'])
 def success(request):
     if request.method == 'POST':
+        
+        # request.session['finish'] = True
         return redirect('coversheet')
     return render(request, 'success.html')
 
