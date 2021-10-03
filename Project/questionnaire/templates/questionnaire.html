@@ -59,7 +59,7 @@
                           <option>Phd</option>
                       </select>
                   </ul>
-                  </div>
+              </div>
                   <script type="text/javascript">
                   $("#button1").click(function(){
                       $("#div1").show();
@@ -135,80 +135,114 @@
               {% for question in que %}
                 {% if question.section_name == "D"%}
 
-            
-
-                  <font>{{question.text }}</font>
-
-                  <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
-                    <span class="tooltiptext">{{question.tips}}</span>
-                  </div>
                   {% if question.is_short_answer == 1 %}
 
                   <!-- you can create a new array to store the question number , and use if statement  -->
-                  {% if question.question_num == 601 %}
-
-
-
-                  <div class = "inspect">
-
-                    <button type = "button" class = "show_button"> Click me </button>
-
-
-                    <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
-                    <div class = "hidden_text" data-status = "hidden" style="display :none ;">
-
-                      <div class = "selection_box">
-                        
-                        <button type = "button" class = "think_aloud"> Think aloud </button>
-
-                        <button type = "button" class = "crowed_source"> Crowed Source </button>
-
-                        <button type = "button"  class = "lab_study"> Lab Study </button>
-
-                        <div class = "think_aloud_txt" data-status = "hidden" style="display :none ;">
-                        
-                          <p class = "think_aloud_p"> The answer of think_aloud </p>
-                        
-                        </div> 
-
-                        <div class = "source_txt" data-status = "hidden" style="display :none ;">
-
-                          <p class = "source_txt_p"> The answer crowed source </p>
-                        
-                        </div>
-
-                        <div class = "lab_study_txt" data-status = "hidden" style="display :none ;">
-
-                          <p class = "lab_study_p"> The answer lab study </p>
-                        
-                        </div>
-
+                    {% if question.question_num == 601 %}
+                      
+                      
+                      <font>{{question.text }}</font>
+                      <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+                        <span class="tooltiptext">{{question.tips}}</span>
                       </div>
-                    </div>
-                    <br>
-                  <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
+                      <br>
+
+
+                      <div class = "inspect">
+
+                        <button type = "button" class = "show_button"> Click me </button>
+    
+    
+                        <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
+                        <div class = "hidden_text" data-status = "hidden" style="display :none ;">
+    
+                          <div class = "selection_box">
+                            
+                            <button type = "button" class = "think_aloud"> Think aloud </button>
+    
+                            <button type = "button" class = "crowed_source"> Crowed Source </button>
+    
+                            <button type = "button"  class = "lab_study"> Lab Study </button>
+    
+                            <div class = "think_aloud_txt" data-status = "hidden" style="display :none ;">
+                            
+                              <p class = "think_aloud_p"> The answer of think_aloud </p>
+                            
+                            </div> 
+    
+                            <div class = "source_txt" data-status = "hidden" style="display :none ;">
+    
+                              <p class = "source_txt_p"> The answer crowed source </p>
+                            
+                            </div>
+    
+                            <div class = "lab_study_txt" data-status = "hidden" style="display :none ;">
+    
+                              <p class = "lab_study_p"> The answer lab study </p>
+                            
+                            </div>
+    
+                          </div>
+                        </div>
+                        <br>
+                      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
+                      
+                      </div>
+
                   
-                  </div>
-
-                  {% endif %}
-
-
-                  
-                  {% elif question.is_short_answer == 2 %}
-                    <br>
-                      <ul>
-                          <select>
-                              <option>Bachelor</option>
-                              <option>Master</option>
-                              <option>Phd</option>
-                          </select>
-                      </ul>
+                    {% elif question.question_num == 605%}
+                        <div id="div2" style="display :none ;">
+                          
+                          <font>{{ question.text }}</font>
+                          <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+                            <span class="tooltiptext">{{question.tips}}</span>
+                          </div>
+                          <br>
+                          
+                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
+                          
+                        </div>
+                        <script type="text/javascript">
+                          $("#button3").click(function(){
+                            $("#div2").show();
+                          });
+                          $("#button4").click(function(){
+                            $("#div2").hide();
+                          });
+                        </script> 
+                    {% else %}
+                      
+                      <font>{{question.text }}</font>
+                      <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+                        <span class="tooltiptext">{{question.tips}}</span>
+                      </div>
+                      <br>
+                      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
+                    {% endif %}
                   {% else %}
-                    <br>
-                    <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
-                    <label for="Yes">Yes</label><br>
-                    <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
-                    <label for="No">No</label><br>
+                    {% if question.question_num == 604%}
+                      <font>{{ question.text }}</font>
+                      <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+                        <span class="tooltiptext">{{question.tips}}</span>
+                      </div>
+                      <br>
+                      <input type="radio" id="button3" name="{{question.question_num}}" value="Yes">
+                      <label for="Yes">Yes</label><br>
+                      <input type="radio" id="button4" name="{{question.question_num}}" value="No">
+                      <label for="No">No</label><br>
+                      
+                    {% else %}
+                      <font>{{ question.text }}</font>
+                      
+                      <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+                        <span class="tooltiptext">{{question.tips}}</span>
+                      </div>
+                      <br>
+                      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                      <label for="Yes">Yes</label><br>
+                      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                      <label for="No">No</label><br>
+                    {% endif %}
                       
                   {% endif %}
                   <p></p>
@@ -222,28 +256,98 @@
                 information in your research project.</h4>
               {% for question in que %}
                   {% if question.section_name == "E"%}
-                      <font>{{question.text }}</font>
-                      <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
-                          <span class="tooltiptext">{{question.tips}}</span>
-                      </div>
+                      
                       {% if question.is_short_answer == 1 %}
-                        <br>
-                        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
-                          
-                      {% elif question.is_short_answer == 2 %}
+                        {% if question.question_num == 716 %}
+                          <div id="div4" style="display :none ;">
+                            
+                            <font>{{ question.text }}</font>
+                            <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+                              <span class="tooltiptext">{{question.tips}}</span>
+                            </div>
+                            <br>
+                            
+                            <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
+                            
+                          </div>
+                          <script type="text/javascript">
+                            $("#button7").click(function(){
+                              $("#div4").show();
+                            });
+                            $("#button8").click(function(){
+                              $("#div4").hide();
+                            });
+                          </script>
+                        {% else %} 
+                          <font>{{question.text }}</font>
+                          <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+                              <span class="tooltiptext">{{question.tips}}</span>
+                          </div>
                           <br>
-                          <ul>
-                              <select>
-                                  <option>Film/Video recordings</option>
-                                  <option>Online survey</option>
-                              </select>
-                          </ul>
+                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
+                        {% endif %}   
+                      {% elif question.question_num == 702 %}
+                        <div id="div3" style="display :none ;">
+                            
+                          <font>{{ question.text }}</font>
+                          <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+                            <span class="tooltiptext">{{question.tips}}</span>
+                          </div>
+                          <br>
+                          
+                          <select name="{{question.question_num}}", id = "{{question.question_num}}">
+                            <option>Audio recordings</option>
+                            <option>Film/Video recordings</option>
+                            <option>Online survey</option>
+                            <option>Other</option>
+                          </select>
+                          
+                        </div>
+                        <script type="text/javascript">
+                          $("#button5").click(function(){
+                            $("#div3").show();
+                          });
+                          $("#button6").click(function(){
+                            $("#div3").hide();
+                          });
+                        </script> 
+                        
+                          
                       {% else %}
-                        <br>
-                        <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
-                        <label for="Yes">Yes</label><br>
-                        <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
-                        <label for="No">No</label><br>
+                        
+                        {% if question.question_num == 701%}
+                          <font>{{ question.text }}</font>
+                          <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+                            <span class="tooltiptext">{{question.tips}}</span>
+                          </div>
+                          <br>
+                          <input type="radio" id="button5" name="{{question.question_num}}" value="Yes">
+                          <label for="Yes">Yes</label><br>
+                          <input type="radio" id="button6" name="{{question.question_num}}" value="No">
+                          <label for="No">No</label><br>
+                        {% elif question.question_num == 715 %}
+                          <font>{{ question.text }}</font>
+                          <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+                            <span class="tooltiptext">{{question.tips}}</span>
+                          </div>
+                          <br>
+                          <input type="radio" id="button7" name="{{question.question_num}}" value="Yes">
+                          <label for="Yes">Yes</label><br>
+                          <input type="radio" id="button8" name="{{question.question_num}}" value="No">
+                          <label for="No">No</label><br>
+                        
+                        {% else %}
+                          <font>{{ question.text }}</font>
+                          
+                          <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+                            <span class="tooltiptext">{{question.tips}}</span>
+                          </div>
+                          <br>
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                          <label for="Yes">Yes</label><br>
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                          <label for="No">No</label><br>
+                        {% endif %}
                           
                       {% endif %}
                       <p></p>
@@ -289,9 +393,17 @@
                   {% if question.is_short_answer == 1 %}
                     <br>
                     <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
-                       
+                  {% elif question.is_short_answer == 2 %}
+                    <br>
+                    <select name="{{question.question_num}}", id = "{{question.question_num}}">
+                      <option>Participant observation (ethnography, systematic)</option>
+                      <option>Questionnaire/survey</option>
+                      <option>Interviews (including oral history)</option>
+                      <option>Focus groups</option>
+                      <option>Data linkage studie</option>
+                    </select>
                   {% elif question.question_num == 905%}
-                      <p></p>
+                    <p></p>
                   {% else %}
                     <br>
                     <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
@@ -310,3 +422,6 @@
     </body>
 </html>
 {% endblock %}
+
+
+

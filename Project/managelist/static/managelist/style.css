@@ -30,3 +30,17 @@ thead{
 
     left: 50%;
 }
+
+.start_new_app_button {
+
+    color:#ffffff;
+ 
+    background:#e64626;
+ 
+    border: 0em;
+ 
+    height: 2.5em;
+ 
+    width: 11em;
+ 
+ }
