@@ -35,8 +35,9 @@
             <thead>
               <th>Id</th>
               <th class = "sort_col" data-column = 1 data-order = "DESC">Project Title &#x25B2</th>
-              <th class = "sort_col" data-column = 2 data-order = "DESC">Date Created &#x25B2</th>
-              <th class = "sort_col" data-column = 3 data-order = "DESC">Last Modified &#x25B2</th>
+              <th class = "sort_col" data-column = 2 data-order = "DESC">date_created &#x25B2</th>
+              <th class = "sort_col" data-column = 3 data-order = "DESC">last_modified &#x25B2</th>
+              <th>Status</th>
               <th class = "sort_col" data-column = 4 data-order = "DESC">Supervisor &#x25B2</th>
               <th colspan="2">Operation</th>
             </thead>
@@ -52,6 +53,7 @@
                 <td>{{item.title}}</td>
                 <td>{{item.date_created}}</td>
                 <td>{{item.last_modified}}</td>
+                <td>{{item.status}}</td>
                 <td>{{item.supervisor}}</td>
                 <td><a href="#">Download</a></td>
 
@@ -60,8 +62,9 @@
               <td>{{item.title}}</td>
               <td>{{ item.date_created|date:"d m Y" }}</td>
               <td>{{item.last_modified}}</td>
+              <td>{{item.status}}</td>
               <td>{{item.supervisor}}</td>
-              <td><a href="#">Edit</a></td>
+              <td><a href="{% url 'questionnaire' item.id %}">Edit</a></td>
               <td><a href = "{% url 'delete' item.id %}">Withdraw</a></td>
       
             </tr>
