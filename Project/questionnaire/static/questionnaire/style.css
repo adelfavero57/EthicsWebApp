@@ -61,10 +61,10 @@ div{
     display: block;
 }
 
-.sidenav a:before {
+/*.sidenav a:before {
     color: green;
     content: "\2713\0020";
-}
+}*/
 
 .sidenav a:active {
     background-color: green;
