@@ -12,7 +12,7 @@ from django.http import HttpResponse
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['researcher'])
 def questionnaire(request, application_id):
-    print(application_id)
+    
     a_id = Application.objects.get(pk=application_id)
     questions = Question.objects.all()
     #print(request.method)
