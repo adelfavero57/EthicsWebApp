@@ -9,6 +9,7 @@ from django.db.models.fields.related import ForeignKey
 
 
 class Application(models.Model):
+
     id = models.IntegerField(
     primary_key=True, unique=True, editable=False, null=False)
     date_created = models.DateField(auto_now_add=True)
@@ -16,7 +17,7 @@ class Application(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.TextField(max_length=200, null=True)
     supervisor = models.TextField(max_length=150, null=True)
-    status = models.TextField(max_length=20, null=True)
+    status = models.TextField(max_length=20, null=True, default = "IN PROGRESS")
     
 
 

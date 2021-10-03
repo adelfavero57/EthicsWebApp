@@ -47,7 +47,7 @@
             {% for item in applications %}
             
             <tr class = "row">
-            {% if item.is_complete %}
+            {% if item.status != "IN PROGRESS" %}
             
                 <td>{{item.id}}</td>
                 <td>{{item.title}}</td>
@@ -62,7 +62,7 @@
               <td>{{item.title}}</td>
               <td>{{ item.date_created|date:"d m Y" }}</td>
               <td>{{item.last_modified}}</td>
-              <td>{{item.status}}</td>
+              <td>IN PROGRESS</td>
               <td>{{item.supervisor}}</td>
               <td><a href="{% url 'questionnaire' item.id %}">Edit</a></td>
               <td><a href = "{% url 'delete' item.id %}">Withdraw</a></td>
