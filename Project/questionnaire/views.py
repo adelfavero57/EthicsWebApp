@@ -42,5 +42,6 @@ def questionnaire(request, application_id):
             
     #que = Question.objects.get(question_num=2)
     que = Question.objects.all()
-    context = {'que':que}
+    answers = Answers.objects.all()
+    context = {'que':que, 'answers': answers}
     return render(request, 'questionnaire.html', context)

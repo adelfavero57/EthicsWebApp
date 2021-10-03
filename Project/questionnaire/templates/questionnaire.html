@@ -138,7 +138,7 @@
                   {% if question.is_short_answer == 1 %}
 
                   <!-- you can create a new array to store the question number , and use if statement  -->
-                    {% if question.question_num == 601 %}
+                    {% if question.question_num == 601 or question.question_num == 602 %}
                       
                       
                       <font>{{question.text }}</font>
@@ -165,9 +165,11 @@
                             <button type = "button"  class = "lab_study"> Lab Study </button>
     
                             <div class = "think_aloud_txt" data-status = "hidden" style="display :none ;">
-                            
-                              <p class = "think_aloud_p"> The answer of think_aloud </p>
-                            
+                            {% for answer in answers %}
+                            {% if answer.question_id == question %}
+                              <p class = "think_aloud_p"> {{answer.short_answer_text}} <br> (AUTHOR, DATE) </p>
+                            {% endif %}
+                            {% endfor %}
                             </div> 
     
                             <div class = "source_txt" data-status = "hidden" style="display :none ;">

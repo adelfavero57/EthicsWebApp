@@ -23,7 +23,7 @@ class Application(models.Model):
 
 class Question(models.Model):
     question_num = models.IntegerField(
-        primary_key=True, unique=True, null=False)
+    primary_key=True, unique=True, null=False)
     text = models.TextField(null=False)
     is_short_answer = models.IntegerField(null=False)
     section_name = models.CharField(max_length=1, null=False)
@@ -38,9 +38,9 @@ class Answers(models.Model):
     application_id = models.ForeignKey(Application, on_delete=models.SET_NULL, null=True)
     is_short_answer = models.IntegerField(null=False)
     section_name = models.CharField(max_length=1, null=False)
-    is_referenced = models.BinaryField(null=False)
-    is_exemplar = models.BinaryField(null=False)
-     #answer_type = models.TextField(null = True)
+    is_referenced = models.IntegerField(null=False)
+    is_exemplar = models.IntegerField(null=False)
+    answer_type = models.TextField(null = True)
 
 
 class CoverSheetQuestion(models.Model):
