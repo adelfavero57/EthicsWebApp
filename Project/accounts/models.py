@@ -9,6 +9,7 @@ from django.db.models.fields.related import ForeignKey
 
 
 class Application(models.Model):
+
     id = models.IntegerField(
     primary_key=True, unique=True, editable=False, null=False)
     date_created = models.DateField(auto_now_add=True)
@@ -16,13 +17,13 @@ class Application(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.TextField(max_length=200, null=True)
     supervisor = models.TextField(max_length=150, null=True)
-    status = models.TextField(max_length=20, null=True)
+    status = models.TextField(max_length=20, null=True, default = "IN PROGRESS")
     
 
 
 class Question(models.Model):
     question_num = models.IntegerField(
-        primary_key=True, unique=True, null=False)
+    primary_key=True, unique=True, null=False)
     text = models.TextField(null=False)
     is_short_answer = models.IntegerField(null=False)
     section_name = models.CharField(max_length=1, null=False)
@@ -37,9 +38,9 @@ class Answers(models.Model):
     application_id = models.ForeignKey(Application, on_delete=models.SET_NULL, null=True)
     is_short_answer = models.IntegerField(null=False)
     section_name = models.CharField(max_length=1, null=False)
-    is_referenced = models.BinaryField(null=False)
-    is_exemplar = models.BinaryField(null=False)
-     #answer_type = models.TextField(null = True)
+    is_referenced = models.IntegerField(null=False)
+    is_exemplar = models.IntegerField(null=False)
+    answer_type = models.TextField(null = True)
 
 
 class CoverSheetQuestion(models.Model):

@@ -34,7 +34,7 @@
         <th colspan="2">Operation</th>
     </tr>
     {% for item in applications %}
-    {% if item.status == 'pending' %}
+    {% if item.status == 'COMPLETE' %}
     <tr class="tbody">
 
         <td>{{item.id}}</td>

@@ -42,17 +42,11 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'managelist.apps.ManagelistConfig',
     'approvelist.apps.ApprovelistConfig',
-    'adminpage.apps.AdminpageConfig',
-
     'qualifier.apps.QualifierConfig',
     'coversheet.apps.CoversheetConfig',
     'PISform.apps.PisformConfig',
-
     'questionnaire.apps.QuestionnaireConfig',
     'consentform.apps.ConsentformConfig',
-
-
-
 ]
 
 MIDDLEWARE = [

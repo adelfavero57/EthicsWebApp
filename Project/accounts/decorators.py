@@ -9,8 +9,6 @@ def unauthenticated_user(view_func):
             # check what group user is
             if request.user.groups.filter(name='researcher').exists():
                 return redirect('managelist')
-            elif request.user.groups.filter(name='admin').exists():
-                return redirect('adminpage')
             elif request.user.groups.filter(name='staff').exists():
                 return redirect('approvelist')
 

@@ -17,7 +17,7 @@ def logout_view(request):
 def approve(request, item_id):
 
     item = Application.objects.get(pk=item_id)
-    item.status = 'approved'
+    item.status = 'APPROVED'
     item.save()
 
     return redirect('approvelist')
@@ -28,7 +28,7 @@ def approve(request, item_id):
 def disapprove(request, item_id):
 
     item = Application.objects.get(pk=item_id)
-    item.status = 'disapproved'
+    item.status = 'DISAPPROVED'
     item.save()
 
     return redirect('approvelist')

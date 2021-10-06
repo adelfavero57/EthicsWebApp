@@ -26,7 +26,7 @@
       
       <div class = "start_quiz">
 
-        <a href="{% url 'qualifierwelcome' %}"><button type="button">Start new application</button></a>
+        <a href="{% url 'qualifierwelcome' %}"><button class = start_new_app_button type="button">Start new application</button></a>
 
       </div>
   
@@ -35,8 +35,8 @@
             <thead>
               <th>Id</th>
               <th class = "sort_col" data-column = 1 data-order = "DESC">Project Title &#x25B2</th>
-              <th class = "sort_col" data-column = 2 data-order = "DESC">date_created &#x25B2</th>
-              <th class = "sort_col" data-column = 3 data-order = "DESC">last_modified &#x25B2</th>
+              <th class = "sort_col" data-column = 2 data-order = "DESC">Date Created &#x25B2</th>
+              <th class = "sort_col" data-column = 3 data-order = "DESC">Last Modified &#x25B2</th>
               <th>Status</th>
               <th class = "sort_col" data-column = 4 data-order = "DESC">Supervisor &#x25B2</th>
               <th colspan="2">Operation</th>
@@ -47,7 +47,7 @@
             {% for item in applications %}
             
             <tr class = "row">
-            {% if item.is_complete %}
+            {% if item.status != "IN PROGRESS" %}
             
                 <td>{{item.id}}</td>
                 <td>{{item.title}}</td>
@@ -55,6 +55,8 @@
                 <td>{{item.last_modified}}</td>
                 <td>{{item.status}}</td>
                 <td>{{item.supervisor}}</td>
+
+                <!-- Change the download link here -->
                 <td><a href="#">Download</a></td>
 
             {% else %}
