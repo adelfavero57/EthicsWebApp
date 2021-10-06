@@ -50,15 +50,16 @@
                   {% if question.question_num == 102%}
                 <font>{{ question.text }}</font>
                   <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
-                      <span class="tooltiptext">{{question.tips}}</span>
+                    <span class="tooltiptext">{{question.tips}}</span>
+                  <br>
                   </div>
-                  <ul>
-                      <select name="{{question.question_num}}", id = "{{question.question_num}}">
-                          <option>Bachelor</option>
-                          <option>Master</option>
-                          <option>Phd</option>
-                      </select>
-                  </ul>
+                    <br>
+                    <select name="{{question.question_num}}", id = "{{question.question_num}}">
+                      <option>Bachelor</option><br>
+                      <option>Master</option><br>
+                      <option>Phd</option><br>
+                    </select>
+                  
               </div>
                   <script type="text/javascript">
                   $("#button1").click(function(){
@@ -187,7 +188,7 @@
                           </div>
                         </div>
                         <br>
-                      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
+                      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="40" rows="15"></textarea>
                       
                       </div>
 
@@ -201,7 +202,7 @@
                           </div>
                           <br>
                           
-                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
+                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="40" rows="15"></textarea>
                           
                         </div>
                         <script type="text/javascript">
@@ -219,7 +220,7 @@
                         <span class="tooltiptext">{{question.tips}}</span>
                       </div>
                       <br>
-                      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
+                      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="40" rows="15"></textarea>
                     {% endif %}
                   {% else %}
                     {% if question.question_num == 604%}
@@ -269,7 +270,7 @@
                             </div>
                             <br>
                             
-                            <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
+                            <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="40" rows="15"></textarea>
                             
                           </div>
                           <script type="text/javascript">
@@ -286,7 +287,7 @@
                               <span class="tooltiptext">{{question.tips}}</span>
                           </div>
                           <br>
-                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
+                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="40" rows="15"></textarea>
                         {% endif %}   
                       {% elif question.question_num == 702 %}
                         <div id="div3" style="display :none ;">
@@ -371,7 +372,7 @@
                   </div>
                   {% if question.is_short_answer == 1 %}
                     <br>
-                    <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
+                    <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="40" rows="15"></textarea>
                   
                   {% else %}
                     <br>
@@ -396,7 +397,7 @@
                   </div>
                   {% if question.is_short_answer == 1 %}
                     <br>
-                    <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
+                    <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="40" rows="15"></textarea>
                   {% elif question.is_short_answer == 2 %}
                     <br>
                     <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Participant observation (ethnography, systematic)">
