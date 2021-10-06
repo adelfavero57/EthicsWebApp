@@ -4,7 +4,10 @@ from accounts.decorators import allowed_users
 from django.shortcuts import render, redirect
 from accounts.models import Question
 from accounts.models import Application
+from accounts.models import CoverSheetQuestion
+from accounts.models import CoverSheetAnswers
 from django.http import HttpResponse
+from .forms import CoverSheetForm
 # Create your views here.
 
 
@@ -31,8 +34,102 @@ def failure(request):
 def success(request):
     if request.method == 'POST':
         
+        coversheet_form = CoverSheetForm(request.POST)
+
+        if len(Application.objects.all()) == 0:
+            new_id = 1
+        else:
+            new_id = Application.objects.latest("id").id + 1
+        new_application = Application.objects.create(id = new_id, user=request.user, status = "IN PROGRESS", supervisor="", title="")
+
+        #summary_text = coversheet_form.cleaned_data['summary']
+        csq_id_1001 = CoverSheetQuestion.objects.get(pk=1001)
+        Summary = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1001, application_id = new_application, is_short_answer = True)
+
+      
+        #protocol_text = coversheet_form.cleaned_data['protocol']
+        csq_id_1002 = CoverSheetQuestion.objects.get(pk=1002)
+        Protocol = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1002, application_id = new_application, is_short_answer = True)
+    
+
+        #investigatorname_text = coversheet_form.cleaned_data['investigatorname']
+        csq_id_1003 = CoverSheetQuestion.objects.get(pk=1003)
+        Investigatorname = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1003, application_id = new_application, is_short_answer = True)
+    
+
+        #investigatorid_text = coversheet_form.cleaned_data['investigatorid']
+        csq_id_1004 = CoverSheetQuestion.objects.get(pk=1004)
+        Investigatorid = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1004, application_id = new_application, is_short_answer = True)
+    
+
+        #center_text = coversheet_form.cleaned_data['center']
+        csq_id_1005 = CoverSheetQuestion.objects.get(pk=1005)
+        Center = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1005, application_id = new_application, is_short_answer = True)
+        
+
+        #role_text = coversheet_form.cleaned_data['role']
+        csq_id_1006 = CoverSheetQuestion.objects.get(pk=1006)
+        Role = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1006, application_id = new_application, is_short_answer = False)
+    
+
+        #otherinternalinvestigators_text = coversheet_form.cleaned_data['otherinternalinvestigators']
+        csq_id_1007 = CoverSheetQuestion.objects.get(pk=1007)
+        Otherinternalinvestigators = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1007, application_id = new_application, is_short_answer = False)
+        
+
+        #internalinvestigatorsnumber_text = coversheet_form.cleaned_data['internalinvestigatorsnumber']
+        csq_id_1008 = CoverSheetQuestion.objects.get(pk=1008)
+        Internalinvestigatorsnumber = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1008, application_id = new_application, is_short_answer = False)
+        
+
+        #otherexternalinvestigators_text = coversheet_form.cleaned_data['otherexternalinvestigators']
+        csq_id_1009 = CoverSheetQuestion.objects.get(pk=1009)
+        Otherexternalinvestigators = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1009, application_id = new_application, is_short_answer = False)
+    
+
+        #externalinvestigatorsnumber_text = coversheet_form.cleaned_data['externalinvestigatorsnumber']
+        csq_id_1010 = CoverSheetQuestion.objects.get(pk=1010)
+        Externalinvestigatorsnumber = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1010, application_id = new_application, is_short_answer = False)
+        
+
+        #responsible_text = coversheet_form.cleaned_data['responsible']
+        csq_id_1011 = CoverSheetQuestion.objects.get(pk=1011)
+        Responsible = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1011, application_id = new_application, is_short_answer = True)
+    
+
+        #currentstate_text = coversheet_form.cleaned_data['currentstate']
+        csq_id_1012 = CoverSheetQuestion.objects.get(pk=1012)
+        Currentstate = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1012, application_id = new_application, is_short_answer = True)
+        
+
+        #HRECname_text = coversheet_form.cleaned_data['HRECname']
+        csq_id_1013 = CoverSheetQuestion.objects.get(pk=1013)
+        hRECname = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1013, application_id = new_application, is_short_answer = True)
+        
+
+        #action_text = coversheet_form.cleaned_data['action']
+        csq_id_1014 = CoverSheetQuestion.objects.get(pk=1014)
+        Action = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1014, application_id = new_application, is_short_answer = True)
+        #Action.save()
+
+        #title_text = coversheet_form.cleaned_data['title']
+        csq_id_1015 = CoverSheetQuestion.objects.get(pk=1015)
+        Title = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1015, application_id = new_application, is_short_answer = True)
+            #Title.save()
+
+        #contractaction_text = coversheet_form.cleaned_data['contractaction']
+        csq_id_1016 = CoverSheetQuestion.objects.get(pk=1016)
+        Contractaction = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1016, application_id = new_application, is_short_answer = True)
+        
+
+        #otherrelevantdetails_text = coversheet_form.cleaned_data['otherrelevantdetails']
+        csq_id_1017 = CoverSheetQuestion.objects.get(pk=1017)
+        Otherrelevantdetails = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1017, application_id = new_application, is_short_answer = True)    
+
+
+
         # request.session['finish'] = True
-        return redirect('coversheet')
+        return redirect('coversheet', new_application.pk)
     return render(request, 'success.html')
 
 
