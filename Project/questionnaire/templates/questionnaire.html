@@ -297,12 +297,14 @@
                           </div>
                           <br>
                           
-                          <select name="{{question.question_num}}", id = "{{question.question_num}}">
-                            <option>Audio recordings</option>
-                            <option>Film/Video recordings</option>
-                            <option>Online survey</option>
-                            <option>Other</option>
-                          </select>
+                          <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Audio recordings">
+                          <label for="Audio recordings">Audio recordings</label><br>
+                          <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Film/Video recordings">
+                          <label for="Film/Video recordings">Film/Video recordings</label><br>
+                          <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Online survey">
+                          <label for="Online survey">Online survey</label><br>
+                          <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Other">
+                          <label for="Other">Other</label><br>
                           
                         </div>
                         <script type="text/javascript">
@@ -397,13 +399,14 @@
                     <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="100" rows="15"></textarea>
                   {% elif question.is_short_answer == 2 %}
                     <br>
-                    <select name="{{question.question_num}}", id = "{{question.question_num}}">
-                      <option>Participant observation (ethnography, systematic)</option>
-                      <option>Questionnaire/survey</option>
-                      <option>Interviews (including oral history)</option>
-                      <option>Focus groups</option>
-                      <option>Data linkage studie</option>
-                    </select>
+                    <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Participant observation (ethnography, systematic)">
+                    <label for="Participant observation (ethnography, systematic)">Participant observation (ethnography, systematic)</label><br>
+                    <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Questionnaire/survey">
+                    <label for="Questionnaire/survey">Questionnaire/survey</label><br>
+                    <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Online survey">
+                    <label for="Interviews (including oral history)">Interviews (including oral history)</label><br>
+                    <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Data linkage studie">
+                    <label for="Data linkage studie">Data linkage studie</label><br>
                   {% elif question.question_num == 905%}
                     <p></p>
                   {% else %}
