@@ -9,9 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- add stylesheet -->
+    <!-- add stylesheets -->
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'quiz/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Quiz</title>
 </head>
@@ -27,10 +28,15 @@
             <form method="POST">
                 {% csrf_token %}
                 <div class="questions">
-                    {% for i in questions %}
+                    {% for q in questions %}
 
                     <br>
-                    <div>{{i.text}}</div>
+                    <div>
+                        {{q.text}}
+                        <div class="tooltip"> <i class="fa fa-question-circle" style="font-size:26px"></i>
+                            <span class="tooltiptext">Tip: {{q.tips}}</span>
+                        </div>
+                    </div>
                     <p>
                         <input type="radio" name="selection{{i.question_num}}" value="Yes" required>Yes</input>
                         <input type="radio" name="selection{{i.question_num}}" value="No">No</input>
