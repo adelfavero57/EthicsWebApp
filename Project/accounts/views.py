@@ -56,8 +56,6 @@ def loginPage(request):
 
                 if request.user.groups.filter(name='researcher').exists():
                     return redirect('managelist')
-                elif request.user.groups.filter(name='admin').exists():
-                    return redirect('adminpage')
                 elif request.user.groups.filter(name='staff').exists():
                     return redirect('approvelist')
                 else:
@@ -78,7 +76,7 @@ def redirect_view(request):
 
 
 @login_required(login_url=loginPage)
-@allowed_users(allowed_roles=['researcher'])
+@allowed_users(allowed_roles=['researcher', 'staff'])
 def editUserPage(request):
     form = UpdateUserForm(instance=request.user)
     user = request.user
