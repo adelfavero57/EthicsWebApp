@@ -24,6 +24,7 @@
             <a href="#SectionE">SectionE Privary issue</a>
             <a href="#SectionF">SectionF Concern risks</a>
             <a href="#SectionG">SectionG Concern research study</a>
+            <div style="text-align: center;"><input type="submit" value="Completed" id="Completed" name="Completed"></div>
         </div>
         <div class="questions">
           <form method = "POST" action="" name = "answer_question">
@@ -32,6 +33,7 @@
             <h1>SECTION A</h1>
               <h4>SECTION A is designed to distinguish between staff and student projects. In addition, this Section also seeks to identify projects that have been approved by other ethics committees.</h4>
               {% for question in que %}
+              <!-- Pop out question1  -->
                 {% if question.question_num == 101%}
                   <font>{{ question.text }}</font>
                   <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
@@ -45,6 +47,7 @@
                   
                 {% endif %}
               {% endfor %}
+              <!-- Pop out answers1  -->
               <div id="div1" style="display :none ;">
                 {% for question in que %}
                   {% if question.question_num == 102%}
