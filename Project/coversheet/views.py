@@ -28,7 +28,9 @@ def coversheetPage(request, newapplication_id):
         
         summary_text = request.POST['summary']
         # summary_text = coversheet_form.cleaned_data['summary']
-        # csq_id_1001 = CoverSheetQuestion.objects.get(pk=1001)
+        csq_id_1001 = CoverSheetQuestion.objects.get(pk=1001)
+        Summary = CoverSheetAnswers.objects.filter(question_id = csq_id_1001).update(text = summary_text)
+        Summary.save()
         # Summary = CoverSheetAnswers.objects.create(text = summary_text, question_id = csq_id_1001, application_id = new_application, is_short_answer = True)
 
     
