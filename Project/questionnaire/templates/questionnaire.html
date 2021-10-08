@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'navbarcover.html' %}
 {% block content %}
 <!DOCTYPE html>
 <html>
@@ -16,6 +16,8 @@
         
     </head>
     <body>
+      <br>
+      <br>
         <div class="sidenav"> 
             <a href="#SectionA">SectionA Distinguish users</a>
             <a href="#SectionB">SectionB Risk Evaluation</a>
@@ -24,12 +26,13 @@
             <a href="#SectionE">SectionE Privary issue</a>
             <a href="#SectionF">SectionF Concern risks</a>
             <a href="#SectionG">SectionG Concern research study</a>
-            <div style="text-align: center;"><input type="submit" value="Completed" id="Completed" name="Completed"></div>
+            <div style="text-align: center;"><input type="submit" value="Complete" id="Complete" name="Complete"></div>
         </div>
         <div class="questions">
           <form method = "POST" action="" name = "answer_question">
             {% csrf_token %} 
               <a name = "SectionA"></a>
+              
             <h1>SECTION A</h1>
               <h4>SECTION A is designed to distinguish between staff and student projects. In addition, this Section also seeks to identify projects that have been approved by other ethics committees.</h4>
               {% for question in que %}
@@ -191,7 +194,7 @@
                           </div>
                         </div>
                         <br>
-                      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="40" rows="15"></textarea>
+                      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
                       
                       </div>
 
@@ -205,7 +208,7 @@
                           </div>
                           <br>
                           
-                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="40" rows="15"></textarea>
+                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
                           
                         </div>
                         <script type="text/javascript">
@@ -223,7 +226,7 @@
                         <span class="tooltiptext">{{question.tips}}</span>
                       </div>
                       <br>
-                      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="40" rows="15"></textarea>
+                      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
                     {% endif %}
                   {% else %}
                     {% if question.question_num == 604%}
@@ -273,7 +276,7 @@
                             </div>
                             <br>
                             
-                            <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="40" rows="15"></textarea>
+                            <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
                             
                           </div>
                           <script type="text/javascript">
@@ -290,7 +293,7 @@
                               <span class="tooltiptext">{{question.tips}}</span>
                           </div>
                           <br>
-                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="40" rows="15"></textarea>
+                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
                         {% endif %}   
                       {% elif question.question_num == 702 %}
                         <div id="div3" style="display :none ;">
@@ -375,7 +378,7 @@
                   </div>
                   {% if question.is_short_answer == 1 %}
                     <br>
-                    <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="40" rows="15"></textarea>
+                    <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
                   
                   {% else %}
                     <br>
@@ -400,7 +403,7 @@
                   </div>
                   {% if question.is_short_answer == 1 %}
                     <br>
-                    <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="40" rows="15"></textarea>
+                    <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
                   {% elif question.is_short_answer == 2 %}
                     <br>
                     <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Participant observation (ethnography, systematic)">
@@ -424,7 +427,7 @@
                   <p></p>
                 {% endif %}
               {% endfor %}
-              <div style="text-align: center;"><input type="submit" value="Completed" id="Completed" name="Completed"></div>
+              <div style="text-align: center;"><input type="submit" value="Complete" id="Complete" name="Complete"></div>
             </form>
           </div>
         
