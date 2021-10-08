@@ -1,10 +1,15 @@
-# from django.test import TestCase
+from django.test import TestCase
+from django.test import Client
 # from .models import Application
 # from django.contrib.auth.models import User
 # from django.contrib.auth.models import Group
 # from django.test import LiveServerTestCase
 # from selenium.webdriver.chrome.webdriver import WebDriver
 # import time
+
+
+
+
 
 # class RegisterTest(TestCase):
 
