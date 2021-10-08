@@ -1,5 +1,8 @@
+{% extends 'navbarcover.html' %}
+
+{% block content %}
+<!DOCTYPE html>
 <html>
-    
     <h1>Application Form Cover Sheet </h1>
     <style>
         .button {
@@ -43,7 +46,8 @@
                             {% endfor %}
                         </label>
                         <br>
-                        {{ form.summary }}
+                        <textarea id="summary" name="summary" rows="8" cols="150"></textarea>
+                        <!--{{ form.summary }}-->
                         <br>
                     <!--</form>-->
                 </fieldset>
@@ -59,7 +63,8 @@
                             {% endfor %}
                         </label>
                         <br>
-                        {{ form.protocol }}
+                        <textarea id="protocol" name="protocol" rows="2" cols="150"></textarea>
+                        <!--{{ form.protocol }}-->
                         <br>
                     <!--</form>-->
                 </fieldset>
@@ -75,7 +80,8 @@
                             {% endfor %}
                         </label>
                         <br>
-                        {{ form.investigatorname }}
+                        <textarea id="investigatorname" name="investigatorname" rows="1" cols="50"></textarea>
+                        <!--{{ form.investigatorname }}-->
                         <br>
                         <label for="investigatorid"> 
                             {% for question in cover %}
@@ -85,7 +91,8 @@
                             {% endfor %}
                         </label>
                         <br>
-                        {{ form.investigatorid }}
+                        <textarea id="investigatorid" name="investigatorid" rows="1" cols="50"></textarea>
+                        <!--{{ form.investigatorid }}-->
                         <br>
                         <label for="center"> 
                             {% for question in cover %}
@@ -95,7 +102,8 @@
                             {% endfor %}
                         </label>
                         <br>
-                        {{ form.center }}
+                        <textarea id="center" name="center" rows="1" cols="50"></textarea>
+                        <!--{{ form.center }}-->
                         <br>
                         <label for="role"> 
                             {% for question in cover %}
@@ -105,7 +113,11 @@
                             {% endfor %}
                         </label>
                         <br>
-                        {{ form.role }}
+                        <select id="role" name="role">
+                            <option value="chiefinvestigator" selected> Chief Investigator</option>
+                            <option value="others"> Others </option>
+                        </select>
+                        <!--{{ form.role }}-->
                         <br>
                     <!--</form>-->
                 </fieldset>
@@ -120,7 +132,11 @@
                                 {% endif %}
                             {% endfor %}
                         </label>
-                        {{ form.otherinternalinvestigators }}
+                        <select id ="otherinternalinvestigators" name = "otherinternalinvestigators">
+                            <option value="Yes"> Yes </option>
+                            <option value="No" selected> No </option>
+                        </select>
+                        <!--{{ form.otherinternalinvestigators }}-->
                         <br>
                         <label for="internalinvestigatorsnumber"> 
                             {% for question in cover %}
@@ -129,7 +145,8 @@
                                 {% endif %}
                             {% endfor %}
                         </label>
-                        {{ form.internalinvestigatorsnumber }}
+                        <input type="number" id="internalinvestigatorsnumber" name="internalinvestigatorsnumber" min="0" max="100" value= "0" ><br>
+                        <!--{{ form.internalinvestigatorsnumber }}-->
                         <br>
                     <!--</form>-->
                 </fieldset>
@@ -144,8 +161,11 @@
                                 {% endif %}
                             {% endfor %}
                         </label>
-                        
-                        {{ form.otherexternalinvestigators }}
+                        <select id ="otherexternalinvestigators" name = "otherexternalinvestigators">
+                            <option value="Yes"> Yes </option>
+                            <option value="No" selected> No </option>
+                        </select>
+                        <!--{{ form.otherexternalinvestigators }}-->
                         
                         <br>
                         <label for="externalinvestigatorsnumber"> 
@@ -155,7 +175,8 @@
                                 {% endif %}
                             {% endfor %}
                         </label>
-                        {{ form.externalinvestigatorsnumber }}
+                        <input type="number" id="externalinvestigatorsnumber" name="externalinvestigatorsnumber" min="0" max="100" value= "0" ><br>
+                        <!--{{ form.externalinvestigatorsnumber }}-->
                         <br>
                     <!--</form>-->
                 </fieldset>
@@ -171,7 +192,8 @@
                             {% endfor %}
                         </label>
                         <br>
-                        {{ form.responsible }}
+                        <textarea id="responsible" name="responsible" rows="1" cols="150"></textarea>
+                        <!--{{ form.responsible }}-->
                         <br>
                         <label for="currentstate"> 
                             {% for question in cover %}
@@ -181,7 +203,8 @@
                             {% endfor %}
                         </label>
                         <br>
-                        {{ form.currentstate }}
+                        <textarea id="currentstate" name="currentstate" rows="1" cols="150"></textarea>
+                        <!--{{ form.currentstate }}-->
                         <br>
                         <label for="HRECname"> 
                             {% for question in cover %}
@@ -191,7 +214,8 @@
                             {% endfor %}
                         </label>
                         <br>
-                        {{ form.HRECname }}
+                        <textarea id="HRECname" name="HRECname" rows="1" cols="150"></textarea>
+                        <!--{{ form.HRECname }}-->
                         <br>
                         <label for="action"> 
                             {% for question in cover %}
@@ -201,7 +225,8 @@
                             {% endfor %}
                         </label>
                         <br>
-                        {{ form.action }}
+                        <textarea id="action" name="action" rows="3" cols="150"></textarea>
+                        <!--{{ form.action }}-->
                         <br>
                     <!--</form>-->
                 </fieldset>
@@ -217,7 +242,8 @@
                             {% endfor %}
                         </label>
                         <br>
-                        {{ form.title }}
+                        <textarea id="title" name ="title" rows="1" cols="150"></textarea>
+                        <!--{{ form.title }}-->
                         <br>
                         <label for="contractaction"> 
                             {% for question in cover %}
@@ -227,7 +253,8 @@
                             {% endfor %}
                         </label>
                         <br>
-                        {{ form.contractaction }}
+                        <textarea id="contractaction" name="contractaction" rows="3" cols="150"></textarea>
+                        <!--{{ form.contractaction }}-->
                     <!--</form>-->
                 </fieldset>
                 <br>
@@ -242,7 +269,8 @@
                             {% endfor %}
                         </label>
                         <br>
-                        {{ form.otherrelevantdetails }}
+                        <textarea id="otherrelevantdetails" name ="otherrelevantdetails" rows="8" cols="150"></textarea>
+                        <!--{{ form.otherrelevantdetails }}-->
                         <br>
                     <!--</form>-->
                 </fieldset>
@@ -251,15 +279,19 @@
                     in the questionnaire tab and upload documents for review in the documents tab before submitting the form.
                 </strong></h3>
                 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;
                  
-                <input type="submit"  value="Next" class="button button1"></input> 
+                <input type="submit"  value="Save" class="button button1" name=save></input> 
  
             </form>
 
         </body>
 
 </html>
+{% endblock %}
