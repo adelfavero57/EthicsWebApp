@@ -10,28 +10,33 @@
 
 .grid-container2 {
     display: grid;
-    background-color: #424242;
-    color:#ffffff;
-    width: 33vw;
-    height: auto;
-    grid-template-columns: 1fr 2fr;
-    grid-auto-rows: minmax(10px, 95px);
-    justify-items: start;
-    align-items: center;
+    background-color: #F4F4F4;
+    color: black;
+    width: 400px;
+    height: 460px;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid black;
 }
 
-h2 {
+span {
+    font-size: 24px;
     justify-self: center;
+    margin: 30px 0px 30px 0px;
 }
 
-.grid-item {
-    margin-left: 3em;
+.grid-item1, .grid-item3, .grid-item5, .grid-item7{
+    box-sizing: border-box;
+    width: 225px;
+    padding: 3px;
+
 }
 
 .grid-item2, .grid-item4, .grid-item6, .grid-item8{
     box-sizing: border-box;
-    border: 0px;
+    border: 1px solid black;
     border-radius: 2px;
+    margin-bottom: 20px;
     padding: 6px 8px 6px 8px;
     height: 40px;
     width: 225px;
@@ -48,17 +53,16 @@ h2 {
 .grid-item9 {
     color:#ffffff;
     background:#e64626;
-    border: 0em;
-    margin: 0.83em 0 0.83em 0;
-    height: 2.5em;
-    width: 6em;
+    border: 1px;
+    height: 33px;
+    width: 80px;
 }
 
 .links {
     font-size: 12px;
     color:black;
     justify-self: center;
-    margin: 10px 0px 0px 0px;
+    margin: 0px 0px 20px 0px;
 }
 
 
