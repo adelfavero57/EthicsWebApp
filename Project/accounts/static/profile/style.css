@@ -16,7 +16,7 @@
     height: 460px;
     justify-content: center;
     align-content: center;
-    border: 1px solid black;
+    border: 1px solid #424242;
 }
 
 span {
@@ -34,7 +34,7 @@ span {
 
 .grid-item2, .grid-item4, .grid-item6, .grid-item8{
     box-sizing: border-box;
-    border: 1px solid black;
+    border: 1px solid #424242;
     border-radius: 2px;
     margin-bottom: 20px;
     padding: 6px 8px 6px 8px;
@@ -58,11 +58,22 @@ span {
     width: 80px;
 }
 
+.grid-item9:hover {
+    background-color: rgb(210, 50, 18);
+}
+
 .links {
     font-size: 12px;
-    color:black;
     justify-self: center;
     margin: 0px 0px 20px 0px;
+}
+
+.reset {
+    color:black;
+}
+
+.reset:hover {
+    color: #f64626;
 }
 
 
