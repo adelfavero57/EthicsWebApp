@@ -3,5 +3,4 @@ from . import views
 
 urlpatterns = [
   path('<application_id>', views.questionnaire, name="questionnaire"),
-  path('<application_id>', views.questionnaire, name="questionnaire")
 ]

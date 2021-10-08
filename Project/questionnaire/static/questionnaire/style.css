@@ -67,19 +67,33 @@ div{
 }*/
 
 .sidenav a:active {
-    background-color: green;
+    background-color: rgb(88, 88, 88);
 }
     
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-    color:black;
+    color:rgb(88, 88, 88);
 }
     
     /* Style page content */
 .questions {
-    margin-left: 150px; /* Same as the width of the sidebar */
+    display: grid;
+
+    height: auto;
+ 
     width: 88%;
-    padding: 26px 10px;
+ 
+    border: 2.5px solid #424242;
+ 
+    background-color: #F4F4F4;
+ 
+    padding: 2% 5% 2% 5%;
+ 
+    box-sizing: border-box;
+
+    margin-left: auto;
+ 
+    margin-top: 3%;
 }
     
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
