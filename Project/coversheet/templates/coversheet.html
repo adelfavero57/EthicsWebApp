@@ -3,6 +3,9 @@
 {% block content %}
 <!DOCTYPE html>
 <html>
+    <br>
+    <br>
+    <br>
     <h1>Application Form Cover Sheet </h1>
     <style>
         .button {
@@ -20,7 +23,7 @@
         
         </style>
         <body>
-            <form method = "POST" action="/coversheet/">
+            <form method = "POST" action="">
                 {% csrf_token %} 
                 <fieldset>
                     <legend> <strong>Application Form </strong></legend>
@@ -35,7 +38,7 @@
                 <br>
                 <fieldset>
                     <legend><strong> Summary</strong></legend>
-                    <form action="" method = 'POST'>
+                    <!--<form action="" method = 'POST'>-->
                     <!--<form method = 'POST' action="/coversheet.html" >-->
 
                         <label for="summary">
@@ -114,7 +117,7 @@
                         </label>
                         <br>
                         <select id="role" name="role">
-                            <option value="chiefinvestigator" selected> Chief Investigator</option>
+                            <option value="chief investigator" selected> Chief Investigator</option>
                             <option value="others"> Others </option>
                         </select>
                         <!--{{ form.role }}-->

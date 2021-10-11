@@ -2,7 +2,7 @@
 from django.contrib.auth.decorators import login_required
 from accounts.decorators import allowed_users
 from django.shortcuts import render, redirect
-from accounts.models import Question
+from accounts.models import Question,Answers
 from accounts.models import Application
 from accounts.models import CoverSheetQuestion
 from accounts.models import CoverSheetAnswers
@@ -126,7 +126,11 @@ def success(request):
         csq_id_1017 = CoverSheetQuestion.objects.get(pk=1017)
         Otherrelevantdetails = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1017, application_id = new_application, is_short_answer = True)    
 
-
+        questions = Question.objects.all()
+        for i in questions:
+            new_answer_obj = Answers.objects.create(question_id = i, 
+            application_id = new_application, is_short_answer = 0, section_name = i.section_name,
+            is_referenced = 0, is_exemplar = 0)
 
         # request.session['finish'] = True
         return redirect('coversheet', new_application.pk)
