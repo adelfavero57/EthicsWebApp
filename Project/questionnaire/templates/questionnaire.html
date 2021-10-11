@@ -18,17 +18,16 @@
     <body>
       <br>
       <br>
-        <div class="sidenav"> 
-            <a href="#SectionA">SectionA Distinguish users</a>
-            <a href="#SectionB">SectionB Risk Evaluation</a>
-            <a href="#SectionC">SectionC Conflicts of interest</a>
-            <a href="#SectionD">SectionD Consent process</a>
-            <a href="#SectionE">SectionE Privary issue</a>
-            <a href="#SectionF">SectionF Concern risks</a>
-            <a href="#SectionG">SectionG Concern research study</a>
-            <div style="text-align: center;"><input type="submit" value="Complete" id="Complete" name="Complete"></div>
-        </div>
-        <div class="questions">
+      <div class="sidenav"> 
+        <a href="#SectionA">SectionA Distinguish users</a>
+        <a href="#SectionB">SectionB Risk Evaluation</a>
+        <a href="#SectionC">SectionC Conflicts of interest</a>
+        <a href="#SectionD">SectionD Consent process</a>
+        <a href="#SectionE">SectionE Privary issue</a>
+        <a href="#SectionF">SectionF Concern risks</a>
+        <a href="#SectionG">SectionG Concern research study</a>
+      </div>
+      <div class="questions">
           <form method = "POST" action="" name = "answer_question">
             {% csrf_token %} 
               <a name = "SectionA"></a>
@@ -43,7 +42,7 @@
                     <span class="tooltiptext">{{question.tips}}</span>
                   </div>
                   <br>
-                  <input type="radio" id="button1" name="{{question.question_num}}" value="Yes">
+                  <input type="radio" id="button1" name="{{question.question_num}}" value="Yes" required>
                   <label for="Yes">Yes</label><br>
                   <input type="radio" id="button2" name="{{question.question_num}}" value="No">
                   <label for="No">No</label><br>
@@ -427,9 +426,9 @@
                   <p></p>
                 {% endif %}
               {% endfor %}
-              <div style="text-align: center;"><input type="submit" value="Complete" id="Complete" name="Complete"></div>
+              <div class="save-item1"><input class = "save-button" type="submit" value="Save" id="Complete" name="Complete"></div>
             </form>
-          </div>
+      </div>
         
     </body>
 </html>

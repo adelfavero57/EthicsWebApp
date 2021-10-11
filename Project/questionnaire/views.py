@@ -1,3 +1,4 @@
+from typing import Counter
 from django.shortcuts import render
 
 # Create your views here.
@@ -15,17 +16,37 @@ def questionnaire(request, application_id):
     
     a_id = Application.objects.get(pk=application_id)
     questions = Question.objects.all()
-    #print(request.method)
+    # counter that help to identify if all answers have been answered. 
+    counter = 0
     if request.method == 'POST':
+        ans = Answers.objects.all().filter(application_id = a_id)
 
         
         for i in questions:
-            if i.question_num == 905:
-                break
-
-        a_id.status = "COMPLETE"
-
-        a_id.save()
+            for j in ans:
+                if j.question_id == i:
+                    # Not a question
+                    if i.question_num == 905:
+                        break
+                    que_str = str(i.question_num)
+                    try:
+                        ans_text = request.POST[que_str]
+                        #Default for textarea is "", so if user did not answer, counter need to add up by 1
+                        if ans_text == "":
+                            counter += 1
+                    except:
+                        #if multiple choice have not been selected, counter add up by 1.
+                        counter += 1
+                        continue
+                    
+                    j.short_answer_text = ans_text
+                    j.save()
+        if counter > 1:
+            a_id.status = "IN PROGRESS"
+            a_id.save()
+        else:
+            a_id.status = "COMPLETE"
+            a_id.save()
         
         return redirect('managelist')
 
