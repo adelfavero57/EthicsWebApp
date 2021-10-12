@@ -38,8 +38,8 @@
                         </div>
                     </div>
                     <p>
-                        <input type="radio" name="selection{{q.question_num}}" value="Yes" required>Yes</input>
-                        <input type="radio" name="selection{{q.question_num}}" value="No">No</input>
+                        <input type="radio" id = {{q.question_num}}yes name="selection{{q.question_num}}" value="Yes" required>Yes</input>
+                        <input type="radio" id = {{q.question_num}}no name="selection{{q.question_num}}" value="No">No</input>
                     </p>
 
                     {% endfor %}
