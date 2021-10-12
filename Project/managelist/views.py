@@ -66,7 +66,7 @@ def managelistPage(request):
 
 def deleteRow(request, item_id):
 
-    print(item_id)
+    
 
     item = Application.objects.get(pk=item_id)
 
