@@ -1,3 +1,41 @@
+body{
+
+    background-color:#F4F4F4;
+}
+
+
+.container{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    ". Title Title ."
+    "search . . new"
+    "app_table app_table app_table app_table";
+}
+
+.item-1 {
+    grid-area: Title;
+    justify-self: center;
+  }
+.item-2 {
+    grid-area: search;
+    align-self: end;
+  }
+.item-3 {
+    grid-area: new;
+    justify-self: end;
+  }
+.item-4 {
+    grid-area: app_table;
+  }
+
+#search{
+
+  height: 20%;
+}
+
+
 .applicationlist{
 
     border-collapse: collapse;
@@ -17,19 +55,9 @@ thead{
 
     border-bottom: 1px solid #dddddd;
 }
-.searchbar{
 
-    float: right;
-}
 
-.start_quiz{
-    float: right;
-}
 
-.start_quiz button{
-
-    left: 50%;
-}
 
 .start_new_app_button {
 
@@ -43,4 +71,14 @@ thead{
  
     width: 11em;
  
+ }
+ .start_new_app_button:hover{
+
+    background-color: rgb(210, 50, 18);
+    cursor:pointer;
+ }
+
+ a:hover{
+
+    background-color: rgb(210, 50, 18);
  }

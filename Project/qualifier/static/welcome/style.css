@@ -36,6 +36,11 @@
     text-align: center;
 }
 
+.grid-item7:hover{
+    background-color: darkorange;
+    cursor: pointer;
+}
+
 p {
     margin: 0;
 }
