@@ -32,6 +32,7 @@ body {
     padding: 6px 8px 6px 8px;
 }
 
+
 #register {
     height: 50px;
     width: 300px;
@@ -47,14 +48,10 @@ body {
     color: orange;
     font-size: 14px;
     max-width: 300px;
-    position:absolute;
-    left: 900px;
+    position: fixed;
+    margin-left: 20px;
+    margin-top: 15px;
 }
-
-/* #invFN {
-    position:absolute;
-    left: 10px;
-} */
 
 a {
     font-size: 12px;

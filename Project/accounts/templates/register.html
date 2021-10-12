@@ -13,41 +13,43 @@
 <body>
     <div class="grid-container">
         <h1 id="signup">Sign Up</h1>
-        <form method="POST" actions="" name="regiester">
+        <form method="POST" actions="" class="form" name="register">
             {% csrf_token %}
+
             <label for="first_name" class="formlabel">First name</label>
             <br>
             <input type="text" id="first_name" class="formbox" name="first_name">
+
             {% if form.errors %}
-            <p class="invalids" id="invFN">first name must be 150 characters or fewer</p>
+            <span class="invalids" id="invFN">first name must be 150 characters or fewer</span>
             {% endif %}
             <br>
             <label for="last_name" class="formlabel">Last name</label>
             <br>
             <input type="text" id="last_name" class="formbox" name="last_name">
             {% if form.errors %}
-            <p class="invalids">last name must be 150 characters or fewer</p>
+            <span class="invalids">last name must be 150 characters or fewer</span>
             {% endif %}
             <br>
             <label for="username" class="formlabel">Username</label>
             <br>
             <input type="text" id="username" class="formbox" name="username">
             {% if form.errors %}
-            <p class="invalids">username must be 150 characters or fewer, must contain letters, digits and @/./+/-/_ only</p>
+            <span class="invalids">username must be 150 characters or fewer, must contain letters, digits and @/./+/-/_ only</span>
             {% endif %}
             <br>
             <label for="email" class="formlabel">Email address</label>
             <br>
             <input type="text" id="email" class="formbox" name="email">
             {% if form.errors %}
-            <p class="invalids">email must be in email format e.g. example@example.com</p>
+            <span class="invalids">email must be in email format e.g. example@example.com</span>
             {% endif %}
             <br>
             <label for="password1" class="formlabel">Password</label>
             <br>
             <input type="password" id="password1" class="formbox" name="password1">
             {% if form.errors %}
-            <p class="invalids">your password can’t be too similar to your other personal information, must contain at least 8 characters, can’t be a commonly used password and can’t be entirely numeric</p>
+            <span class="invalids">your password can’t be too similar to your other personal information, must contain at least 8 characters, can’t be a commonly used password and can’t be entirely numeric</span>
             {% endif %}
             <br>
             <label for="password2" class="formlabel">Password confirmation</label>
