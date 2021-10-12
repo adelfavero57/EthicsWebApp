@@ -1,7 +1,7 @@
 1. Go to Project folder in one terminal
 2. use command "python3 manage.py runserver" to run the server
 3. Open up another terminal to run virtual users
-4. go to BenTests folder
+4. go to LoginTests folder
 5. use command "python3 vUser.py"
 
 Note: This chrome driver is for version 94 and for mac only.
