@@ -30,7 +30,16 @@ def questionnaire(request, application_id):
                         break
                     que_str = str(i.question_num)
                     try:
-                        ans_text = request.POST[que_str]
+                        if que_str == "702":
+                            ans_text = request.POST.getlist("sele1")
+                            for k in ans_text:
+                                print(k)
+                        elif que_str == "901":
+                            ans_text = request.POST.getlist("sele2")
+                            for k in ans_text:
+                                print(k)
+                        else:
+                            ans_text = request.POST[que_str]
                         #Default for textarea is "", so if user did not answer, counter need to add up by 1
                         if ans_text == "":
                             counter += 1

@@ -42,10 +42,27 @@
                     <span class="tooltiptext">{{question.tips}}</span>
                   </div>
                   <br>
-                  <input type="radio" id="button1" name="{{question.question_num}}" value="Yes" required>
-                  <label for="Yes">Yes</label><br>
-                  <input type="radio" id="button2" name="{{question.question_num}}" value="No">
-                  <label for="No">No</label><br>
+                  <!-- show the answers after submit -->
+                  {% for ans in answers %}
+                    {% if question == ans.question_id%}
+                      {% if ans.short_answer_text == "" %}
+                        <input type="radio" id="button1" name="{{question.question_num}}" value="Yes">
+                        <label for="Yes">Yes</label><br>
+                        <input type="radio" id="button2" name="{{question.question_num}}" value="No">
+                        <label for="No">No</label><br>
+                      {% elif ans.short_answer_text == "Yes" %}
+                        <input type="radio" id="button1" name="{{question.question_num}}" value="Yes" checked>
+                        <label for="Yes">Yes</label><br>
+                        <input type="radio" id="button2" name="{{question.question_num}}" value="No">
+                        <label for="No">No</label><br>
+                      {% else %}
+                        <input type="radio" id="button1" name="{{question.question_num}}" value="Yes">
+                        <label for="Yes">Yes</label><br>
+                        <input type="radio" id="button2" name="{{question.question_num}}" value="No" checked>
+                        <label for="No">No</label><br>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
                   
                 {% endif %}
               {% endfor %}
@@ -84,13 +101,31 @@
                       <span class="tooltiptext">{{question.tips}}</span>
                       </div>
                       <br>
-                      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
-                      <label for="Yes">Yes</label><br>
-                      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
-                      <label for="No">No</label><br>
+                      <!-- show the answers after submit -->
+                      {% for ans in answers %}
+                        {% if question == ans.question_id%}
+                          {% if ans.short_answer_text == "" %}
+                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                            <label for="Yes">Yes</label><br>
+                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                            <label for="No">No</label><br>
+                          {% elif ans.short_answer_text == "Yes" %}
+                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes" checked>
+                            <label for="Yes">Yes</label><br>
+                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                            <label for="No">No</label><br>
+                          {% else %}
+                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                            <label for="Yes">Yes</label><br>
+                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
+                            <label for="No">No</label><br>
+                          {% endif %}
+                        {% endif %}
+                      {% endfor %}
                       
                 {% endif %}
               {% endfor %}
+
               <a name = "SectionB"></a>
               <h1>Section B</h1>
               <h4>Section B is designed to determine whether your study falls within the National Statements definition of low or negligible risk. Throughout this section, you may be asked specific additional questions where you indicate that your study involves particular participant and/ or project types. Please note that the option Possible Recruitment with reference to specific participant populations indicates that these people MAY be recruited into your study, but are not the specific population of interest. If this population is the focus of your study, you should select Yes.
@@ -103,10 +138,27 @@
                       <span class="tooltiptext">{{question.tips}}</span>
                     </div>
                     <br>
-                    <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
-                    <label for="Yes">Yes</label><br>
-                    <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
-                    <label for="No">No</label><br>
+                    <!-- show the answers after submit -->
+                    {% for ans in answers %}
+                      {% if question == ans.question_id%}
+                        {% if ans.short_answer_text == "" %}
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                          <label for="Yes">Yes</label><br>
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                          <label for="No">No</label><br>
+                        {% elif ans.short_answer_text == "Yes" %}
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes" checked>
+                          <label for="Yes">Yes</label><br>
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                          <label for="No">No</label><br>
+                        {% else %}
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                          <label for="Yes">Yes</label><br>
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
+                          <label for="No">No</label><br>
+                        {% endif %}
+                      {% endif %}
+                    {% endfor %}
                     
                     <p></p> 
                   {% endif %}
@@ -125,10 +177,27 @@
                     <span class="tooltiptext">{{question.tips}}</span>
                   </div>
                   <br>
-                  <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
-                  <label for="Yes">Yes</label><br>
-                  <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
-                  <label for="No">No</label><br>
+                  <!-- show the answers after submit -->
+                  {% for ans in answers %}
+                    {% if question == ans.question_id%}
+                      {% if ans.short_answer_text == "" %}
+                        <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                        <label for="Yes">Yes</label><br>
+                        <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                        <label for="No">No</label><br>
+                      {% elif ans.short_answer_text == "Yes" %}
+                        <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes" checked>
+                        <label for="Yes">Yes</label><br>
+                        <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                        <label for="No">No</label><br>
+                      {% else %}
+                        <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                        <label for="Yes">Yes</label><br>
+                        <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
+                        <label for="No">No</label><br>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
                   
                   <p></p> 
                 {% endif %}
@@ -193,7 +262,12 @@
                           </div>
                         </div>
                         <br>
-                      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+                      {% for ans in answers %}
+                        {% if question == ans.question_id%}
+                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
+                          value="{{ans.short_answer_text}}">{{ans.short_answer_text}}</textarea>
+                        {% endif %}
+                      {% endfor %}
                       
                       </div>
 
@@ -207,8 +281,12 @@
                           </div>
                           <br>
                           
-                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
-                          
+                          {% for ans in answers %}
+                            {% if question == ans.question_id%}
+                              <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
+                              value="{{ans.short_answer_text}}">{{ans.short_answer_text}}</textarea>
+                            {% endif %}
+                          {% endfor %}
                         </div>
                         <script type="text/javascript">
                           $("#button3").click(function(){
@@ -225,7 +303,14 @@
                         <span class="tooltiptext">{{question.tips}}</span>
                       </div>
                       <br>
-                      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+
+                      {% for ans in answers %}
+                        {% if question == ans.question_id%}
+                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
+                          value="{{ans.short_answer_text}}">{{ans.short_answer_text}}</textarea>
+                        {% endif %}
+                      {% endfor %}
+
                     {% endif %}
                   {% else %}
                     {% if question.question_num == 604%}
@@ -234,10 +319,28 @@
                         <span class="tooltiptext">{{question.tips}}</span>
                       </div>
                       <br>
-                      <input type="radio" id="button3" name="{{question.question_num}}" value="Yes">
-                      <label for="Yes">Yes</label><br>
-                      <input type="radio" id="button4" name="{{question.question_num}}" value="No">
-                      <label for="No">No</label><br>
+                      <!-- show the answers after submit -->
+                      {% for ans in answers %}
+                        {% if question == ans.question_id%}
+                          {% if ans.short_answer_text == "" %}
+                            <input type="radio" id="button3" name="{{question.question_num}}" value="Yes">
+                            <label for="Yes">Yes</label><br>
+                            <input type="radio" id="button4" name="{{question.question_num}}" value="No">
+                            <label for="No">No</label><br>
+                          {% elif ans.short_answer_text == "Yes" %}
+                            <input type="radio" id="button3" name="{{question.question_num}}" value="Yes" checked>
+                            <label for="Yes">Yes</label><br>
+                            <input type="radio" id="button4" name="{{question.question_num}}" value="No">
+                            <label for="No">No</label><br>
+                          {% else %}
+                            <input type="radio" id="button3" name="{{question.question_num}}" value="Yes">
+                            <label for="Yes">Yes</label><br>
+                            <input type="radio" id="button4" name="{{question.question_num}}" value="No" checked>
+                            <label for="No">No</label><br>
+                        {% endif %}
+                      {% endif %}
+                    {% endfor %}
+                      
                       
                     {% else %}
                       <font>{{ question.text }}</font>
@@ -246,10 +349,29 @@
                         <span class="tooltiptext">{{question.tips}}</span>
                       </div>
                       <br>
-                      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
-                      <label for="Yes">Yes</label><br>
-                      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
-                      <label for="No">No</label><br>
+
+                      <!-- show the answers after submit -->
+                      {% for ans in answers %}
+                        {% if question == ans.question_id%}
+                          {% if ans.short_answer_text == "" %}
+                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                            <label for="Yes">Yes</label><br>
+                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                            <label for="No">No</label><br>
+                          {% elif ans.short_answer_text == "Yes" %}
+                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes" checked>
+                            <label for="Yes">Yes</label><br>
+                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                            <label for="No">No</label><br>
+                          {% else %}
+                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                            <label for="Yes">Yes</label><br>
+                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
+                            <label for="No">No</label><br>
+                          {% endif %}
+                        {% endif %}
+                      {% endfor %}
+                      
                     {% endif %}
                       
                   {% endif %}
@@ -275,7 +397,12 @@
                             </div>
                             <br>
                             
-                            <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+                            {% for ans in answers %}
+                              {% if question == ans.question_id%}
+                                <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
+                                value="{{ans.short_answer_text}}">{{ans.short_answer_text}}</textarea>
+                              {% endif %}
+                          {% endfor %}
                             
                           </div>
                           <script type="text/javascript">
@@ -292,7 +419,14 @@
                               <span class="tooltiptext">{{question.tips}}</span>
                           </div>
                           <br>
-                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+
+                          {% for ans in answers %}
+                            {% if question == ans.question_id%}
+                              <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
+                              value="{{ans.short_answer_text}}">{{ans.short_answer_text}}</textarea>
+                            {% endif %}
+                          {% endfor %}
+
                         {% endif %}   
                       {% elif question.question_num == 702 %}
                         <div id="div3" style="display :none ;">
@@ -303,13 +437,13 @@
                           </div>
                           <br>
                           
-                          <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Audio recordings">
+                          <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Audio recordings">
                           <label for="Audio recordings">Audio recordings</label><br>
-                          <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Film/Video recordings">
+                          <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Film/Video recordings">
                           <label for="Film/Video recordings">Film/Video recordings</label><br>
-                          <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Online survey">
+                          <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Online survey">
                           <label for="Online survey">Online survey</label><br>
-                          <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Other">
+                          <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Other">
                           <label for="Other">Other</label><br>
                           
                         </div>
@@ -331,20 +465,56 @@
                             <span class="tooltiptext">{{question.tips}}</span>
                           </div>
                           <br>
-                          <input type="radio" id="button5" name="{{question.question_num}}" value="Yes">
-                          <label for="Yes">Yes</label><br>
-                          <input type="radio" id="button6" name="{{question.question_num}}" value="No">
-                          <label for="No">No</label><br>
+
+                          <!-- show the answers after submit -->
+                          {% for ans in answers %}
+                            {% if question == ans.question_id%}
+                              {% if ans.short_answer_text == "" %}
+                                <input type="radio" id="button5" name="{{question.question_num}}" value="Yes">
+                                <label for="Yes">Yes</label><br>
+                                <input type="radio" id="button6" name="{{question.question_num}}" value="No">
+                                <label for="No">No</label><br>
+                              {% elif ans.short_answer_text == "Yes" %}
+                                <input type="radio" id="button5" name="{{question.question_num}}" value="Yes" checked>
+                                <label for="Yes">Yes</label><br>
+                                <input type="radio" id="button6" name="{{question.question_num}}" value="No">
+                                <label for="No">No</label><br>
+                              {% else %}
+                                <input type="radio" id="button5" name="{{question.question_num}}" value="Yes">
+                                <label for="Yes">Yes</label><br>
+                                <input type="radio" id="button6" name="{{question.question_num}}" value="No" checked>
+                                <label for="No">No</label><br>
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+                          
                         {% elif question.question_num == 715 %}
                           <font>{{ question.text }}</font>
                           <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
                             <span class="tooltiptext">{{question.tips}}</span>
                           </div>
                           <br>
-                          <input type="radio" id="button7" name="{{question.question_num}}" value="Yes">
-                          <label for="Yes">Yes</label><br>
-                          <input type="radio" id="button8" name="{{question.question_num}}" value="No">
-                          <label for="No">No</label><br>
+                          <!-- show the answers after submit -->
+                          {% for ans in answers %}
+                            {% if question == ans.question_id%}
+                              {% if ans.short_answer_text == "" %}
+                                <input type="radio" id="button7" name="{{question.question_num}}" value="Yes">
+                                <label for="Yes">Yes</label><br>
+                                <input type="radio" id="button8" name="{{question.question_num}}" value="No">
+                                <label for="No">No</label><br>
+                              {% elif ans.short_answer_text == "Yes" %}
+                                <input type="radio" id="button7" name="{{question.question_num}}" value="Yes" checked>
+                                <label for="Yes">Yes</label><br>
+                                <input type="radio" id="button8" name="{{question.question_num}}" value="No">
+                                <label for="No">No</label><br>
+                              {% else %}
+                                <input type="radio" id="button7" name="{{question.question_num}}" value="Yes">
+                                <label for="Yes">Yes</label><br>
+                                <input type="radio" id="button8" name="{{question.question_num}}" value="No" checked>
+                                <label for="No">No</label><br>
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
                         
                         {% else %}
                           <font>{{ question.text }}</font>
@@ -353,12 +523,30 @@
                             <span class="tooltiptext">{{question.tips}}</span>
                           </div>
                           <br>
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
-                          <label for="Yes">Yes</label><br>
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
-                          <label for="No">No</label><br>
+
+                          <!-- show the answers after submit -->
+                          {% for ans in answers %}
+                            {% if question == ans.question_id%}
+                              {% if ans.short_answer_text == "" %}
+                                <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                                <label for="Yes">Yes</label><br>
+                                <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                                <label for="No">No</label><br>
+                              {% elif ans.short_answer_text == "Yes" %}
+                                <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes" checked>
+                                <label for="Yes">Yes</label><br>
+                                <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                                <label for="No">No</label><br>
+                              {% else %}
+                                <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                                <label for="Yes">Yes</label><br>
+                                <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
+                                <label for="No">No</label><br>
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+
                         {% endif %}
-                          
                       {% endif %}
                       <p></p>
                   {% endif %}
@@ -377,14 +565,37 @@
                   </div>
                   {% if question.is_short_answer == 1 %}
                     <br>
-                    <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+
+                    {% for ans in answers %}
+                      {% if question == ans.question_id%}
+                        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
+                        value="{{ans.short_answer_text}}">{{ans.short_answer_text}}</textarea>
+                      {% endif %}
+                    {% endfor %}
                   
                   {% else %}
                     <br>
-                    <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
-                    <label for="Yes">Yes</label><br>
-                    <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
-                    <label for="No">No</label><br>
+                    <!-- show the answers after submit -->
+                    {% for ans in answers %}
+                      {% if question == ans.question_id%}
+                        {% if ans.short_answer_text == "" %}
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                          <label for="Yes">Yes</label><br>
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                          <label for="No">No</label><br>
+                        {% elif ans.short_answer_text == "Yes" %}
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes" checked>
+                          <label for="Yes">Yes</label><br>
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                          <label for="No">No</label><br>
+                        {% else %}
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                          <label for="Yes">Yes</label><br>
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
+                          <label for="No">No</label><br>
+                        {% endif %}
+                      {% endif %}
+                    {% endfor %}
                       
                   {% endif %}
                   <p></p>
@@ -402,25 +613,47 @@
                   </div>
                   {% if question.is_short_answer == 1 %}
                     <br>
-                    <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+
+                    {% for ans in answers %}
+                      {% if question == ans.question_id%}
+                        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
+                        value="{{ans.short_answer_text}}">{{ans.short_answer_text}}</textarea>
+                      {% endif %}
+                    {% endfor %}
+        
                   {% elif question.is_short_answer == 2 %}
-                    <br>
-                    <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Participant observation (ethnography, systematic)">
-                    <label for="Participant observation (ethnography, systematic)">Participant observation (ethnography, systematic)</label><br>
-                    <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Questionnaire/survey">
-                    <label for="Questionnaire/survey">Questionnaire/survey</label><br>
-                    <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Online survey">
-                    <label for="Interviews (including oral history)">Interviews (including oral history)</label><br>
-                    <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Data linkage studie">
-                    <label for="Data linkage studie">Data linkage studie</label><br>
+                    <br>       
+                    <input type="checkbox" name="sele2" value="Participant observation (ethnography, systematic)">Participant observation (ethnography, systematic)<br>      
+                    <input type="checkbox" name="sele2" value="Questionnaire/survey">Questionnaire/survey<br>      
+                    <input type="checkbox" name="sele2" value="Interviews (including oral history)">Interviews (including oral history)<br> 
+                    <input type="checkbox" name="sele2" value="Data linkage studie">Data linkage studie<br>   
+                            
                   {% elif question.question_num == 905%}
                     <p></p>
                   {% else %}
                     <br>
-                    <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
-                    <label for="Yes">Yes</label><br>
-                    <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
-                    <label for="No">No</label><br>
+
+                    <!-- show the answers after submit -->
+                    {% for ans in answers %}
+                      {% if question == ans.question_id%}
+                        {% if ans.short_answer_text == "" %}
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                          <label for="Yes">Yes</label><br>
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                          <label for="No">No</label><br>
+                        {% elif ans.short_answer_text == "Yes" %}
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes" checked>
+                          <label for="Yes">Yes</label><br>
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                          <label for="No">No</label><br>
+                        {% else %}
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                          <label for="Yes">Yes</label><br>
+                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
+                          <label for="No">No</label><br>
+                        {% endif %}
+                      {% endif %}
+                    {% endfor %}
                       
                   {% endif %}
                   <p></p>
