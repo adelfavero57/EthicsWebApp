@@ -5,7 +5,7 @@ class vUser:
     def __init__(self, path):
         self.path = path
 
-    def run_user(self):
+    def run(self):
         string = "python3 " + self.path
         os.system(string)
 
@@ -29,4 +29,4 @@ Users.append(test4)
 
 # Run tests
 for i in Users:
-    i.run_user()
+    i.run()
