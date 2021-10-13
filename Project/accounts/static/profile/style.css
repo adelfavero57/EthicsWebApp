@@ -73,10 +73,6 @@ span {
     margin: 0px 0px 20px 0px;
 }
 
-.reset {
-    color:black;
-}
-
 .reset:hover {
     color: #f64626;
 }
