@@ -1,6 +1,6 @@
 body {
-    background:#424242;
-    color:#ffffff;
+    background: #424242;
+    color: #ffffff;
     font-family: sans-serif;
 }
 
@@ -12,7 +12,6 @@ body {
     align-content: center;
 }
 
-
 #signin {
     font-size: 18px;
     margin: 20px 0px 30px 0px;
@@ -23,14 +22,19 @@ body {
     font-size: 14px;
 }
 
-.formbox {
+.input-box {
+    display: grid;
+    grid-template-columns: 1fr 0;
+}
+
+.input {
     height: 35px;
-    width: 300px; 
-    margin: 5px 0px 10px 0px;
     border: 0px;
+    margin: 5px 0px 10px 0px;
+    padding: 6px 8px 6px 8px;
+    width: 300px;
     border-radius: 2px;
     box-sizing: border-box;
-    padding: 6px 8px 6px 8px;
 }
 
 #login {
@@ -38,12 +42,12 @@ body {
     width: 300px;
     border: 0px;
     border-radius: 2px;
-    color:#ffffff;
-    background:#e64626;
+    color: #ffffff;
+    background: #e64626;
 }
 
 #checklabel {
-    font-size: 12px;  
+    font-size: 12px;
     position: relative;
     top: -3px;
 }
@@ -77,7 +81,20 @@ body {
 
 a {
     font-size: 12px;
-    color:#ffffff;
+    color: #ffffff;
     text-align: center;
     margin: 20px 0px 0px 0px;
+}
+
+.eye {
+    color: black;
+    position: relative;
+    top: 15px;
+    right: 25px;
+}
+
+#hide1 {
+    display: none;
+    position: relative;
+    right: -1px;
 }
