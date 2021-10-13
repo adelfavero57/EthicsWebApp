@@ -38,13 +38,23 @@ class ManagelistTest(TestCase):
     def test_application(self):
 
     
-        new_application = Application.objects.create(id = 1, user=self.user, status = "IN PROGRESS", supervisor="ALvin", title="Test")
+        new_application = Application.objects.create(id = 1, user=self.user, status = "IN PROGRESS", supervisor="Alvin", title="Test")
         c = Client()
         response = c.post('/login/', {'username': 'john', 'password': 'johnpassword'}, follow=True)
 
-        print(response.request)
+        
 
         applications = response.context['applications']
+
+        instance = applications.get(pk=1)
+
+        self.assertEqual(instance.status, "IN PROGRESS")
+        self.assertEqual(instance.title, "Test")
+        self.assertEqual(instance.supervisor, "Alvin")
+
+        
+
+
 
 
         
