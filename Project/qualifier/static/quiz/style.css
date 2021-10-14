@@ -95,3 +95,7 @@
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+.grid-item-button:hover{
+    background-color: darkorange;
+    cursor: pointer;
+}

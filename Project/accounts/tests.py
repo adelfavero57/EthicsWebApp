@@ -1,28 +1,77 @@
-# from django.test import TestCase
-# from .models import Application
-# from django.contrib.auth.models import User
-# from django.contrib.auth.models import Group
+from django.test import TestCase
+from django.test import Client
+from accounts.forms import CreateUserForm
+from django.contrib.auth.models import User
+from django.contrib.auth.models import Group
 # from django.test import LiveServerTestCase
 # from selenium.webdriver.chrome.webdriver import WebDriver
 # import time
 
-# class RegisterTest(TestCase):
 
-#     @classmethod
-#     def setUpTestData(cls):
 
-#         cls.user = User.objects.create_user('john', 'lennon@thebeatles.com', 'johnpassword')
 
-#         cls.application = Application.objects.create(user=cls.user, title="test", supervisor="alvin")
 
+class RegisterTest(TestCase):
+
+    @classmethod
+    def setUpTestData(cls):
+
+        researcher = Group(name = "researcher")
+        researcher.save()
+        cls.user = User.objects.create_user(username = 'john', password='johnpassword')
+        cls.user.groups.add(researcher)
+
+        
           
 
-#     def testApplication(self):
+    def testNoEmail(self):
 
-#         item = Application.objects.get(user=self.user)
-#         self.assertEqual(item, self.application)
-#         # self.assertEqual(user.password, 'johnpassword')
+        data = {'first_name': 'Test', 'last_name': 'Test', 'username': "Test", 'password1': 'admin', 'password2': 'admin'}
 
+        form = CreateUserForm(data)
+
+        self.assertFalse(form.is_valid(), "The test did not pass")
+
+    def testNoFirstName(self):
+
+        data = {'last_name': 'Test', 'username': "Test", 'email': 'hello@gmail.com', 'password1': 'admin', 'password2': 'admin'}
+
+        form = CreateUserForm(data)
+
+        self.assertFalse(form.is_valid(), "The test did not pass")
+
+
+    def testNoLastName(self):
+
+        data = {'first_name': 'Test', 'username': "Test", 'email': 'hello@gmail.com', 'password1': 'admin', 'password2': 'admin'}
+
+        form = CreateUserForm(data)
+
+        self.assertFalse(form.is_valid(), "The test did not pass")
+
+    
+    def testWrongPasswordFormat(self):
+
+        data = {'first_name': 'Test','last_name': 'Test', 'username': "Test", 'email': 'hello@gmail.com', 'password1': 'admin', 'password2': 'admin'}
+
+        form = CreateUserForm(data)
+
+        self.assertFalse(form.is_valid(), "The test did not pass")
+
+
+    def testCorrectPasswordFormat(self):
+
+        data = {'first_name': 'Test','last_name': 'Test', 'username': "Test", 'email': 'hello@gmail.com', 'password1': 'POL123@4', 'password2': 'POL123@4'}
+
+        form = CreateUserForm(data)
+
+        self.assertTrue(form.is_valid(), "The test did not pass")
+
+
+
+        # response = self.
+        
+        # self.assertFormError(response, 'form', 'username', 'username must be 150 characters or fewer, must contain letters, digits and @/./+/-/_ only')
 
 #     def testAnswer(self):
 #         pass
