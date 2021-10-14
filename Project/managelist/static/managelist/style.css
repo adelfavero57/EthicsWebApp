@@ -21,18 +21,22 @@ body{
 .item-2 {
     grid-area: search;
     align-self: end;
+    margin-bottom: 20px;
   }
+
+
 .item-3 {
     grid-area: new;
     justify-self: end;
+    margin-bottom: 20px;
   }
 .item-4 {
     grid-area: app_table;
   }
 
-#search{
+.item-2 #search{
 
-  height: 20%;
+  font-size:20px;
 }
 
 
@@ -79,6 +83,5 @@ thead{
  }
 
  a:hover{
-
     background-color: rgb(210, 50, 18);
  }

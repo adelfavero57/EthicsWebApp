@@ -24,7 +24,7 @@
 
       <div class = "item-2">
         <input type="text" id = "search" 
-        name = "search_item" placeholder="Search..">
+        name = "search_item"  placeholder="Search..">
       </div>
 
       <div class = "item-3">
@@ -71,7 +71,7 @@
               <td>{{item.last_modified}}</td>
               <td>{{item.status}}</td>
               <td>{{item.supervisor}}</td>
-              <td><a href="{% url 'questionnaire' item.id %}">Edit</a></td>
+              <td><a href="{% url 'coversheet' item.id %}">Edit</a></td>
               <td><a href ="{% url 'delete' item.id %}" onclick = "return confirm('Do you want to delete the application: {{item.title}} ?')">Withdraw</a></td>
             </tr>
           
