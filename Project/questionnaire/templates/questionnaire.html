@@ -402,8 +402,31 @@
                     <span class="tooltiptext">{{question.tips}}</span>
                   </div>
                   {% if question.is_short_answer == 1 %}
+                    {% if question.question_num == 904 %}
+                    <br>
+                    <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="120" rows="30">Aims and hypotheses/research questions Research plan including duration of the study and/or timeline:
+
+
+Participant characteristics including sex, age range and inclusion/exclusion criteria (if relevant): 
+
+
+The intended sample size with a justification, and/or the particiant sampling/selection strategy (as relevant to your study):
+
+
+Details of where the study will be undertaken (location/site/URL):
+
+
+Details of how data will be collected and analysed Potential significance of the study:
+
+
+</textarea>
+
+                    {% else %}
                     <br>
                     <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+
+                    {% endif %}
+
                   {% elif question.is_short_answer == 2 %}
                     <br>
                     <input type="checkbox" id="{{question.question_num}}" name="{{question.question_num}}" value="Participant observation (ethnography, systematic)">
@@ -428,6 +451,7 @@
                 {% endif %}
               {% endfor %}
               <div style="text-align: center;"><input type="submit" value="Complete" id="Complete" name="Complete"></div>
+              <input type="file" id="myFile" name="filename"><input type="submit">
             </form>
           </div>
         
