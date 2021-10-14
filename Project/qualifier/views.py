@@ -79,7 +79,7 @@ def success(request):
 
         #internalinvestigatorsnumber_text = coversheet_form.cleaned_data['internalinvestigatorsnumber']
         csq_id_1008 = CoverSheetQuestion.objects.get(pk=1008)
-        Internalinvestigatorsnumber = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1008, application_id = new_application, is_short_answer = False)
+        Internalinvestigatorsnumber = CoverSheetAnswers.objects.create(text = "0", question_id = csq_id_1008, application_id = new_application, is_short_answer = True)
         
 
         #otherexternalinvestigators_text = coversheet_form.cleaned_data['otherexternalinvestigators']
@@ -89,7 +89,7 @@ def success(request):
 
         #externalinvestigatorsnumber_text = coversheet_form.cleaned_data['externalinvestigatorsnumber']
         csq_id_1010 = CoverSheetQuestion.objects.get(pk=1010)
-        Externalinvestigatorsnumber = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1010, application_id = new_application, is_short_answer = False)
+        Externalinvestigatorsnumber = CoverSheetAnswers.objects.create(text = "0", question_id = csq_id_1010, application_id = new_application, is_short_answer = True)
         
 
         #responsible_text = coversheet_form.cleaned_data['responsible']
