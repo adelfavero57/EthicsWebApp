@@ -49,7 +49,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="summary" name="summary" rows="8" cols="150"></textarea>
+                        <textarea id="summary" name="summary" rows="8" cols="150">{% for coverquestion in cover %}{% if coverquestion.question_num == 1001%}{% for coveranswers in coversheetanswers %}{% if coveranswers.question_id == coverquestion%}{{ coveranswers.text }}{% endif %}{% endfor %}{% endif %}{% endfor %}</textarea>
                         <!--{{ form.summary }}-->
                         <br>
                     <!--</form>-->
@@ -66,7 +66,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="protocol" name="protocol" rows="2" cols="150"></textarea>
+                        <textarea id="protocol" name="protocol" rows="2" cols="150">{% for coverquestion in cover %}{% if coverquestion.question_num == 1002%}{% for coveranswers in coversheetanswers %}{% if coveranswers.question_id == coverquestion%}{{ coveranswers.text }}{% endif %}{% endfor %}{% endif %}{% endfor %}</textarea>
                         <!--{{ form.protocol }}-->
                         <br>
                     <!--</form>-->
@@ -83,7 +83,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="investigatorname" name="investigatorname" rows="1" cols="50"></textarea>
+                        <textarea id="investigatorname" name="investigatorname" rows="1" cols="50">{% for coverquestion in cover %}{% if coverquestion.question_num == 1003%}{% for coveranswers in coversheetanswers %}{% if coveranswers.question_id == coverquestion%}{{ coveranswers.text }}{% endif %}{% endfor %}{% endif %}{% endfor %}</textarea>
                         <!--{{ form.investigatorname }}-->
                         <br>
                         <label for="investigatorid"> 
@@ -94,7 +94,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="investigatorid" name="investigatorid" rows="1" cols="50"></textarea>
+                        <textarea id="investigatorid" name="investigatorid" rows="1" cols="50">{% for coverquestion in cover %}{% if coverquestion.question_num == 1004%}{% for coveranswers in coversheetanswers %}{% if coveranswers.question_id == coverquestion%}{{ coveranswers.text }}{% endif %}{% endfor %}{% endif %}{% endfor %}</textarea>
                         <!--{{ form.investigatorid }}-->
                         <br>
                         <label for="center"> 
@@ -105,7 +105,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="center" name="center" rows="1" cols="50"></textarea>
+                        <textarea id="center" name="center" rows="1" cols="50">{% for coverquestion in cover %}{% if coverquestion.question_num == 1005%}{% for coveranswers in coversheetanswers %}{% if coveranswers.question_id == coverquestion%}{{ coveranswers.text }}{% endif %}{% endfor %}{% endif %}{% endfor %}</textarea>
                         <!--{{ form.center }}-->
                         <br>
                         <label for="role"> 
@@ -117,8 +117,23 @@
                         </label>
                         <br>
                         <select id="role" name="role">
-                            <option value="chief investigator" selected> Chief Investigator</option>
-                            <option value="others"> Others </option>
+                            {% for coverquestion in cover %}
+                                {% if coverquestion.question_num == 1006%}
+                                    {% for coveranswers in coversheetanswers %}
+                                        {% if coveranswers.question_id == coverquestion%}
+                                            {% if coveranswers.text == "chief investigator" %}
+                                                <option value="chief investigator" selected> chief investigator </option>
+                                                <option value="others"> others </option>
+                                            {% endif %}
+                                            {% if coveranswers.text == "others" %}
+                                                <option value="chief investigator"> chief investigator </option>
+                                                <option value="others" selected> others </option>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                            
                         </select>
                         <!--{{ form.role }}-->
                         <br>
@@ -136,8 +151,22 @@
                             {% endfor %}
                         </label>
                         <select id ="otherinternalinvestigators" name = "otherinternalinvestigators">
-                            <option value="Yes"> Yes </option>
-                            <option value="No" selected> No </option>
+                            {% for coverquestion in cover %}
+                                {% if coverquestion.question_num == 1007%}
+                                    {% for coveranswers in coversheetanswers %}
+                                        {% if coveranswers.question_id == coverquestion%}
+                                            {% if coveranswers.text == "No" %}
+                                                <option value="Yes"> Yes </option>
+                                                <option value="No" selected> No </option>
+                                            {% endif %}
+                                            {% if coveranswers.text == "Yes" %}
+                                                <option value="Yes" selected> Yes </option>
+                                                <option value="No" > No </option>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
                         </select>
                         <!--{{ form.otherinternalinvestigators }}-->
                         <br>
@@ -148,7 +177,9 @@
                                 {% endif %}
                             {% endfor %}
                         </label>
-                        <input type="number" id="internalinvestigatorsnumber" name="internalinvestigatorsnumber" min="0" max="100" value= "0" ><br>
+                        <br>
+                        <textarea type="number" id="internalinvestigatorsnumber" name="internalinvestigatorsnumber" rows="1" cols="4" >{% for coverquestion in cover %}{% if coverquestion.question_num == 1008%}{% for coveranswers in coversheetanswers %}{% if coveranswers.question_id == coverquestion%}{{ coveranswers.text }}{% endif %}{% endfor %}{% endif %}{% endfor %}</textarea>
+                    
                         <!--{{ form.internalinvestigatorsnumber }}-->
                         <br>
                     <!--</form>-->
@@ -165,8 +196,23 @@
                             {% endfor %}
                         </label>
                         <select id ="otherexternalinvestigators" name = "otherexternalinvestigators">
-                            <option value="Yes"> Yes </option>
-                            <option value="No" selected> No </option>
+                            {% for coverquestion in cover %}
+                                {% if coverquestion.question_num == 1009%}
+                                    {% for coveranswers in coversheetanswers %}
+                                        {% if coveranswers.question_id == coverquestion%}
+                                            {% if coveranswers.text == "No" %}
+                                                <option value="Yes"> Yes </option>
+                                                <option value="No" selected> No </option>
+                                            {% endif %}
+                                            {% if coveranswers.text == "Yes" %}
+                                                <option value="Yes" selected> Yes </option>
+                                                <option value="No" > No </option>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                            
                         </select>
                         <!--{{ form.otherexternalinvestigators }}-->
                         
@@ -178,7 +224,8 @@
                                 {% endif %}
                             {% endfor %}
                         </label>
-                        <input type="number" id="externalinvestigatorsnumber" name="externalinvestigatorsnumber" min="0" max="100" value= "0" ><br>
+                        <br>
+                        <textarea type="number" id="externalinvestigatorsnumber" name="externalinvestigatorsnumber" rows="1" cols="4" >{% for coverquestion in cover %}{% if coverquestion.question_num == 1010%}{% for coveranswers in coversheetanswers %}{% if coveranswers.question_id == coverquestion%}{{ coveranswers.text }}{% endif %}{% endfor %}{% endif %}{% endfor %}</textarea>
                         <!--{{ form.externalinvestigatorsnumber }}-->
                         <br>
                     <!--</form>-->
@@ -195,7 +242,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="responsible" name="responsible" rows="1" cols="150"></textarea>
+                        <textarea id="responsible" name="responsible" rows="1" cols="150">{% for coverquestion in cover %}{% if coverquestion.question_num == 1011%}{% for coveranswers in coversheetanswers %}{% if coveranswers.question_id == coverquestion%}{{ coveranswers.text }}{% endif %}{% endfor %}{% endif %}{% endfor %}</textarea>
                         <!--{{ form.responsible }}-->
                         <br>
                         <label for="currentstate"> 
@@ -206,7 +253,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="currentstate" name="currentstate" rows="1" cols="150"></textarea>
+                        <textarea id="currentstate" name="currentstate" rows="1" cols="150">{% for coverquestion in cover %}{% if coverquestion.question_num == 1012%}{% for coveranswers in coversheetanswers %}{% if coveranswers.question_id == coverquestion%}{{ coveranswers.text }}{% endif %}{% endfor %}{% endif %}{% endfor %}</textarea>
                         <!--{{ form.currentstate }}-->
                         <br>
                         <label for="HRECname"> 
@@ -217,7 +264,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="HRECname" name="HRECname" rows="1" cols="150"></textarea>
+                        <textarea id="HRECname" name="HRECname" rows="1" cols="150">{% for coverquestion in cover %}{% if coverquestion.question_num == 1013%}{% for coveranswers in coversheetanswers %}{% if coveranswers.question_id == coverquestion%}{{ coveranswers.text }}{% endif %}{% endfor %}{% endif %}{% endfor %}</textarea>
                         <!--{{ form.HRECname }}-->
                         <br>
                         <label for="action"> 
@@ -228,7 +275,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="action" name="action" rows="3" cols="150"></textarea>
+                        <textarea id="action" name="action" rows="3" cols="150">{% for coverquestion in cover %}{% if coverquestion.question_num == 1014%}{% for coveranswers in coversheetanswers %}{% if coveranswers.question_id == coverquestion%}{{ coveranswers.text }}{% endif %}{% endfor %}{% endif %}{% endfor %}</textarea>
                         <!--{{ form.action }}-->
                         <br>
                     <!--</form>-->
@@ -245,7 +292,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="title" name ="title" rows="1" cols="150"></textarea>
+                        <textarea id="title" name ="title" rows="1" cols="150">{% for coverquestion in cover %}{% if coverquestion.question_num == 1015%}{% for coveranswers in coversheetanswers %}{% if coveranswers.question_id == coverquestion%}{{ coveranswers.text }}{% endif %}{% endfor %}{% endif %}{% endfor %}</textarea>
                         <!--{{ form.title }}-->
                         <br>
                         <label for="contractaction"> 
@@ -256,7 +303,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="contractaction" name="contractaction" rows="3" cols="150"></textarea>
+                        <textarea id="contractaction" name="contractaction" rows="3" cols="150">{% for coverquestion in cover %}{% if coverquestion.question_num == 1016%}{% for coveranswers in coversheetanswers %}{% if coveranswers.question_id == coverquestion%}{{ coveranswers.text }}{% endif %}{% endfor %}{% endif %}{% endfor %}</textarea>
                         <!--{{ form.contractaction }}-->
                     <!--</form>-->
                 </fieldset>
@@ -272,7 +319,7 @@
                             {% endfor %}
                         </label>
                         <br>
-                        <textarea id="otherrelevantdetails" name ="otherrelevantdetails" rows="8" cols="150"></textarea>
+                        <textarea id="otherrelevantdetails" name ="otherrelevantdetails" rows="8" cols="150">{% for coverquestion in cover %}{% if coverquestion.question_num == 1017%}{% for coveranswers in coversheetanswers %}{% if coveranswers.question_id == coverquestion%}{{ coveranswers.text }}{% endif %}{% endfor %}{% endif %}{% endfor %}</textarea>
                         <!--{{ form.otherrelevantdetails }}-->
                         <br>
                     <!--</form>-->
