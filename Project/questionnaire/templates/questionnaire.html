@@ -612,7 +612,28 @@
                     <span class="tooltiptext">{{question.tips}}</span>
                   </div>
                   {% if question.is_short_answer == 1 %}
+                    {% if question.question_num == 904 %}
                     <br>
+                    <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="120" rows="30">Aims and hypotheses/research questions Research plan including duration of the study and/or timeline:
+
+
+Participant characteristics including sex, age range and inclusion/exclusion criteria (if relevant): 
+
+
+The intended sample size with a justification, and/or the particiant sampling/selection strategy (as relevant to your study):
+
+
+Details of where the study will be undertaken (location/site/URL):
+
+
+Details of how data will be collected and analysed Potential significance of the study:
+
+
+</textarea>
+
+                    {% else %}
+                    <br>
+<<<<<<< HEAD
 
                     {% for ans in answers %}
                       {% if question == ans.question_id%}
@@ -621,6 +642,12 @@
                       {% endif %}
                     {% endfor %}
         
+=======
+                    <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+
+                    {% endif %}
+
+>>>>>>> master
                   {% elif question.is_short_answer == 2 %}
                     <br>       
                     <input type="checkbox" name="sele2" value="Participant observation (ethnography, systematic)">Participant observation (ethnography, systematic)<br>      
@@ -659,7 +686,8 @@
                   <p></p>
                 {% endif %}
               {% endfor %}
-              <div class="save-item1"><input class = "save-button" type="submit" value="Save" id="Complete" name="Complete"></div>
+              <div style="text-align: center;"><input type="submit" value="Complete" id="Complete" name="Complete"></div>
+              <input type="file" id="myFile" name="filename"><input type="submit">
             </form>
       </div>
         

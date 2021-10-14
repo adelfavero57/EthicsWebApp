@@ -69,27 +69,27 @@ def success(request):
 
         #role_text = coversheet_form.cleaned_data['role']
         csq_id_1006 = CoverSheetQuestion.objects.get(pk=1006)
-        Role = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1006, application_id = new_application, is_short_answer = False)
+        Role = CoverSheetAnswers.objects.create(text = "chief investigator", question_id = csq_id_1006, application_id = new_application, is_short_answer = False)
     
 
         #otherinternalinvestigators_text = coversheet_form.cleaned_data['otherinternalinvestigators']
         csq_id_1007 = CoverSheetQuestion.objects.get(pk=1007)
-        Otherinternalinvestigators = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1007, application_id = new_application, is_short_answer = False)
+        Otherinternalinvestigators = CoverSheetAnswers.objects.create(text = "No", question_id = csq_id_1007, application_id = new_application, is_short_answer = False)
         
 
         #internalinvestigatorsnumber_text = coversheet_form.cleaned_data['internalinvestigatorsnumber']
         csq_id_1008 = CoverSheetQuestion.objects.get(pk=1008)
-        Internalinvestigatorsnumber = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1008, application_id = new_application, is_short_answer = False)
+        Internalinvestigatorsnumber = CoverSheetAnswers.objects.create(text = "0", question_id = csq_id_1008, application_id = new_application, is_short_answer = True)
         
 
         #otherexternalinvestigators_text = coversheet_form.cleaned_data['otherexternalinvestigators']
         csq_id_1009 = CoverSheetQuestion.objects.get(pk=1009)
-        Otherexternalinvestigators = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1009, application_id = new_application, is_short_answer = False)
+        Otherexternalinvestigators = CoverSheetAnswers.objects.create(text = "No", question_id = csq_id_1009, application_id = new_application, is_short_answer = False)
     
 
         #externalinvestigatorsnumber_text = coversheet_form.cleaned_data['externalinvestigatorsnumber']
         csq_id_1010 = CoverSheetQuestion.objects.get(pk=1010)
-        Externalinvestigatorsnumber = CoverSheetAnswers.objects.create(text = "", question_id = csq_id_1010, application_id = new_application, is_short_answer = False)
+        Externalinvestigatorsnumber = CoverSheetAnswers.objects.create(text = "0", question_id = csq_id_1010, application_id = new_application, is_short_answer = True)
         
 
         #responsible_text = coversheet_form.cleaned_data['responsible']
