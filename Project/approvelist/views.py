@@ -7,6 +7,8 @@ from accounts.models import Question
 # Create your views here.
 
 
+from .utils import render_to_pdf
+
 def logout_view(request):
     logout(request)
     return redirect('login')
@@ -41,6 +43,8 @@ def viewPage(request, item_id):
     ans = Answers.objects.all().filter(id=item_id)
 
     context = {'que': que, 'ans': ans}
+    #pdf = render_to_pdf('view.html', context)
+    #return pdf
     return render(request, 'view.html', context)
 
 
