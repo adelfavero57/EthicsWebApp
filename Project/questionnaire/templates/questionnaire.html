@@ -44,22 +44,24 @@
                   <br>
                   <!-- show the answers after submit -->
                   {% for ans in answers %}
-                    {% if question == ans.question_id%}
-                      {% if ans.short_answer_text == "" %}
-                        <input type="radio" id="button1" name="{{question.question_num}}" value="Yes">
-                        <label for="Yes">Yes</label><br>
-                        <input type="radio" id="button2" name="{{question.question_num}}" value="No">
-                        <label for="No">No</label><br>
-                      {% elif ans.short_answer_text == "Yes" %}
+                    {% if question == ans.question_id and a_id == ans.application_id %}
+                      
+                      {% if ans.short_answer_text == "Yes" %}
                         <input type="radio" id="button1" name="{{question.question_num}}" value="Yes" checked>
                         <label for="Yes">Yes</label><br>
                         <input type="radio" id="button2" name="{{question.question_num}}" value="No">
                         <label for="No">No</label><br>
-                      {% else %}
+                      {% elif ans.short_answer_text == "No" %}
                         <input type="radio" id="button1" name="{{question.question_num}}" value="Yes">
                         <label for="Yes">Yes</label><br>
                         <input type="radio" id="button2" name="{{question.question_num}}" value="No" checked>
                         <label for="No">No</label><br>
+                      {% else %}
+                        <input type="radio" id="button1" name="{{question.question_num}}" value="Yes">
+                        <label for="Yes">Yes</label><br>
+                        <input type="radio" id="button2" name="{{question.question_num}}" value="No">
+                        <label for="No">No</label><br>
+
                       {% endif %}
                     {% endif %}
                   {% endfor %}
@@ -103,21 +105,21 @@
                       <br>
                       <!-- show the answers after submit -->
                       {% for ans in answers %}
-                        {% if question == ans.question_id%}
-                          {% if ans.short_answer_text == "" %}
-                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
-                            <label for="Yes">Yes</label><br>
-                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
-                            <label for="No">No</label><br>
-                          {% elif ans.short_answer_text == "Yes" %}
+                        {% if question == ans.question_id and a_id == ans.application_id %}
+                          {% if ans.short_answer_text == "Yes" %}
                             <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes" checked>
                             <label for="Yes">Yes</label><br>
                             <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
                             <label for="No">No</label><br>
-                          {% else %}
+                          {% elif ans.short_answer_text == "No" %}
                             <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
                             <label for="Yes">Yes</label><br>
                             <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
+                            <label for="No">No</label><br>
+                          {% else %}
+                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                            <label for="Yes">Yes</label><br>
+                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
                             <label for="No">No</label><br>
                           {% endif %}
                         {% endif %}
@@ -140,21 +142,21 @@
                     <br>
                     <!-- show the answers after submit -->
                     {% for ans in answers %}
-                      {% if question == ans.question_id%}
-                        {% if ans.short_answer_text == "" %}
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                      {% if question == ans.question_id and a_id == ans.application_id %}
+                        {% if ans.short_answer_text == "Yes" %}
+                          <input type="radio"  name="{{question.question_num}}" value="Yes" checked>
                           <label for="Yes">Yes</label><br>
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                          <input type="radio"  name="{{question.question_num}}" value="No">
                           <label for="No">No</label><br>
-                        {% elif ans.short_answer_text == "Yes" %}
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes" checked>
+                        {% elif ans.short_answer_text == "No" %}
+                          <input type="radio"  name="{{question.question_num}}" value="Yes">
                           <label for="Yes">Yes</label><br>
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                          <input type="radio"  name="{{question.question_num}}" value="No" checked>
                           <label for="No">No</label><br>
                         {% else %}
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                          <input type="radio"  name="{{question.question_num}}" value="Yes">
                           <label for="Yes">Yes</label><br>
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
+                          <input type="radio"  name="{{question.question_num}}" value="No" checked>
                           <label for="No">No</label><br>
                         {% endif %}
                       {% endif %}
@@ -179,21 +181,21 @@
                   <br>
                   <!-- show the answers after submit -->
                   {% for ans in answers %}
-                    {% if question == ans.question_id%}
-                      {% if ans.short_answer_text == "" %}
-                        <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                    {% if question == ans.question_id and a_id == ans.application_id %}
+                      {% if ans.short_answer_text == "Yes" %}
+                        <input type="radio"  name="{{question.question_num}}" value="Yes" checked>
                         <label for="Yes">Yes</label><br>
-                        <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                        <input type="radio"  name="{{question.question_num}}" value="No">
                         <label for="No">No</label><br>
-                      {% elif ans.short_answer_text == "Yes" %}
-                        <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes" checked>
+                      {% elif ans.short_answer_text == "No" %}
+                        <input type="radio"  name="{{question.question_num}}" value="Yes">
                         <label for="Yes">Yes</label><br>
-                        <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                        <input type="radio"  name="{{question.question_num}}" value="No" checked>
                         <label for="No">No</label><br>
                       {% else %}
-                        <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                        <input type="radio"  name="{{question.question_num}}" value="Yes">
                         <label for="Yes">Yes</label><br>
-                        <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
+                        <input type="radio"  name="{{question.question_num}}" value="No">
                         <label for="No">No</label><br>
                       {% endif %}
                     {% endif %}
@@ -262,12 +264,12 @@
                           </div>
                         </div>
                         <br>
-                      {% for ans in answers %}
-                        {% if question == ans.question_id%}
-                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
-                          value="{{ans.short_answer_text}}">{{ans.short_answer_text}}</textarea>
-                        {% endif %}
-                      {% endfor %}
+
+                        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
+                        >{% for ans in answers %}
+                        {% if question == ans.question_id and a_id == ans.application_id%}
+                        {{ans.short_answer_text}}{% endif %}
+                        {% endfor %}</textarea>
                       
                       </div>
 
@@ -281,12 +283,15 @@
                           </div>
                           <br>
                           
-                          {% for ans in answers %}
-                            {% if question == ans.question_id%}
-                              <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
-                              value="{{ans.short_answer_text}}">{{ans.short_answer_text}}</textarea>
-                            {% endif %}
-                          {% endfor %}
+                          
+                              
+                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
+                          >{% for ans in answers %}
+                          {% if question == ans.question_id and a_id == ans.application_id%}
+                          {{ans.short_answer_text}}{% endif %}
+                          {% endfor %}</textarea>
+                              
+                            
                         </div>
                         <script type="text/javascript">
                           $("#button3").click(function(){
@@ -304,12 +309,11 @@
                       </div>
                       <br>
 
-                      {% for ans in answers %}
-                        {% if question == ans.question_id%}
-                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
-                          value="{{ans.short_answer_text}}">{{ans.short_answer_text}}</textarea>
-                        {% endif %}
-                      {% endfor %}
+                      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
+                      >{% for ans in answers %}
+                      {% if question == ans.question_id and a_id == ans.application_id%}
+                      {{ans.short_answer_text}}{% endif %}
+                      {% endfor %}</textarea>
 
                     {% endif %}
                   {% else %}
@@ -321,21 +325,21 @@
                       <br>
                       <!-- show the answers after submit -->
                       {% for ans in answers %}
-                        {% if question == ans.question_id%}
-                          {% if ans.short_answer_text == "" %}
-                            <input type="radio" id="button3" name="{{question.question_num}}" value="Yes">
-                            <label for="Yes">Yes</label><br>
-                            <input type="radio" id="button4" name="{{question.question_num}}" value="No">
-                            <label for="No">No</label><br>
-                          {% elif ans.short_answer_text == "Yes" %}
+                        {% if question == ans.question_id and a_id == ans.application_id %}
+                          {% if ans.short_answer_text == "Yes" %}
                             <input type="radio" id="button3" name="{{question.question_num}}" value="Yes" checked>
                             <label for="Yes">Yes</label><br>
                             <input type="radio" id="button4" name="{{question.question_num}}" value="No">
                             <label for="No">No</label><br>
-                          {% else %}
+                          {% elif ans.short_answer_text == "No" %}
                             <input type="radio" id="button3" name="{{question.question_num}}" value="Yes">
                             <label for="Yes">Yes</label><br>
                             <input type="radio" id="button4" name="{{question.question_num}}" value="No" checked>
+                            <label for="No">No</label><br>
+                          {% else %}
+                            <input type="radio" id="button3" name="{{question.question_num}}" value="Yes">
+                            <label for="Yes">Yes</label><br>
+                            <input type="radio" id="button4" name="{{question.question_num}}" value="No">
                             <label for="No">No</label><br>
                         {% endif %}
                       {% endif %}
@@ -352,21 +356,21 @@
 
                       <!-- show the answers after submit -->
                       {% for ans in answers %}
-                        {% if question == ans.question_id%}
-                          {% if ans.short_answer_text == "" %}
-                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                        {% if question == ans.question_id and a_id == ans.application_id %}
+                          {% if ans.short_answer_text == "Yes" %}
+                            <input type="radio"  name="{{question.question_num}}" value="Yes" checked>
                             <label for="Yes">Yes</label><br>
-                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                            <input type="radio"  name="{{question.question_num}}" value="No">
                             <label for="No">No</label><br>
-                          {% elif ans.short_answer_text == "Yes" %}
-                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes" checked>
+                          {% elif ans.short_answer_text == "No" %}
+                            <input type="radio"  name="{{question.question_num}}" value="Yes">
                             <label for="Yes">Yes</label><br>
-                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                            <input type="radio"  name="{{question.question_num}}" value="No" checked>
                             <label for="No">No</label><br>
                           {% else %}
-                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                            <input type="radio"  name="{{question.question_num}}" value="Yes">
                             <label for="Yes">Yes</label><br>
-                            <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
+                            <input type="radio"  name="{{question.question_num}}" value="No">
                             <label for="No">No</label><br>
                           {% endif %}
                         {% endif %}
@@ -397,12 +401,11 @@
                             </div>
                             <br>
                             
-                            {% for ans in answers %}
-                              {% if question == ans.question_id%}
-                                <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
-                                value="{{ans.short_answer_text}}">{{ans.short_answer_text}}</textarea>
-                              {% endif %}
-                          {% endfor %}
+                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
+                          >{% for ans in answers %}
+                          {% if question == ans.question_id and a_id == ans.application_id%}
+                          {{ans.short_answer_text}}{% endif %}
+                          {% endfor %}</textarea>
                             
                           </div>
                           <script type="text/javascript">
@@ -420,12 +423,11 @@
                           </div>
                           <br>
 
-                          {% for ans in answers %}
-                            {% if question == ans.question_id%}
-                              <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
-                              value="{{ans.short_answer_text}}">{{ans.short_answer_text}}</textarea>
-                            {% endif %}
-                          {% endfor %}
+                          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
+                          >{% for ans in answers %}
+                          {% if question == ans.question_id and a_id == ans.application_id%}
+                          {{ans.short_answer_text}}{% endif %}
+                          {% endfor %}</textarea>
 
                         {% endif %}   
                       {% elif question.question_num == 702 %}
@@ -468,21 +470,21 @@
 
                           <!-- show the answers after submit -->
                           {% for ans in answers %}
-                            {% if question == ans.question_id%}
-                              {% if ans.short_answer_text == "" %}
-                                <input type="radio" id="button5" name="{{question.question_num}}" value="Yes">
-                                <label for="Yes">Yes</label><br>
-                                <input type="radio" id="button6" name="{{question.question_num}}" value="No">
-                                <label for="No">No</label><br>
-                              {% elif ans.short_answer_text == "Yes" %}
+                            {% if question == ans.question_id and a_id == ans.application_id %}
+                              {% if ans.short_answer_text == "Yes" %}
                                 <input type="radio" id="button5" name="{{question.question_num}}" value="Yes" checked>
                                 <label for="Yes">Yes</label><br>
                                 <input type="radio" id="button6" name="{{question.question_num}}" value="No">
                                 <label for="No">No</label><br>
-                              {% else %}
+                              {% elif ans.short_answer_text == "No" %}
                                 <input type="radio" id="button5" name="{{question.question_num}}" value="Yes">
                                 <label for="Yes">Yes</label><br>
                                 <input type="radio" id="button6" name="{{question.question_num}}" value="No" checked>
+                                <label for="No">No</label><br>
+                              {% else %}
+                                <input type="radio" id="button5" name="{{question.question_num}}" value="Yes">
+                                <label for="Yes">Yes</label><br>
+                                <input type="radio" id="button6" name="{{question.question_num}}" value="No">
                                 <label for="No">No</label><br>
                               {% endif %}
                             {% endif %}
@@ -496,21 +498,21 @@
                           <br>
                           <!-- show the answers after submit -->
                           {% for ans in answers %}
-                            {% if question == ans.question_id%}
-                              {% if ans.short_answer_text == "" %}
-                                <input type="radio" id="button7" name="{{question.question_num}}" value="Yes">
-                                <label for="Yes">Yes</label><br>
-                                <input type="radio" id="button8" name="{{question.question_num}}" value="No">
-                                <label for="No">No</label><br>
-                              {% elif ans.short_answer_text == "Yes" %}
+                            {% if question == ans.question_id and a_id == ans.application_id %}
+                              {% if ans.short_answer_text == "Yes" %}
                                 <input type="radio" id="button7" name="{{question.question_num}}" value="Yes" checked>
                                 <label for="Yes">Yes</label><br>
                                 <input type="radio" id="button8" name="{{question.question_num}}" value="No">
                                 <label for="No">No</label><br>
-                              {% else %}
+                              {% elif ans.short_answer_text == "No" %}
                                 <input type="radio" id="button7" name="{{question.question_num}}" value="Yes">
                                 <label for="Yes">Yes</label><br>
                                 <input type="radio" id="button8" name="{{question.question_num}}" value="No" checked>
+                                <label for="No">No</label><br>
+                              {% else %}
+                                <input type="radio" id="button7" name="{{question.question_num}}" value="Yes">
+                                <label for="Yes">Yes</label><br>
+                                <input type="radio" id="button8" name="{{question.question_num}}" value="No">
                                 <label for="No">No</label><br>
                               {% endif %}
                             {% endif %}
@@ -526,21 +528,21 @@
 
                           <!-- show the answers after submit -->
                           {% for ans in answers %}
-                            {% if question == ans.question_id%}
-                              {% if ans.short_answer_text == "" %}
-                                <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                            {% if question == ans.question_id and a_id == ans.application_id %}
+                              {% if ans.short_answer_text == "Yes" %}
+                                <input type="radio"  name="{{question.question_num}}" value="Yes" checked>
                                 <label for="Yes">Yes</label><br>
-                                <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                                <input type="radio"  name="{{question.question_num}}" value="No">
                                 <label for="No">No</label><br>
-                              {% elif ans.short_answer_text == "Yes" %}
-                                <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes" checked>
+                              {% elif ans.short_answer_text == "No" %}
+                                <input type="radio"  name="{{question.question_num}}" value="Yes">
                                 <label for="Yes">Yes</label><br>
-                                <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                                <input type="radio"  name="{{question.question_num}}" value="No" checked>
                                 <label for="No">No</label><br>
                               {% else %}
-                                <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                                <input type="radio"  name="{{question.question_num}}" value="Yes">
                                 <label for="Yes">Yes</label><br>
-                                <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
+                                <input type="radio"  name="{{question.question_num}}" value="No">
                                 <label for="No">No</label><br>
                               {% endif %}
                             {% endif %}
@@ -565,33 +567,32 @@
                   </div>
                   {% if question.is_short_answer == 1 %}
                     <br>
-
-                    {% for ans in answers %}
-                      {% if question == ans.question_id%}
-                        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
-                        value="{{ans.short_answer_text}}">{{ans.short_answer_text}}</textarea>
-                      {% endif %}
-                    {% endfor %}
+                    <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
+                    >{% for ans in answers %}
+                    {% if question == ans.question_id and a_id == ans.application_id%}
+                    {{ans.short_answer_text}}{% endif %}
+                    {% endfor %}</textarea>
+                    
                   
                   {% else %}
                     <br>
                     <!-- show the answers after submit -->
                     {% for ans in answers %}
-                      {% if question == ans.question_id%}
-                        {% if ans.short_answer_text == "" %}
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                      {% if question == ans.question_id and a_id == ans.application_id %}
+                        {% if ans.short_answer_text == "Yes" %}
+                          <input type="radio"  name="{{question.question_num}}" value="Yes" checked>
                           <label for="Yes">Yes</label><br>
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                          <input type="radio"  name="{{question.question_num}}" value="No">
                           <label for="No">No</label><br>
-                        {% elif ans.short_answer_text == "Yes" %}
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes" checked>
+                        {% elif ans.short_answer_text == "No" %}
+                          <input type="radio"  name="{{question.question_num}}" value="Yes">
                           <label for="Yes">Yes</label><br>
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                          <input type="radio"  name="{{question.question_num}}" value="No" checked>
                           <label for="No">No</label><br>
                         {% else %}
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                          <input type="radio"  name="{{question.question_num}}" value="Yes">
                           <label for="Yes">Yes</label><br>
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
+                          <input type="radio"  name="{{question.question_num}}" value="No">
                           <label for="No">No</label><br>
                         {% endif %}
                       {% endif %}
@@ -633,21 +634,15 @@ Details of how data will be collected and analysed Potential significance of the
 
                     {% else %}
                     <br>
-<<<<<<< HEAD
 
-                    {% for ans in answers %}
-                      {% if question == ans.question_id%}
-                        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
-                        value="{{ans.short_answer_text}}">{{ans.short_answer_text}}</textarea>
-                      {% endif %}
-                    {% endfor %}
-        
-=======
-                    <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+                    <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8" 
+                    >{% for ans in answers %}
+                    {% if question == ans.question_id and a_id == ans.application_id%}
+                    {{ans.short_answer_text}}{% endif %}
+                    {% endfor %}</textarea>
 
                     {% endif %}
-
->>>>>>> master
+        
                   {% elif question.is_short_answer == 2 %}
                     <br>       
                     <input type="checkbox" name="sele2" value="Participant observation (ethnography, systematic)">Participant observation (ethnography, systematic)<br>      
@@ -662,21 +657,21 @@ Details of how data will be collected and analysed Potential significance of the
 
                     <!-- show the answers after submit -->
                     {% for ans in answers %}
-                      {% if question == ans.question_id%}
-                        {% if ans.short_answer_text == "" %}
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                      {% if question == ans.question_id and a_id == ans.application_id %}
+                        {% if ans.short_answer_text == "Yes" %}
+                          <input type="radio"  name="{{question.question_num}}" value="Yes" checked>
                           <label for="Yes">Yes</label><br>
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                          <input type="radio"  name="{{question.question_num}}" value="No">
                           <label for="No">No</label><br>
-                        {% elif ans.short_answer_text == "Yes" %}
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes" checked>
+                        {% elif ans.short_answer_text == "No" %}
+                          <input type="radio"  name="{{question.question_num}}" value="Yes">
                           <label for="Yes">Yes</label><br>
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
+                          <input type="radio"  name="{{question.question_num}}" value="No" checked>
                           <label for="No">No</label><br>
                         {% else %}
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
+                          <input type="radio"  name="{{question.question_num}}" value="Yes">
                           <label for="Yes">Yes</label><br>
-                          <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
+                          <input type="radio"  name="{{question.question_num}}" value="No">
                           <label for="No">No</label><br>
                         {% endif %}
                       {% endif %}
@@ -686,7 +681,7 @@ Details of how data will be collected and analysed Potential significance of the
                   <p></p>
                 {% endif %}
               {% endfor %}
-              <div style="text-align: center;"><input type="submit" value="Complete" id="Complete" name="Complete"></div>
+              <div class="save-item1"><input class="save-button" type="submit" value="Save" id="Complete" name="Complete"></div>
               <input type="file" id="myFile" name="filename"><input type="submit">
             </form>
       </div>
