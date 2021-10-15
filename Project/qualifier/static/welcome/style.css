@@ -8,13 +8,13 @@
 
 .grid-container2 {
     display: grid;
-    height: 80vh;
-    width: 60vw;
+    height: 600px;
+    width: 1100px;
     align-self: center;
     border: 2.5px solid #424242;
     background-color: #F4F4F4;
     box-sizing: border-box;
-    padding: 5% 5% 5% 5%;
+    padding: 50px 50px 30px 50px;
 }
 
 .grid-item1{
@@ -37,7 +37,12 @@
 }
 
 .grid-item7:hover{
-    background-color: darkorange;
+    background-color: rgb(210, 50, 18);
+    cursor: pointer;
+}
+
+.grid-item7:active{
+    background-color: rgb(190, 30, 0);
     cursor: pointer;
 }
 
@@ -47,4 +52,8 @@ p {
 
 ul {
     margin: 0;
+}
+
+a:hover {
+    color: #f64626;
 }
