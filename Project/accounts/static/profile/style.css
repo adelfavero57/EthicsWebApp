@@ -62,14 +62,15 @@ span {
     background-color: rgb(210, 50, 18);
 }
 
+.grid-item9:active{
+    background-color: rgb(190, 30, 0);
+    cursor: pointer;
+}
+
 .links {
     font-size: 12px;
     justify-self: center;
     margin: 0px 0px 20px 0px;
-}
-
-.reset {
-    color:black;
 }
 
 .reset:hover {
