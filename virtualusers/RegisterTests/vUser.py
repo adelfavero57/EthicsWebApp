@@ -12,15 +12,7 @@ class vUser:
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-# Login tests
-test1 = vUser(dir_path + "/register1.py")
-
-# List of virtual user tests
-Users = []
-
-# Add all tests to list
-Users.append(test1)
-
-# Run tests
-for i in Users:
-    i.run()
+# run tests
+for i in range(1, 10):
+    test = vUser(dir_path + "/register%d.py" % i)
+    test.run()
