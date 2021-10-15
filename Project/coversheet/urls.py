@@ -8,6 +8,6 @@ urlpatterns = [
     path('<newapplication_id>', views.coversheetPage, name='coversheet'),
     path('logout/', views.logout_view, name='logout'),
     path('edit_profile/', editUserPage, name='editprofile'),
-    path('<newapplication_id>', questionnaire, name="questionnaire")
+    path('<application_id>', questionnaire, name="questionnaire")
 
 ]
