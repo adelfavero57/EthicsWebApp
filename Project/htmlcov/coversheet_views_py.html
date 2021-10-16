@@ -224,17 +224,17 @@
     <p id="t170" class="pln"><span class="n"><a href="#t170">170</a></span><span class="t">        <span class="com"># csq_id_1017 = CoverSheetQuestion.objects.get(pk=1017)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t171" class="pln"><span class="n"><a href="#t171">171</a></span><span class="t">        <span class="com"># Otherrelevantdetails = CoverSheetAnswers.objects.create(text = otherrelevantdetails_text, question_id = csq_id_1017, application_id = new_application, is_short_answer = True)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t172" class="pln"><span class="n"><a href="#t172">172</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t173" class="mis show_mis"><span class="n"><a href="#t173">173</a></span><span class="t">        <span class="key">return</span> <span class="nam">redirect</span><span class="op">(</span><span class="str">'coversheet'</span><span class="op">,</span> <span class="nam">newapplication_id</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t174" class="pln"><span class="n"><a href="#t174">174</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t173" class="pln"><span class="n"><a href="#t173">173</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t174" class="mis show_mis"><span class="n"><a href="#t174">174</a></span><span class="t">        <span class="key">return</span> <span class="nam">redirect</span><span class="op">(</span><span class="str">'coversheet'</span><span class="op">,</span> <span class="nam">newapplication_id</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t175" class="pln"><span class="n"><a href="#t175">175</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t176" class="pln"><span class="n"><a href="#t176">176</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t177" class="pln"><span class="n"><a href="#t177">177</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t178" class="pln"><span class="n"><a href="#t178">178</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t179" class="pln"><span class="n"><a href="#t179">179</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t180" class="mis show_mis"><span class="n"><a href="#t180">180</a></span><span class="t">    <span class="nam">cover</span> <span class="op">=</span> <span class="nam">CoverSheetQuestion</span><span class="op">.</span><span class="nam">objects</span><span class="op">.</span><span class="nam">all</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t181" class="mis show_mis"><span class="n"><a href="#t181">181</a></span><span class="t">    <span class="nam">context</span> <span class="op">=</span> <span class="op">{</span><span class="str">'cover'</span><span class="op">:</span> <span class="nam">cover</span><span class="op">,</span> <span class="str">'coversheetanswers'</span><span class="op">:</span> <span class="nam">coversheetanswers</span><span class="op">,</span> <span class="str">'application_id'</span><span class="op">:</span> <span class="nam">newapplication_id</span><span class="op">}</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t182" class="mis show_mis"><span class="n"><a href="#t182">182</a></span><span class="t">    <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">'coversheet.html'</span><span class="op">,</span> <span class="nam">context</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t183" class="pln"><span class="n"><a href="#t183">183</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t180" class="pln"><span class="n"><a href="#t180">180</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t181" class="mis show_mis"><span class="n"><a href="#t181">181</a></span><span class="t">    <span class="nam">cover</span> <span class="op">=</span> <span class="nam">CoverSheetQuestion</span><span class="op">.</span><span class="nam">objects</span><span class="op">.</span><span class="nam">all</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t182" class="mis show_mis"><span class="n"><a href="#t182">182</a></span><span class="t">    <span class="nam">context</span> <span class="op">=</span> <span class="op">{</span><span class="str">'cover'</span><span class="op">:</span> <span class="nam">cover</span><span class="op">,</span> <span class="str">'coversheetanswers'</span><span class="op">:</span> <span class="nam">coversheetanswers</span><span class="op">,</span> <span class="str">'application_id'</span><span class="op">:</span> <span class="nam">newapplication_id</span><span class="op">}</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t183" class="mis show_mis"><span class="n"><a href="#t183">183</a></span><span class="t">    <span class="key">return</span> <span class="nam">render</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="str">'coversheet.html'</span><span class="op">,</span> <span class="nam">context</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t184" class="pln"><span class="n"><a href="#t184">184</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t185" class="pln"><span class="n"><a href="#t185">185</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t186" class="pln"><span class="n"><a href="#t186">186</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
@@ -243,12 +243,13 @@
     <p id="t189" class="pln"><span class="n"><a href="#t189">189</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t190" class="pln"><span class="n"><a href="#t190">190</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t191" class="pln"><span class="n"><a href="#t191">191</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t192" class="pln"><span class="n"><a href="#t192">192</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
 </div>
 <div id="footer">
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.5</a>,
-            created at 2021-10-12 17:01 +1100
+            created at 2021-10-16 15:56 +1100
         </p>
     </div>
 </div>

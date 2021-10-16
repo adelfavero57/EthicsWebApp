@@ -23,9 +23,13 @@ def logout_view(request):
 @allowed_users(allowed_roles=['researcher'])
 def coversheetPage(request, newapplication_id):
 
+    
+    application = Application.objects.get(pk=newapplication_id)
+
     coversheetanswers=CoverSheetAnswers.objects.filter(application_id=newapplication_id)
     
     if request.method == 'POST':
+        
         
         
 
@@ -44,6 +48,10 @@ def coversheetPage(request, newapplication_id):
         coversheetanswer_protocol = coversheetanswers.get(question_id=1002)
         coversheetanswer_protocol.text = protocol_text
         coversheetanswer_protocol.save()
+
+
+        application.title = protocol_text
+        application.save()
         # protocol_text = coversheet_form.cleaned_data['protocol']
         # csq_id_1002 = CoverSheetQuestion.objects.get(pk=1002)
         # Protocol = CoverSheetAnswers.objects.create(text = protocol_text, question_id = csq_id_1002, application_id = new_application, is_short_answer = True)
@@ -52,6 +60,9 @@ def coversheetPage(request, newapplication_id):
         coversheetanswer_investigatorname = coversheetanswers.get(question_id=1003)
         coversheetanswer_investigatorname.text = investigatorname_text
         coversheetanswer_investigatorname.save()
+
+        application.supervisor = investigatorname_text
+        application.save()
         # investigatorname_text = coversheet_form.cleaned_data['investigatorname']
         # csq_id_1003 = CoverSheetQuestion.objects.get(pk=1003)
         # Investigatorname = CoverSheetAnswers.objects.create(text = investigatorname_text, question_id = csq_id_1003, application_id = new_application, is_short_answer = True)
