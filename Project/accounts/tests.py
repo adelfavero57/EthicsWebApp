@@ -3,7 +3,7 @@ from django.test import Client
 from accounts.forms import CreateUserForm
 from django.contrib.auth.models import User, AnonymousUser
 from django.contrib.auth.models import Group
-from accounts.views import registerPage
+from accounts.views import registerPage, editUserPage
 # from django.test import LiveServerTestCase
 # from selenium.webdriver.chrome.webdriver import WebDriver
 # import time
@@ -70,7 +70,7 @@ class RegisterTest(TestCase):
         self.assertTrue(form.is_valid(), "The test did not pass")
 
     
-    def test_details(self):
+    def test_registerPage1(self):
 
         data = {'first_name': 'Test','last_name': 'Test', 'username': "Test", 'email': 'hello@gmail.com', 'password1': 'POL123@4', 'password2': 'POL123@4'}
 
@@ -82,6 +82,37 @@ class RegisterTest(TestCase):
 
         self.assertEqual(response.headers['Location'], '/login/')
         self.assertEqual(response.status_code, 302)
+
+    def test_registerPage2(self):
+
+        request = self.factory.get('/register/')
+
+        request.user = AnonymousUser()
+
+        response = registerPage(request)
+
+        
+
+    
+    def test_editUserPage(self):
+
+        data = {'first_name': 'change','last_name': 'change', 'username': "change", 'email': 'change@gmail.com'}
+
+
+        request = self.factory.post('/edit_profile/', data, follow = True)
+
+
+        request.user = self.user
+
+        response = editUserPage(request)
+
+        self.assertEqual(response.status_code, 302)
+
+
+
+
+
+
 
 
 
