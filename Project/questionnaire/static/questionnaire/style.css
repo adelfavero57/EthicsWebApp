@@ -43,12 +43,15 @@ div{
 .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
     width: 150px; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 0; /* Stay on top */
-    top: 150px; /* Stay at the top */
-    left: 0;
+    position: fixed;
+    /* Fixed Sidebar (stay in place on scroll) position: fixed;*/
+    /*position: -webkit-sticky;
+    position: sticky;*/
+    top: 150px;
+    z-index: 1;/* Stay on top * z-index: 0; /
+    /* Stay at the top top: 150px;*/
     background-color:white; /* white */
-    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow-x: hidden; /* Disable horizontal scroll overflow: auto; */
     padding-top: 20px;
 }
     
@@ -57,7 +60,7 @@ div{
     padding: 10px 8px 6px 16px;
     text-decoration: none;
     font-size: 20px;
-    color: #818181;
+    color: rgba(0, 0, 0, 0.906);
     display: block;
 }
 
@@ -72,11 +75,12 @@ div{
     
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-    color:rgb(88, 88, 88);
+    color:rgb(160, 160, 160);
 }
     
-    /* Style page content */
+/* Style page content */
 .questions {
+
     display: grid;
 
     height: auto;
@@ -132,3 +136,32 @@ h1{
   font-size: 16px;
   margin: 4px 2px;
 }
+
+.save-item1 {
+
+    text-align: center;
+
+}
+
+
+.save-button {
+
+   color:#ffffff;
+
+   background:#e64626;
+
+   border: 0em;
+
+   height: 2.5em;
+
+   width: 6em;
+
+}
+.save-button:hover{
+    background-color: rgb(88, 88, 88);
+}
+.save-button:active {
+    background-color: rgb(88, 88, 88);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }

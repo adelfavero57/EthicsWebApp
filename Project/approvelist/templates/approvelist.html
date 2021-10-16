@@ -43,7 +43,7 @@
         <td>{{item.last_modified}}</td>
         <td>{{item.supervisor}}</td>
         <td>{{item.status}}</td>
-        <td><a href="#">View</a></td>
+        <td><a href="{% url 'viewPage' item_id=item.id %}">View</a></td>
         <td><a href="{% url 'approve' item_id=item.id %}">Approve</a></td>
         <td><a href="{% url 'disapprove' item_id=item.id %}">Disapprove</a></td>
 

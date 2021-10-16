@@ -170,13 +170,14 @@ def coversheetPage(request, newapplication_id):
         # csq_id_1017 = CoverSheetQuestion.objects.get(pk=1017)
         # Otherrelevantdetails = CoverSheetAnswers.objects.create(text = otherrelevantdetails_text, question_id = csq_id_1017, application_id = new_application, is_short_answer = True)
         
+        
         return redirect('coversheet', newapplication_id)
 
 
 
 
 
-
+    
     cover = CoverSheetQuestion.objects.all()
     context = {'cover': cover, 'coversheetanswers': coversheetanswers, 'application_id': newapplication_id}
     return render(request, 'coversheet.html', context)
