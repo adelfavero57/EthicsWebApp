@@ -5,6 +5,8 @@ from django.db.models.deletion import CASCADE, SET_NULL
 from django.db.models.fields import UUIDField
 import uuid
 from django.db.models.fields.related import ForeignKey
+from ckeditor.fields import RichTextField
+from django.urls import reverse
 # Create your models here.
 
 
@@ -18,7 +20,13 @@ class Application(models.Model):
     title = models.TextField(max_length=200, null=True)
     supervisor = models.TextField(max_length=150, null=True)
     status = models.TextField(max_length=20, null=True, default = "IN PROGRESS")
-    
+    PIS_rt = RichTextField(blank=True, null=True)
+    PCF_rt = RichTextField(blank=True, null=True)
+
+
+
+    def get_absolute_url(self):
+        return reverse('questionnaire', args=(str(self.id)))
 
 
 class Question(models.Model):
