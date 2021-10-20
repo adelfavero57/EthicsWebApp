@@ -9,6 +9,28 @@ from ckeditor.fields import RichTextField
 from django.urls import reverse
 # Create your models here.
 
+default_PCF_data = """<p>Project Name:</p>
+
+<p>In giving my consent I acknowledge that:</p>
+
+<p>1. The procedures required for the project and the time involved have been explained to me, and any questions I have about the project have been answered to my satisfaction.</p>
+
+<p>2. I have read the Participant Information Statement and have been given the opportunity to discuss the information and my involvement in the project with the researcher/s.</p>
+
+<p>3. I understand that being in this study is completely voluntary - I am not under any obligation to consent.</p>
+
+<p>4. I understand that my involvement is strictly confidential. I understand that any research data gathered from the results of the study may be published however no information about me will be used in any way that is identifiable</p>
+
+<p>5. I understand that I can withdraw from the study at any time, without affecting my relationship with the researcher(s) or the University of Sydney now or in the future.</p>
+
+<p>6. I understand that I will be video and audio recorded as well as my screen interaction.</p>
+
+<p>7. I understand that this is the first time participating in this study.</p>
+
+<p>8. I agree that my rtecord of all clicks in my interaction on this interface will be shared on the Open Science Framework (OSF) platform so that other researchers can analyse them. This data will be de-identified so that it cannot be linked to me.</p>
+
+<p>9. I understand that my video and audio recordings will only be used for analysis and will not be released.</p>
+""" #Need to format this such that the spaces carry through to rtf
 
 class Application(models.Model):
 
@@ -21,7 +43,7 @@ class Application(models.Model):
     supervisor = models.TextField(max_length=150, null=True)
     status = models.TextField(max_length=20, null=True, default = "IN PROGRESS")
     PIS_rt = RichTextField(blank=True, null=True)
-    PCF_rt = RichTextField(blank=True, null=True)
+    PCF_rt = RichTextField(blank=True, null=True, default=default_PCF_data)
 
 
 

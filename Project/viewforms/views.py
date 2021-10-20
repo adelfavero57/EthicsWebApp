@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from accounts.models import Application
 from django.views.generic import DetailView, UpdateView
-
+#lock behind authentication barrier
 class PISform2(DetailView):
     model = Application
     template_name = 'information_sheet.html'
