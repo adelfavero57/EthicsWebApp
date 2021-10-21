@@ -42,9 +42,8 @@
 /* Styling for template answer selection box */
 
 .selection_box {
-    width: 500px;
-    height: 125px;
-    border: 1px solid black;
+    width: 503px;
+    height: 200px;
     overflow: scroll;
     border-radius: 2px;
 }
