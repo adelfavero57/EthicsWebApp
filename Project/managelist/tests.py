@@ -52,6 +52,10 @@ class ManagelistTest(TestCase):
         self.assertEqual(instance.title, "Test")
         self.assertEqual(instance.supervisor, "Alvin")
 
+    
+
+
+
         
 
 
