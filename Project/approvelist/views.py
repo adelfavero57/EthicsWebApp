@@ -7,7 +7,6 @@ from accounts.models import Question
 # Create your views here.
 
 
-from .utils import render_to_pdf
 
 def logout_view(request):
     logout(request)
@@ -40,9 +39,9 @@ def disapprove(request, item_id):
 @allowed_users(allowed_roles=['staff'])
 def viewPage(request, item_id):
     que = Question.objects.all()
-    answers = Answers.objects.all().filter(application_id=item_id)
+    ans = Answers.objects.all().filter(id=item_id)
 
-    context = {'que': que, 'answers': answers}
+    context = {'que': que, 'ans': ans}
     return render(request, 'view.html', context)
 
 
