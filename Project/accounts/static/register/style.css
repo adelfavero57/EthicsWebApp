@@ -52,6 +52,10 @@ body {
     margin-top: 15px;
 }
 
+.pass {
+    margin-left: 320px;
+}
+
 a {
     font-size: 12px;
     color: #ffffff;
