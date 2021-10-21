@@ -80,8 +80,7 @@ div{
     
 /* Style page content */
 .questions {
-
-    display: grid;
+    display: block;
 
     height: auto;
  
