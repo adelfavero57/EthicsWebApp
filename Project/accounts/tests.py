@@ -1,25 +1,29 @@
-from django.test import TestCase
+from django.test import TestCase, RequestFactory
 from django.test import Client
 from accounts.forms import CreateUserForm
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AnonymousUser
 from django.contrib.auth.models import Group
+from accounts.views import registerPage, editUserPage, loginPage
+from django.contrib.sessions.middleware import SessionMiddleware
 # from django.test import LiveServerTestCase
 # from selenium.webdriver.chrome.webdriver import WebDriver
 # import time
 
 
-
-
-
-class RegisterTest(TestCase):
+class AccountsTest(TestCase):
 
     @classmethod
     def setUpTestData(cls):
 
         researcher = Group(name = "researcher")
+        staff = Group(name = "staff")
+        staff.save()
         researcher.save()
         cls.user = User.objects.create_user(username = 'john', password='johnpassword')
+        cls.admin_staff = User.objects.create_user(username='admin', password='adminpassword')
+        cls.admin_staff.groups.add(staff)
         cls.user.groups.add(researcher)
+        cls.factory = RequestFactory()
 
         
           
@@ -66,6 +70,163 @@ class RegisterTest(TestCase):
         form = CreateUserForm(data)
 
         self.assertTrue(form.is_valid(), "The test did not pass")
+
+    
+    def test_registerPage1(self):
+
+        data = {'first_name': 'Test','last_name': 'Test', 'username': "Test", 'email': 'hello@gmail.com', 'password1': 'POL123@4', 'password2': 'POL123@4'}
+
+        request = self.factory.post('/register/', data, follow=True)
+
+        request.user = AnonymousUser()
+
+        response = registerPage(request)
+
+        self.assertEqual(response.headers['Location'], '/login/')
+        self.assertEqual(response.status_code, 302)
+
+    def test_registerPage2(self):
+
+        request = self.factory.get('/register/')
+
+        request.user = AnonymousUser()
+
+        response = registerPage(request)
+
+        
+
+    
+    def test_editUserPage1(self):
+
+        data = {'first_name': 'change','last_name': 'change', 'username': "change", 'email': 'change@gmail.com'}
+
+
+        request = self.factory.post('/edit_profile/', data, follow = True)
+
+
+        request.user = self.user
+
+        response = editUserPage(request)
+
+        self.assertEqual(response.status_code, 302)
+
+
+    
+    def test_editUserPage2(self):
+
+        request = self.factory.get('/edit_profile/')
+
+        request.user = self.user
+
+        response = editUserPage(request)
+
+        self.assertEqual(response.status_code, 200)
+
+
+
+    def test_login1(self):
+        
+
+        data = {'username': "admin", 'password': 'adminpassword', 'remember_me': False}
+
+        request = self.factory.post('/login/', data)
+
+        middleware = SessionMiddleware()
+        middleware.process_request(request)
+        request.session.save()
+
+        
+
+        request.user = AnonymousUser()
+
+        response = loginPage(request)
+
+        self.assertEqual(response.headers['Location'], '/approvelist/')
+        self.assertEqual(response.status_code, 302)
+
+
+    def test_login2(self):
+
+        data = {'username': "john", 'password': 'johnpassword', 'remember_me': False}
+
+        request = self.factory.post('/login/', data)
+
+        middleware = SessionMiddleware()
+        middleware.process_request(request)
+        request.session.save()
+
+        request.user = AnonymousUser()
+
+        response = loginPage(request)
+
+        self.assertEqual(response.headers['Location'], '/managelist/')
+        self.assertEqual(response.status_code, 302)
+
+    
+    def test_login3(self):
+
+        other = User.objects.create_user(username = 'test', password='testpassword')
+
+        data = {'username': "test", 'password': 'testpassword', 'remember_me': False}
+
+        request = self.factory.post('/login/', data)
+
+        middleware = SessionMiddleware()
+        middleware.process_request(request)
+        request.session.save()
+        request.user = AnonymousUser()
+        response = loginPage(request)
+
+        #self.assertEqual(response.headers['Location'], '/login/')
+        self.assertEqual(response.status_code, 200)
+
+
+    def test_login4(self):
+
+        request = self.factory.get('/login')
+        request.user = AnonymousUser()
+        response = loginPage(request)
+        
+        self.assertEqual(response.status_code, 200)
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
