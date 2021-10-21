@@ -140,7 +140,7 @@ def success(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['researcher'])
 def quiz(request):
-    questions = Question.objects.all().filter(section_name="B")
+    questions = Question.objects.all().filter(is_qualifier_question=1)
     if request.method == 'POST':
         # if one answer is yes, return fail otherwise redirect to ethics welcome.
         for i in range(201, len(questions)+201):
