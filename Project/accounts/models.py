@@ -32,6 +32,32 @@ default_PCF_data = """<p>Project Name:</p>
 <p>9. I understand that my video and audio recordings will only be used for analysis and will not be released.</p>
 """ #Need to format this such that the spaces carry through to rtf
 
+default_PIS_data = """<p>Project Name:</p>
+
+<p>What is the study about?</p>
+
+<p>The following are important for the validity of the study:</p>
+
+<p>Who is carrying out the study?</p>
+
+<p>What does the study involve?</p>
+
+<p>How much time will the study take?</p>
+
+<p>Can I withdraw from the study?</p>
+
+<p>Will the study benefit me?</p>
+
+<p>How my data will be stored and my privacy preserved?</p>
+
+<p>Can I tell other people about the study?</p>
+
+<p>What if I require further information about the study or my involvement in it?</p>
+
+<p>What if I have a complaint or any concerns?</p>
+
+"""
+
 class Application(models.Model):
 
     id = models.IntegerField(
@@ -42,7 +68,7 @@ class Application(models.Model):
     title = models.TextField(max_length=200, null=True)
     supervisor = models.TextField(max_length=150, null=True)
     status = models.TextField(max_length=20, null=True, default = "IN PROGRESS")
-    PIS_rt = RichTextField(blank=True, null=True)
+    PIS_rt = RichTextField(blank=True, null=True, default = default_PIS_data)
     PCF_rt = RichTextField(blank=True, null=True, default=default_PCF_data)
 
 
