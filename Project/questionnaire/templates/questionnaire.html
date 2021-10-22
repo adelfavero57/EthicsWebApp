@@ -11,11 +11,17 @@
         {% load static %}
         <script type="text/javascript" src="{% static 'questionnaire/test.js' %}"></script>
         <link rel="stylesheet" type="text/css" href="{% static 'questionnaire/style.css' %}">
-
+        <script type="text/javascript">
+          function Monitor(){
+            document.getElementById("demo1").innerHTML="No";
+            $('#save').click();
+            
+          }
+        </script>
 
         
     </head>
-    <body>
+    <body onbeforeunload="Monitor()">
       <br>
       <br>
       <div class="sidenav"> 
@@ -28,10 +34,10 @@
         <a href="#SectionG">SectionG Concern research study</a>
       </div>
       <div class="questions">
-          <form method = "POST" action="" name = "answer_question">
+          <form method = "POST"  name = "answer_question" id="all_questions">
             {% csrf_token %} 
               <a name = "SectionA"></a>
-              
+              <p id="demo1">Yes</p>
             <h1>SECTION A</h1>
               <h4>SECTION A is designed to distinguish between staff and student projects. In addition, this Section also seeks to identify projects that have been approved by other ethics committees.</h4>
               {% for question in que %}
@@ -86,6 +92,7 @@
                   
               </div>
                   <script type="text/javascript">
+                  
                   $("#button1").click(function(){
                       $("#div1").show();
                   });
@@ -681,9 +688,10 @@ Details of how data will be collected and analysed Potential significance of the
                   <p></p>
                 {% endif %}
               {% endfor %}
-              <div class="save-item1"><input class="save-button" type="submit" value="Save" id="Complete" name="Complete"></div>
-              <input type="file" id="myFile" name="filename"><input type="submit">
+              <div class="save-item1"><button class="save-button" type="submit" id="save" name="Complete">Save</button></div>
             </form>
+            
+            
       </div>
         
     </body>
