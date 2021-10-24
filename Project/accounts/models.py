@@ -28,6 +28,7 @@ class Question(models.Model):
     is_short_answer = models.IntegerField(null=False)
     section_name = models.CharField(max_length=1, null=False)
     tips = models.TextField(max_length=150, null=True, default='')
+    is_qualifier_question = models.IntegerField(null=False)
 
 
 class Answers(models.Model):
@@ -58,3 +59,4 @@ class CoverSheetAnswers(models.Model):
     application_id = models.ForeignKey(
         Application, on_delete=models.CASCADE, null=True)
     is_short_answer = models.IntegerField(null=False)
+
