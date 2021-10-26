@@ -11,7 +11,7 @@
         {% load static %}
         <script type="text/javascript" src="{% static 'questionnaire/test.js' %}"></script>
         <link rel="stylesheet" type="text/css" href="{% static 'questionnaire/style.css' %}">
-
+        
 
         
     </head>
@@ -28,7 +28,7 @@
         <a href="#SectionG">SectionG Concern research study</a>
       </div>
       <div class="questions">
-          <form method = "POST" action="" name = "answer_question">
+          <form method = "POST"  name = "answer_question" id="all_questions">
             {% csrf_token %} 
               <a name = "SectionA"></a>
               
@@ -86,6 +86,7 @@
                   
               </div>
                   <script type="text/javascript">
+                  
                   $("#button1").click(function(){
                       $("#div1").show();
                   });
@@ -215,7 +216,7 @@
                   {% if question.is_short_answer == 1 %}
 
                   <!-- you can create a new array to store the question number , and use if statement  -->
-                    {% if question.question_num == 601 or question.question_num == 602 %}
+                    {% if question.is_template_question == 1 %}
                       
                       
                       <font>{{question.text }}</font>
@@ -681,9 +682,10 @@ Details of how data will be collected and analysed Potential significance of the
                   <p></p>
                 {% endif %}
               {% endfor %}
-              <div class="save-item1"><input class="save-button" type="submit" value="Save" id="Complete" name="Complete"></div>
-              <input type="file" id="myFile" name="filename"><input type="submit">
+              <div class="save-item1"><button class="save-button" type="submit" id="save" name="Complete">Save</button></div>
             </form>
+            
+            
       </div>
         
     </body>

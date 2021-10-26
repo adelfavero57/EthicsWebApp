@@ -83,8 +83,9 @@ class Question(models.Model):
     text = models.TextField(null=False)
     is_short_answer = models.IntegerField(null=False)
     section_name = models.CharField(max_length=1, null=False)
-    tips = models.TextField(max_length=150, null=True, default='')
+    tips = models.TextField(max_length=300, null=True, default='')
     is_qualifier_question = models.IntegerField(null=False)
+    is_template_question = models.IntegerField(null=True)
 
 
 class Answers(models.Model):
