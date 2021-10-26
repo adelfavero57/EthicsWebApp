@@ -222,7 +222,7 @@
                   {% if question.is_short_answer == 1 %}
 
                   <!-- you can create a new array to store the question number , and use if statement  -->
-                    {% if question.question_num == 601 or question.question_num == 602 %}
+                    {% if question.is_template_question == 1 %}
                       
                       
                       <font>{{question.text }}</font>
