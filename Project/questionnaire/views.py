@@ -32,12 +32,8 @@ def questionnaire(request, application_id):
                     try:
                         if que_str == "702":
                             ans_text = request.POST.getlist("sele1")
-                            for k in ans_text:
-                                print(k)
                         elif que_str == "901":
                             ans_text = request.POST.getlist("sele2")
-                            for k in ans_text:
-                                print(k)
                         else:
                             ans_text = request.POST[que_str]
                         #Default for textarea is "", so if user did not answer, counter need to add up by 1
@@ -49,6 +45,7 @@ def questionnaire(request, application_id):
                         continue
                     
                     j.short_answer_text = ans_text
+                    print(ans_text)
                     j.save()
         if counter > 1:
             a_id.status = "IN PROGRESS"

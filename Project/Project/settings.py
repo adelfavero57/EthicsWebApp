@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'PISform.apps.PisformConfig',
     'questionnaire.apps.QuestionnaireConfig',
     'consentform.apps.ConsentformConfig',
+    'upload.apps.UploadConfig',
+    'viewforms.apps.ViewformsConfig',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [

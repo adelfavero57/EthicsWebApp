@@ -31,4 +31,7 @@ urlpatterns = [
 
     path('consentform/', include('consentform.urls')),
 
+    path('upload/', include('upload.urls')),
+
+    path('viewforms/', include('viewforms.urls')),
 ]
