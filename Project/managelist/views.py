@@ -14,31 +14,31 @@ from reportlab.lib.pagesizes import letter
 
 
 # reportlab documentation for customisation: https://reportlab.com/docs/reportlab-userguide.pdf
-def download_application(request):
-    #create buffer
-    buf = io.BytesIO()
-    #create canvas
-    c = canvas.Canvas(buf, pagesize=letter, bottomup=0)
-    #create text object
-    textob = c.beginText()
-    textob.setTextOrigin(inch, inch)
-    textob.setFont("Helvetica", 14)
+# def download_application(request):
+#     #create buffer
+#     buf = io.BytesIO()
+#     #create canvas
+#     c = canvas.Canvas(buf, pagesize=letter, bottomup=0)
+#     #create text object
+#     textob = c.beginText()
+#     textob.setTextOrigin(inch, inch)
+#     textob.setFont("Helvetica", 14)
     
-    #content on pdf
-    content = [
-        "Test line"
-        "test line 2"
-        "test line 3"
-    ]
-    for line in content:
-        textob.textLine(line)
+#     #content on pdf
+#     content = [
+#         "Test line"
+#         "test line 2"
+#         "test line 3"
+#     ]
+#     for line in content:
+#         textob.textLine(line)
     
-    c.drawText(textob)
-    c.showPage()
-    c.save()
-    buf.seek(0)
+#     c.drawText(textob)
+#     c.showPage()
+#     c.save()
+#     buf.seek(0)
 
-    return FileResponse(buf, as_attachment=True, filename='application.pdf')
+#     return FileResponse(buf, as_attachment=True, filename='application.pdf')
 
 def logout_view(request):
     logout(request)
