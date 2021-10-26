@@ -1,0 +1,14 @@
+{% extends 'base.html' %}  <!-- Need to extend questionnaire navbar -->
+
+{% block content %}
+
+<h1>Create Participant Information Statement</h1>
+<p>Please change and adapt the questions in the following template to suit your project. <br>
+Please provide answers to the following questions underneath each heading. </p>
+<form method ="POST">
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form.as_p }}
+    <button class = "btn btn-secondary">Create</button>
+
+{% endblock %}
