@@ -62,6 +62,7 @@
                 <td>{{item.supervisor}}</td>
 
                 <!-- Change the download link here -->
+                <td><a href="{% url 'viewPage' item_id=item.id %}">View</a></td>
                 <td><a href="#">Download</a></td>
 
             {% else %}

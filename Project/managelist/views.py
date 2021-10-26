@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from accounts.decorators import allowed_users
 from django.shortcuts import render, redirect
 from accounts.models import Application
-
+import approvelist
 # PDF generation imports
 from django.http import FileResponse
 import io

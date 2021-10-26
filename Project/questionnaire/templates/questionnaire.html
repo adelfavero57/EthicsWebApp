@@ -35,8 +35,8 @@
       {% csrf_token %}
       <a name="SectionA"></a>
 
-      <h1>SECTION A</h1>
-      <h4>SECTION A is designed to distinguish between staff and student projects. In addition, this Section also seeks to identify projects that have been approved by other ethics committees.</h4>
+      <h1>Section A</h1>
+      <h4>Section A is designed to distinguish between staff and student projects. In addition, this Section also seeks to identify projects that have been approved by other ethics committees.</h4>
       {% for question in que %}
       <!-- Pop out question1  -->
       {% if question.question_num == 101%}
@@ -95,6 +95,11 @@
         $("#button2").click(function () {
           $("#div1").hide();
         });
+        if(document.getElementById('button1').checked) {
+          $("#div1").show();
+        }else if(document.getElementById('button2').checked) {
+          $("#div1").hide();
+        }
       </script>
       {% endif %}
       {% endfor %}
@@ -291,6 +296,7 @@
           <span class="tooltiptext">{{question.tips}}</span>
         </div>
         <br>
+        <br>
 
 
 
@@ -316,6 +322,7 @@
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
       <br>
+      <br>
 
       <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
                       {% if question == ans.question_id and a_id == ans.application_id%}
@@ -329,6 +336,7 @@
       <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
+      <br>
       <br>
       <!-- show the answers after submit -->
       {% for ans in answers %}
@@ -359,6 +367,7 @@
       <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
+      <br>
       <br>
 
       <!-- show the answers after submit -->
@@ -407,6 +416,7 @@
           <span class="tooltiptext">{{question.tips}}</span>
         </div>
         <br>
+        <br>
 
         <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
                           {% if question == ans.question_id and a_id == ans.application_id%}
@@ -428,6 +438,7 @@
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
       <br>
+      <br>
 
       <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
                           {% if question == ans.question_id and a_id == ans.application_id%}
@@ -442,6 +453,7 @@
         <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
           <span class="tooltiptext">{{question.tips}}</span>
         </div>
+        <br>
         <br>
 
         <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Audio recordings">
@@ -472,6 +484,7 @@
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
       <br>
+      <br>
 
       <!-- show the answers after submit -->
       {% for ans in answers %}
@@ -500,6 +513,7 @@
       <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
+      <br>
       <br>
       <!-- show the answers after submit -->
       {% for ans in answers %}
@@ -579,7 +593,7 @@
 
 
       {% else %}
-      <br>
+ 
       <!-- show the answers after submit -->
       {% for ans in answers %}
       {% if question == ans.question_id and a_id == ans.application_id %}
@@ -616,9 +630,11 @@
       <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
+      <br>
+      <br>
       {% if question.is_short_answer == 1 %}
       {% if question.question_num == 904 %}
-      <br>
+      
       <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="120" rows="30">Aims and hypotheses/research questions Research plan including duration of the study and/or timeline:
 
 
@@ -637,8 +653,7 @@ Details of how data will be collected and analysed Potential significance of the
 </textarea>
 
       {% else %}
-      <br>
-
+      
       <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
                     {% if question == ans.question_id and a_id == ans.application_id%}
                     {{ans.short_answer_text}}{% endif %}
@@ -656,7 +671,6 @@ Details of how data will be collected and analysed Potential significance of the
       {% elif question.question_num == 905%}
       <p></p>
       {% else %}
-      <br>
 
       <!-- show the answers after submit -->
       {% for ans in answers %}
