@@ -37,7 +37,6 @@ def disapprove(request, item_id):
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['staff'])
-@allowed_users(allowed_roles=['researcher'])
 def viewPage(request, item_id):
     que = Question.objects.all()
     

@@ -3,7 +3,9 @@ from django.contrib.auth.decorators import login_required
 from accounts.decorators import allowed_users
 from django.shortcuts import render, redirect
 from accounts.models import Application
-import approvelist
+from accounts.models import Answers, Application
+from accounts.models import Question
+
 # PDF generation imports
 from django.http import FileResponse
 import io
@@ -73,6 +75,17 @@ def deleteRow(request, item_id):
     item.delete()
 
     return redirect('managelist')
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['researcher'])
+def viewPage(request, item_id):
+    que = Question.objects.all()
+    
+    a_id = Application.objects.get(pk=item_id)
+    answers = Answers.objects.all().filter(application_id=a_id)
+
+    context = {'que': que, 'answers': answers, 'a_id':a_id}
+    return render(request, 'view.html', context)
 
 
 

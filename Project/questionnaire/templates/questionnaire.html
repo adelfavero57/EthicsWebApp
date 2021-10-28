@@ -314,6 +314,11 @@
         $("#button4").click(function () {
           $("#div2").hide();
         });
+        if(document.getElementById('button3').checked) {
+          $("#div1").show();
+        }else if(document.getElementById('button4').checked) {
+          $("#div1").hide();
+        }
       </script>
       {% else %}
 
@@ -431,6 +436,11 @@
         $("#button8").click(function () {
           $("#div4").hide();
         });
+        if(document.getElementById('button7').checked) {
+          $("#div1").show();
+        }else if(document.getElementById('button8').checked) {
+          $("#div1").hide();
+        }
       </script>
       {% else %}
       <font>{{question.text }}</font>
@@ -473,6 +483,11 @@
         $("#button6").click(function () {
           $("#div3").hide();
         });
+        if(document.getElementById('button5').checked) {
+          $("#div1").show();
+        }else if(document.getElementById('button6').checked) {
+          $("#div1").hide();
+        }
       </script>
 
 
