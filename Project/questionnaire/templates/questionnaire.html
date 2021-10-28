@@ -278,11 +278,15 @@
         </div>
         <br>
 
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                        {% if question == ans.question_id and a_id == ans.application_id%}
-                        {{ans.short_answer_text}}{% endif %}
-                        {% endfor %}</textarea>
-
+        {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.short_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        {% else %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+        {% endif %}{% endif %}
+        {% endfor %}
+        
       </div>
 
       <!-- end of template question segment -->
@@ -295,7 +299,6 @@
         <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
           <span class="tooltiptext">{{question.tips}}</span>
         </div>
-        <br>
         <br>
 
         <!-- template question segment -->
@@ -344,21 +347,18 @@
         </div>
         <br>
 
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                        {% if question == ans.question_id and a_id == ans.application_id%}
-                        {{ans.short_answer_text}}{% endif %}
-                        {% endfor %}</textarea>
+        {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.short_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        {% else %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+        {% endif %}{% endif %}
+        {% endfor %}
 
       </div>
 
       <!-- end of template question segment -->
-
-
-
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                          {% if question == ans.question_id and a_id == ans.application_id%}
-                          {{ans.short_answer_text}}{% endif %}
-                          {% endfor %}</textarea>
 
 
       </div>
@@ -381,7 +381,6 @@
       <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
-      <br>
       <br>
 
       <!-- template question segment -->
@@ -430,19 +429,18 @@
         </div>
         <br>
 
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                        {% if question == ans.question_id and a_id == ans.application_id%}
-                        {{ans.short_answer_text}}{% endif %}
-                        {% endfor %}</textarea>
+        {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.short_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        {% else %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+        {% endif %}{% endif %}
+        {% endfor %}
 
       </div>
 
       <!-- end of template question segment -->
-
-      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                      {% if question == ans.question_id and a_id == ans.application_id%}
-                      {{ans.short_answer_text}}{% endif %}
-                      {% endfor %}</textarea>
 
       {% endif %}
       {% else %}
@@ -531,7 +529,6 @@
           <span class="tooltiptext">{{question.tips}}</span>
         </div>
         <br>
-        <br>
 
         <!-- template question segment -->
       <div class="inspect">
@@ -579,19 +576,17 @@
         </div>
         <br>
 
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                        {% if question == ans.question_id and a_id == ans.application_id%}
-                        {{ans.short_answer_text}}{% endif %}
-                        {% endfor %}</textarea>
+        {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.short_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        {% else %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+        {% endif %}{% endif %}
+        {% endfor %}
 
       </div>
 
-      <!-- end of template question segment -->
-
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                          {% if question == ans.question_id and a_id == ans.application_id%}
-                          {{ans.short_answer_text}}{% endif %}
-                          {% endfor %}</textarea>
 
       </div>
       <script type="text/javascript">
@@ -612,7 +607,6 @@
       <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
-      <br>
       <br>
 
       <!-- template question segment -->
@@ -661,19 +655,19 @@
         </div>
         <br>
 
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                        {% if question == ans.question_id and a_id == ans.application_id%}
-                        {{ans.short_answer_text}}{% endif %}
-                        {% endfor %}</textarea>
+        {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.short_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        {% else %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+        {% endif %}{% endif %}
+        {% endfor %}
 
       </div>
 
       <!-- end of template question segment -->
 
-      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                          {% if question == ans.question_id and a_id == ans.application_id%}
-                          {{ans.short_answer_text}}{% endif %}
-                          {% endfor %}</textarea>
 
       {% endif %}
       {% elif question.question_num == 702 %}
@@ -868,19 +862,18 @@
         </div>
         <br>
 
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                        {% if question == ans.question_id and a_id == ans.application_id%}
-                        {{ans.short_answer_text}}{% endif %}
-                        {% endfor %}</textarea>
+        {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.short_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        {% else %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+        {% endif %}{% endif %}
+        {% endfor %}
 
       </div>
 
       <!-- end of template question segment -->
-
-      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                    {% if question == ans.question_id and a_id == ans.application_id%}
-                    {{ans.short_answer_text}}{% endif %}
-                    {% endfor %}</textarea>
 
 
       {% else %}
@@ -991,19 +984,19 @@ Details of how data will be collected and analysed Potential significance of the
         </div>
         <br>
 
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                        {% if question == ans.question_id and a_id == ans.application_id%}
-                        {{ans.short_answer_text}}{% endif %}
-                        {% endfor %}</textarea>
+        {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.short_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        {% else %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+        {% endif %}{% endif %}
+        {% endfor %}
 
       </div>
 
       <!-- end of template question segment -->
-      
-      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                    {% if question == ans.question_id and a_id == ans.application_id%}
-                    {{ans.short_answer_text}}{% endif %}
-                    {% endfor %}</textarea>
+
 
       {% endif %}
 
