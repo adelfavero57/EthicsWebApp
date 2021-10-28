@@ -7,7 +7,7 @@
   <title>Questionnaire</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-  t
+  
 
   {% load static %}
   <script type="text/javascript" src="{% static 'questionnaire/test.js' %}"></script>
@@ -139,7 +139,7 @@
       {% for question in que %}
       {% if question.section_name == "B"%}
       <font>{{ question.text }}</font>
-      <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+      <div style="margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
       <br>
@@ -178,7 +178,7 @@
       {% for question in que %}
       {% if question.section_name == "C"%}
       <font>{{ question.text }}</font>
-      <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+      <div style="margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
       <br>
@@ -424,7 +424,7 @@
       </script>
       {% else %}
       <font>{{question.text }}</font>
-      <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+      <div style="margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
       <br>
@@ -567,7 +567,7 @@
       {% for question in que %}
       {% if question.section_name == "F"%}
       <font>{{question.text }}</font>
-      <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+      <div style="margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
       {% if question.is_short_answer == 1 %}
@@ -613,7 +613,7 @@
       {% for question in que %}
       {% if question.section_name == "G"%}
       <font>{{question.text }}</font>
-      <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+      <div style="margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
       {% if question.is_short_answer == 1 %}
@@ -685,7 +685,7 @@ Details of how data will be collected and analysed Potential significance of the
       {% endif %}
       {% endfor %}
       <div class="save-item1"><input class="save-button" type="submit" value="Save" id="Complete" name="Complete"></div>
-      <input type="file" id="myFile" name="filename"><input type="submit">
+      <!--<input type="file" id="myFile" name="filename"><input type="submit">-->
     </form>
   </div>
 
