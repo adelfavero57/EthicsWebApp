@@ -43,7 +43,7 @@ div{
 .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
     width: 150px; /* Set the width of the sidebar */
-    position: absolute;
+    position: fixed;
     /* Fixed Sidebar (stay in place on scroll) position: fixed;*/
     /*position: -webkit-sticky;
     position: sticky;*/
@@ -57,9 +57,9 @@ div{
     
 /* The navigation menu links */
 .sidenav a {
-    padding: 20px 8px 10px 30px;
+    padding: 10px 10px 15px 10px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 16px;
     color: rgba(0, 0, 0, 0.906);
     display: block;
 }
