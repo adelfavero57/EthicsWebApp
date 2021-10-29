@@ -55,7 +55,7 @@
 .menu2 ul {
     list-style-type: none;
     margin: 0;
-    padding-left: 70%;
+    padding-left: 0%;
     padding-top: 0;
     overflow: hidden;
     
@@ -73,7 +73,7 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 36;
+    font-size: 30;
     
   }
 .menu2 ul li a:hover:not(.active) {

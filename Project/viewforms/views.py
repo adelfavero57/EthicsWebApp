@@ -16,9 +16,20 @@ from .forms import PISform, PCFform
     #return render(request, 'PISform.html')
     #return pdf
 
-class PISform2(DetailView):
-    model = Application
-    template_name = 'information_sheet.html'
+#class PISform2(DetailView):
+    #model = Application
+    #template_name = 'information_sheet.html'
+ 
+# pass id attribute from urls
+def PISform2(request, application_id):
+    # dictionary for initial data with
+    # field names as keys
+    context ={
+        'data': Application.objects.get(pk=application_id),
+        'application_id': application_id
+    }
+ 
+    return render(request, "information_sheet.html", context)
 
 class PCFform2(DetailView):
     model = Application
