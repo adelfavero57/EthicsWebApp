@@ -53,11 +53,14 @@
 
     
 .menu2 ul {
+    /* 
     list-style-type: none;
     margin: 0;
     padding-left: 70%;
     padding-top: 0;
     overflow: hidden;
+    */
+    justify-content: flex-end;
     
 
 }
