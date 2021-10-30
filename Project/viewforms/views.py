@@ -28,12 +28,34 @@ def PISform2(request, application_id):
         'data': Application.objects.get(pk=application_id),
         'application_id': application_id
     }
- 
-    return render(request, "information_sheet.html", context)
+    pdf = render_to_pdf('information_sheet.html', context)
+    return pdf
+    #return render(request, "information_sheet.html", context)
 
-class PCFform2(DetailView):
-    model = Application
-    template_name = 'consent_form.html'
+#@login_required(login_url='login')
+#def PISform(request):
+    #pis1 = CoverSheetAnswers.objects.all()
+    #pis2 = Answers.objects.all()
+    #context = {'pis': pis1}
+    #pdf = render_to_pdf('PISform.html', context)
+    #return render(request, 'PISform.html', context)
+    #return render(request, 'PISform.html')
+    #return pdf
+
+def PCFform2(request, application_id):
+    # dictionary for initial data with
+    # field names as keys
+    context ={
+        'data': Application.objects.get(pk=application_id),
+        'application_id': application_id
+    }
+    pdf = render_to_pdf('consent_form.html', context)
+    return pdf
+    #return render(request, "consent_form.html", context)
+
+#class PCFform2(DetailView):
+    #model = Application
+    #template_name = 'consent_form.html'
 
 #class createPIS(UpdateView):
     #model = Application

@@ -9,7 +9,16 @@ from ckeditor.fields import RichTextField
 from django.urls import reverse
 # Create your models here.
 
-default_PCF_data = """<p>Project Name:</p>
+default_PCF_data = """<p>Name:</p>
+
+<p>Faculty:</p>
+
+<p>Address:</p>
+
+<p>Contact Details:</p>
+
+
+<p>Project Name:</p>
 
 <p>In giving my consent I acknowledge that:</p>
 
@@ -30,9 +39,18 @@ default_PCF_data = """<p>Project Name:</p>
 <p>8. I agree that my rtecord of all clicks in my interaction on this interface will be shared on the Open Science Framework (OSF) platform so that other researchers can analyse them. This data will be de-identified so that it cannot be linked to me.</p>
 
 <p>9. I understand that my video and audio recordings will only be used for analysis and will not be released.</p>
-""" #Need to format this such that the spaces carry through to rtf
+""" 
 
-default_PIS_data = """<p>Project Name:</p>
+default_PIS_data = """<p>Name:</p>
+
+<p>Faculty:</p>
+
+<p>Address:</p>
+
+<p>Contact Details:</p>
+
+
+<p>Project Name:</p>
 
 <p>What is the study about?</p>
 
