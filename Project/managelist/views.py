@@ -78,14 +78,14 @@ def deleteRow(request, item_id):
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['researcher'])
-def viewPage(request, item_id):
+def viewNormal(request, item_id):
     que = Question.objects.all()
     
     a_id = Application.objects.get(pk=item_id)
     answers = Answers.objects.all().filter(application_id=a_id)
 
     context = {'que': que, 'answers': answers, 'a_id':a_id}
-    return render(request, 'view.html', context)
+    return render(request, 'viewNormal.html', context)
 
 
 
