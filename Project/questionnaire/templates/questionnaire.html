@@ -7,7 +7,7 @@
   <title>Questionnaire</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-  
+
 
   {% load static %}
   <script type="text/javascript" src="{% static 'questionnaire/test.js' %}"></script>
@@ -95,9 +95,9 @@
         $("#button2").click(function () {
           $("#div1").hide();
         });
-        if(document.getElementById('button1').checked) {
+        if (document.getElementById('button1').checked) {
           $("#div1").show();
-        }else if(document.getElementById('button2').checked) {
+        } else if (document.getElementById('button2').checked) {
           $("#div1").hide();
         }
       </script>
@@ -240,9 +240,9 @@
 
         <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
         <div class="hidden_text" data-status="hidden" style="display :none ;">
-          <button type="button" class="button think_aloud"> Think aloud </button>
+          <button type="button" class="button think_aloud"> Think Aloud </button>
 
-          <button type="button" class="button crowed_source"> Crowed Source </button>
+          <button type="button" class="button crowed_source"> Crowd Sourced </button>
 
           <button type="button" class="button lab_study"> Lab Study </button>
 
@@ -286,7 +286,7 @@
         <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
         {% endif %}{% endif %}
         {% endfor %}
-        
+
       </div>
 
       <!-- end of template question segment -->
@@ -302,63 +302,63 @@
         <br>
 
         <!-- template question segment -->
-      <div class="inspect">
+        <div class="inspect">
 
-        <button type="button" class="show_button"> Template Answers </button>
-
-
-        <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
-        <div class="hidden_text" data-status="hidden" style="display :none ;">
-          <button type="button" class="button think_aloud"> Think aloud </button>
-
-          <button type="button" class="button crowed_source"> Crowed Source </button>
-
-          <button type="button" class="button lab_study"> Lab Study </button>
+          <button type="button" class="show_button"> Template Answers </button>
 
 
+          <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
+          <div class="hidden_text" data-status="hidden" style="display :none ;">
+            <button type="button" class="button think_aloud"> Think aloud </button>
 
-          <div class="selection_box">
+            <button type="button" class="button crowed_source"> Crowed Source </button>
 
-            <div class="think_aloud_txt" data-status="hidden" style="display :none ;">
-              {% for answer in answers %}
-              {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "thinkaloud" %}
-              <p class="exemplar_p think_aloud_p"> {{answer.short_answer_text}} </p>
-              {% endif %}
-              {% endfor %}
+            <button type="button" class="button lab_study"> Lab Study </button>
+
+
+
+            <div class="selection_box">
+
+              <div class="think_aloud_txt" data-status="hidden" style="display :none ;">
+                {% for answer in answers %}
+                {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "thinkaloud" %}
+                <p class="exemplar_p think_aloud_p"> {{answer.short_answer_text}} </p>
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <div class="source_txt" data-status="hidden" style="display :none ;">
+                {% for answer in answers %}
+                {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "crowedsource" %}
+                <p class="exemplar_p source_txt_p"> {{answer.short_answer_text}} </p>
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <div class="lab_study_txt" data-status="hidden" style="display :none ;">
+                {% for answer in answers %}
+                {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "labstudy" %}
+                <p class="exemplar_p lab_study_p"> {{answer.short_answer_text}} </p>
+                {% endif %}
+                {% endfor %}
+              </div>
+
             </div>
-
-            <div class="source_txt" data-status="hidden" style="display :none ;">
-              {% for answer in answers %}
-              {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "crowedsource" %}
-              <p class="exemplar_p source_txt_p"> {{answer.short_answer_text}} </p>
-              {% endif %}
-              {% endfor %}
-            </div>
-
-            <div class="lab_study_txt" data-status="hidden" style="display :none ;">
-              {% for answer in answers %}
-              {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "labstudy" %}
-              <p class="exemplar_p lab_study_p"> {{answer.short_answer_text}} </p>
-              {% endif %}
-              {% endfor %}
-            </div>
-
           </div>
+          <br>
+
+          {% for ans in answers %}
+          {% if question == ans.question_id and a_id == ans.application_id%}
+          {% if ans.short_answer_text == None %}
+          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+          {% else %}
+          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+          {% endif %}{% endif %}
+          {% endfor %}
+
         </div>
-        <br>
 
-        {% for ans in answers %}
-        {% if question == ans.question_id and a_id == ans.application_id%}
-        {% if ans.short_answer_text == None %}
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
-        {% else %}
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
-        {% endif %}{% endif %}
-        {% endfor %}
-
-      </div>
-
-      <!-- end of template question segment -->
+        <!-- end of template question segment -->
 
 
       </div>
@@ -369,9 +369,9 @@
         $("#button4").click(function () {
           $("#div2").hide();
         });
-        if(document.getElementById('button3').checked) {
+        if (document.getElementById('button3').checked) {
           $("#div2").show();
-        }else if(document.getElementById('button4').checked) {
+        } else if (document.getElementById('button4').checked) {
           $("#div2").hide();
         }
       </script>
@@ -531,61 +531,61 @@
         <br>
 
         <!-- template question segment -->
-      <div class="inspect">
+        <div class="inspect">
 
-        <button type="button" class="show_button"> Template Answers </button>
-
-
-        <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
-        <div class="hidden_text" data-status="hidden" style="display :none ;">
-          <button type="button" class="button think_aloud"> Think aloud </button>
-
-          <button type="button" class="button crowed_source"> Crowed Source </button>
-
-          <button type="button" class="button lab_study"> Lab Study </button>
+          <button type="button" class="show_button"> Template Answers </button>
 
 
+          <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
+          <div class="hidden_text" data-status="hidden" style="display :none ;">
+            <button type="button" class="button think_aloud"> Think aloud </button>
 
-          <div class="selection_box">
+            <button type="button" class="button crowed_source"> Crowed Source </button>
 
-            <div class="think_aloud_txt" data-status="hidden" style="display :none ;">
-              {% for answer in answers %}
-              {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "thinkaloud" %}
-              <p class="exemplar_p think_aloud_p"> {{answer.short_answer_text}} </p>
-              {% endif %}
-              {% endfor %}
+            <button type="button" class="button lab_study"> Lab Study </button>
+
+
+
+            <div class="selection_box">
+
+              <div class="think_aloud_txt" data-status="hidden" style="display :none ;">
+                {% for answer in answers %}
+                {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "thinkaloud" %}
+                <p class="exemplar_p think_aloud_p"> {{answer.short_answer_text}} </p>
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <div class="source_txt" data-status="hidden" style="display :none ;">
+                {% for answer in answers %}
+                {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "crowedsource" %}
+                <p class="exemplar_p source_txt_p"> {{answer.short_answer_text}} </p>
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <div class="lab_study_txt" data-status="hidden" style="display :none ;">
+                {% for answer in answers %}
+                {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "labstudy" %}
+                <p class="exemplar_p lab_study_p"> {{answer.short_answer_text}} </p>
+                {% endif %}
+                {% endfor %}
+              </div>
+
             </div>
-
-            <div class="source_txt" data-status="hidden" style="display :none ;">
-              {% for answer in answers %}
-              {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "crowedsource" %}
-              <p class="exemplar_p source_txt_p"> {{answer.short_answer_text}} </p>
-              {% endif %}
-              {% endfor %}
-            </div>
-
-            <div class="lab_study_txt" data-status="hidden" style="display :none ;">
-              {% for answer in answers %}
-              {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "labstudy" %}
-              <p class="exemplar_p lab_study_p"> {{answer.short_answer_text}} </p>
-              {% endif %}
-              {% endfor %}
-            </div>
-
           </div>
+          <br>
+
+          {% for ans in answers %}
+          {% if question == ans.question_id and a_id == ans.application_id%}
+          {% if ans.short_answer_text == None %}
+          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+          {% else %}
+          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+          {% endif %}{% endif %}
+          {% endfor %}
+
         </div>
-        <br>
-
-        {% for ans in answers %}
-        {% if question == ans.question_id and a_id == ans.application_id%}
-        {% if ans.short_answer_text == None %}
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
-        {% else %}
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
-        {% endif %}{% endif %}
-        {% endfor %}
-
-      </div>
 
 
       </div>
@@ -596,9 +596,9 @@
         $("#button8").click(function () {
           $("#div4").hide();
         });
-        if(document.getElementById('button7').checked) {
+        if (document.getElementById('button7').checked) {
           $("#div4").show();
-        }else if(document.getElementById('button8').checked) {
+        } else if (document.getElementById('button8').checked) {
           $("#div4").hide();
         }
       </script>
@@ -697,9 +697,9 @@
         $("#button6").click(function () {
           $("#div3").hide();
         });
-        if(document.getElementById('button5').checked) {
+        if (document.getElementById('button5').checked) {
           $("#div3").show();
-        }else if(document.getElementById('button6').checked) {
+        } else if (document.getElementById('button6').checked) {
           $("#div3").hide();
         }
       </script>
@@ -877,7 +877,7 @@
 
 
       {% else %}
- 
+
       <!-- show the answers after submit -->
       {% for ans in answers %}
       {% if question == ans.question_id and a_id == ans.application_id %}
@@ -918,7 +918,7 @@
       <br>
       {% if question.is_short_answer == 1 %}
       {% if question.question_num == 904 %}
-      
+
       <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="120" rows="30">Aims and hypotheses/research questions Research plan including duration of the study and/or timeline:
 
 
