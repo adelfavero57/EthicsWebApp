@@ -7,7 +7,7 @@
   <title>Questionnaire</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-  t
+
 
   {% load static %}
   <script type="text/javascript" src="{% static 'questionnaire/test.js' %}"></script>
@@ -35,8 +35,8 @@
       {% csrf_token %}
       <a name="SectionA"></a>
 
-      <h1>SECTION A</h1>
-      <h4>SECTION A is designed to distinguish between staff and student projects. In addition, this Section also seeks to identify projects that have been approved by other ethics committees.</h4>
+      <h1>Section A</h1>
+      <h4>Section A is designed to distinguish between staff and student projects. In addition, this Section also seeks to identify projects that have been approved by other ethics committees.</h4>
       {% for question in que %}
       <!-- Pop out question1  -->
       {% if question.question_num == 101%}
@@ -95,6 +95,11 @@
         $("#button2").click(function () {
           $("#div1").hide();
         });
+        if (document.getElementById('button1').checked) {
+          $("#div1").show();
+        } else if (document.getElementById('button2').checked) {
+          $("#div1").hide();
+        }
       </script>
       {% endif %}
       {% endfor %}
@@ -139,7 +144,7 @@
       {% for question in que %}
       {% if question.section_name == "B"%}
       <font>{{ question.text }}</font>
-      <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+      <div style="margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
       <br>
@@ -178,7 +183,7 @@
       {% for question in que %}
       {% if question.section_name == "C"%}
       <font>{{ question.text }}</font>
-      <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+      <div style="margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
       <br>
@@ -235,6 +240,157 @@
 
         <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
         <div class="hidden_text" data-status="hidden" style="display :none ;">
+          <button type="button" class="button think_aloud"> Think Aloud </button>
+
+          <button type="button" class="button crowed_source"> Crowd Sourced </button>
+
+          <button type="button" class="button lab_study"> Lab Study </button>
+
+
+
+          <div class="selection_box">
+
+            <div class="think_aloud_txt" data-status="hidden" style="display :none ;">
+              {% for answer in answers %}
+              {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "thinkaloud" %}
+              <p class="exemplar_p think_aloud_p"> {{answer.short_answer_text}} </p>
+              {% endif %}
+              {% endfor %}
+            </div>
+
+            <div class="source_txt" data-status="hidden" style="display :none ;">
+              {% for answer in answers %}
+              {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "crowedsource" %}
+              <p class="exemplar_p source_txt_p"> {{answer.short_answer_text}} </p>
+              {% endif %}
+              {% endfor %}
+            </div>
+
+            <div class="lab_study_txt" data-status="hidden" style="display :none ;">
+              {% for answer in answers %}
+              {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "labstudy" %}
+              <p class="exemplar_p lab_study_p"> {{answer.short_answer_text}} </p>
+              {% endif %}
+              {% endfor %}
+            </div>
+
+          </div>
+        </div>
+        <br>
+
+        {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.short_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        {% else %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+        {% endif %}{% endif %}
+        {% endfor %}
+
+      </div>
+
+      <!-- end of template question segment -->
+
+
+      {% elif question.question_num == 605%}
+      <div id="div2" style="display :none ;">
+
+        <font>{{ question.text }}</font>
+        <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+          <span class="tooltiptext">{{question.tips}}</span>
+        </div>
+        <br>
+
+        <!-- template question segment -->
+        <div class="inspect">
+
+          <button type="button" class="show_button"> Template Answers </button>
+
+
+          <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
+          <div class="hidden_text" data-status="hidden" style="display :none ;">
+            <button type="button" class="button think_aloud"> Think aloud </button>
+
+            <button type="button" class="button crowed_source"> Crowed Source </button>
+
+            <button type="button" class="button lab_study"> Lab Study </button>
+
+
+
+            <div class="selection_box">
+
+              <div class="think_aloud_txt" data-status="hidden" style="display :none ;">
+                {% for answer in answers %}
+                {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "thinkaloud" %}
+                <p class="exemplar_p think_aloud_p"> {{answer.short_answer_text}} </p>
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <div class="source_txt" data-status="hidden" style="display :none ;">
+                {% for answer in answers %}
+                {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "crowedsource" %}
+                <p class="exemplar_p source_txt_p"> {{answer.short_answer_text}} </p>
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <div class="lab_study_txt" data-status="hidden" style="display :none ;">
+                {% for answer in answers %}
+                {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "labstudy" %}
+                <p class="exemplar_p lab_study_p"> {{answer.short_answer_text}} </p>
+                {% endif %}
+                {% endfor %}
+              </div>
+
+            </div>
+          </div>
+          <br>
+
+          {% for ans in answers %}
+          {% if question == ans.question_id and a_id == ans.application_id%}
+          {% if ans.short_answer_text == None %}
+          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+          {% else %}
+          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+          {% endif %}{% endif %}
+          {% endfor %}
+
+        </div>
+
+        <!-- end of template question segment -->
+
+
+      </div>
+      <script type="text/javascript">
+        $("#button3").click(function () {
+          $("#div2").show();
+        });
+        $("#button4").click(function () {
+          $("#div2").hide();
+        });
+        if (document.getElementById('button3').checked) {
+          $("#div2").show();
+        } else if (document.getElementById('button4').checked) {
+          $("#div2").hide();
+        }
+      </script>
+      {% else %}
+
+      <font>{{question.text }}</font>
+      <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+        <span class="tooltiptext">{{question.tips}}</span>
+      </div>
+      <br>
+
+      <!-- template question segment -->
+      <div class="inspect">
+
+        <button type="button" class="show_button"> Template Answers </button>
+
+
+        <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
+        <div class="hidden_text" data-status="hidden" style="display :none ;">
           <button type="button" class="button think_aloud"> Think aloud </button>
 
           <button type="button" class="button crowed_source"> Crowed Source </button>
@@ -273,54 +429,18 @@
         </div>
         <br>
 
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                        {% if question == ans.question_id and a_id == ans.application_id%}
-                        {{ans.short_answer_text}}{% endif %}
-                        {% endfor %}</textarea>
+        {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.short_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        {% else %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+        {% endif %}{% endif %}
+        {% endfor %}
 
       </div>
 
       <!-- end of template question segment -->
-
-
-      {% elif question.question_num == 605%}
-      <div id="div2" style="display :none ;">
-
-        <font>{{ question.text }}</font>
-        <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
-          <span class="tooltiptext">{{question.tips}}</span>
-        </div>
-        <br>
-
-
-
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                          {% if question == ans.question_id and a_id == ans.application_id%}
-                          {{ans.short_answer_text}}{% endif %}
-                          {% endfor %}</textarea>
-
-
-      </div>
-      <script type="text/javascript">
-        $("#button3").click(function () {
-          $("#div2").show();
-        });
-        $("#button4").click(function () {
-          $("#div2").hide();
-        });
-      </script>
-      {% else %}
-
-      <font>{{question.text }}</font>
-      <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
-        <span class="tooltiptext">{{question.tips}}</span>
-      </div>
-      <br>
-
-      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                      {% if question == ans.question_id and a_id == ans.application_id%}
-                      {{ans.short_answer_text}}{% endif %}
-                      {% endfor %}</textarea>
 
       {% endif %}
       {% else %}
@@ -329,6 +449,7 @@
       <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
+      <br>
       <br>
       <!-- show the answers after submit -->
       {% for ans in answers %}
@@ -359,6 +480,7 @@
       <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
+      <br>
       <br>
 
       <!-- show the answers after submit -->
@@ -408,10 +530,63 @@
         </div>
         <br>
 
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                          {% if question == ans.question_id and a_id == ans.application_id%}
-                          {{ans.short_answer_text}}{% endif %}
-                          {% endfor %}</textarea>
+        <!-- template question segment -->
+        <div class="inspect">
+
+          <button type="button" class="show_button"> Template Answers </button>
+
+
+          <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
+          <div class="hidden_text" data-status="hidden" style="display :none ;">
+            <button type="button" class="button think_aloud"> Think aloud </button>
+
+            <button type="button" class="button crowed_source"> Crowed Source </button>
+
+            <button type="button" class="button lab_study"> Lab Study </button>
+
+
+
+            <div class="selection_box">
+
+              <div class="think_aloud_txt" data-status="hidden" style="display :none ;">
+                {% for answer in answers %}
+                {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "thinkaloud" %}
+                <p class="exemplar_p think_aloud_p"> {{answer.short_answer_text}} </p>
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <div class="source_txt" data-status="hidden" style="display :none ;">
+                {% for answer in answers %}
+                {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "crowedsource" %}
+                <p class="exemplar_p source_txt_p"> {{answer.short_answer_text}} </p>
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <div class="lab_study_txt" data-status="hidden" style="display :none ;">
+                {% for answer in answers %}
+                {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "labstudy" %}
+                <p class="exemplar_p lab_study_p"> {{answer.short_answer_text}} </p>
+                {% endif %}
+                {% endfor %}
+              </div>
+
+            </div>
+          </div>
+          <br>
+
+          {% for ans in answers %}
+          {% if question == ans.question_id and a_id == ans.application_id%}
+          {% if ans.short_answer_text == None %}
+          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+          {% else %}
+          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+          {% endif %}{% endif %}
+          {% endfor %}
+
+        </div>
+
 
       </div>
       <script type="text/javascript">
@@ -421,18 +596,78 @@
         $("#button8").click(function () {
           $("#div4").hide();
         });
+        if (document.getElementById('button7').checked) {
+          $("#div4").show();
+        } else if (document.getElementById('button8').checked) {
+          $("#div4").hide();
+        }
       </script>
       {% else %}
       <font>{{question.text }}</font>
-      <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+      <div style="margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
       <br>
 
-      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                          {% if question == ans.question_id and a_id == ans.application_id%}
-                          {{ans.short_answer_text}}{% endif %}
-                          {% endfor %}</textarea>
+      <!-- template question segment -->
+      <div class="inspect">
+
+        <button type="button" class="show_button"> Template Answers </button>
+
+
+        <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
+        <div class="hidden_text" data-status="hidden" style="display :none ;">
+          <button type="button" class="button think_aloud"> Think aloud </button>
+
+          <button type="button" class="button crowed_source"> Crowed Source </button>
+
+          <button type="button" class="button lab_study"> Lab Study </button>
+
+
+
+          <div class="selection_box">
+
+            <div class="think_aloud_txt" data-status="hidden" style="display :none ;">
+              {% for answer in answers %}
+              {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "thinkaloud" %}
+              <p class="exemplar_p think_aloud_p"> {{answer.short_answer_text}} </p>
+              {% endif %}
+              {% endfor %}
+            </div>
+
+            <div class="source_txt" data-status="hidden" style="display :none ;">
+              {% for answer in answers %}
+              {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "crowedsource" %}
+              <p class="exemplar_p source_txt_p"> {{answer.short_answer_text}} </p>
+              {% endif %}
+              {% endfor %}
+            </div>
+
+            <div class="lab_study_txt" data-status="hidden" style="display :none ;">
+              {% for answer in answers %}
+              {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "labstudy" %}
+              <p class="exemplar_p lab_study_p"> {{answer.short_answer_text}} </p>
+              {% endif %}
+              {% endfor %}
+            </div>
+
+          </div>
+        </div>
+        <br>
+
+        {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.short_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        {% else %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+        {% endif %}{% endif %}
+        {% endfor %}
+
+      </div>
+
+      <!-- end of template question segment -->
+
 
       {% endif %}
       {% elif question.question_num == 702 %}
@@ -442,6 +677,7 @@
         <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
           <span class="tooltiptext">{{question.tips}}</span>
         </div>
+        <br>
         <br>
 
         <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Audio recordings">
@@ -461,6 +697,11 @@
         $("#button6").click(function () {
           $("#div3").hide();
         });
+        if (document.getElementById('button5').checked) {
+          $("#div3").show();
+        } else if (document.getElementById('button6').checked) {
+          $("#div3").hide();
+        }
       </script>
 
 
@@ -471,6 +712,7 @@
       <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
+      <br>
       <br>
 
       <!-- show the answers after submit -->
@@ -500,6 +742,7 @@
       <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
+      <br>
       <br>
       <!-- show the answers after submit -->
       {% for ans in answers %}
@@ -567,19 +810,74 @@
       {% for question in que %}
       {% if question.section_name == "F"%}
       <font>{{question.text }}</font>
-      <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+      <div style="margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
       {% if question.is_short_answer == 1 %}
       <br>
-      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                    {% if question == ans.question_id and a_id == ans.application_id%}
-                    {{ans.short_answer_text}}{% endif %}
-                    {% endfor %}</textarea>
+
+      <!-- template question segment -->
+      <div class="inspect">
+
+        <button type="button" class="show_button"> Template Answers </button>
+
+
+        <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
+        <div class="hidden_text" data-status="hidden" style="display :none ;">
+          <button type="button" class="button think_aloud"> Think aloud </button>
+
+          <button type="button" class="button crowed_source"> Crowed Source </button>
+
+          <button type="button" class="button lab_study"> Lab Study </button>
+
+
+
+          <div class="selection_box">
+
+            <div class="think_aloud_txt" data-status="hidden" style="display :none ;">
+              {% for answer in answers %}
+              {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "thinkaloud" %}
+              <p class="exemplar_p think_aloud_p"> {{answer.short_answer_text}} </p>
+              {% endif %}
+              {% endfor %}
+            </div>
+
+            <div class="source_txt" data-status="hidden" style="display :none ;">
+              {% for answer in answers %}
+              {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "crowedsource" %}
+              <p class="exemplar_p source_txt_p"> {{answer.short_answer_text}} </p>
+              {% endif %}
+              {% endfor %}
+            </div>
+
+            <div class="lab_study_txt" data-status="hidden" style="display :none ;">
+              {% for answer in answers %}
+              {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "labstudy" %}
+              <p class="exemplar_p lab_study_p"> {{answer.short_answer_text}} </p>
+              {% endif %}
+              {% endfor %}
+            </div>
+
+          </div>
+        </div>
+        <br>
+
+        {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.short_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        {% else %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+        {% endif %}{% endif %}
+        {% endfor %}
+
+      </div>
+
+      <!-- end of template question segment -->
 
 
       {% else %}
-      <br>
+
       <!-- show the answers after submit -->
       {% for ans in answers %}
       {% if question == ans.question_id and a_id == ans.application_id %}
@@ -613,12 +911,14 @@
       {% for question in que %}
       {% if question.section_name == "G"%}
       <font>{{question.text }}</font>
-      <div style="font-size:20px;margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
+      <div style="margin-left:0px;" class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
+      <br>
+      <br>
       {% if question.is_short_answer == 1 %}
       {% if question.question_num == 904 %}
-      <br>
+
       <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="120" rows="30">Aims and hypotheses/research questions Research plan including duration of the study and/or timeline:
 
 
@@ -637,12 +937,66 @@ Details of how data will be collected and analysed Potential significance of the
 </textarea>
 
       {% else %}
-      <br>
 
-      <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{% for ans in answers %}
-                    {% if question == ans.question_id and a_id == ans.application_id%}
-                    {{ans.short_answer_text}}{% endif %}
-                    {% endfor %}</textarea>
+      <!-- template question segment -->
+      <div class="inspect">
+
+        <button type="button" class="show_button"> Template Answers </button>
+
+
+        <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
+        <div class="hidden_text" data-status="hidden" style="display :none ;">
+          <button type="button" class="button think_aloud"> Think aloud </button>
+
+          <button type="button" class="button crowed_source"> Crowed Source </button>
+
+          <button type="button" class="button lab_study"> Lab Study </button>
+
+
+
+          <div class="selection_box">
+
+            <div class="think_aloud_txt" data-status="hidden" style="display :none ;">
+              {% for answer in answers %}
+              {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "thinkaloud" %}
+              <p class="exemplar_p think_aloud_p"> {{answer.short_answer_text}} </p>
+              {% endif %}
+              {% endfor %}
+            </div>
+
+            <div class="source_txt" data-status="hidden" style="display :none ;">
+              {% for answer in answers %}
+              {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "crowedsource" %}
+              <p class="exemplar_p source_txt_p"> {{answer.short_answer_text}} </p>
+              {% endif %}
+              {% endfor %}
+            </div>
+
+            <div class="lab_study_txt" data-status="hidden" style="display :none ;">
+              {% for answer in answers %}
+              {% if answer.question_id == question and answer.is_referenced == 1 and answer.answer_type == "labstudy" %}
+              <p class="exemplar_p lab_study_p"> {{answer.short_answer_text}} </p>
+              {% endif %}
+              {% endfor %}
+            </div>
+
+          </div>
+        </div>
+        <br>
+
+        {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.short_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        {% else %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+        {% endif %}{% endif %}
+        {% endfor %}
+
+      </div>
+
+      <!-- end of template question segment -->
+
 
       {% endif %}
 
@@ -656,7 +1010,6 @@ Details of how data will be collected and analysed Potential significance of the
       {% elif question.question_num == 905%}
       <p></p>
       {% else %}
-      <br>
 
       <!-- show the answers after submit -->
       {% for ans in answers %}
@@ -685,7 +1038,7 @@ Details of how data will be collected and analysed Potential significance of the
       {% endif %}
       {% endfor %}
       <div class="save-item1"><input class="save-button" type="submit" value="Save" id="Complete" name="Complete"></div>
-      <input type="file" id="myFile" name="filename"><input type="submit">
+      <!--<input type="file" id="myFile" name="filename"><input type="submit">-->
     </form>
   </div>
 

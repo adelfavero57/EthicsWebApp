@@ -17,37 +17,38 @@
     </head>
     <body>
       <br>
+
+      <div class="sidenav"> 
+        <a href="#SectionA">SectionA Distinguish users</a>
+        <a href="#SectionB">SectionB Risk Evaluation</a>
+        <a href="#SectionC">SectionC Conflicts of interest</a>
+        <a href="#SectionD">SectionD Consent process</a>
+        <a href="#SectionE">SectionE Privary issue</a>
+        <a href="#SectionF">SectionF Concern risks</a>
+        <a href="#SectionG">SectionG Concern research study</a>
+      </div>
       
       <div class="questions">
-        <div class="sidenav"> 
-          <a href="#SectionA">SectionA Distinguish users</a>
-          <a href="#SectionB">SectionB Risk Evaluation</a>
-          <a href="#SectionC">SectionC Conflicts of interest</a>
-          <a href="#SectionD">SectionD Consent process</a>
-          <a href="#SectionE">SectionE Privary issue</a>
-          <a href="#SectionF">SectionF Concern risks</a>
-          <a href="#SectionG">SectionG Concern research study</a>
-        </div>
           <form method = "POST" action="" name = "answer_question">
             {% csrf_token %} 
               <a name = "SectionA"></a>
               
-            <h1>SECTION A</h1>
-              <h4>SECTION A is designed to distinguish between staff and student projects. In addition, this Section also seeks to identify projects that have been approved by other ethics committees.</h4>
+            <h1>Section A</h1>
+              <h4>Section A is designed to distinguish between staff and student projects. In addition, this Section also seeks to identify projects that have been approved by other ethics committees.</h4>
               {% for question in que %}
                 {% for ans in answers %}
-                  {% if question == ans.question_id%}
+                  {% if question == ans.question_id and a_id == ans.application_id%}
                     {% if question.question_num == 101 and ans.short_answer_text == "Yes"%}
                       <font>Question: {{ question.text }}</font><br><br>
                       <font>Answer: {{ans.short_answer_text}}</font><br><br>
                       {% for q in que %}
                         {% for a in answers %}
-                          {% if q == ans.question_id%}
-                            {% if q.question_num == 102% }
+                          {% if q == a.question_id and a_id == a.application_id%}
+                            {% if q.question_num == 102%}
                               <font>Question: {{ q.text }}</font><br><br>
                               <font>Answer: {{a.short_answer_text}}</font><br><br>
                             {% endif %}
-                          
+                          {% endif %}
                         {% endfor %}
                       {% endfor %}
                     {% elif question.question_num == 101 and ans.short_answer_text == "No"%}
@@ -60,7 +61,7 @@
 
               {% for question in que %}
                 {% for ans in answers %}
-                  {% if question == ans.question_id%}
+                  {% if question == ans.question_id and a_id == ans.application_id%}
                     {% if question.section_name == "A" and question.question_num > 102%}
                     <font>Question: {{ question.text }}</font><br><br>
                     <font>Answer: {{ans.short_answer_text}}</font><br><br>
@@ -77,7 +78,7 @@
                 {% for question in que %}
                 {% if question.section_name == "B"%}
                   {% for ans in answers %}
-                    {% if question == ans.question_id%}
+                    {% if question == ans.question_id and a_id == ans.application_id%}
                       <font>Question: {{ question.text }}</font><br><br>
                       <font>Answer: {{ans.short_answer_text}}</font><br><br>
                     {% endif %}
@@ -94,7 +95,7 @@
                 {% for question in que %}
                 {% if question.section_name == "C"%}
                   {% for ans in answers %}
-                    {% if question == ans.question_id%}
+                    {% if question == ans.question_id and a_id == ans.application_id%}
                       <font>Question: {{ question.text }}</font><br><br>
                       <font>Answer: {{ans.short_answer_text}}</font><br><br>
                     {% endif %}
@@ -110,13 +111,13 @@
               {% if question.section_name == "D"%}
                 {% if question.question_num == 604%}
                   {% for ans in answers %}
-                    {% if question == ans.question_id%}
+                    {% if question == ans.question_id and a_id == ans.application_id%}
                       {% if ans.short_answer_text == "Yes" %}
                         <font>Question: {{ question.text }}</font><br><br>
                         <font>Answer: {{ans.short_answer_text}}</font><br><br>
                         {% for q in que %}
                         {% for a in answers %}
-                          {% if q == a.question_id%}
+                          {% if q == a.question_id and a_id == a.application_id%}
                             {% if q.question_num == 605 %}
                               <font>{{ q.text }}</font><br><br>
                               <font>Answer: {{a.short_answer_text}}</font><br><br>
@@ -132,7 +133,7 @@
                   {% endfor %}
                 {% else %}
                   {% for ans in answers %}
-                  {% if question == ans.question_id%}
+                  {% if question == ans.question_id and a_id == ans.application_id%}
                     {% if question.question_num == 605 %}
                     {% else %}
                       <font>Question: {{ question.text }}</font><br><br>
@@ -154,13 +155,13 @@
               {% if question.section_name == "E"%}
                 {% if question.question_num == 715%}
                 {% for ans in answers %}
-                  {% if question == ans.question_id%}
+                  {% if question == ans.question_id and a_id == ans.application_id%}
                     {% if ans.short_answer_text == "Yes" %}
                       <font>Question: {{ question.text }}</font><br><br>
                       <font>Answer: {{ans.short_answer_text}}</font><br><br>
                       {% for q in que %}
                       {% for a in answers %}
-                        {% if q == a.question_id%}
+                        {% if q == a.question_id and a_id == a.application_id%}
                           {% if q.question_num == 716 %}
                             <font>{{ q.text }}</font><br><br>
                             <font>Answer: {{a.short_answer_text}}</font><br><br>
@@ -177,13 +178,13 @@
               {% elif question.question_num == 701 %}
 
                 {% for ans in answers %}
-                {% if question == ans.question_id%}
+                {% if question == ans.question_id and a_id == ans.application_id%}
                   {% if ans.short_answer_text == "Yes" %}
                     <font>Question: {{ question.text }}</font><br><br>
                     <font>Answer: {{ans.short_answer_text}}</font><br><br>
                     {% for q in que %}
                     {% for a in answers %}
-                      {% if q == a.question_id%}
+                      {% if q == a.question_id and a_id == a.application_id%}
                         {% if q.question_num == 702 %}
                           <font>{{ q.text }}</font><br><br>
                           <font>Answer: {{a.short_answer_text}}</font><br><br>
@@ -200,7 +201,7 @@
 
               {% else %}
                 {% for ans in answers %}
-                {% if question == ans.question_id%}
+                {% if question == ans.question_id and a_id == ans.application_id%}
                   {% if question.question_num == 702 %}
                   {% elif question.question_num == 716 %}
                   {% else %}
@@ -222,7 +223,7 @@
               {% for question in que %}
                 {% if question.section_name == "F"%}
                   {% for ans in answers %}
-                    {% if question == ans.question_id%}
+                    {% if question == ans.question_id and a_id == ans.application_id%}
                       <font>Question: {{ question.text }}</font><br><br>
                       <font>Answer: {{ans.short_answer_text}}</font><br><br>
                     {% endif %}
@@ -238,7 +239,7 @@
                   {% if question.question_num == 905 %}
                   {% else %}
                     {% for ans in answers %}
-                      {% if question == ans.question_id%}
+                      {% if question == ans.question_id and a_id == ans.application_id%}
                         <font>Question: {{ question.text }}</font><br><br>
                         <font>Answer: {{ans.short_answer_text}}</font><br><br>
                       {% endif %}

@@ -23,20 +23,22 @@
 
         <div class="menu">
             <ul>
-                <li style="float:right"><a href="{% url 'logout' %}">Logout</a></li>
-                <li style="float:right"><a href="{% url 'editprofile' %}">Profile</a></li>
-                <li style="float:right"><a href="{% url 'managelist' %}">Home</a></li>
+                <li style="float:right"><a href="{% url 'logout' %}" name= 'Logout'>Logout</a></li>
+                <li style="float:right"><a href="{% url 'editprofile' %}" name= 'Profile'>Profile</a></li>
+                <li style="float:right"><a href="{% url 'managelist' %}" name = 'Home'>Home</a></li>
             </ul>
         </div>
     </nav>
     <nav>
         <div class="menu2">
             <ul>
-                <!--<li style="float:right" name= "cover"><a href="{% url 'coversheet' application_id %}">Attach</a></li>-->
-                <!--<li style="float:right" name= "cover"><a href="{% url 'coversheet' application_id %}">Upload</a></li>-->
                 <li style="float:right" name= "ethics"><a href="{% url 'questionnaire' application_id %}">Ethics Questionnaire</a></li>
                 <li style="float:right" name= "cover"><a href="{% url 'coversheet' application_id %}">Cover sheet</a></li>
-                <!--<li style="float:right" name= "cover"><a href="{% url 'coversheet' application_id %}">Attach</a></li>-->
+                <li style="float:right" name= "view_PIS"><a href="{% url 'information_sheet' application_id %}">View Participant Information Statement</a></li>
+                <li style="float:right" name= "view_PCF"><a href="{% url 'consent_form' application_id %}">View Participant Consent Form</a></li>
+                <li style="float:right" name= "create_PIS"><a href="{% url 'new_PIS' application_id %}">Create Participant Information Statement</a></li>
+                <li style="float:right" name= "create_PCF"><a href="{% url 'new_PCF' application_id %}">Create Participant Consent Form</a></li>
+
             </ul>
         </div>
     </nav>

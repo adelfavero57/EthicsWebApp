@@ -24,19 +24,19 @@ def logout_view(request):
 def coversheetPage(request, newapplication_id):
 
     
-    application = Application.objects.get(pk=newapplication_id)
+    application = Application.objects.get(pk=newapplication_id) #creates new application with new application ID
 
-    coversheetanswers=CoverSheetAnswers.objects.filter(application_id=newapplication_id)
+    coversheetanswers=CoverSheetAnswers.objects.filter(application_id=newapplication_id) # list of blank coversheet answers
     
-    if request.method == 'POST':
+    if request.method == 'POST': #necessary for saving to database
         
         
         
 
-        summary_text = request.POST['summary']
+        summary_text = request.POST['summary'] #searches for the summary name in the html
         # summary_text = coversheet_form.cleaned_data['summary']
         #csq_id_1001 = CoverSheetQuestion.objects.get(pk=1001)
-        coversheetanswer_summary = coversheetanswers.get(question_id=1001)
+        coversheetanswer_summary = coversheetanswers.get(question_id=1001) #finding the coversheet answer corresponding
         coversheetanswer_summary.text = summary_text
         coversheetanswer_summary.save()
         #Summary = CoverSheetAnswers.objects.filter(question_id = csq_id_1001).update(text = summary_text)
@@ -182,14 +182,14 @@ def coversheetPage(request, newapplication_id):
         # Otherrelevantdetails = CoverSheetAnswers.objects.create(text = otherrelevantdetails_text, question_id = csq_id_1017, application_id = new_application, is_short_answer = True)
         
         
-        return redirect('coversheet', newapplication_id)
+        return redirect('coversheet', newapplication_id) #saves
 
 
 
 
 
     
-    cover = CoverSheetQuestion.objects.all()
+    cover = CoverSheetQuestion.objects.all() 
     context = {'cover': cover, 'coversheetanswers': coversheetanswers, 'application_id': newapplication_id}
     return render(request, 'coversheet.html', context)
 

@@ -9,7 +9,16 @@ from ckeditor.fields import RichTextField
 from django.urls import reverse
 # Create your models here.
 
-default_PCF_data = """<p>Project Name:</p>
+default_PCF_data = """<p>Name:</p>
+
+<p>Faculty:</p>
+
+<p>Address:</p>
+
+<p>Contact Details:</p>
+
+
+<p>Project Name:</p>
 
 <p>In giving my consent I acknowledge that:</p>
 
@@ -30,9 +39,18 @@ default_PCF_data = """<p>Project Name:</p>
 <p>8. I agree that my rtecord of all clicks in my interaction on this interface will be shared on the Open Science Framework (OSF) platform so that other researchers can analyse them. This data will be de-identified so that it cannot be linked to me.</p>
 
 <p>9. I understand that my video and audio recordings will only be used for analysis and will not be released.</p>
-""" #Need to format this such that the spaces carry through to rtf
+""" 
 
-default_PIS_data = """<p>Project Name:</p>
+default_PIS_data = """<p>Name:</p>
+
+<p>Faculty:</p>
+
+<p>Address:</p>
+
+<p>Contact Details:</p>
+
+
+<p>Project Name:</p>
 
 <p>What is the study about?</p>
 
@@ -58,20 +76,19 @@ default_PIS_data = """<p>Project Name:</p>
 
 """
 
+
 class Application(models.Model):
 
     id = models.IntegerField(
-    primary_key=True, unique=True, editable=False, null=False)
+        primary_key=True, unique=True, editable=False, null=False)
     date_created = models.DateField(auto_now_add=True)
     last_modified = models.DateField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.TextField(max_length=200, null=True)
     supervisor = models.TextField(max_length=150, null=True)
-    status = models.TextField(max_length=20, null=True, default = "IN PROGRESS")
-    PIS_rt = RichTextField(blank=True, null=True, default = default_PIS_data)
+    status = models.TextField(max_length=20, null=True, default="IN PROGRESS")
+    PIS_rt = RichTextField(blank=True, null=True, default=default_PIS_data)
     PCF_rt = RichTextField(blank=True, null=True, default=default_PCF_data)
-
-
 
     def get_absolute_url(self):
         return reverse('questionnaire', args=(str(self.id)))
@@ -79,13 +96,13 @@ class Application(models.Model):
 
 class Question(models.Model):
     question_num = models.IntegerField(
-    primary_key=True, unique=True, null=False)
+        primary_key=True, unique=True, null=False)
     text = models.TextField(null=False)
     is_short_answer = models.IntegerField(null=False)
     section_name = models.CharField(max_length=1, null=False)
     tips = models.TextField(max_length=300, null=True, default='')
     is_qualifier_question = models.IntegerField(null=False)
-    is_template_question = models.IntegerField(null=True)
+    #is_template_question = models.IntegerField(null=True)
 
 
 class Answers(models.Model):
@@ -93,12 +110,13 @@ class Answers(models.Model):
     short_answer_text = models.TextField(null=True)
     multiple_choice_answer = models.BooleanField(null=True)
     question_id = models.ForeignKey(Question, on_delete=models.CASCADE)
-    application_id = models.ForeignKey(Application, on_delete=models.SET_NULL, null=True)
+    application_id = models.ForeignKey(
+        Application, on_delete=models.CASCADE, null=True)
     is_short_answer = models.IntegerField(null=False)
     section_name = models.CharField(max_length=1, null=False)
     is_referenced = models.IntegerField(null=False)
     is_exemplar = models.IntegerField(null=False)
-    answer_type = models.TextField(null = True)
+    answer_type = models.TextField(null=True)
 
 
 class CoverSheetQuestion(models.Model):
@@ -116,4 +134,3 @@ class CoverSheetAnswers(models.Model):
     application_id = models.ForeignKey(
         Application, on_delete=models.CASCADE, null=True)
     is_short_answer = models.IntegerField(null=False)
-

@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'accounts.apps.MyAdminConfig',
-    'django.contrib.admin',
+    #'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -83,6 +83,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Project.wsgi.application'
 
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
