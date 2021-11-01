@@ -280,10 +280,12 @@
 
         {% for ans in answers %}
         {% if question == ans.question_id and a_id == ans.application_id%}
-        {% if ans.short_answer_text == None %}
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        {% if ans.template_answer_text == None %}
+        
+        <textarea name="{{ans.id}}" id="{{question.question_num}}" cols="60" rows="8" style="color: blue;"></textarea>
         {% else %}
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+        
+        <textarea name="{{ans.id}}" id="{{question.question_num}}" cols="60" rows="8" style="color: blue;">{{ans.short_answer_text}}</textarea>
         {% endif %}{% endif %}
         {% endfor %}
 
@@ -291,6 +293,16 @@
 
       <!-- end of template question segment -->
 
+      {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.short_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{ans.id}}" cols="60" rows="8"></textarea>
+        
+        {% else %}
+        <textarea name="{{question.question_num}}" id="{{ans.id}}" cols="60" rows="8">{{ans.researcher_answer_text}}</textarea>
+        
+        {% endif %}{% endif %}
+        {% endfor %}
 
       {% elif question.question_num == 605%}
       <div id="div2" style="display :none ;">

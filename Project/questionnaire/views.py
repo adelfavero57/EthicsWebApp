@@ -29,12 +29,18 @@ def questionnaire(request, application_id):
                     if i.question_num == 905:
                         break
                     que_str = str(i.question_num)
+                    template_str = str(j.id)
+                    template_text = j.short_answer_text
+                    
                     try:
                         if que_str == "702":
                             ans_text = request.POST.getlist("sele1")
                         elif que_str == "901":
                             ans_text = request.POST.getlist("sele2")
                         else:
+                            # change to is_reference
+                            if j.is_referenced == 1:
+                                template_text = request.POST[template_str]
                             ans_text = request.POST[que_str]
                         #Default for textarea is "", so if user did not answer, counter need to add up by 1
                         if ans_text == "":
@@ -44,8 +50,8 @@ def questionnaire(request, application_id):
                         counter += 1
                         continue
                     
-                    j.short_answer_text = ans_text
-                    print(ans_text)
+                    j.short_answer_text = template_text
+                    j.researcher_answer_text = ans_text
                     j.save()
         if counter > 1:
             a_id.status = "IN PROGRESS"

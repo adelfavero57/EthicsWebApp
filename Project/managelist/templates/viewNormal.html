@@ -29,7 +29,7 @@
       </div>
       
       <div class="questions">
-          <form method = "POST" action="" name = "answer_question">
+          <form method = "POST" id = "pdf">
             {% csrf_token %} 
               <a name = "SectionA"></a>
               
@@ -249,7 +249,8 @@
                 {% endfor %}
             </form>
       </div>
-        
+      <font>aaaaaaaaaaaaa</font>
+      <button onclick="printDiv('pdf','Title')">print div</button>
     </body>
 </html>
 {% endblock %}

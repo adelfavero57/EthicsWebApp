@@ -86,6 +86,7 @@ def viewNormal(request, item_id):
 
     context = {'que': que, 'answers': answers, 'a_id':a_id}
     return render(request, 'viewNormal.html', context)
+    
 
 
 
