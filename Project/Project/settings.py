@@ -82,6 +82,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Project.wsgi.application'
 
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
