@@ -32,11 +32,30 @@
     <nav>
         <div class="menu2">
             <ul>
+                <div style="float:right" class="dropdown2">
+                    <button class="dropbtn">Participant Consent Form 
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown2-content">
+                        <a href="{% url 'new_PCF' application_id %}">Create Form</a>
+                        <a href="{% url 'consent_form' application_id %}">View Form</a>
+                    </div>
+                </div>  
+                <div style="float:right" class="dropdown1">
+                    <button class="dropbtn">Participant Information Statement 
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown1-content">
+                        <a href="{% url 'new_PIS' application_id %}">Create Statement</a>
+                        <a href="{% url 'information_sheet' application_id %}">View Statement</a>
+                    </div>
+                </div> 
                 <!--<li style="float:right" name= "cover"><a href="{% url 'coversheet' application_id %}">Attach</a></li>-->
                 <!--<li style="float:right" name= "cover"><a href="{% url 'coversheet' application_id %}">Upload</a></li>-->
                 <li style="float:right" name= "ethics"><a href="{% url 'questionnaire' application_id %}">Ethics Questionnaire</a></li>
                 <li style="float:right" name= "cover"><a href="{% url 'coversheet' application_id %}">Cover Sheet</a></li>
                 <!--<li style="float:right" name= "cover"><a href="{% url 'coversheet' application_id %}">Attach</a></li>-->
+                    
             </ul>
         </div>
     </nav>
