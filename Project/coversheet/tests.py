@@ -4,6 +4,7 @@ from django.contrib.auth.models import User, AnonymousUser
 from django.contrib.auth.models import Group
 from coversheet.views import coversheetPage
 from accounts.models import Application
+from accounts.models import CoverSheetQuestion, CoverSheetAnswers
 
 
 
@@ -25,6 +26,36 @@ class CoversheetTest(TestCase):
         cls.user.groups.add(researcher)
         cls.factory = RequestFactory()
 
+        CoverSheetQuestion.objects.bulk_create([
+
+            CoverSheetQuestion(question_num=1001, text = 'Provide a lay summary of the project:', is_short_answer=1),
+            CoverSheetQuestion(question_num=1002, text = 'Protocol Title:', is_short_answer=1),
+            CoverSheetQuestion(question_num=1003, text = 'First Named Chief Investigator Name:', is_short_answer=1),
+            CoverSheetQuestion(question_num=1004, text = 'First Named Chief Investigator ID:', is_short_answer=1),
+            CoverSheetQuestion(question_num=1005, text = 'School/Centre', is_short_answer=0),
+            CoverSheetQuestion(question_num=1006, text = 'Role', is_short_answer=1),
+            CoverSheetQuestion(question_num=1007, text = 'Other Internal Investigators Involved:', is_short_answer=0),
+            CoverSheetQuestion(question_num=1008, text = 'Number of Internal Investigators (including Chief Investigator):', is_short_answer=0),
+            CoverSheetQuestion(question_num=1009, text = 'Other External Investigators Involved:', is_short_answer=0),
+            CoverSheetQuestion(question_num=1010, text = 'Number of External Investigators:', is_short_answer=0),
+            CoverSheetQuestion(question_num=1011, text = 'Responsible:', is_short_answer=1),
+            CoverSheetQuestion(question_num=1012, text = 'Current State:', is_short_answer=1),
+            CoverSheetQuestion(question_num=1013, text = 'HREC name:', is_short_answer=1),
+            CoverSheetQuestion(question_num=1014, text = 'Action:', is_short_answer=1),
+            CoverSheetQuestion(question_num=1015, text = 'Title:', is_short_answer=1),
+            CoverSheetQuestion(question_num=1016, text = 'Action:', is_short_answer=1),
+            CoverSheetQuestion(question_num=1017, text = 'Please provide any other relevant details:', is_short_answer=1),
+        ])
+
+        CoverSheetAnswers.objects.bulk_create([
+
+            CoverSheetAnswers(question_id = 1001, is_short_answer = 1)
+        ])
+
+
+
+
+
     
     def test_coversheet(self):
 
@@ -40,7 +71,10 @@ class CoversheetTest(TestCase):
         request = self.factory.post('/coversheet/1', data)
 
         request.user = self.user
+
         response = coversheetPage(request, 1)
+
+        
 
         print(response)
 

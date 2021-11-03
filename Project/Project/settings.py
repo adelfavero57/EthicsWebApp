@@ -31,8 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'accounts.apps.MyAdminConfig',
-    #'django.contrib.admin',
+    'accounts.apps.AccountsConfig',
+    'django.contrib.admin.apps.SimpleAdminConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Added
-    'accounts.apps.AccountsConfig',
+    
     'managelist.apps.ManagelistConfig',
     'approvelist.apps.ApprovelistConfig',
     'qualifier.apps.QualifierConfig',
@@ -68,7 +68,7 @@ ROOT_URLCONF = 'Project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['./',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

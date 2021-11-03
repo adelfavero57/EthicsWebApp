@@ -22,8 +22,8 @@
         </h1>
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
         <h2 class="stats">
-            46 statements &nbsp;
-            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">46 run</button>
+            42 statements &nbsp;
+            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">42 run</button>
             <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">0 missing</button>
             <button type="button" class="exc show_exc shortkey_x button_toggle_exc" title="Toggle lines excluded">0 excluded</button>
         </h2>
@@ -135,16 +135,16 @@
     <p id="t81" class="pln"><span class="n"><a href="#t81">81</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t82" class="run"><span class="n"><a href="#t82">82</a></span><span class="t">        <span class="nam">text</span> <span class="op">=</span> <span class="str">'''&lt;td>1&lt;/td>\n&lt;td>Test&lt;/td>\n&lt;td>17 10 2021&lt;/td>\n&lt;td>Oct. 17, 2021&lt;/td>\n&lt;td>IN PROGRESS&lt;/td>\n&lt;td>Alvin&lt;/td>\n'''</span>&nbsp;</span><span class="r"></span></p>
     <p id="t83" class="pln"><span class="n"><a href="#t83">83</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t84" class="run"><span class="n"><a href="#t84">84</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertContains</span><span class="op">(</span><span class="nam">response</span><span class="op">=</span><span class="nam">response</span><span class="op">,</span> <span class="nam">text</span><span class="op">=</span><span class="nam">text</span><span class="op">,</span> <span class="nam">html</span><span class="op">=</span><span class="key">True</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t85" class="pln"><span class="n"><a href="#t85">85</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t86" class="run"><span class="n"><a href="#t86">86</a></span><span class="t">        <span class="nam">response2</span> <span class="op">=</span> <span class="nam">deleteRow</span><span class="op">(</span><span class="nam">request</span><span class="op">,</span> <span class="num">1</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t87" class="pln"><span class="n"><a href="#t87">87</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t88" class="run"><span class="n"><a href="#t88">88</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertNotContains</span><span class="op">(</span><span class="nam">response</span><span class="op">=</span><span class="nam">response2</span><span class="op">,</span> <span class="nam">status_code</span> <span class="op">=</span> <span class="num">302</span><span class="op">,</span> <span class="nam">text</span><span class="op">=</span><span class="nam">text</span><span class="op">,</span> <span class="nam">html</span><span class="op">=</span><span class="key">True</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t84" class="pln"><span class="n"><a href="#t84">84</a></span><span class="t">        <span class="com"># print(response.content)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t85" class="pln"><span class="n"><a href="#t85">85</a></span><span class="t">        <span class="com"># self.assertContains(response=response, text=text, html=True)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t86" class="pln"><span class="n"><a href="#t86">86</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t87" class="pln"><span class="n"><a href="#t87">87</a></span><span class="t">        <span class="com"># response2 = deleteRow(request, 1)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t88" class="pln"><span class="n"><a href="#t88">88</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t89" class="pln"><span class="n"><a href="#t89">89</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t90" class="run"><span class="n"><a href="#t90">90</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertEqual</span><span class="op">(</span><span class="nam">response2</span><span class="op">.</span><span class="nam">status_code</span><span class="op">,</span> <span class="num">302</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t91" class="pln"><span class="n"><a href="#t91">91</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t90" class="pln"><span class="n"><a href="#t90">90</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t91" class="pln"><span class="n"><a href="#t91">91</a></span><span class="t">        <span class="com"># self.assertNotContains(response=response2, status_code = 302, text=text, html=True)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t92" class="pln"><span class="n"><a href="#t92">92</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t93" class="pln"><span class="n"><a href="#t93">93</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t93" class="pln"><span class="n"><a href="#t93">93</a></span><span class="t">        <span class="com"># self.assertEqual(response2.status_code, 302)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t94" class="pln"><span class="n"><a href="#t94">94</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t95" class="pln"><span class="n"><a href="#t95">95</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t96" class="pln"><span class="n"><a href="#t96">96</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
@@ -167,12 +167,15 @@
     <p id="t113" class="pln"><span class="n"><a href="#t113">113</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t114" class="pln"><span class="n"><a href="#t114">114</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t115" class="pln"><span class="n"><a href="#t115">115</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t116" class="pln"><span class="n"><a href="#t116">116</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t117" class="pln"><span class="n"><a href="#t117">117</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t118" class="pln"><span class="n"><a href="#t118">118</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
 </div>
 <div id="footer">
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.5</a>,
-            created at 2021-10-18 10:00 +1100
+            created at 2021-11-02 15:44 +1100
         </p>
     </div>
 </div>
