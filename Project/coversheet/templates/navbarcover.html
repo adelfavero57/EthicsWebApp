@@ -33,21 +33,21 @@
         <div class="menu2">
             <ul>
                 <div style="float:right" class="dropdown2">
-                    <button class="dropbtn">Participant Consent Form 
+                    <button class="dropbtn" name = "PCF">Participant Consent Form 
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown2-content">
-                        <a href="{% url 'new_PCF' application_id %}">Create Form</a>
-                        <a href="{% url 'consent_form' application_id %}">View Form</a>
+                        <a name = "PCF_create" href="{% url 'new_PCF' application_id %}">Create Form</a>
+                        <a name = "PCF_view" href="{% url 'consent_form' application_id %}">View Form</a>
                     </div>
                 </div>  
                 <div style="float:right" class="dropdown1">
-                    <button class="dropbtn">Participant Information Statement 
+                    <button class="dropbtn" name = "PIS">Participant Information Statement 
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown1-content">
-                        <a href="{% url 'new_PIS' application_id %}">Create Statement</a>
-                        <a href="{% url 'information_sheet' application_id %}">View Statement</a>
+                        <a name= "PIS_create" href="{% url 'new_PIS' application_id %}">Create Statement</a>
+                        <a name= "PIS_view" href="{% url 'information_sheet' application_id %}">View Statement</a>
                     </div>
                 </div> 
                 <!--<li style="float:right" name= "cover"><a href="{% url 'coversheet' application_id %}">Attach</a></li>-->
