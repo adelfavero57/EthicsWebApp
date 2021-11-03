@@ -22,9 +22,10 @@
   <br>
   <br>
   <div class="sidenav">
-    <a href="#SectionA">SectionA Distinguish users</a>
-    <a href="#SectionB">SectionB Risk Evaluation</a>
-    <a href="#SectionC">SectionC Conflicts of interest</a>
+    
+    <a href="#SectionA">SectionA Distinguish users<div id = "sA" style="color: green;">&#x2713;</div></a>
+    <a href="#SectionB">SectionB Risk Evaluation<div id = "sB" style="color: green;">&#x2713;</div></a>
+    <a href="#SectionC">SectionC Conflicts of interest<div id = "sC" style="color: green;">&#x2713;</div></a>
     <a href="#SectionD">SectionD Consent process</a>
     <a href="#SectionE">SectionE Privary issue</a>
     <a href="#SectionF">SectionF Concern risks</a>
@@ -152,19 +153,19 @@
       {% for ans in answers %}
       {% if question == ans.question_id and a_id == ans.application_id %}
       {% if ans.short_answer_text == "Yes" %}
-      <input type="radio" name="{{question.question_num}}" value="Yes" checked>
+      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes" checked>
       <label for="Yes">Yes</label><br>
-      <input type="radio" name="{{question.question_num}}" value="No">
+      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
       <label for="No">No</label><br>
       {% elif ans.short_answer_text == "No" %}
-      <input type="radio" name="{{question.question_num}}" value="Yes">
+      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
       <label for="Yes">Yes</label><br>
-      <input type="radio" name="{{question.question_num}}" value="No" checked>
+      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
       <label for="No">No</label><br>
       {% else %}
-      <input type="radio" name="{{question.question_num}}" value="Yes">
+      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
       <label for="Yes">Yes</label><br>
-      <input type="radio" name="{{question.question_num}}" value="No" checked>
+      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
       <label for="No">No</label><br>
       {% endif %}
       {% endif %}
@@ -191,19 +192,19 @@
       {% for ans in answers %}
       {% if question == ans.question_id and a_id == ans.application_id %}
       {% if ans.short_answer_text == "Yes" %}
-      <input type="radio" name="{{question.question_num}}" value="Yes" checked>
+      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes" checked>
       <label for="Yes">Yes</label><br>
-      <input type="radio" name="{{question.question_num}}" value="No">
+      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
       <label for="No">No</label><br>
       {% elif ans.short_answer_text == "No" %}
-      <input type="radio" name="{{question.question_num}}" value="Yes">
+      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
       <label for="Yes">Yes</label><br>
-      <input type="radio" name="{{question.question_num}}" value="No" checked>
+      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No" checked>
       <label for="No">No</label><br>
       {% else %}
-      <input type="radio" name="{{question.question_num}}" value="Yes">
+      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="Yes">
       <label for="Yes">Yes</label><br>
-      <input type="radio" name="{{question.question_num}}" value="No">
+      <input type="radio" id="{{question.question_num}}" name="{{question.question_num}}" value="No">
       <label for="No">No</label><br>
       {% endif %}
       {% endif %}
@@ -280,12 +281,12 @@
 
         {% for ans in answers %}
         {% if question == ans.question_id and a_id == ans.application_id%}
-        {% if ans.template_answer_text == None %}
+        {% if ans.short_answer_text == None %}
         
-        <textarea name="{{ans.id}}" id="{{question.question_num}}" cols="60" rows="8" style="color: blue;"></textarea>
+        <textarea name="{{ans.id}}" id="{{ans.id}}" cols="60" rows="8" style="color: red;"></textarea>
         {% else %}
         
-        <textarea name="{{ans.id}}" id="{{question.question_num}}" cols="60" rows="8" style="color: blue;">{{ans.short_answer_text}}</textarea>
+        <textarea name="{{ans.id}}" id="{{ans.id}}" cols="60" rows="8" style="color: red;">{{ans.short_answer_text}}</textarea>
         {% endif %}{% endif %}
         {% endfor %}
 
@@ -295,11 +296,11 @@
 
       {% for ans in answers %}
         {% if question == ans.question_id and a_id == ans.application_id%}
-        {% if ans.short_answer_text == None %}
-        <textarea name="{{question.question_num}}" id="{{ans.id}}" cols="60" rows="8"></textarea>
+        {% if ans.researcher_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
         
         {% else %}
-        <textarea name="{{question.question_num}}" id="{{ans.id}}" cols="60" rows="8">{{ans.researcher_answer_text}}</textarea>
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.researcher_answer_text}}</textarea>
         
         {% endif %}{% endif %}
         {% endfor %}
@@ -362,15 +363,28 @@
           {% for ans in answers %}
           {% if question == ans.question_id and a_id == ans.application_id%}
           {% if ans.short_answer_text == None %}
-          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+          
+          <textarea name="{{ans.id}}" id="{{ans.id}}" cols="60" rows="8" style="color: red;"></textarea>
           {% else %}
-          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+          
+          <textarea name="{{ans.id}}" id="{{ans.id}}" cols="60" rows="8" style="color: red;">{{ans.short_answer_text}}</textarea>
           {% endif %}{% endif %}
           {% endfor %}
 
         </div>
 
         <!-- end of template question segment -->
+
+        {% for ans in answers %}
+          {% if question == ans.question_id and a_id == ans.application_id%}
+          {% if ans.researcher_answer_text == None %}
+          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+          
+          {% else %}
+          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.researcher_answer_text}}</textarea>
+          
+          {% endif %}{% endif %}
+          {% endfor %}
 
 
       </div>
@@ -444,15 +458,28 @@
         {% for ans in answers %}
         {% if question == ans.question_id and a_id == ans.application_id%}
         {% if ans.short_answer_text == None %}
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        
+        <textarea name="{{ans.id}}" id="{{ans.id}}" cols="60" rows="8" style="color: red;"></textarea>
         {% else %}
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+        
+        <textarea name="{{ans.id}}" id="{{ans.id}}" cols="60" rows="8" style="color: red;">{{ans.short_answer_text}}</textarea>
         {% endif %}{% endif %}
         {% endfor %}
 
       </div>
 
       <!-- end of template question segment -->
+
+      {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.researcher_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        
+        {% else %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.researcher_answer_text}}</textarea>
+        
+        {% endif %}{% endif %}
+        {% endfor %}
 
       {% endif %}
       {% else %}
@@ -589,15 +616,30 @@
           <br>
 
           {% for ans in answers %}
-          {% if question == ans.question_id and a_id == ans.application_id%}
-          {% if ans.short_answer_text == None %}
-          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
-          {% else %}
-          <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
-          {% endif %}{% endif %}
-          {% endfor %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.short_answer_text == None %}
+        
+        <textarea name="{{ans.id}}" id="{{ans.id}}" cols="60" rows="8" style="color: red;"></textarea>
+        {% else %}
+        
+        <textarea name="{{ans.id}}" id="{{ans.id}}" cols="60" rows="8" style="color: red;">{{ans.short_answer_text}}</textarea>
+        {% endif %}{% endif %}
+        {% endfor %}
 
-        </div>
+      </div>
+
+      <!-- end of template question segment -->
+
+      {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.researcher_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        
+        {% else %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.researcher_answer_text}}</textarea>
+        
+        {% endif %}{% endif %}
+        {% endfor %}
 
 
       </div>
@@ -670,15 +712,28 @@
         {% for ans in answers %}
         {% if question == ans.question_id and a_id == ans.application_id%}
         {% if ans.short_answer_text == None %}
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        
+        <textarea name="{{ans.id}}" id="{{ans.id}}" cols="60" rows="8" style="color: red;"></textarea>
         {% else %}
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+        
+        <textarea name="{{ans.id}}" id="{{ans.id}}" cols="60" rows="8" style="color: red;">{{ans.short_answer_text}}</textarea>
         {% endif %}{% endif %}
         {% endfor %}
 
       </div>
 
       <!-- end of template question segment -->
+
+      {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.researcher_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        
+        {% else %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.researcher_answer_text}}</textarea>
+        
+        {% endif %}{% endif %}
+        {% endfor %}
 
 
       {% endif %}
@@ -873,19 +928,31 @@
           </div>
         </div>
         <br>
-
         {% for ans in answers %}
         {% if question == ans.question_id and a_id == ans.application_id%}
         {% if ans.short_answer_text == None %}
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        
+        <textarea name="{{ans.id}}" id="{{ans.id}}" cols="60" rows="8" style="color: red;"></textarea>
         {% else %}
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+        
+        <textarea name="{{ans.id}}" id="{{ans.id}}" cols="60" rows="8" style="color: red;">{{ans.short_answer_text}}</textarea>
         {% endif %}{% endif %}
         {% endfor %}
 
       </div>
 
       <!-- end of template question segment -->
+
+      {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.researcher_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        
+        {% else %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.researcher_answer_text}}</textarea>
+        
+        {% endif %}{% endif %}
+        {% endfor %}
 
 
       {% else %}
@@ -927,10 +994,9 @@
         <span class="tooltiptext">{{question.tips}}</span>
       </div>
       <br>
-      <br>
       {% if question.is_short_answer == 1 %}
       {% if question.question_num == 904 %}
-
+      <br>
       <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="120" rows="30">Aims and hypotheses/research questions Research plan including duration of the study and/or timeline:
 
 
@@ -999,9 +1065,11 @@ Details of how data will be collected and analysed Potential significance of the
         {% for ans in answers %}
         {% if question == ans.question_id and a_id == ans.application_id%}
         {% if ans.short_answer_text == None %}
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        
+        <textarea name="{{ans.id}}" id="{{ans.id}}" cols="60" rows="8" style="color: red;"></textarea>
         {% else %}
-        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.short_answer_text}}</textarea>
+        
+        <textarea name="{{ans.id}}" id="{{ans.id}}" cols="60" rows="8" style="color: red;">{{ans.short_answer_text}}</textarea>
         {% endif %}{% endif %}
         {% endfor %}
 
@@ -1009,11 +1077,21 @@ Details of how data will be collected and analysed Potential significance of the
 
       <!-- end of template question segment -->
 
+      {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id%}
+        {% if ans.researcher_answer_text == None %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8"></textarea>
+        
+        {% else %}
+        <textarea name="{{question.question_num}}" id="{{question.question_num}}" cols="60" rows="8">{{ans.researcher_answer_text}}</textarea>
+        
+        {% endif %}{% endif %}
+        {% endfor %}
+
 
       {% endif %}
 
       {% elif question.is_short_answer == 2 %}
-      <br>
       <input type="checkbox" name="sele2" value="Participant observation (ethnography, systematic)">Participant observation (ethnography, systematic)<br>
       <input type="checkbox" name="sele2" value="Questionnaire/survey">Questionnaire/survey<br>
       <input type="checkbox" name="sele2" value="Interviews (including oral history)">Interviews (including oral history)<br>

@@ -49,10 +49,14 @@ def questionnaire(request, application_id):
                         #if multiple choice have not been selected, counter add up by 1.
                         counter += 1
                         continue
-                    
-                    j.short_answer_text = template_text
-                    j.researcher_answer_text = ans_text
-                    j.save()
+                    if j.is_referenced == 1:
+
+                        j.short_answer_text = template_text
+                        j.researcher_answer_text = ans_text
+                        j.save()
+                    else:
+                        j.short_answer_text = ans_text
+                        j.save()
         if counter > 1:
             a_id.status = "IN PROGRESS"
             a_id.save()
