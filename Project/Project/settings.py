@@ -32,7 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
-    'django.contrib.admin.apps.SimpleAdminConfig',
+    # 'django.contrib.admin.apps.SimpleAdminConfig',
+    'Project.apps.MyAdminConfig', 
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
