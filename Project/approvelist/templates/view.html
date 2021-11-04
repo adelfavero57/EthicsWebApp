@@ -29,7 +29,7 @@
       </div>
       
       <div class="questions">
-          <form method = "POST" action="" name = "answer_question">
+          <form method = "POST" id = "pdf">
             {% csrf_token %} 
               <a name = "SectionA"></a>
               
@@ -120,7 +120,8 @@
                           {% if q == a.question_id and a_id == a.application_id%}
                             {% if q.question_num == 605 %}
                               <font>{{ q.text }}</font><br><br>
-                              <font>Answer: {{a.short_answer_text}}</font><br><br>
+                              <font style="color:red">Template Answer: {{a.short_answer_text}}</font><br><br>
+                              <font>Researcher Answer: {{a.researcher_answer_text}}</font><br><br>
                             {% endif %}
                           {% endif %}
                         {% endfor %}
@@ -137,7 +138,8 @@
                     {% if question.question_num == 605 %}
                     {% else %}
                       <font>Question: {{ question.text }}</font><br><br>
-                      <font>Answer: {{ans.short_answer_text}}</font><br><br>
+                      <font style="color:red">Template Answer: {{ans.short_answer_text}}</font><br><br>
+                      <font>Researcher Answer: {{ans.researcher_answer_text}}</font><br><br>
                     {% endif %}
                   {% endif %}
                   {% endfor %}
@@ -163,8 +165,9 @@
                       {% for a in answers %}
                         {% if q == a.question_id and a_id == a.application_id%}
                           {% if q.question_num == 716 %}
-                            <font>{{ q.text }}</font><br><br>
-                            <font>Answer: {{a.short_answer_text}}</font><br><br>
+                            <font>Question: {{ q.text }}</font><br><br>
+                            <font style="color:red">Template Answer: {{a.short_answer_text}}</font><br><br>
+                            <font>Researcher Answer: {{a.researcher_answer_text}}</font><br><br>
                           {% endif %}
                         {% endif %}
                       {% endfor %}
@@ -186,7 +189,7 @@
                     {% for a in answers %}
                       {% if q == a.question_id and a_id == a.application_id%}
                         {% if q.question_num == 702 %}
-                          <font>{{ q.text }}</font><br><br>
+                          <font>Question: {{ q.text }}</font><br><br>
                           <font>Answer: {{a.short_answer_text}}</font><br><br>
                         {% endif %}
                       {% endif %}
@@ -206,7 +209,8 @@
                   {% elif question.question_num == 716 %}
                   {% else %}
                     <font>Question: {{ question.text }}</font><br><br>
-                    <font>Answer: {{ans.short_answer_text}}</font><br><br>
+                    <font style="color:red">Template Answer: {{ans.short_answer_text}}</font><br><br>
+                    <font>Researcher Answer: {{ans.researcher_answer_text}}</font><br><br>
                   {% endif %}
                 {% endif %}
                 {% endfor %}
@@ -225,7 +229,8 @@
                   {% for ans in answers %}
                     {% if question == ans.question_id and a_id == ans.application_id%}
                       <font>Question: {{ question.text }}</font><br><br>
-                      <font>Answer: {{ans.short_answer_text}}</font><br><br>
+                      <font style="color:red">Template Answer: {{ans.short_answer_text}}</font><br><br>
+                      <font>Researcher Answer: {{ans.researcher_answer_text}}</font><br><br>
                     {% endif %}
                   {% endfor %}
                 {% endif %}
@@ -241,7 +246,8 @@
                     {% for ans in answers %}
                       {% if question == ans.question_id and a_id == ans.application_id%}
                         <font>Question: {{ question.text }}</font><br><br>
-                        <font>Answer: {{ans.short_answer_text}}</font><br><br>
+                        <font style="color:red">Template Answer: {{ans.short_answer_text}}</font><br><br>
+                        <font>Researcher Answer: {{ans.researcher_answer_text}}</font><br><br>
                       {% endif %}
                     {% endfor %}
                   {% endif %}
@@ -249,7 +255,6 @@
                 {% endfor %}
             </form>
       </div>
-        
     </body>
 </html>
 {% endblock %}
