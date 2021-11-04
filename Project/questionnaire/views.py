@@ -39,7 +39,7 @@ def questionnaire(request, application_id):
                             ans_text = request.POST.getlist("sele2")
                         else:
                             # change to is_reference
-                            if j.is_referenced == 1:
+                            if i.is_short_answer == 1:
                                 template_text = request.POST[template_str]
                             ans_text = request.POST[que_str]
                         #Default for textarea is "", so if user did not answer, counter need to add up by 1
@@ -49,8 +49,7 @@ def questionnaire(request, application_id):
                         #if multiple choice have not been selected, counter add up by 1.
                         counter += 1
                         continue
-                    if j.is_referenced == 1:
-
+                    if i.is_short_answer == 1:
                         j.short_answer_text = template_text
                         j.researcher_answer_text = ans_text
                         j.save()

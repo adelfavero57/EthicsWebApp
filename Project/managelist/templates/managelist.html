@@ -62,7 +62,7 @@
                 <td>{{item.supervisor}}</td>
 
                 <!-- Change the download link here -->
-                <td><a href="{% url 'viewNormal' item_id=item.id %}">View</a></td>
+                <td><a name = "view" href="{% url 'viewNormal' item_id=item.id %}">View</a></td>
                 <td><a href="#">Download</a></td>
 
             {% else %}
@@ -72,7 +72,7 @@
               <td>{{item.last_modified}}</td>
               <td>{{item.status}}</td>
               <td>{{item.supervisor}}</td>
-              <td><a href="{% url 'coversheet' item.id %}">Edit</a></td>
+              <td><a name = "edit" href="{% url 'coversheet' item.id %}">Edit</a></td>
               <td><a href ="{% url 'delete' item.id %}" onclick = "return confirm('Do you want to delete the application: {{item.title}} ?')">Withdraw</a></td>
             </tr>
           

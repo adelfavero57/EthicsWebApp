@@ -12,7 +12,7 @@ driver.set_page_load_timeout(10)
 # Run the website on local machine in localhost, port 8000.
 driver.get("http://localhost:8000/login/")
 time.sleep(1)
-driver.find_element_by_name("username").send_keys("zinc")
+driver.find_element_by_name("username").send_keys("user1")
 time.sleep(1)
 driver.find_element_by_name("password").send_keys("12345678abc!")
 time.sleep(1)
