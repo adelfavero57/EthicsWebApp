@@ -82,11 +82,33 @@
           <br>
         </div>
         <br>
+        
+
+        {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id %}
+        
+        {% if ans.short_answer_text == "Master" %}
+        <select name="{{question.question_num}}" , id="{{question.question_num}}">
+          <option value="Bachelor">Bachelor</option><br>
+          <option value = "Master" selected>Master</option><br>
+          <option value="Phd">Phd</option><br>
+        </select>
+        {% elif ans.short_answer_text == "Phd" %}
+        <select name="{{question.question_num}}" , id="{{question.question_num}}">
+          <option value="Bachelor">Bachelor</option><br>
+          <option value = "Master" >Master</option><br>
+          <option value="Phd" selected>Phd</option><br>
+        </select>
+        {% else %}
         <select name="{{question.question_num}}" , id="{{question.question_num}}">
           <option>Bachelor</option><br>
           <option>Master</option><br>
           <option>Phd</option><br>
         </select>
+
+        {% endif %}
+        {% endif %}
+        {% endfor %}
 
       </div>
       <script type="text/javascript">
@@ -236,9 +258,9 @@
 
       <!-- template question segment -->
       <div class="inspect">
-
+        <p style="color: red;">Guide: click the below button and choose the answer type, then click template answers in the textbox, it will automatically copy to the first textbox</p> 
         <button type="button" class="show_button"> Template Answers </button>
-
+        
 
         <!-- the data-varname is used to store the value in the html tags, style attribute is used for the display -->
         <div class="hidden_text" data-status="hidden" style="display :none ;">
@@ -294,7 +316,7 @@
       </div>
 
       <!-- end of template question segment -->
-
+      <p>Guide: Enter you own answers in the below textbox</p>
       {% for ans in answers %}
         {% if question == ans.question_id and a_id == ans.application_id%}
         {% if ans.researcher_answer_text == None %}
@@ -317,7 +339,7 @@
 
         <!-- template question segment -->
         <div class="inspect">
-
+          <p style="color: red;">Guide: click the below button and choose the answer type, then click template answers in the textbox, it will automatically copy to the first textbox</p> 
           <button type="button" class="show_button"> Template Answers </button>
 
 
@@ -375,7 +397,7 @@
         </div>
 
         <!-- end of template question segment -->
-
+        <p>Guide: Enter you own answers in the below textbox</p>
         {% for ans in answers %}
           {% if question == ans.question_id and a_id == ans.application_id%}
           {% if ans.researcher_answer_text == None %}
@@ -412,7 +434,7 @@
 
       <!-- template question segment -->
       <div class="inspect">
-
+        <p style="color: red;">Guide: click the below button and choose the answer type, then click template answers in the textbox, it will automatically copy to the first textbox</p> 
         <button type="button" class="show_button"> Template Answers </button>
 
 
@@ -470,7 +492,7 @@
       </div>
 
       <!-- end of template question segment -->
-
+      <p>Guide: Enter you own answers in the below textbox</p>
       {% for ans in answers %}
         {% if question == ans.question_id and a_id == ans.application_id%}
         {% if ans.researcher_answer_text == None %}
@@ -571,7 +593,7 @@
 
         <!-- template question segment -->
         <div class="inspect">
-
+          <p style="color: red;">Guide: click the below button and choose the answer type, then click template answers in the textbox, it will automatically copy to the first textbox</p> 
           <button type="button" class="show_button"> Template Answers </button>
 
 
@@ -629,7 +651,7 @@
       </div>
 
       <!-- end of template question segment -->
-
+      <p>Guide: Enter you own answers in the below textbox</p>
       {% for ans in answers %}
         {% if question == ans.question_id and a_id == ans.application_id%}
         {% if ans.researcher_answer_text == None %}
@@ -665,7 +687,7 @@
 
       <!-- template question segment -->
       <div class="inspect">
-
+        <p style="color: red;">Guide: click the below button and choose the answer type, then click template answers in the textbox, it will automatically copy to the first textbox</p> 
         <button type="button" class="show_button"> Template Answers </button>
 
 
@@ -723,7 +745,7 @@
       </div>
 
       <!-- end of template question segment -->
-
+      <p>Guide: Enter you own answers in the below textbox</p>
       {% for ans in answers %}
         {% if question == ans.question_id and a_id == ans.application_id%}
         {% if ans.researcher_answer_text == None %}
@@ -746,8 +768,19 @@
         </div>
         <br>
         <br>
-
-        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Audio recordings">
+        {% for ans in answers %}
+        {% if question == ans.question_id and a_id == ans.application_id %}
+        {% if ans.short_answer_text == "['Audio recordings', 'Film/Video recordings']" %}
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Audio recordings" checked>
+        <label for="Audio recordings">Audio recordings</label><br>
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Film/Video recordings" checked>
+        <label for="Film/Video recordings">Film/Video recordings</label><br>
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Online survey">
+        <label for="Online survey">Online survey</label><br>
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Other">
+        <label for="Other">Other</label><br>
+        {% elif ans.short_answer_text == "['Audio recordings']"%}
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Audio recordings" checked>
         <label for="Audio recordings">Audio recordings</label><br>
         <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Film/Video recordings">
         <label for="Film/Video recordings">Film/Video recordings</label><br>
@@ -755,6 +788,37 @@
         <label for="Online survey">Online survey</label><br>
         <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Other">
         <label for="Other">Other</label><br>
+        {% elif ans.short_answer_text == "['Film/Video recordings']"%}
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Audio recordings">
+        <label for="Audio recordings">Audio recordings</label><br>
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Film/Video recordings" checked>
+        <label for="Film/Video recordings">Film/Video recordings</label><br>
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Online survey">
+        <label for="Online survey">Online survey</label><br>
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Other">
+        <label for="Other">Other</label><br>
+        {% elif ans.short_answer_text == "['Online survey']"%}
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Audio recordings">
+        <label for="Audio recordings">Audio recordings</label><br>
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Film/Video recordings">
+        <label for="Film/Video recordings">Film/Video recordings</label><br>
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Online survey" checked>
+        <label for="Online survey">Online survey</label><br>
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Other">
+        <label for="Other">Other</label><br>
+        {% elif ans.short_answer_text == "['Other']"%}
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Audio recordings">
+        <label for="Audio recordings">Audio recordings</label><br>
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Film/Video recordings">
+        <label for="Film/Video recordings">Film/Video recordings</label><br>
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Online survey">
+        <label for="Online survey">Online survey</label><br>
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Other" checked>
+        <label for="Other">Other</label><br>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+       
 
       </div>
       <script type="text/javascript">
@@ -885,7 +949,7 @@
 
       <!-- template question segment -->
       <div class="inspect">
-
+        <p style="color: red;">Guide: click the below button and choose the answer type, then click template answers in the textbox, it will automatically copy to the first textbox</p> 
         <button type="button" class="show_button"> Template Answers </button>
 
 
@@ -942,7 +1006,7 @@
       </div>
 
       <!-- end of template question segment -->
-
+      <p>Guide: Enter you own answers in the below textbox</p>
       {% for ans in answers %}
         {% if question == ans.question_id and a_id == ans.application_id%}
         {% if ans.researcher_answer_text == None %}
@@ -1018,7 +1082,7 @@ Details of how data will be collected and analysed Potential significance of the
 
       <!-- template question segment -->
       <div class="inspect">
-
+        <p style="color: red;">Guide: click the below button and choose the answer type, then click template answers in the textbox, it will automatically copy to the first textbox</p> 
         <button type="button" class="show_button"> Template Answers </button>
 
 
@@ -1076,7 +1140,7 @@ Details of how data will be collected and analysed Potential significance of the
       </div>
 
       <!-- end of template question segment -->
-
+      <p>Guide: Enter you own answers in the below textbox</p>
       {% for ans in answers %}
         {% if question == ans.question_id and a_id == ans.application_id%}
         {% if ans.researcher_answer_text == None %}
@@ -1092,10 +1156,39 @@ Details of how data will be collected and analysed Potential significance of the
       {% endif %}
 
       {% elif question.is_short_answer == 2 %}
-      <input type="checkbox" name="sele2" value="Participant observation (ethnography, systematic)">Participant observation (ethnography, systematic)<br>
+      {% if question.question_num == 901 %}
+      {% for ans in answers %}
+      {% if question == ans.question_id and a_id == ans.application_id %}
+      {% if ans.short_answer_text == "['Participant observation (ethnography, systematic)', 'Questionnaire/survey']" %}
+      <input type="checkbox" name="sele2" value="Participant observation (ethnography, systematic)" checked>Participant observation (ethnography, systematic)<br>
+      <input type="checkbox" name="sele2" value="Questionnaire/survey" checked>Questionnaire/survey<br>
+      <input type="checkbox" name="sele2" value="Interviews (including oral history)">Interviews (including oral history)<br>
+      <input type="checkbox" name="sele2" value="Data linkage studie">Data linkage studie<br>
+      {% elif ans.short_answer_text == "['Participant observation (ethnography, systematic)']"%}
+      <input type="checkbox" name="sele2" value="Participant observation (ethnography, systematic)" checked>Participant observation (ethnography, systematic)<br>
       <input type="checkbox" name="sele2" value="Questionnaire/survey">Questionnaire/survey<br>
       <input type="checkbox" name="sele2" value="Interviews (including oral history)">Interviews (including oral history)<br>
       <input type="checkbox" name="sele2" value="Data linkage studie">Data linkage studie<br>
+      {% elif ans.short_answer_text == "['Questionnaire/survey']"%}
+      <input type="checkbox" name="sele2" value="Participant observation (ethnography, systematic)">Participant observation (ethnography, systematic)<br>
+      <input type="checkbox" name="sele2" value="Questionnaire/survey" checked>Questionnaire/survey<br>
+      <input type="checkbox" name="sele2" value="Interviews (including oral history)">Interviews (including oral history)<br>
+      <input type="checkbox" name="sele2" value="Data linkage studie">Data linkage studie<br>
+      {% elif ans.short_answer_text == "['Interviews (including oral history)']"%}
+      <input type="checkbox" name="sele2" value="Participant observation (ethnography, systematic)">Participant observation (ethnography, systematic)<br>
+      <input type="checkbox" name="sele2" value="Questionnaire/survey">Questionnaire/survey<br>
+      <input type="checkbox" name="sele2" value="Interviews (including oral history)" checked>Interviews (including oral history)<br>
+      <input type="checkbox" name="sele2" value="Data linkage studie">Data linkage studie<br>
+      {% elif ans.short_answer_text == "['Data linkage studie']"%}
+      <input type="checkbox" name="sele2" value="Participant observation (ethnography, systematic)">Participant observation (ethnography, systematic)<br>
+      <input type="checkbox" name="sele2" value="Questionnaire/survey">Questionnaire/survey<br>
+      <input type="checkbox" name="sele2" value="Interviews (including oral history)">Interviews (including oral history)<br>
+      <input type="checkbox" name="sele2" value="Data linkage studie" checked>Data linkage studie<br>
+      {% endif %}
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+      
 
       {% elif question.question_num == 905%}
       <p></p>
