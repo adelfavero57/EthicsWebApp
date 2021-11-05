@@ -108,6 +108,7 @@ class Question(models.Model):
 class Answers(models.Model):
     id = models.IntegerField(primary_key=True)
     short_answer_text = models.TextField(null=True)
+    researcher_answer_text = models.TextField(null=True)
     multiple_choice_answer = models.BooleanField(null=True)
     question_id = models.ForeignKey(Question, on_delete=models.CASCADE)
     application_id = models.ForeignKey(

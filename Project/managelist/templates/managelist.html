@@ -62,7 +62,7 @@
                 <!-- Change the download link here -->
                 <td class = "Operations"> 
                   <p class = "3dots">&#8942;</p>       
-                  <a href="{% url 'coversheet' item.id %}">View</a>
+                  <a name = "edit" href="{% url 'coversheet' item.id %}">View</a>
                   <a href="#">Download</a>
                 </td>
 
@@ -76,7 +76,7 @@
               <td class = "Operations">
                 <div class = "threedots"><p>&#8942;</p></div>
                 <div class = "links">      
-                <a href="{% url 'coversheet' item.id %}">Edit</a>
+                <a name = "edit" href="{% url 'coversheet' item.id %}">Edit</a>
                 <a href ="{% url 'delete' item.id %}" onclick = "return confirm('Do you want to delete the application: {{item.title}} ?')">Withdraw</a> 
               </div>              
               </td>
