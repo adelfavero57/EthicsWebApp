@@ -1,107 +1,133 @@
 
-.navigation {
+body{
 
-    display:flex;
-
-}
-.menu1 {
-    
-    width: 1200px;
-    height: 50px;
-    
+    background-color:#F4F4F4;
 }
 
-.menu2 {
 
-    width: 250px;
-    height: 50px;
+.container{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    ". Title Title ."
+    "search . . new"
+    "app_table app_table app_table app_table";
 }
 
-.menu1 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgb(68, 67, 67);
-}
-
-.menu1 ul li {
-
-    float: left;
-}
-
-.menu1 ul li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+.item-1 {
+    grid-area: Title;
+    justify-self: center;
+  }
+.item-2 {
+    grid-area: search;
+    align-self: end;
+    margin-bottom: 20px;
   }
 
-.menu2 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgb(68, 67, 67);
-}
 
-.menu2 ul li {
-
-    float: right;
-}
-
-.menu2 ul li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+.item-3 {
+    grid-area: new;
+    justify-self: end;
+    margin-bottom: 20px;
   }
-.main_part {
+.item-4 {
+    grid-area: app_table;
+  }
 
-    height: 100%; 
-    margin: 0;
-    padding: 0;
+.item-2 #search{
+
+  font-size:20px;
 }
 
-.main_part h1 {
 
-    width: 100%;
+.applicationlist{
+
+    border-collapse: collapse;
+    font-size: 20px;
+    min-width: 100%;
+    overflow: hidden;
 }
 
-.main_part h3 {
-    width: 50%;
-    border-style: dashed;
+thead{
+
+    background-color: #3e3d3e;
+    color: #ffffff;
+    text-align: left;
 }
 
-.itembox {
-    display: flex;
-    border-style: solid;
+.tbody{
 
-    border-left: none;
-    border-right: none;
-
-    margin-top: 3%;
-    
+    border-bottom: 1px solid #dddddd;
 }
 
-.item {
-    display: flex;
-    width: 80%;
-    list-style-type: none;
-    
+
+.Operations{
+  display:inline-block;
+  position:absolute;
+  
 }
 
-.item li{
-
-    
-    padding: .5em;
-    width: 30%;
-    font-size:larger;
+.Operations div{
+  display: inline-block;
+  vertical-align: top;
 }
 
-.modify {
-
-    list-style-type: none;
+.links{
+  background-color: #f8f7f8;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
+
+.threedots{
+  cursor: pointer;
+}
+
+
+
+.Operations div p{
+
+  font-size: 24px;
+  padding:0;
+  margin: 0;
+}
+
+.Operations a{
+  
+  display: block;
+  color: black;
+  padding: 10px, 10px;
+  text-decoration: none;
+
+}
+
+.links a:hover{
+
+  background-color: #f1f1f1
+}
+
+
+
+
+.start_new_app_button {
+
+    color:#ffffff;
+ 
+    background:#e64626;
+ 
+    border: 0em;
+ 
+    height: 2.5em;
+ 
+    width: 11em;
+ 
+ }
+ .start_new_app_button:hover{
+
+    background-color: rgb(210, 50, 18);
+    cursor:pointer;
+ }
+
+ a:hover{
+    background-color: rgb(210, 50, 18);
+ }

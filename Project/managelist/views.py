@@ -40,8 +40,6 @@ def managelistPage(request):
 
 def deleteRow(request, item_id):
 
-    
-
     item = Application.objects.get(pk=item_id)
 
     item.delete()
