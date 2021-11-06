@@ -120,6 +120,7 @@
         });
         if (document.getElementById('button1').checked) {
           $("#div1").show();
+          document.getElementById('sA').style.display = 'none';
         } else if (document.getElementById('button2').checked) {
           $("#div1").hide();
         }
@@ -815,6 +816,15 @@
         <label for="Online survey">Online survey</label><br>
         <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Other" checked>
         <label for="Other">Other</label><br>
+        {% else %}
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Audio recordings">
+        <label for="Audio recordings">Audio recordings</label><br>
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Film/Video recordings">
+        <label for="Film/Video recordings">Film/Video recordings</label><br>
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Online survey">
+        <label for="Online survey">Online survey</label><br>
+        <input type="checkbox" id="{{question.question_num}}" name="sele1" value="Other">
+        <label for="Other">Other</label><br>
         {% endif %}
         {% endif %}
         {% endfor %}
@@ -1184,6 +1194,11 @@ Details of how data will be collected and analysed Potential significance of the
       <input type="checkbox" name="sele2" value="Questionnaire/survey">Questionnaire/survey<br>
       <input type="checkbox" name="sele2" value="Interviews (including oral history)">Interviews (including oral history)<br>
       <input type="checkbox" name="sele2" value="Data linkage studie" checked>Data linkage studie<br>
+      {% else %}
+      <input type="checkbox" name="sele2" value="Participant observation (ethnography, systematic)">Participant observation (ethnography, systematic)<br>
+      <input type="checkbox" name="sele2" value="Questionnaire/survey">Questionnaire/survey<br>
+      <input type="checkbox" name="sele2" value="Interviews (including oral history)">Interviews (including oral history)<br>
+      <input type="checkbox" name="sele2" value="Data linkage studie">Data linkage studie<br>
       {% endif %}
       {% endif %}
       {% endfor %}
