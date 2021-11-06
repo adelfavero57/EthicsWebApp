@@ -69,21 +69,11 @@ class ManagelistTest(TestCase):
     def test_delete(self):
 
         new_application = Application.objects.create(id = 1, user=self.user, status = "IN PROGRESS", supervisor="Alvin", title="Test")
-
-
         request = self.factory.get('/managelist/')
-
-        request.user = self.user
-
-        
-
+        request.user = self.user        
         response = managelistPage(request)
-
         text = '''<td>1</td>\n<td>Test</td>\n<td>17 10 2021</td>\n<td>Oct. 17, 2021</td>\n<td>IN PROGRESS</td>\n<td>Alvin</td>\n'''
-
-        # print(response.content)
-        # self.assertContains(response=response, text=text, html=True)
-
+        self.assertContains(response=response, text=text, html=True)
         # response2 = deleteRow(request, 1)
 
         

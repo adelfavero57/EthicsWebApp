@@ -47,11 +47,8 @@
 
 
             <tbody>
-            {% for item in applications %}
-            
-            <tr class = "row">
-            {% if item.status != "IN PROGRESS" %}
-            
+            {% for item in applications %}          
+            <tr class = "row">        
                 <td>{{item.id}}</td>
                 <td>{{item.title}}</td>
                 <td>{{ item.date_created|date:"d/m/Y" }}</td>
@@ -60,30 +57,21 @@
                 <td>{{item.supervisor}}</td>
 
                 <!-- Change the download link here -->
-                <td class = "Operations"> 
-                  <p class = "3dots">&#8942;</p>       
+                <td class = "Operations">
+                  <div class = "threedots"><p>&#8942;</p></div>
+                  <div class = "links"> 
+                  
+                  {% if item.status != "IN PROGRESS" %}       
                   <a name = "edit" href="{% url 'coversheet' item.id %}">View</a>
                   <a href="#">Download</a>
-                </td>
-
-            {% else %}
-              <td>{{item.id}}</td>
-              <td>{{item.title}}</td>
-              <td>{{ item.date_created|date:"d/m/Y" }}</td>
-              <td>{{ item.last_modified|date:"d/m/Y" }}</td>
-              <td>{{item.status}}</td>
-              <td>{{item.supervisor}}</td>
-              <td class = "Operations">
-                <div class = "threedots"><p>&#8942;</p></div>
-                <div class = "links">      
-                <a name = "edit" href="{% url 'coversheet' item.id %}">Edit</a>
-                <a href ="{% url 'delete' item.id %}" onclick = "return confirm('Do you want to delete the application: {{item.title}} ?')">Withdraw</a> 
-              </div>              
+                  {% else %}
+                  <a name = "edit" href="{% url 'coversheet' item.id %}">Edit</a>
+                  <a href ="{% url 'delete' item.id %}" onclick = "return confirm('Do you want to delete the application: {{item.title}} ?')">Withdraw</a> 
+                  {% endif %}
+                </div> 
               </td>
             </tr>
-            {% endif %}
             {% endfor %}
-
           </tbody>
           </table>
       </div>

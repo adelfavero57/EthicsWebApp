@@ -23,23 +23,18 @@ def logout_view(request):
 @allowed_users(allowed_roles=['researcher'])
 def coversheetPage(request, newapplication_id):
 
-    
-    
+
+
     application = Application.objects.get(pk=newapplication_id) #creates new application with new application ID
 
     coversheetanswers=CoverSheetAnswers.objects.filter(application_id=newapplication_id) # list of blank coversheet answers
     
     
     if request.method == 'POST': #necessary for saving to database
-        
-        
-        
-        
 
         summary_text = request.POST['summary'] #searches for the summary name in the html
         # summary_text = coversheet_form.cleaned_data['summary']
         #csq_id_1001 = CoverSheetQuestion.objects.get(pk=1001)
-        
         
         coversheetanswer_summary = coversheetanswers.get(question_id=1001) #finding the coversheet answer corresponding
         
@@ -192,10 +187,6 @@ def coversheetPage(request, newapplication_id):
         
         
         return redirect('coversheet', newapplication_id) #saves
-
-
-
-
 
     
     cover = CoverSheetQuestion.objects.all() 
