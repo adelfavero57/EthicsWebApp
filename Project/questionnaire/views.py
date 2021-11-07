@@ -20,7 +20,7 @@ def questionnaire(request, application_id):
     counter = 0
     if request.method == 'POST':
         ans = Answers.objects.all().filter(application_id = a_id)
-        button_name = request.POST.getlist("Save")
+        button_name = request.POST.get("Save")
         if button_name == "Save":
             for i in questions:
                 for j in ans:
