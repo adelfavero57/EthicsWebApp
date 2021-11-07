@@ -17,44 +17,59 @@
 
 {% block content %}
 
-<h1> Manage Applications </h1>
 
-<div class="search_application">
-    <input type="text" id="search" name="search_item" placeholder="Search..">
-</div>
+<div class = "container">
+
+    <div class = "item-1"><h1> Manage Applications </h1></div>
+
+
+    <div class = "item-2">
+    <input type="text" id = "search" 
+    name = "search_item"  placeholder="Search..">
+    </div>
+
+      
+
+<div class = "item-4">
 
 <table class="applicationlist" id="sort_application">
-    <tr class="thead">
-        <th>Id</th>
-        <th onclick="sortTitle()">Project Title</th>
-        <th>date_created</th>
-        <th>last_modified</th>
-        <th>Supervisor</th>
-        <th>Status</th>
-        <th colspan="2">Operation</th>
-    </tr>
+        <thead>
+            <th>Id</th>
+            <th class = "sort_col" data-column = 1 data-order = "DESC" name="Project Title">Project Title &#x25B2</th>
+            <th class = "sort_col" data-column = 2 data-order = "DESC" name="Date Created">Date Created &#x25B2</th>
+            <th class = "sort_col" data-column = 3 data-order = "DESC" name="Last Modified">Last Modified &#x25B2</th>
+            <th>Status</th>
+            <th class = "sort_col" data-column = 4 data-order = "DESC" name="Supervisor">Supervisor &#x25B2</th>
+            <th>Operation</th>
+          </thead>
     {% for item in applications %}
     {% if item.status == 'COMPLETE' %}
-    <tr class="tbody">
 
-        <td>{{item.id}}</td>
-        <td>{{item.title}}</td>
-        <td>{{item.date_created}}</td>
-        <td>{{item.last_modified}}</td>
-        <td>{{item.supervisor}}</td>
-        <td>{{item.status}}</td>
-        <td><a href="{% url 'viewPage' item_id=item.id %}" name='viewpage'>View</a></td>
-        <td><a href="{% url 'approve' item_id=item.id %}" name ='approve'>Approve</a></td>
-        <td><a href="{% url 'disapprove' item_id=item.id %}" name ='disapprove'>Disapprove</a></td>
-
+    <tbody>
+    <tr class="row">
+    <td>{{item.id}}</td>
+    <td>{{item.title}}</td>
+    <td>{{item.date_created}}</td>
+    <td>{{item.last_modified}}</td>
+    <td>{{item.supervisor}}</td>
+    <td>{{item.status}}</td>
+    <td class = "Operations">
+        <div class = "threedots"><p>&#8942;</p></div>
+        <div class = "links"> 
+            <a href="{% url 'viewPage' item_id=item.id %}" name='viewpage'>View</a>
+            <a href="{% url 'approve' item_id=item.id %}" name ='approve'>Approve</a>
+            <a href="{% url 'disapprove' item_id=item.id %}" name ='disapprove'>Disapprove</a>
+        </div>
+    </td>
     </tr>
+    </tbody>
 
     {% endif %}
     {% endfor %}
 
 
 </table>
-
+</div>
 
 
 

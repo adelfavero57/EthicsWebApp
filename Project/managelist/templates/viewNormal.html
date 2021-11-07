@@ -1,5 +1,4 @@
-{% extends "base.html" %}
-{% block content %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,17 +16,6 @@
     </head>
     <body>
       <br>
-
-      <div class="sidenav"> 
-        <a href="#SectionA">SectionA Distinguish users</a>
-        <a href="#SectionB">SectionB Risk Evaluation</a>
-        <a href="#SectionC">SectionC Conflicts of interest</a>
-        <a href="#SectionD">SectionD Consent process</a>
-        <a href="#SectionE">SectionE Privary issue</a>
-        <a href="#SectionF">SectionF Concern risks</a>
-        <a href="#SectionG">SectionG Concern research study</a>
-      </div>
-      
       <div class="questions">
           <form method = "POST" id = "pdf">
             {% csrf_token %} 
@@ -136,10 +124,13 @@
                   {% for ans in answers %}
                   {% if question == ans.question_id and a_id == ans.application_id%}
                     {% if question.question_num == 605 %}
-                    {% else %}
+                    {% elif question.is_short_answer == 1 %}
                       <font>Question: {{ question.text }}</font><br><br>
                       <font style="color:red">Template Answer: {{ans.short_answer_text}}</font><br><br>
                       <font>Researcher Answer: {{ans.researcher_answer_text}}</font><br><br>
+                    {% else %}
+                      <font>Question: {{ question.text }}</font><br><br>
+                      <font>Answer: {{ans.short_answer_text}}</font><br><br>
                     {% endif %}
                   {% endif %}
                   {% endfor %}
@@ -207,10 +198,13 @@
                 {% if question == ans.question_id and a_id == ans.application_id%}
                   {% if question.question_num == 702 %}
                   {% elif question.question_num == 716 %}
+                  {% elif question.is_short_answer == 1 %}
+                      <font>Question: {{ question.text }}</font><br><br>
+                      <font style="color:red">Template Answer: {{ans.short_answer_text}}</font><br><br>
+                      <font>Researcher Answer: {{ans.researcher_answer_text}}</font><br><br>
                   {% else %}
-                    <font>Question: {{ question.text }}</font><br><br>
-                    <font style="color:red">Template Answer: {{ans.short_answer_text}}</font><br><br>
-                    <font>Researcher Answer: {{ans.researcher_answer_text}}</font><br><br>
+                      <font>Question: {{ question.text }}</font><br><br>
+                      <font>Answer: {{ans.short_answer_text}}</font><br><br>
                   {% endif %}
                 {% endif %}
                 {% endfor %}
@@ -228,9 +222,14 @@
                 {% if question.section_name == "F"%}
                   {% for ans in answers %}
                     {% if question == ans.question_id and a_id == ans.application_id%}
-                      <font>Question: {{ question.text }}</font><br><br>
-                      <font style="color:red">Template Answer: {{ans.short_answer_text}}</font><br><br>
-                      <font>Researcher Answer: {{ans.researcher_answer_text}}</font><br><br>
+                      {% if question.is_short_answer == 1 %}
+                        <font>Question: {{ question.text }}</font><br><br>
+                        <font style="color:red">Template Answer: {{ans.short_answer_text}}</font><br><br>
+                        <font>Researcher Answer: {{ans.researcher_answer_text}}</font><br><br>
+                      {% else %}
+                        <font>Question: {{ question.text }}</font><br><br>
+                        <font>Answer: {{ans.short_answer_text}}</font><br><br>
+                      {% endif %}
                     {% endif %}
                   {% endfor %}
                 {% endif %}
@@ -245,9 +244,14 @@
                   {% else %}
                     {% for ans in answers %}
                       {% if question == ans.question_id and a_id == ans.application_id%}
-                        <font>Question: {{ question.text }}</font><br><br>
-                        <font style="color:red">Template Answer: {{ans.short_answer_text}}</font><br><br>
-                        <font>Researcher Answer: {{ans.researcher_answer_text}}</font><br><br>
+                      {% if question.is_short_answer == 1 %}
+                      <font>Question: {{ question.text }}</font><br><br>
+                      <font style="color:red">Template Answer: {{ans.short_answer_text}}</font><br><br>
+                      <font>Researcher Answer: {{ans.researcher_answer_text}}</font><br><br>
+                    {% else %}
+                      <font>Question: {{ question.text }}</font><br><br>
+                      <font>Answer: {{ans.short_answer_text}}</font><br><br>
+                    {% endif %}
                       {% endif %}
                     {% endfor %}
                   {% endif %}
@@ -257,4 +261,3 @@
       </div>
     </body>
 </html>
-{% endblock %}
