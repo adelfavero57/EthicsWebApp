@@ -1,15 +1,12 @@
 function convert_date(dates){
 
-    let arr = dates.split(" ");
+    let arr = dates.split("/");
 
     let total = ""
     total = total.concat(arr[2], arr[1], arr[0]);
 
     return date_num = Number(total);
 }
-
-
-
 
 
 $('document').ready(function(){
@@ -24,7 +21,38 @@ $('document').ready(function(){
         });
       
     });
+
+    $(".threedots").siblings(".links").hide();
+
+
 });
+
+function deactivateAll(current){
+    $( ".threedots" ).each(function( index, elem ){
+        if (elem != current && $(elem).hasClass("active")) {
+            $(elem).siblings(".links").slideUp("fast");
+            $(elem).removeClass("active");
+        }
+    });
+}
+
+
+$(document).on("click", function(event){
+    var $trigger = $(".threedots");
+    if($trigger !== event.target && !$trigger.has(event.target).length){
+        $(".links").slideUp("fast");
+    } 
+    
+});
+
+$(document).on("click", ".threedots", function(){
+    deactivateAll(this);
+    $(this).siblings(".links").slideToggle("fast");
+    $(this).toggleClass("active");
+})
+
+
+
 
 
 $(document).on('click', ".sort_col" ,function(){

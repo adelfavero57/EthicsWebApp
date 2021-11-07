@@ -186,8 +186,10 @@ class AccountsTest(TestCase):
         request = self.factory.get('/login')
         request.user = AnonymousUser()
         response = loginPage(request)
-        
         self.assertEqual(response.status_code, 200)
+
+    
+    
 
 
 

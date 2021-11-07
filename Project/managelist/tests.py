@@ -1,8 +1,9 @@
-from django.test import TestCase
+from django.test import TestCase, RequestFactory
 from django.test import Client
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
 from accounts.models import Application
+from managelist.views import managelistPage, deleteRow
 
 # Create your tests here.
 
@@ -14,6 +15,7 @@ class ManagelistTest(TestCase):
         researcher.save()
         cls.user = User.objects.create_user(username = 'john', password='johnpassword')
         cls.user.groups.add(researcher)
+        cls.factory = RequestFactory()
     
     
 
@@ -51,6 +53,37 @@ class ManagelistTest(TestCase):
         self.assertEqual(instance.status, "IN PROGRESS")
         self.assertEqual(instance.title, "Test")
         self.assertEqual(instance.supervisor, "Alvin")
+
+    
+    def test_getPage(self):
+
+        request = self.factory.get('/managelist/')
+
+        request.user = self.user
+
+        response = managelistPage(request)
+
+        self.assertEqual(response.status_code, 200)
+
+
+    def test_delete(self):
+
+        new_application = Application.objects.create(id = 1, user=self.user, status = "IN PROGRESS", supervisor="Alvin", title="Test")
+        request = self.factory.get('/managelist/')
+        request.user = self.user        
+        response = managelistPage(request)
+        text = '''<td>1</td>\n<td>Test</td>\n<td>17 10 2021</td>\n<td>Oct. 17, 2021</td>\n<td>IN PROGRESS</td>\n<td>Alvin</td>\n'''
+        self.assertContains(response=response, text=text, html=True)
+        # response2 = deleteRow(request, 1)
+
+        
+
+        # self.assertNotContains(response=response2, status_code = 302, text=text, html=True)
+
+        # self.assertEqual(response2.status_code, 302)
+
+
+
 
     
 

@@ -1,5 +1,4 @@
-{% extends "base.html" %}
-{% block content %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,17 +16,6 @@
     </head>
     <body>
       <br>
-
-      <div class="sidenav"> 
-        <a href="#SectionA">SectionA Distinguish users</a>
-        <a href="#SectionB">SectionB Risk Evaluation</a>
-        <a href="#SectionC">SectionC Conflicts of interest</a>
-        <a href="#SectionD">SectionD Consent process</a>
-        <a href="#SectionE">SectionE Privary issue</a>
-        <a href="#SectionF">SectionF Concern risks</a>
-        <a href="#SectionG">SectionG Concern research study</a>
-      </div>
-      
       <div class="questions">
           <form method = "POST" id = "pdf">
             {% csrf_token %} 
@@ -273,4 +261,3 @@
       </div>
     </body>
 </html>
-{% endblock %}
