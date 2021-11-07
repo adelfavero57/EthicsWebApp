@@ -42,3 +42,8 @@
     font-size: 36;
   }
 
+.menu ul li a:hover{
+    background-color: rgb(210, 50, 18);
+ }
+
+ 
