@@ -28,7 +28,9 @@
       </div>
 
       <div class = "item-3">
+
         <a href="{% url 'qualifierwelcome' %}"><button class = start_new_app_button type="button" name="start">Start new application</button></a>
+
       </div>
       
       
@@ -42,17 +44,20 @@
               <th class = "sort_col" data-column = 3 data-order = "DESC" name="Last Modified">Last Modified &#x25B2</th>
               <th>Status</th>
               <th class = "sort_col" data-column = 4 data-order = "DESC" name="Supervisor">Supervisor &#x25B2</th>
-              <th>Operation</th>
+              <th colspan="2">Operation</th>
             </thead>
 
 
             <tbody>
-            {% for item in applications %}          
-            <tr class = "row">        
+            {% for item in applications %}
+            
+            <tr class = "row">
+            {% if item.status != "IN PROGRESS" %}
+            
                 <td>{{item.id}}</td>
                 <td>{{item.title}}</td>
-                <td>{{ item.date_created|date:"d/m/Y" }}</td>
-                <td>{{ item.last_modified|date:"d/m/Y" }}</td>
+                <td>{{ item.date_created|date:"d m Y" }}</td>
+                <td>{{item.last_modified}}</td>
                 <td>{{item.status}}</td>
                 <td>{{item.supervisor}}</td>
 
@@ -71,11 +76,16 @@
                 </div> 
               </td>
             </tr>
+          
+
+            {% endif %}
             {% endfor %}
+
           </tbody>
           </table>
       </div>
-         
+      
+    
 </div>
         
 
