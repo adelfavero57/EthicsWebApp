@@ -28,7 +28,9 @@
       </div>
 
       <div class = "item-3">
+
         <a href="{% url 'qualifierwelcome' %}"><button class = start_new_app_button type="button" name="start">Start new application</button></a>
+
       </div>
       
       
@@ -42,40 +44,47 @@
               <th class = "sort_col" data-column = 3 data-order = "DESC" name="Last Modified">Last Modified &#x25B2</th>
               <th>Status</th>
               <th class = "sort_col" data-column = 4 data-order = "DESC" name="Supervisor">Supervisor &#x25B2</th>
-              <th>Operation</th>
+              <th colspan="2">Operation</th>
             </thead>
 
 
             <tbody>
-            {% for item in applications %}          
-            <tr class = "row">        
+            {% for item in applications %}
+            
+            <tr class = "row">
+            {% if item.status != "IN PROGRESS" %}
+            
                 <td>{{item.id}}</td>
                 <td>{{item.title}}</td>
-                <td>{{ item.date_created|date:"d/m/Y" }}</td>
-                <td>{{ item.last_modified|date:"d/m/Y" }}</td>
+                <td>{{ item.date_created|date:"d m Y" }}</td>
+                <td>{{item.last_modified}}</td>
                 <td>{{item.status}}</td>
                 <td>{{item.supervisor}}</td>
 
                 <!-- Change the download link here -->
-                <td class = "Operations">
-                  <div class = "threedots"><p>&#8942;</p></div>
-                  <div class = "links"> 
-                  
-                  {% if item.status != "IN PROGRESS" %}       
-                  <a name = "edit" href="{% url 'coversheet' item.id %}">View</a>
-                  <a href="#">Download</a>
-                  {% else %}
-                  <a name = "edit" href="{% url 'coversheet' item.id %}">Edit</a>
-                  <a href ="{% url 'delete' item.id %}" onclick = "return confirm('Do you want to delete the application: {{item.title}} ?')">Withdraw</a> 
-                  {% endif %}
-                </div> 
-              </td>
+                <td><a name = "view" href="{% url 'viewNormal' item_id=item.id %}">View</a></td>
+                <td><a href="#">Download</a></td>
+
+            {% else %}
+              <td>{{item.id}}</td>
+              <td>{{item.title}}</td>
+              <td>{{ item.date_created|date:"d m Y" }}</td>
+              <td>{{item.last_modified}}</td>
+              <td>{{item.status}}</td>
+              <td>{{item.supervisor}}</td>
+              <td><a name = "edit" href="{% url 'coversheet' item.id %}">Edit</a></td>
+              <td><a href ="{% url 'delete' item.id %}" onclick = "return confirm('Do you want to delete the application: {{item.title}} ?')">Withdraw</a></td>
             </tr>
+          
+
+            {% endif %}
             {% endfor %}
+
           </tbody>
           </table>
       </div>
-         
+      
+    
 </div>
         
 
