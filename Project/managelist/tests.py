@@ -26,15 +26,15 @@ class ManagelistTest(TestCase):
         response = self.client.get('/managelist/', follow=True)
         self.assertEqual(response.status_code, 200)
 
-    def test_login(self):
-        c = Client()
+    # def test_login(self):
+    #     c = Client()
 
-        response = c.post('/login/', {'username': 'john', 'password': 'johnpassword'}, follow=True)
+    #     response = c.post('/login/', {'username': 'john', 'password': 'johnpassword'}, follow=True)
 
-        self.assertEqual(response.status_code, 200)
+    #     self.assertEqual(response.status_code, 200)
 
-        self.assertEqual(response.redirect_chain[0][0], '/managelist/', "The page did not redirct to the managelist page")
-        self.assertEqual(response.redirect_chain[0][1], 302, "The page did not redirct to the managelist page")
+    #     self.assertEqual(response.redirect_chain[0][0], '/managelist/', "The page did not redirct to the managelist page")
+    #     self.assertEqual(response.redirect_chain[0][1], 302, "The page did not redirct to the managelist page")
 
         
     def test_application(self):
@@ -43,8 +43,6 @@ class ManagelistTest(TestCase):
         new_application = Application.objects.create(id = 1, user=self.user, status = "IN PROGRESS", supervisor="Alvin", title="Test")
         c = Client()
         response = c.post('/login/', {'username': 'john', 'password': 'johnpassword'}, follow=True)
-
-        
 
         applications = response.context['applications']
 
@@ -72,15 +70,28 @@ class ManagelistTest(TestCase):
         request = self.factory.get('/managelist/')
         request.user = self.user        
         response = managelistPage(request)
-        text = '''<td>1</td>\n<td>Test</td>\n<td>17 10 2021</td>\n<td>Oct. 17, 2021</td>\n<td>IN PROGRESS</td>\n<td>Alvin</td>\n'''
-        self.assertContains(response=response, text=text, html=True)
-        # response2 = deleteRow(request, 1)
+        app_id = '''<td>1</td>'''
+        app_name = '''<td>Test</td>'''
+        app_status = '''<td>IN PROGRESS</td>'''
+        app_supervisor = '''<td>Alvin</td>'''
+        self.assertContains(response=response, text=app_id, html=True)
+        self.assertContains(response=response, text=app_name, html=True)
+        self.assertContains(response=response, text=app_status, html=True)
+        self.assertContains(response=response, text=app_supervisor, html=True)
+       
+        response2 = deleteRow(request, 1)
 
+        self.assertEqual(response2.url, '/managelist/')
         
+        response3 = self.client.post('/login/', {'username': 'john', 'password': 'johnpassword'}, follow=True)
+        self.assertNotContains(response=response3, text=app_id, html=True)
+        self.assertNotContains(response=response3, text=app_name, html=True)
+        self.assertNotContains(response=response3, text=app_status, html=True)
+        self.assertNotContains(response=response3, text=app_supervisor, html=True)
 
-        # self.assertNotContains(response=response2, status_code = 302, text=text, html=True)
+        self.assertEqual(len(Application.objects.all()), 0)
 
-        # self.assertEqual(response2.status_code, 302)
+
 
 
 

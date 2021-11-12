@@ -48,7 +48,6 @@ def loginPage(request):
             password = form.cleaned_data['password']
             remember_me = form.cleaned_data['remember_me']
             
-
             
             user = authenticate(username=username, password=password)
             

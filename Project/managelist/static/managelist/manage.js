@@ -68,12 +68,13 @@ $(document).on('click', ".sort_col" ,function(){
     let text = $(this).html();
     text = text.substring(0, text.length-1);
 
+
     if(order == "DESC"){
         $(this).data('order', "ASC");
 
         text = text + '&#x25BC';
 
-        if(column == 1 || column == 4){
+        if(column == 1 || column == 5){
   
             sortedRows = rows.sort((a, b) => a.querySelectorAll("td")[column].textContent.toLowerCase() > b.querySelectorAll("td")[column].textContent.toLowerCase() ? -1 : 1);
         }else{
@@ -99,7 +100,9 @@ $(document).on('click', ".sort_col" ,function(){
 
         text = text + '&#x25B2';
 
-        if(column == 1 || column == 4){
+        if(column == 1 || column == 5){
+
+            //console.log(querySelectorAll("td")[column].textContent)
             
             sortedRows = rows.sort((a, b) => a.querySelectorAll("td")[column].textContent.toLowerCase() > b.querySelectorAll("td")[column].textContent.toLowerCase() ? 1 : -1);
         }else{
