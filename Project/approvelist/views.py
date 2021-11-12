@@ -28,6 +28,7 @@ def approve(request, item_id):
 @allowed_users(allowed_roles=['staff'])
 def disapprove(request, item_id):
 
+    
     item = Application.objects.get(pk=item_id)
     item.status = 'DISAPPROVED'
     item.save()

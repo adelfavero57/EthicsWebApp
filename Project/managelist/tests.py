@@ -107,15 +107,15 @@ class ManagelistTest(TestCase):
 
         
         
+        response3 = self.client.post('/login/', {'username': 'john', 'password': 'johnpassword'}, follow=True)
+        self.assertNotContains(response=response3, text=app_id, html=True)
+        self.assertNotContains(response=response3, text=app_name, html=True)
+        self.assertNotContains(response=response3, text=app_status, html=True)
+        self.assertNotContains(response=response3, text=app_supervisor, html=True)
+
+        self.assertEqual(len(Application.objects.all()), 0)
 
 
-
-
-
-
-        
-
-    
 
 
 
