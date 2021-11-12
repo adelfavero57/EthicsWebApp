@@ -17,6 +17,7 @@ pipelines:
           - pip install django
           - pip install reportlab
           - pip install xhtml2pdf
+          - pip install ckeditor
           - cd Project
    
   
