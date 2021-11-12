@@ -82,8 +82,6 @@ class ManagelistTest(TestCase):
         response2 = deleteRow(request, 1)
 
         self.assertEqual(response2.url, '/managelist/')
-<<<<<<< HEAD
-=======
         
         response3 = self.client.post('/login/', {'username': 'john', 'password': 'johnpassword'}, follow=True)
         self.assertNotContains(response=response3, text=app_id, html=True)
@@ -108,7 +106,6 @@ class ManagelistTest(TestCase):
 
 
         
->>>>>>> d1dae59f5fe9a3e99679bfd40e593b52fb7e3172
         
         response3 = self.client.post('/login/', {'username': 'john', 'password': 'johnpassword'}, follow=True)
         self.assertNotContains(response=response3, text=app_id, html=True)
@@ -119,16 +116,6 @@ class ManagelistTest(TestCase):
         self.assertEqual(len(Application.objects.all()), 0)
 
 
-<<<<<<< HEAD
-=======
-
-
-
-
-        
-
-    
->>>>>>> d1dae59f5fe9a3e99679bfd40e593b52fb7e3172
 
 
 
