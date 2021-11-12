@@ -5,6 +5,7 @@ from django.contrib.auth.models import User, AnonymousUser
 from django.contrib.auth.models import Group
 from accounts.views import registerPage, editUserPage, loginPage
 from django.contrib.sessions.middleware import SessionMiddleware
+from .forms import CreateUserForm, LoginForm, UpdateUserForm
 # from django.test import LiveServerTestCase
 # from selenium.webdriver.chrome.webdriver import WebDriver
 # import time
@@ -25,8 +26,7 @@ class AccountsTest(TestCase):
         cls.user.groups.add(researcher)
         cls.factory = RequestFactory()
 
-        
-          
+ 
 
     def testNoEmail(self):
 
@@ -72,7 +72,17 @@ class AccountsTest(TestCase):
         self.assertTrue(form.is_valid(), "The test did not pass")
 
     
-    def test_registerPage1(self):
+
+    # Test whether a researcher can register successfully. It test the user data, also the redirct of the register page
+
+
+        
+        
+
+
+
+
+    def test_registerPage_post(self):
 
         data = {'first_name': 'Test','last_name': 'Test', 'username': "Test", 'email': 'hello@gmail.com', 'password1': 'POL123@4', 'password2': 'POL123@4'}
 
@@ -85,7 +95,23 @@ class AccountsTest(TestCase):
         self.assertEqual(response.headers['Location'], '/login/')
         self.assertEqual(response.status_code, 302)
 
-    def test_registerPage2(self):
+        testers = User.objects.filter(username="Test")
+
+        self.assertEqual(len(testers), 1)
+        self.assertEqual(testers[0].first_name, "Test")
+        self.assertEqual(testers[0].last_name, "Test")
+        self.assertEqual(testers[0].email, 'hello@gmail.com')
+        self.assertEqual(testers[0].groups.all()[0].name, 'researcher')
+
+    
+
+
+    def test_registerPage_get(self):
+
+        response = self.client.get('/register/')
+        
+        # Test contexts
+        self.assertIsInstance(response.context['form'], CreateUserForm)
 
         request = self.factory.get('/register/')
 
@@ -93,26 +119,32 @@ class AccountsTest(TestCase):
 
         response = registerPage(request)
 
+        self.assertEqual(response.status_code, 200)
+
+
         
 
     
-    def test_editUserPage1(self):
+    def test_editUserPage_post(self):
 
         data = {'first_name': 'change','last_name': 'change', 'username': "change", 'email': 'change@gmail.com'}
 
-
         request = self.factory.post('/edit_profile/', data, follow = True)
-
-
         request.user = self.user
 
         response = editUserPage(request)
 
+        self.assertEqual(response.headers['Location'], '/coversheet/edit_profile/')
         self.assertEqual(response.status_code, 302)
+
+        
+
+
+
 
 
     
-    def test_editUserPage2(self):
+    def test_editUserPage_get(self):
 
         request = self.factory.get('/edit_profile/')
 
@@ -121,6 +153,9 @@ class AccountsTest(TestCase):
         response = editUserPage(request)
 
         self.assertEqual(response.status_code, 200)
+
+
+    
 
 
 

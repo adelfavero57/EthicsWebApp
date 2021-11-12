@@ -25,9 +25,7 @@ def managelistPage(request):
 
     applications = Application.objects.filter(user=request.user)
     
-    context = {'applications': applications}
-
-    
+    context = {'applications': applications}  
 
     return render(request, 'managelist.html', context)
 

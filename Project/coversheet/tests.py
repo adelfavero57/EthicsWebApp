@@ -74,7 +74,7 @@ class CoversheetTest(TestCase):
 
         response2 = coversheetPage(request2, 1)
 
-        self.assertEqual(response2.url, "/coversheet/1")
+        self.assertEqual(response2.url, "/questionnaire/1")
 
         
         answers = CoverSheetAnswers.objects.filter(application_id = 1)
