@@ -18,5 +18,5 @@ pipelines:
           - pip install reportlab
           - pip install xhtml2pdf
           - cd Project
-          - python manage.py test
+   
   
