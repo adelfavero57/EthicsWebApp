@@ -64,6 +64,7 @@ def questionnaire(request, application_id):
             a_id.status = "COMPLETE"
             a_id.save()
         
+        
         return redirect('managelist')
 
     que = Question.objects.all()
