@@ -21,6 +21,8 @@ test5 = vUser(dir_path + "/Managelist5.py")
 test6 = vUser(dir_path + "/Managelist6.py")
 test7 = vUser(dir_path + "/Managelist7.py")
 test8 = vUser(dir_path + "/Managelist8.py")
+test9 = vUser(dir_path + "/Managelist9.py")
+test10 = vUser(dir_path + "/Managelist10.py")
 
 # List of virtual user tests
 Users = []
@@ -34,6 +36,8 @@ Users.append(test5)
 Users.append(test6)
 Users.append(test7)
 Users.append(test8)
+Users.append(test9)
+Users.append(test10)
 
 # Run tests
 for i in Users:
