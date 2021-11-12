@@ -21,44 +21,45 @@ def questionnaire(request, application_id):
     if request.method == 'POST':
         ans = Answers.objects.all().filter(application_id = a_id)
         button_name = request.POST.get("Save")
-        if button_name == "Save":
-            for i in questions:
-                for j in ans:
-                    if j.question_id == i:
-                        # Not a question
-                        if i.question_num == 905:
-                            break
-                        que_str = str(i.question_num)
-                        template_str = str(j.id)
-                        template_text = j.short_answer_text
+        for i in questions:
+            for j in ans:
+                if j.question_id == i:
+                    # Not a question
+                    if i.question_num == 905:
+                        break
+                    que_str = str(i.question_num)
+                    template_str = str(j.id)
+                    template_text = j.short_answer_text
                         
-                        try:
-                            if que_str == "702":
-                                ans_text = request.POST.getlist("sele1")
-                            elif que_str == "901":
-                                ans_text = request.POST.getlist("sele2")
-                            else:
-                                # change to is_reference
-                                if i.is_short_answer == 1:
-                                    template_text = request.POST[template_str]
-                                ans_text = request.POST[que_str]
-                            #Default for textarea is "", so if user did not answer, counter need to add up by 1
-                            if ans_text == "":
-                                counter += 1
-                        except:
-                            #if multiple choice have not been selected, counter add up by 1.
-                            counter += 1
-                            continue
-                        if i.is_short_answer == 1:
-                            j.short_answer_text = template_text
-                            j.researcher_answer_text = ans_text
-                            j.save()
+                    try:
+                        if que_str == "702":
+                            ans_text = request.POST.getlist("sele1")
+                        elif que_str == "901":
+                            ans_text = request.POST.getlist("sele2")
                         else:
-                            j.short_answer_text = ans_text
-                            j.save()
-            if counter > 1:
-                a_id.status = "IN PROGRESS"
-                a_id.save()
+                            # change to is_reference
+                            if i.is_short_answer == 1:
+                                template_text = request.POST[template_str]
+                            ans_text = request.POST[que_str]
+                        #Default for textarea is "", so if user did not answer, counter need to add up by 1
+                        if ans_text == "":
+                            counter += 1
+                    except:
+                            #if multiple choice have not been selected, counter add up by 1.
+                        counter += 1
+                        continue
+                    if i.is_short_answer == 1:
+                        j.short_answer_text = template_text
+                        j.researcher_answer_text = ans_text
+                        j.save()
+                    else:
+                        j.short_answer_text = ans_text
+                        j.save()
+            
+                
+        if button_name == "Save":
+            a_id.status = "IN PROGRESS"
+            a_id.save()
         else:
             a_id.status = "COMPLETE"
             a_id.save()
