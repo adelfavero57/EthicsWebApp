@@ -186,7 +186,7 @@ def coversheetPage(request, newapplication_id):
         
         
         
-        return redirect('coversheet', newapplication_id) #saves
+        return redirect('questionnaire', newapplication_id) #saves
 
     
     cover = CoverSheetQuestion.objects.all() 
