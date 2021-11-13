@@ -20,6 +20,10 @@ test2 = vUser(dir_path + "/coversheet2.py")
 test3 = vUser(dir_path + "/coversheet3.py")
 test4 = vUser(dir_path + "/coversheet4.py")
 test5 = vUser(dir_path + "/coversheet5.py")
+test6 = vUser(dir_path + "/coversheet6.py")
+test7 = vUser(dir_path + "/coversheet7.py")
+test8 = vUser(dir_path + "/coversheet8.py")
+test9 = vUser(dir_path + "/coversheet9.py")
 
 # List of virtual user tests
 Users = []
@@ -30,6 +34,10 @@ Users.append(test2)
 Users.append(test3)
 Users.append(test4)
 Users.append(test5)
+Users.append(test6)
+Users.append(test7)
+Users.append(test8)
+Users.append(test9)
 
 
 # Run tests
