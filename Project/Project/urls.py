@@ -21,17 +21,8 @@ urlpatterns = [
     path('', include('accounts.urls')),
     path('managelist/', include('managelist.urls')),
     path('approvelist/', include('approvelist.urls')),
-
     path('qualifier/', include('qualifier.urls')),
     path('coversheet/', include('coversheet.urls')),
-
-    path('PISform/', include('PISform.urls')),
-
     path('questionnaire/', include('questionnaire.urls')),
-
-    path('consentform/', include('consentform.urls')),
-
-    path('upload/', include('upload.urls')),
-
     path('viewforms/', include('viewforms.urls')),
 ]

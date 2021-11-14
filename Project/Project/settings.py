@@ -46,10 +46,7 @@ INSTALLED_APPS = [
     'approvelist.apps.ApprovelistConfig',
     'qualifier.apps.QualifierConfig',
     'coversheet.apps.CoversheetConfig',
-    'PISform.apps.PisformConfig',
     'questionnaire.apps.QuestionnaireConfig',
-    'consentform.apps.ConsentformConfig',
-    'upload.apps.UploadConfig',
     'viewforms.apps.ViewformsConfig',
     'ckeditor',
 ]
