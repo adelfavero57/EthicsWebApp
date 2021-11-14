@@ -22,7 +22,7 @@
   <br>
   <br>
   <div class="sidenav">
-    
+    <!-- Left navigation bar  -->
     <a href="#SectionA">SectionA Distinguish users</a>
     <a href="#SectionB">SectionB Risk Evaluation</a>
     <a href="#SectionC">SectionC Conflicts of interest</a>
@@ -34,6 +34,7 @@
   <div class="questions">
     <form method="POST" action="" name="answer_question">
       {% csrf_token %}
+      <!-- Section A of questionnaire  -->
       <a name="SectionA"></a>
 
       <h1>Section A</h1>
@@ -160,6 +161,7 @@
       {% endfor %}
 
       <a name="SectionB"></a>
+      <!-- Section B of the questionnaire -->
       <h1>Section B</h1>
       <h4>Section B is designed to determine whether your study falls within the National Statements definition of low or negligible risk. Throughout this section, you may be asked specific additional questions where you indicate that your study involves particular participant and/ or project types. Please note that the option Possible Recruitment with reference to specific participant populations indicates that these people MAY be recruited into your study, but are not the specific population of interest. If this population is the focus of your study, you should select Yes.
         Please answer the following questions</h4>
@@ -200,6 +202,7 @@
 
       <a name="SectionC"></a>
       <h1>Section C</h1>
+      <!-- Section C of the questionnaire -->
       <h4>The questions in Section C are designed to determine whether there are any conflicts of interests which may
         compromise the research process.</h4>
 
@@ -239,11 +242,12 @@
 
       <a name="SectionD"></a>
       <h1>Section D</h1>
+      <!-- Section D of the questionnaire -->
       <h4>The questions in Section D are specifically directed at the consent process.</h4>
 
       {% for question in que %}
       {% if question.section_name == "D"%}
-
+      <!-- The question type is textarea -->
       {% if question.is_short_answer == 1 %}
 
       <!-- you can create a new array to store the question number , and use if statement  -->
@@ -316,6 +320,7 @@
       </div>
 
       <!-- end of template question segment -->
+      <!-- second textarea segment -->
       <p>Guide: Enter you own answers in the below textbox</p>
       {% for ans in answers %}
         {% if question == ans.question_id and a_id == ans.application_id%}
@@ -327,7 +332,7 @@
         
         {% endif %}{% endif %}
         {% endfor %}
-
+      <!-- pop out question 2 -->
       {% elif question.question_num == 605%}
       <div id="div2" style="display :none ;">
 
@@ -397,6 +402,8 @@
         </div>
 
         <!-- end of template question segment -->
+
+        <!-- second textarea segment -->
         <p>Guide: Enter you own answers in the below textbox</p>
         {% for ans in answers %}
           {% if question == ans.question_id and a_id == ans.application_id%}
@@ -492,6 +499,8 @@
       </div>
 
       <!-- end of template question segment -->
+
+      <!-- second textarea segment -->
       <p>Guide: Enter you own answers in the below textbox</p>
       {% for ans in answers %}
         {% if question == ans.question_id and a_id == ans.application_id%}
@@ -537,6 +546,7 @@
 
 
       {% else %}
+      <!-- radio button question type -->
       <font>{{ question.text }}</font>
 
       <div class="tooltip"><i class="fa fa-question-circle" style="font-size:26px"></i>
@@ -576,12 +586,15 @@
 
       <a name="SectionE"></a>
       <h1>Section E</h1>
+      <!-- Section E of the questionnaire -->
       <h4>The questions in Section E relate to how you will protect participants privacy and the confidentiality of their
         information in your research project.</h4>
       {% for question in que %}
       {% if question.section_name == "E"%}
-
+      
+      <!-- textare type of questions -->
       {% if question.is_short_answer == 1 %}
+      <!-- pop out question 4 -->
       {% if question.question_num == 716 %}
       <div id="div4" style="display :none ;">
 
@@ -651,6 +664,8 @@
       </div>
 
       <!-- end of template question segment -->
+
+      <!-- second textarea segment -->
       <p>Guide: Enter you own answers in the below textbox</p>
       {% for ans in answers %}
         {% if question == ans.question_id and a_id == ans.application_id%}
@@ -745,6 +760,8 @@
       </div>
 
       <!-- end of template question segment -->
+
+      <!-- second textarea segment -->
       <p>Guide: Enter you own answers in the below textbox</p>
       {% for ans in answers %}
         {% if question == ans.question_id and a_id == ans.application_id%}
@@ -759,7 +776,9 @@
 
 
       {% endif %}
+      <!-- pop out question 3 -->
       {% elif question.question_num == 702 %}
+      <!-- checkbox type questions -->
       <div id="div3" style="display :none ;">
 
         <font>{{ question.text }}</font>
@@ -945,6 +964,7 @@
 
 
       <a name="SectionF"></a>
+      <!-- Section F of the questionnaire -->
       <h1>Section F</h1>
       <h4>The questions in Section F concern risks to both participants and others connected with the study.</h4>
       {% for question in que %}
@@ -1015,6 +1035,8 @@
       </div>
 
       <!-- end of template question segment -->
+
+      <!-- second textarea segment -->
       <p>Guide: Enter you own answers in the below textbox</p>
       {% for ans in answers %}
         {% if question == ans.question_id and a_id == ans.application_id%}
@@ -1058,6 +1080,7 @@
       {% endfor %}
 
       <a name="SectionG"></a>
+      <!-- Section G of the questionnaire -->
       <h1>Section G</h1>
       <h4>The questions in Section G concern details of the research study. Please answer the following questions.</h4>
       {% for question in que %}
@@ -1164,6 +1187,7 @@ Details of how data will be collected and analysed Potential significance of the
 
       {% endif %}
 
+      <!-- checkbox type questions -->
       {% elif question.is_short_answer == 2 %}
       {% if question.question_num == 901 %}
       {% for ans in answers %}

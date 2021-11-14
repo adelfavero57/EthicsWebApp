@@ -27,17 +27,21 @@ def questionnaire(request, application_id):
                     # Not a question
                     if i.question_num == 905:
                         break
+                    # Let question id change from integer to string
                     que_str = str(i.question_num)
                     template_str = str(j.id)
                     template_text = j.short_answer_text
                         
                     try:
+                        # checkbox type question need to get list rather than one
                         if que_str == "702":
                             ans_text = request.POST.getlist("sele1")
+                        # checkbox type question need to get list rather than one
                         elif que_str == "901":
                             ans_text = request.POST.getlist("sele2")
                         else:
-                            # change to is_reference
+                            # if it is textarea type question, need extra textarea to store the
+                            # template answers and user answers seprately 
                             if i.is_short_answer == 1:
                                 template_text = request.POST[template_str]
                             ans_text = request.POST[que_str]
