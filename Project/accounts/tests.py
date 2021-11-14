@@ -28,39 +28,63 @@ class AccountsTest(TestCase):
 
  
 
-    def testNoEmail(self):
+    def testNoAllInput(self):
 
-        data = {'first_name': 'Test', 'last_name': 'Test', 'username': "Test", 'password1': 'admin', 'password2': 'admin'}
+        #No email
 
-        form = CreateUserForm(data)
-
-        self.assertFalse(form.is_valid(), "The test did not pass")
-
-    def testNoFirstName(self):
-
-        data = {'last_name': 'Test', 'username': "Test", 'email': 'hello@gmail.com', 'password1': 'admin', 'password2': 'admin'}
+        data = {'first_name': 'Test', 'last_name': 'Test', 'username': "Test", 'password1': 'POL123@4', 'password2': 'POL123@4'}
 
         form = CreateUserForm(data)
 
         self.assertFalse(form.is_valid(), "The test did not pass")
 
+        #no firstname
 
-    def testNoLastName(self):
-
-        data = {'first_name': 'Test', 'username': "Test", 'email': 'hello@gmail.com', 'password1': 'admin', 'password2': 'admin'}
+        data = {'last_name': 'Test', 'username': "Test", 'email': 'hello@gmail.com', 'password1': 'POL123@4', 'password2': 'POL123@4'}
 
         form = CreateUserForm(data)
 
         self.assertFalse(form.is_valid(), "The test did not pass")
 
-    
-    def testWrongPasswordFormat(self):
+        #no lastname
 
+        data = {'first_name': 'Test', 'username': "Test", 'email': 'hello@gmail.com', 'password1': 'POL123@4', 'password2': 'POL123@4'}
+
+        form = CreateUserForm(data)
+
+        self.assertFalse(form.is_valid(), "The test did not pass")
+
+
+        # No password
+
+        data = {'first_name': 'Test', 'username': "Test", 'email': 'hello@gmail.com'}
+
+        form = CreateUserForm(data)
+
+        self.assertFalse(form.is_valid(), "The test did not pass")
+
+        
+    def testWrongPassword(self):
+
+        #wrong password format
+
+        #less than 8 character
         data = {'first_name': 'Test','last_name': 'Test', 'username': "Test", 'email': 'hello@gmail.com', 'password1': 'admin', 'password2': 'admin'}
 
         form = CreateUserForm(data)
 
         self.assertFalse(form.is_valid(), "The test did not pass")
+
+
+        #entire number
+        data = {'first_name': 'Test','last_name': 'Test', 'username': "Test", 'email': 'hello@gmail.com', 'password1': '12345213', 'password2': '12345213'}
+
+        form = CreateUserForm(data)
+
+        self.assertFalse(form.is_valid(), "The test did not pass")
+
+
+        
 
 
     def testCorrectPasswordFormat(self):
@@ -72,19 +96,102 @@ class AccountsTest(TestCase):
         self.assertTrue(form.is_valid(), "The test did not pass")
 
     
+    def testWrongEmail(self):
+
+        data = {'first_name': 'Test','last_name': 'Test', 'username': "Test", 'email': 'hellogmail.com', 'password1': 'POL123@4', 'password2': 'POL123@4'}
+
+        form = CreateUserForm(data)
+
+        self.assertFalse(form.is_valid(), "The test did not pass")
+
+        data = {'first_name': 'Test','last_name': 'Test', 'username': "Test", 'email': 'hello@gmail', 'password1': 'POL123@4', 'password2': 'POL123@4'}
+
+        form = CreateUserForm(data)
+
+        self.assertFalse(form.is_valid(), "The test did not pass")
+
+        data = {'first_name': 'Test','last_name': 'Test', 'username': "Test", 'email': '.e8lo@gmail', 'password1': 'POL123@4', 'password2': 'POL123@4'}
+
+        form = CreateUserForm(data)
+
+        self.assertFalse(form.is_valid(), "The test did not pass")
+
+    def testCorrectEmail(self):
+
+        data = {'first_name': 'Test','last_name': 'Test', 'username': "Test", 'email': 'hello@gmail.com', 'password1': 'POL123@4', 'password2': 'POL123@4'}
+
+        form = CreateUserForm(data)
+
+        self.assertTrue(form.is_valid(), "The test did not pass")
+
+
+    def testWrongUsername(self):
+
+        data = {'first_name': 'Test','last_name': 'Test', 'username': "Tes^t?", 'email': 'hello@gmail.com', 'password1': 'POL123@4', 'password2': 'POL123@4'}
+
+        form = CreateUserForm(data)
+
+        self.assertFalse(form.is_valid(), "The test did not pass")
+
+    def testCorrectUsername(self):
+
+        data = {'first_name': 'Test','last_name': 'Test', 'username': "Tes23t@.+-_", 'email': 'hello@gmail.com', 'password1': 'POL123@4', 'password2': 'POL123@4'}
+
+        form = CreateUserForm(data)
+
+        self.assertTrue(form.is_valid(), "The test did not pass")
+
+
+
+        
+
+
 
     # Test whether a researcher can register successfully. It test the user data, also the redirct of the register page
 
 
+    def test_registePage_wrongpost1(self):
+
+        data = {'first_name': 'Test','last_name': 'Test', 'username': "Test", 'email': 'hello@gmail', 'password1': '123456', 'password2': '123456'}
+
+        request = self.factory.post('/register/', data, follow=True)
+
+        request.user = AnonymousUser()
+
+        response = registerPage(request)
+
+        self.assertEqual(response.status_code, 200)
+
+        self.assertContains(response=response, text='''<title>Register</title>''', html=True)
+
+        self.assertEqual(len(User.objects.filter(username="Test")), 0)
+
+    def test_registePage_wrongpost2(self):
+
+        data = {'first_name': 'Test','last_name': 'Test', 'username': "Test", 'email': 'hellogmail.com', 'password1': '123456', 'password2': '123456'}
+
+        request = self.factory.post('/register/', data, follow=True)
+
+        request.user = AnonymousUser()
+
+        response = registerPage(request)
+
+        self.assertEqual(response.status_code, 200)
+
+        self.assertContains(response=response, text='''<title>Register</title>''', html=True)
+
+        self.assertEqual(len(User.objects.filter(username="Test")), 0)
+
         
         
+        
 
 
 
 
-    def test_registerPage_post(self):
+    def test_registerPage_post1(self):
 
-        data = {'first_name': 'Test','last_name': 'Test', 'username': "Test", 'email': 'hello@gmail.com', 'password1': 'POL123@4', 'password2': 'POL123@4'}
+        data = {'first_name': 'Test','last_name': 'Test', 'username': "T1st+-", 'email': 'hello@gmail.com', 'password1': 'POL123@45', 'password2': 'POL123@45'}
 
         request = self.factory.post('/register/', data, follow=True)
 
@@ -95,7 +202,28 @@ class AccountsTest(TestCase):
         self.assertEqual(response.headers['Location'], '/login/')
         self.assertEqual(response.status_code, 302)
 
-        testers = User.objects.filter(username="Test")
+        testers = User.objects.filter(username="T1st+-")
+
+        self.assertEqual(len(testers), 1)
+        self.assertEqual(testers[0].first_name, "Test")
+        self.assertEqual(testers[0].last_name, "Test")
+        self.assertEqual(testers[0].email, 'hello@gmail.com')
+        self.assertEqual(testers[0].groups.all()[0].name, 'researcher')
+    
+    def test_registerPage_post2(self):
+
+        data = {'first_name': 'Test','last_name': 'Test', 'username': "T1st+-", 'email': 'hello@gmail.com', 'password1': 'POL123@4', 'password2': 'POL123@4'}
+
+        request = self.factory.post('/register/', data, follow=True)
+
+        request.user = AnonymousUser()
+
+        response = registerPage(request)
+
+        self.assertEqual(response.headers['Location'], '/login/')
+        self.assertEqual(response.status_code, 302)
+
+        testers = User.objects.filter(username="T1st+-")
 
         self.assertEqual(len(testers), 1)
         self.assertEqual(testers[0].first_name, "Test")
@@ -134,8 +262,16 @@ class AccountsTest(TestCase):
 
         response = editUserPage(request)
 
+
         self.assertEqual(response.headers['Location'], '/coversheet/edit_profile/')
         self.assertEqual(response.status_code, 302)
+
+        
+
+        self.assertEqual(self.user.first_name, "change")
+        self.assertEqual(self.user.last_name, "change")
+        self.assertEqual(self.user.email, 'change@gmail.com')
+        self.assertEqual(self.user.groups.all()[0].name, 'researcher')
 
         
 
@@ -214,7 +350,7 @@ class AccountsTest(TestCase):
 
         #self.assertEqual(response.headers['Location'], '/login/')
         self.assertEqual(response.status_code, 200)
-
+       
 
     def test_login4(self):
 

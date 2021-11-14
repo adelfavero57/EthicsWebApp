@@ -7,10 +7,8 @@ from .views import Consentform
 
 
 class consentformTest(TestCase):
-
     @classmethod
     def setUpTestData(cls):
-
         researcher = Group(name = "researcher")
         staff = Group(name = "staff")
         staff.save()
@@ -20,22 +18,12 @@ class consentformTest(TestCase):
         cls.admin_staff.groups.add(staff)
         cls.user.groups.add(researcher)
         cls.factory = RequestFactory()
-
-    
-
     def consentformTest1(self):
-
         request1 = self.factory.post('/login')
-
         request1.user = self.user
-
         loginPage(request)
-
         request2 = self.factory.get('/consentform')
-
         request2.user = self.user
-
         Consentform(request2)
-
         print(request2)
 
