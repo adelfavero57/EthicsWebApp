@@ -1,13 +1,15 @@
 from accounts.models import Application, User, Answers, Question
 
+# Create a user
 test = User(username="exemplar", password="=g8CUu-^")
 test.save()
 
+# Create an application
 app = Application(id=1, title="Exemplar", user=test,
                   supervisor="test", status="COMPLETED")
 app.save()
 
-
+# Add all answer objects to database using user and application data
 Answers.objects.bulk_create([
     # 601 (215)
     Answers(id=1, short_answer_text="""Many participants will be first year University of Sydney psychology students who volunteer to participate by registering on the SONA system. Students will receive partial course credit in exchange for their participation in the initial part of the study. SONA participants can consent to participating in two follow-up portions of the study, one month and six months after the initial study, though they can participate in the initial study without consenting to the follow-up portions. If they consent to participating in the follow-up portions of the study one month and six months after the initial study or if they request for overall feedback for the study, university emails will be collected as a means of contact.

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-uk=2cn^k4svwo7)x#^cd_^av7xm7#tk3oy&+2j*$cky_d%*z=u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['13.58.90.92', '127.0.0.1']
 
 
 # Application definition
@@ -46,10 +46,7 @@ INSTALLED_APPS = [
     'approvelist.apps.ApprovelistConfig',
     'qualifier.apps.QualifierConfig',
     'coversheet.apps.CoversheetConfig',
-    'PISform.apps.PisformConfig',
     'questionnaire.apps.QuestionnaireConfig',
-    'consentform.apps.ConsentformConfig',
-    'upload.apps.UploadConfig',
     'viewforms.apps.ViewformsConfig',
     'ckeditor',
 ]
@@ -85,6 +82,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Project.wsgi.application'
 
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
+
+USE_TZ = True
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

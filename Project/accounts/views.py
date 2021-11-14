@@ -41,16 +41,15 @@ def loginPage(request):
     if request.method == "POST":
 
         form = LoginForm(request.POST)
-        
+
         # check if all fields are satisfied
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
             remember_me = form.cleaned_data['remember_me']
-            
-            
+
             user = authenticate(username=username, password=password)
-            
+
             if user:
                 login(request, user)
                 if not remember_me:
@@ -60,7 +59,6 @@ def loginPage(request):
 
                 if request.user.groups.filter(name='researcher').exists():
 
-                    
                     return redirect('managelist')
                 elif request.user.groups.filter(name='staff').exists():
                     return redirect('approvelist')
@@ -68,7 +66,6 @@ def loginPage(request):
                     logout(request)
                     redirect('login')
 
-        
         # if user is invalid
         form.custom_error = True
     else:
@@ -79,6 +76,7 @@ def loginPage(request):
 
 
 def redirect_view(request):
+    # A redirect view used to redirect any page to login view
     return redirect(loginPage)
 
 
