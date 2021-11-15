@@ -268,7 +268,7 @@ python file including all the functions related to upload PIS/PCF  page
 
 
 
-### 1.7 PISform folder
+### 1.7 PISform folder (Not Used)
 
 #### 1.7.1 templates folder
 
@@ -298,7 +298,7 @@ txt file including all the functions related to create PIS form page
 
 
 
-### 1.8 consentform folder
+### 1.8 consentform folder (Not Used)
 
 #### 1.8.1 templates folder
 
