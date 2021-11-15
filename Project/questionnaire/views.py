@@ -16,9 +16,11 @@ def questionnaire(request, application_id):
     
     a_id = Application.objects.get(pk=application_id)
     questions = Question.objects.all()
+    
     # counter that help to identify if all answers have been answered. 
     counter = 0
     if request.method == 'POST':
+    
         ans = Answers.objects.all().filter(application_id = a_id)
         button_name = request.POST.get("Save")
         for i in questions:
@@ -30,6 +32,7 @@ def questionnaire(request, application_id):
                     que_str = str(i.question_num)
                     template_str = str(j.id)
                     template_text = j.short_answer_text
+                    
                         
                     try:
                         if que_str == "702":
@@ -40,7 +43,9 @@ def questionnaire(request, application_id):
                             # change to is_reference
                             if i.is_short_answer == 1:
                                 template_text = request.POST[template_str]
+                                
                             ans_text = request.POST[que_str]
+                            
                         #Default for textarea is "", so if user did not answer, counter need to add up by 1
                         if ans_text == "":
                             counter += 1
@@ -51,6 +56,7 @@ def questionnaire(request, application_id):
                     if i.is_short_answer == 1:
                         j.short_answer_text = template_text
                         j.researcher_answer_text = ans_text
+                    
                         j.save()
                     else:
                         j.short_answer_text = ans_text
