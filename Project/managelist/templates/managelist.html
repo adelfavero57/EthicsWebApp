@@ -67,7 +67,6 @@
                   
                   {% if item.status != "IN PROGRESS" %}       
                   <a name = "view" href="{% url 'viewNormal' item_id=item.id %}">View</a>
-                  <a href="#">Download</a>
                   {% else %}
                   <a name = "edit" href="{% url 'questionnaire' item.id  %}">edit</a>
                   <a href ="{% url 'delete' item.id %}" onclick = "return confirm('Do you want to delete the application: {{item.title}} ?')">Withdraw</a> 
